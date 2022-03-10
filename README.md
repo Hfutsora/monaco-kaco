@@ -7,6 +7,10 @@ Kaco language plugin for Monoco Editor. Provides the following features in futur
 - [ ] Validation: Syntax errors and linting
 - [ ] Hovers
 
+## Try it out
+
+Try the editor out [on website](https://hfutsora.github.io/monaco-kaco/).
+
 ## Usage
 
 ### Sample project
