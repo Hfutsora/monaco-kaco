@@ -5,7 +5,7 @@ module.exports = defineConfig({
   outputDir: process.env.BUILD_ENV === 'doc' ? 'docs' : 'dist',
   publicPath: process.env.NODE_ENV === 'production'
     ? '/monaco-kaco/'
-    : '/'
+    : '/',
   configureWebpack: {
     resolve: {
       fallback: {
