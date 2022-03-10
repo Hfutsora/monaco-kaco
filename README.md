@@ -1,8 +1,6 @@
 # Monaco Kaco
 
-<center>
-  <img src="./kaco.png" />
-</center>
+<div align=center><img width="128" height="128" src="./kaco.png"/></div>
 
 Kaco language plugin for Monoco Editor. Provides the following features in future:
 
