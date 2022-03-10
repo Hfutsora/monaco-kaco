@@ -1,5 +1,7 @@
 # Monaco Kaco
 
+![kaco](./kaco.png)
+
 Kaco language plugin for Monoco Editor. Provides the following features in future:
 
 - [ ] Syntax highlighting
