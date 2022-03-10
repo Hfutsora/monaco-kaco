@@ -1,17 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Monaco Kaco</h1>
+
+    <div id="monaco" ref="root"></div>
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import * as monaco from 'monaco-editor';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+import { registerProvier } from './providers/registerProvider';
+
+@Component
+export default class App extends Vue {
+  mounted() {
+    const root = this.$refs['root'] as HTMLElement;
+
+    if (root) {
+      registerProvier('kaco');
+
+      monaco.editor.create(root, {
+        language: 'kaco',
+        value: 'OpenForm[\'default\']([\'a\'.\'b\'], 1001.5)(\'b\')(false);'
+      });
+
+    }
   }
 }
 </script>
@@ -21,8 +35,23 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#monaco {
+  flex: 1;
 }
 </style>

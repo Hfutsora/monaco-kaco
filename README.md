@@ -1,24 +1,17 @@
-# monaco-kaco
+# Monaco Kaco
 
-## Project setup
-```
-npm install
-```
+Kaco language plugin for Monoco Editor. Provides the following features in future:
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- [ ] Syntax highlighting
+- [ ] Code completion
+- [ ] Validation: Syntax errors and linting
+- [ ] Hovers
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Usage
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Sample project
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```shell
+$ yarn install
+$ yarn run serve
+```
