@@ -1,6 +1,8 @@
 # Monaco Kaco
 
-![kaco](./kaco.png)
+<center>
+  <img src="./kaco.png" />
+</center>
 
 Kaco language plugin for Monoco Editor. Provides the following features in future:
 
