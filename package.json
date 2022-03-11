@@ -7,7 +7,10 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:doc": "cross-env BUILD_ENV=doc yarn build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "antlr4ts": "antlr4ts -visitor src/parser/kaco.g4",
+    "compile-parser": "node scripts/parser.js",
+    "clean": "node scripts/clean.js"
   },
   "repository": {
     "url": "https://github.com/Hfutsora/monaco-kaco"
