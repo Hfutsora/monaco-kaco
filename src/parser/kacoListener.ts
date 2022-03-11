@@ -1,27 +1,30 @@
 // Generated from src/parser/kaco.g4 by ANTLR 4.9.0-SNAPSHOT
 
-import { ParseTreeListener } from 'antlr4ts/tree/ParseTreeListener';
 
-import { ProgramContext } from './kacoParser';
-import { StatementContext } from './kacoParser';
-import { IfStatementContext } from './kacoParser';
-import { QuoteExprContext } from './kacoParser';
-import { QuoteEllipsisExprContext } from './kacoParser';
-import { BlockStatementContext } from './kacoParser';
-import { AssignStatementContext } from './kacoParser';
-import { PrintStatementContext } from './kacoParser';
-import { OpenFormStatementContext } from './kacoParser';
-import { CommonExpressionContext } from './kacoParser';
-import { AssignAbleStatementContext } from './kacoParser';
-import { ExpressionContext } from './kacoParser';
-import { AndAndExpressionContext } from './kacoParser';
-import { CmpExpressionContext } from './kacoParser';
-import { AddExpressionContext } from './kacoParser';
-import { MulExpressionContext } from './kacoParser';
-import { UnaryExpressionContext } from './kacoParser';
-import { PrimaryExpressionContext } from './kacoParser';
-import { VariableExpressionContext } from './kacoParser';
-import { AssignContext } from './kacoParser';
+import { ParseTreeListener } from "antlr4ts/tree/ParseTreeListener";
+
+import { ProgramContext } from "./kacoParser";
+import { StatementContext } from "./kacoParser";
+import { IfStatementContext } from "./kacoParser";
+import { QuoteExprContext } from "./kacoParser";
+import { QuoteEllipsisExprContext } from "./kacoParser";
+import { BlockStatementContext } from "./kacoParser";
+import { AssignStatementContext } from "./kacoParser";
+import { PrintStatementContext } from "./kacoParser";
+import { OpenFormStatementContext } from "./kacoParser";
+import { SaveFormStatementContext } from "./kacoParser";
+import { CommonExpressionContext } from "./kacoParser";
+import { AssignAbleStatementContext } from "./kacoParser";
+import { ExpressionContext } from "./kacoParser";
+import { AndAndExpressionContext } from "./kacoParser";
+import { CmpExpressionContext } from "./kacoParser";
+import { AddExpressionContext } from "./kacoParser";
+import { MulExpressionContext } from "./kacoParser";
+import { UnaryExpressionContext } from "./kacoParser";
+import { PrimaryExpressionContext } from "./kacoParser";
+import { VariableExpressionContext } from "./kacoParser";
+import { AssignContext } from "./kacoParser";
+
 
 /**
  * This interface defines a complete listener for a parse tree produced by
@@ -126,6 +129,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitOpenFormStatement?: (ctx: OpenFormStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.saveFormStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSaveFormStatement?: (ctx: SaveFormStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.saveFormStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSaveFormStatement?: (ctx: SaveFormStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.commonExpression`.
