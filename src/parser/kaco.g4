@@ -24,6 +24,10 @@ OpenForm
     : 'OpenForm'
     ;
 
+SaveForm
+    : 'SaveForm'
+    ;
+
 
 //==============================================================
 
@@ -33,6 +37,7 @@ statement
     // | assignStatement
     // | printStatement
     : openFormStatement
+    | saveFormStatement
     ;
 ifStatement
     : 'if' quoteExpr blockStatement
@@ -44,7 +49,7 @@ quoteExpr
     ;
 
 quoteEllipsisExpr
-    : '(' ((StringLiteral | DecimalLiteral | BooleanLiteral | '[' StringDotLiteral ']' | '[' StringLiteral ']') (',' (StringLiteral | DecimalLiteral | BooleanLiteral | '[' StringDotLiteral ']' | '[' StringLiteral ']'))* )? ')'
+    : '(' ((StringLiteral | DecimalLiteral | BooleanLiteral | '[' QuoteLiteral ']' | '[' StringDotLiteral ']' | '[' StringLiteral ']') (',' (StringLiteral | DecimalLiteral | BooleanLiteral | '[' QuoteLiteral ']' | '[' StringDotLiteral ']' | '[' StringLiteral ']'))* )? ')'
     ;
 
 blockStatement
@@ -59,7 +64,11 @@ printStatement
     ;
 
 openFormStatement
-    : OpenForm '[' (StringLiteral | DecimalLiteral) ']' quoteEllipsisExpr? quoteEllipsisExpr? quoteEllipsisExpr? ';'
+    : 'OpenForm' '[' (StringLiteral | DecimalLiteral) ']' quoteEllipsisExpr? quoteEllipsisExpr? quoteEllipsisExpr? ';'
+    ;
+
+saveFormStatement
+    : 'SaveForm' quoteEllipsisExpr ';'
     ;
 
 commonExpression
@@ -126,7 +135,12 @@ BooleanLiteral
 
 DecimalLiteral
     : Decimal
-    ;       
+    ;
+
+QuoteLiteral
+    : '@' WhiteSpace '0'
+    | '@' WhiteSpace NonZeroDigit (DigitChar)*
+    ;
 
 Decimal
 	: '0' ('.' (DigitChar)* NonZeroDigit)?

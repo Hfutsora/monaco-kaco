@@ -22,9 +22,12 @@ export default class App extends Vue {
 
       monaco.editor.create(root, {
         language: 'kaco',
-        value: 'OpenForm[\'default\']([\'a\'.\'b\'], 1001.5)(\'b\')(false);'
-      });
+        value: `\
+OpenForm[\'default\']([\'a\'.\'b\'], 1001.5)(\'b\', [@ 0])(false);
 
+SaveForm(['form-name']);\
+`
+      });
     }
   }
 }

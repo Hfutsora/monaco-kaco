@@ -21,9 +21,13 @@ export const HoverProvider = {
       };
     }
 
-    return {
-      contents: []
-    };
+    const word = model.getWordAtPosition(position)?.word;
+
+    return word ? {
+      contents: [{
+        value: word
+      }]
+    } : undefined;
   }
 };
 
@@ -58,10 +62,10 @@ class HoverFinder implements kacoListener {
         return monaco.Range.containsPosition(range, this.position);
       });
 
-      if (matched && range) {
+      if (matched?.start.text && range) {
         this.result = {
           range,
-          type: 'OpenForm',
+          type: matched.start.text,
           name: matched.start.text
         };
       }
@@ -72,7 +76,8 @@ class HoverFinder implements kacoListener {
 }
 
 export const kacoKeywords = [
-  'OpenForm'
+  'OpenForm',
+  'SaveForm'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -80,5 +85,11 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nOpenForm[\'表单名称\'](...主键)(...黙认值主键)(...参数)\n```' },
     { value: '打开表单' },
     { value: '```\n示例\nOpenForm[\'基本信息\']([\'受理号\'])()([\'姓名\'])\n```' }
+  ],
+  SaveForm: [
+    { value: '```\nSaveForm(主键)\n```' },
+    { value: '保存表单' },
+    { value: '```\n有主键时，根据主键值保存表单数据\n无主键时，以当前模型表单保存数据，不会提示"保存成功"\n```' },
+    { value: '```\n示例\nSaveForm[\'基本信息\']\n```' }
   ]
 };
