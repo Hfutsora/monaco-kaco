@@ -34,10 +34,10 @@ SaveForm
 statement
     // : ifStatement
     // | blockStatement
-    // | assignStatement
     // | printStatement
     : openFormStatement
     | saveFormStatement
+    | assignStatement
     ;
 ifStatement
     : 'if' quoteExpr blockStatement
@@ -110,15 +110,10 @@ variableExpression
 //==============================================================
 
 assign
-    :
-    // : Identifier Assign Identifier
+    : '[' StringLiteral ']' Assign ('[' StringLiteral ']' | '[' StringDotLiteral ']' | '[' QuoteLiteral ']' | DecimalLiteral | BooleanLiteral | StringLiteral)
     ;
 
 //==============================================================
-
-// Identifier
-//     :
-//     ;
 
 StringLiteral
     : '\'' (~[\\\r\n])*? '\''

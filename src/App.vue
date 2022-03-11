@@ -25,7 +25,13 @@ export default class App extends Vue {
         value: `\
 OpenForm[\'default\']([\'a\'.\'b\'], 1001.5)(\'b\', [@ 0])(false);
 
-SaveForm(['form-name']);\
+SaveForm(['form-name']);
+
+['ctrl_input'] = [@ 1];
+['ctrl_input'] = ['form'.'table'.'column'.'name'];
+['ctrl_input'] = 'default';
+['ctrl_input'] = 1000.4;
+['ctrl_input'] = false;
 `
       });
     }
