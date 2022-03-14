@@ -22,13 +22,17 @@ export default class App extends Vue {
 
       monaco.editor.create(root, {
         language: 'kaco',
+        bracketPairColorization: {
+          enabled: true
+        },
+        autoClosingBrackets: 'always',
         value: `\
 OpenForm[\'default\']([\'a\'.\'b\'], 1001.5)(\'b\', [@ 0])(false);
 
 SaveForm(['form-name']);
 
 ['ctrl_input'] = [@ 1];
-['ctrl_input'] = ['form'.'table'.'column'.'name'];
+['ctrl_input'] = ['table'.'column','name','age'(SELECTED == *)];
 ['ctrl_input'] = 'default';
 ['ctrl_input'] = 1000.4;
 ['ctrl_input'] = false;

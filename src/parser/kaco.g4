@@ -15,6 +15,7 @@ CloseParen:                     ')';
 SemiColon:                      ';';
 Comma:                          ',';
 Assign:                         '=';
+Equal:                          '==';
 Dot:                            '.';
 Ellipsis:                       '...';
 
@@ -28,6 +29,14 @@ SaveForm
     : 'SaveForm'
     ;
 
+Selected
+    : 'selected'
+    | 'SELECTED'
+    ;
+
+All
+    : '*'
+    ;
 
 //==============================================================
 
@@ -98,7 +107,7 @@ ctrlQuoteLiteral
     ;
 
 ctrlQuoteDotLiteral
-    : '[' StringDotLiteral ']'
+    : '[' StringDotLiteral ('(' Selected WhiteSpace* '==' WhiteSpace* ('-1' | '*' | Natural) ')')? ']'
     ;
 
 ctrlQuoteParamLiteral
@@ -116,8 +125,9 @@ StringLiteral
     ;
 
 StringDotLiteral
-    :  StringLiteral ('.' StringLiteral)*
+    :  StringLiteral ('.' StringLiteral)? (',' WhiteSpace* StringLiteral)*
     ;
+
 
 BooleanLiteral
     : 'true'
@@ -137,6 +147,12 @@ Decimal
 	: '0' ('.' (DigitChar)* NonZeroDigit)?
 	| NonZeroDigit (DigitChar)* ('.' (DigitChar)* NonZeroDigit)?
 	;
+
+Natural
+    : '0'
+    | [1-9][0-9]*
+    ;
+
 fragment NonZeroDigit
 	: '1'..'9'
 	;
