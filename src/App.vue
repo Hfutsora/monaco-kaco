@@ -32,6 +32,9 @@ SaveForm(['form-name']);
 ['ctrl_input'] = 'default';
 ['ctrl_input'] = 1000.4;
 ['ctrl_input'] = false;
+['parent_form'].['ctrl_input'] = 100;
+['parent_form'].['ctrl_input'],['ctrl_textarea'] = ('123' + ['123'.'123']) + [@ 1] + 1000 + false + (1 - (2 * (3 / 2)));
+
 `
       });
     }

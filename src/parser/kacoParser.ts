@@ -36,35 +36,25 @@ export class kacoParser extends Parser {
 	public static readonly T__5 = 6;
 	public static readonly T__6 = 7;
 	public static readonly T__7 = 8;
-	public static readonly T__8 = 9;
-	public static readonly T__9 = 10;
-	public static readonly T__10 = 11;
-	public static readonly T__11 = 12;
-	public static readonly T__12 = 13;
-	public static readonly T__13 = 14;
-	public static readonly T__14 = 15;
-	public static readonly T__15 = 16;
-	public static readonly T__16 = 17;
-	public static readonly T__17 = 18;
-	public static readonly OpenBracket = 19;
-	public static readonly CloseBracket = 20;
-	public static readonly OpenParen = 21;
-	public static readonly CloseParen = 22;
-	public static readonly SemiColon = 23;
-	public static readonly Comma = 24;
-	public static readonly Assign = 25;
-	public static readonly Dot = 26;
-	public static readonly Ellipsis = 27;
-	public static readonly OpenForm = 28;
-	public static readonly SaveForm = 29;
-	public static readonly StringLiteral = 30;
-	public static readonly StringDotLiteral = 31;
-	public static readonly BooleanLiteral = 32;
-	public static readonly DecimalLiteral = 33;
-	public static readonly QuoteLiteral = 34;
-	public static readonly Decimal = 35;
-	public static readonly LineComment = 36;
-	public static readonly WhiteSpace = 37;
+	public static readonly OpenBracket = 9;
+	public static readonly CloseBracket = 10;
+	public static readonly OpenParen = 11;
+	public static readonly CloseParen = 12;
+	public static readonly SemiColon = 13;
+	public static readonly Comma = 14;
+	public static readonly Assign = 15;
+	public static readonly Dot = 16;
+	public static readonly Ellipsis = 17;
+	public static readonly OpenForm = 18;
+	public static readonly SaveForm = 19;
+	public static readonly StringLiteral = 20;
+	public static readonly StringDotLiteral = 21;
+	public static readonly BooleanLiteral = 22;
+	public static readonly DecimalLiteral = 23;
+	public static readonly ParamLiteral = 24;
+	public static readonly Decimal = 25;
+	public static readonly LineComment = 26;
+	public static readonly WhiteSpace = 27;
 	public static readonly RULE_program = 0;
 	public static readonly RULE_statement = 1;
 	public static readonly RULE_ifStatement = 2;
@@ -72,43 +62,40 @@ export class kacoParser extends Parser {
 	public static readonly RULE_quoteEllipsisExpr = 4;
 	public static readonly RULE_blockStatement = 5;
 	public static readonly RULE_assignStatement = 6;
-	public static readonly RULE_printStatement = 7;
-	public static readonly RULE_openFormStatement = 8;
-	public static readonly RULE_saveFormStatement = 9;
-	public static readonly RULE_commonExpression = 10;
-	public static readonly RULE_assignAbleStatement = 11;
-	public static readonly RULE_expression = 12;
-	public static readonly RULE_andAndExpression = 13;
-	public static readonly RULE_cmpExpression = 14;
-	public static readonly RULE_addExpression = 15;
-	public static readonly RULE_mulExpression = 16;
-	public static readonly RULE_unaryExpression = 17;
-	public static readonly RULE_primaryExpression = 18;
-	public static readonly RULE_variableExpression = 19;
-	public static readonly RULE_assign = 20;
+	public static readonly RULE_openFormStatement = 7;
+	public static readonly RULE_saveFormStatement = 8;
+	public static readonly RULE_expression = 9;
+	public static readonly RULE_subTerm = 10;
+	public static readonly RULE_addTerm = 11;
+	public static readonly RULE_divTerm = 12;
+	public static readonly RULE_mulTerm = 13;
+	public static readonly RULE_parnTerm = 14;
+	public static readonly RULE_assign = 15;
+	public static readonly RULE_assignStart = 16;
+	public static readonly RULE_ctrlQuoteLiteral = 17;
+	public static readonly RULE_ctrlQuoteDotLiteral = 18;
+	public static readonly RULE_ctrlQuoteParamLiteral = 19;
+	public static readonly RULE_commonLiteral = 20;
 	// tslint:disable:no-trailing-whitespace
 	public static readonly ruleNames: string[] = [
 		"program", "statement", "ifStatement", "quoteExpr", "quoteEllipsisExpr", 
-		"blockStatement", "assignStatement", "printStatement", "openFormStatement", 
-		"saveFormStatement", "commonExpression", "assignAbleStatement", "expression", 
-		"andAndExpression", "cmpExpression", "addExpression", "mulExpression", 
-		"unaryExpression", "primaryExpression", "variableExpression", "assign",
+		"blockStatement", "assignStatement", "openFormStatement", "saveFormStatement", 
+		"expression", "subTerm", "addTerm", "divTerm", "mulTerm", "parnTerm", 
+		"assign", "assignStart", "ctrlQuoteLiteral", "ctrlQuoteDotLiteral", "ctrlQuoteParamLiteral", 
+		"commonLiteral",
 	];
 
 	private static readonly _LITERAL_NAMES: Array<string | undefined> = [
-		undefined, "'if'", "'else'", "'{'", "'}'", "'print'", "'||'", "'&&'", 
-		"'=='", "'!='", "'<'", "'<='", "'>'", "'>='", "'+'", "'-'", "'*'", "'/'", 
-		"'!'", "'['", "']'", "'('", "')'", "';'", "','", "'='", "'.'", "'...'", 
-		"'OpenForm'", "'SaveForm'",
+		undefined, "'if'", "'else'", "'{'", "'}'", "'-'", "'+'", "'/'", "'*'", 
+		"'['", "']'", "'('", "')'", "';'", "','", "'='", "'.'", "'...'", "'OpenForm'", 
+		"'SaveForm'",
 	];
 	private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
 		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
-		undefined, undefined, undefined, undefined, undefined, undefined, undefined, 
-		undefined, undefined, undefined, undefined, undefined, "OpenBracket", 
-		"CloseBracket", "OpenParen", "CloseParen", "SemiColon", "Comma", "Assign", 
-		"Dot", "Ellipsis", "OpenForm", "SaveForm", "StringLiteral", "StringDotLiteral", 
-		"BooleanLiteral", "DecimalLiteral", "QuoteLiteral", "Decimal", "LineComment", 
-		"WhiteSpace",
+		undefined, undefined, "OpenBracket", "CloseBracket", "OpenParen", "CloseParen", 
+		"SemiColon", "Comma", "Assign", "Dot", "Ellipsis", "OpenForm", "SaveForm", 
+		"StringLiteral", "StringDotLiteral", "BooleanLiteral", "DecimalLiteral", 
+		"ParamLiteral", "Decimal", "LineComment", "WhiteSpace",
 	];
 	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(kacoParser._LITERAL_NAMES, kacoParser._SYMBOLIC_NAMES, []);
 
@@ -280,7 +267,7 @@ export class kacoParser extends Parser {
 		this.enterRule(_localctx, 6, kacoParser.RULE_quoteExpr);
 		let _la: number;
 		try {
-			this.state = 76;
+			this.state = 75;
 			this._errHandler.sync(this);
 			switch ( this.interpreter.adaptivePredict(this._input, 4, this._ctx) ) {
 			case 1:
@@ -289,12 +276,8 @@ export class kacoParser extends Parser {
 				this.state = 66;
 				this.match(kacoParser.OpenParen);
 				this.state = 67;
-				this.match(kacoParser.OpenBracket);
+				this.ctrlQuoteDotLiteral();
 				this.state = 68;
-				this.match(kacoParser.StringDotLiteral);
-				this.state = 69;
-				this.match(kacoParser.CloseBracket);
-				this.state = 70;
 				this.match(kacoParser.CloseParen);
 				}
 				break;
@@ -302,19 +285,19 @@ export class kacoParser extends Parser {
 			case 2:
 				this.enterOuterAlt(_localctx, 2);
 				{
-				this.state = 71;
+				this.state = 70;
 				this.match(kacoParser.OpenParen);
-				this.state = 73;
+				this.state = 72;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 				if (_la === kacoParser.StringLiteral) {
 					{
-					this.state = 72;
+					this.state = 71;
 					this.match(kacoParser.StringLiteral);
 					}
 				}
 
-				this.state = 75;
+				this.state = 74;
 				this.match(kacoParser.CloseParen);
 				}
 				break;
@@ -342,145 +325,35 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 78;
+			this.state = 77;
 			this.match(kacoParser.OpenParen);
-			this.state = 113;
+			this.state = 86;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (((((_la - 19)) & ~0x1F) === 0 && ((1 << (_la - 19)) & ((1 << (kacoParser.OpenBracket - 19)) | (1 << (kacoParser.StringLiteral - 19)) | (1 << (kacoParser.BooleanLiteral - 19)) | (1 << (kacoParser.DecimalLiteral - 19)))) !== 0)) {
+			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << kacoParser.OpenBracket) | (1 << kacoParser.StringLiteral) | (1 << kacoParser.BooleanLiteral) | (1 << kacoParser.DecimalLiteral))) !== 0)) {
 				{
-				this.state = 91;
-				this._errHandler.sync(this);
-				switch ( this.interpreter.adaptivePredict(this._input, 5, this._ctx) ) {
-				case 1:
-					{
-					this.state = 79;
-					this.match(kacoParser.StringLiteral);
-					}
-					break;
-
-				case 2:
-					{
-					this.state = 80;
-					this.match(kacoParser.DecimalLiteral);
-					}
-					break;
-
-				case 3:
-					{
-					this.state = 81;
-					this.match(kacoParser.BooleanLiteral);
-					}
-					break;
-
-				case 4:
-					{
-					this.state = 82;
-					this.match(kacoParser.OpenBracket);
-					this.state = 83;
-					this.match(kacoParser.QuoteLiteral);
-					this.state = 84;
-					this.match(kacoParser.CloseBracket);
-					}
-					break;
-
-				case 5:
-					{
-					this.state = 85;
-					this.match(kacoParser.OpenBracket);
-					this.state = 86;
-					this.match(kacoParser.StringDotLiteral);
-					this.state = 87;
-					this.match(kacoParser.CloseBracket);
-					}
-					break;
-
-				case 6:
-					{
-					this.state = 88;
-					this.match(kacoParser.OpenBracket);
-					this.state = 89;
-					this.match(kacoParser.StringLiteral);
-					this.state = 90;
-					this.match(kacoParser.CloseBracket);
-					}
-					break;
-				}
-				this.state = 110;
+				this.state = 78;
+				this.commonLiteral();
+				this.state = 83;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 				while (_la === kacoParser.Comma) {
 					{
 					{
-					this.state = 93;
+					this.state = 79;
 					this.match(kacoParser.Comma);
-					this.state = 106;
-					this._errHandler.sync(this);
-					switch ( this.interpreter.adaptivePredict(this._input, 6, this._ctx) ) {
-					case 1:
-						{
-						this.state = 94;
-						this.match(kacoParser.StringLiteral);
-						}
-						break;
-
-					case 2:
-						{
-						this.state = 95;
-						this.match(kacoParser.DecimalLiteral);
-						}
-						break;
-
-					case 3:
-						{
-						this.state = 96;
-						this.match(kacoParser.BooleanLiteral);
-						}
-						break;
-
-					case 4:
-						{
-						this.state = 97;
-						this.match(kacoParser.OpenBracket);
-						this.state = 98;
-						this.match(kacoParser.QuoteLiteral);
-						this.state = 99;
-						this.match(kacoParser.CloseBracket);
-						}
-						break;
-
-					case 5:
-						{
-						this.state = 100;
-						this.match(kacoParser.OpenBracket);
-						this.state = 101;
-						this.match(kacoParser.StringDotLiteral);
-						this.state = 102;
-						this.match(kacoParser.CloseBracket);
-						}
-						break;
-
-					case 6:
-						{
-						this.state = 103;
-						this.match(kacoParser.OpenBracket);
-						this.state = 104;
-						this.match(kacoParser.StringLiteral);
-						this.state = 105;
-						this.match(kacoParser.CloseBracket);
-						}
-						break;
+					this.state = 80;
+					this.commonLiteral();
 					}
 					}
-					}
-					this.state = 112;
+					this.state = 85;
 					this._errHandler.sync(this);
 					_la = this._input.LA(1);
 				}
 				}
 			}
 
-			this.state = 115;
+			this.state = 88;
 			this.match(kacoParser.CloseParen);
 			}
 		}
@@ -506,23 +379,23 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 117;
+			this.state = 90;
 			this.match(kacoParser.T__2);
-			this.state = 121;
+			this.state = 94;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << kacoParser.OpenBracket) | (1 << kacoParser.OpenForm) | (1 << kacoParser.SaveForm))) !== 0)) {
 				{
 				{
-				this.state = 118;
+				this.state = 91;
 				this.statement();
 				}
 				}
-				this.state = 123;
+				this.state = 96;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
-			this.state = 124;
+			this.state = 97;
 			this.match(kacoParser.T__3);
 			}
 		}
@@ -547,42 +420,9 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 126;
+			this.state = 99;
 			this.assign();
-			this.state = 127;
-			this.match(kacoParser.SemiColon);
-			}
-		}
-		catch (re) {
-			if (re instanceof RecognitionException) {
-				_localctx.exception = re;
-				this._errHandler.reportError(this, re);
-				this._errHandler.recover(this, re);
-			} else {
-				throw re;
-			}
-		}
-		finally {
-			this.exitRule();
-		}
-		return _localctx;
-	}
-	// @RuleVersion(0)
-	public printStatement(): PrintStatementContext {
-		let _localctx: PrintStatementContext = new PrintStatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 14, kacoParser.RULE_printStatement);
-		try {
-			this.enterOuterAlt(_localctx, 1);
-			{
-			this.state = 129;
-			this.match(kacoParser.T__4);
-			this.state = 130;
-			this.match(kacoParser.OpenParen);
-			this.state = 131;
-			this.expression();
-			this.state = 132;
-			this.match(kacoParser.CloseParen);
-			this.state = 133;
+			this.state = 100;
 			this.match(kacoParser.SemiColon);
 			}
 		}
@@ -603,16 +443,16 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public openFormStatement(): OpenFormStatementContext {
 		let _localctx: OpenFormStatementContext = new OpenFormStatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 16, kacoParser.RULE_openFormStatement);
+		this.enterRule(_localctx, 14, kacoParser.RULE_openFormStatement);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 135;
+			this.state = 102;
 			this.match(kacoParser.OpenForm);
-			this.state = 136;
+			this.state = 103;
 			this.match(kacoParser.OpenBracket);
-			this.state = 137;
+			this.state = 104;
 			_la = this._input.LA(1);
 			if (!(_la === kacoParser.StringLiteral || _la === kacoParser.DecimalLiteral)) {
 			this._errHandler.recoverInline(this);
@@ -624,39 +464,39 @@ export class kacoParser extends Parser {
 				this._errHandler.reportMatch(this);
 				this.consume();
 			}
-			this.state = 138;
+			this.state = 105;
 			this.match(kacoParser.CloseBracket);
-			this.state = 140;
+			this.state = 107;
 			this._errHandler.sync(this);
-			switch ( this.interpreter.adaptivePredict(this._input, 10, this._ctx) ) {
+			switch ( this.interpreter.adaptivePredict(this._input, 8, this._ctx) ) {
 			case 1:
 				{
-				this.state = 139;
+				this.state = 106;
 				this.quoteEllipsisExpr();
 				}
 				break;
 			}
-			this.state = 143;
+			this.state = 110;
 			this._errHandler.sync(this);
-			switch ( this.interpreter.adaptivePredict(this._input, 11, this._ctx) ) {
+			switch ( this.interpreter.adaptivePredict(this._input, 9, this._ctx) ) {
 			case 1:
 				{
-				this.state = 142;
+				this.state = 109;
 				this.quoteEllipsisExpr();
 				}
 				break;
 			}
-			this.state = 146;
+			this.state = 113;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la === kacoParser.OpenParen) {
 				{
-				this.state = 145;
+				this.state = 112;
 				this.quoteEllipsisExpr();
 				}
 			}
 
-			this.state = 148;
+			this.state = 115;
 			this.match(kacoParser.SemiColon);
 			}
 		}
@@ -677,96 +517,16 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public saveFormStatement(): SaveFormStatementContext {
 		let _localctx: SaveFormStatementContext = new SaveFormStatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 18, kacoParser.RULE_saveFormStatement);
+		this.enterRule(_localctx, 16, kacoParser.RULE_saveFormStatement);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 150;
+			this.state = 117;
 			this.match(kacoParser.SaveForm);
-			this.state = 151;
+			this.state = 118;
 			this.quoteEllipsisExpr();
-			this.state = 152;
+			this.state = 119;
 			this.match(kacoParser.SemiColon);
-			}
-		}
-		catch (re) {
-			if (re instanceof RecognitionException) {
-				_localctx.exception = re;
-				this._errHandler.reportError(this, re);
-				this._errHandler.recover(this, re);
-			} else {
-				throw re;
-			}
-		}
-		finally {
-			this.exitRule();
-		}
-		return _localctx;
-	}
-	// @RuleVersion(0)
-	public commonExpression(): CommonExpressionContext {
-		let _localctx: CommonExpressionContext = new CommonExpressionContext(this._ctx, this.state);
-		this.enterRule(_localctx, 20, kacoParser.RULE_commonExpression);
-		try {
-			this.enterOuterAlt(_localctx, 1);
-			{
-			this.state = 154;
-			this.assignAbleStatement();
-			}
-		}
-		catch (re) {
-			if (re instanceof RecognitionException) {
-				_localctx.exception = re;
-				this._errHandler.reportError(this, re);
-				this._errHandler.recover(this, re);
-			} else {
-				throw re;
-			}
-		}
-		finally {
-			this.exitRule();
-		}
-		return _localctx;
-	}
-	// @RuleVersion(0)
-	public assignAbleStatement(): AssignAbleStatementContext {
-		let _localctx: AssignAbleStatementContext = new AssignAbleStatementContext(this._ctx, this.state);
-		this.enterRule(_localctx, 22, kacoParser.RULE_assignAbleStatement);
-		try {
-			this.state = 158;
-			this._errHandler.sync(this);
-			switch (this._input.LA(1)) {
-			case kacoParser.OpenBracket:
-				this.enterOuterAlt(_localctx, 1);
-				{
-				this.state = 156;
-				this.assign();
-				}
-				break;
-			case kacoParser.EOF:
-			case kacoParser.T__5:
-			case kacoParser.T__6:
-			case kacoParser.T__7:
-			case kacoParser.T__8:
-			case kacoParser.T__9:
-			case kacoParser.T__10:
-			case kacoParser.T__11:
-			case kacoParser.T__12:
-			case kacoParser.T__13:
-			case kacoParser.T__14:
-			case kacoParser.T__15:
-			case kacoParser.T__16:
-			case kacoParser.T__17:
-			case kacoParser.OpenParen:
-			case kacoParser.CloseParen:
-				this.enterOuterAlt(_localctx, 2);
-				{
-				this.state = 157;
-				this.expression();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
 			}
 		}
 		catch (re) {
@@ -786,26 +546,93 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public expression(): ExpressionContext {
 		let _localctx: ExpressionContext = new ExpressionContext(this._ctx, this.state);
-		this.enterRule(_localctx, 24, kacoParser.RULE_expression);
+		this.enterRule(_localctx, 18, kacoParser.RULE_expression);
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 121;
+			this.subTerm();
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public subTerm(): SubTermContext {
+		let _localctx: SubTermContext = new SubTermContext(this._ctx, this.state);
+		this.enterRule(_localctx, 20, kacoParser.RULE_subTerm);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 160;
-			this.andAndExpression();
-			this.state = 165;
+			this.state = 123;
+			this.addTerm();
+			this.state = 128;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			while (_la === kacoParser.T__4) {
+				{
+				{
+				this.state = 124;
+				this.match(kacoParser.T__4);
+				this.state = 125;
+				this.addTerm();
+				}
+				}
+				this.state = 130;
+				this._errHandler.sync(this);
+				_la = this._input.LA(1);
+			}
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public addTerm(): AddTermContext {
+		let _localctx: AddTermContext = new AddTermContext(this._ctx, this.state);
+		this.enterRule(_localctx, 22, kacoParser.RULE_addTerm);
+		let _la: number;
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 131;
+			this.divTerm();
+			this.state = 136;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			while (_la === kacoParser.T__5) {
 				{
 				{
-				this.state = 161;
+				this.state = 132;
 				this.match(kacoParser.T__5);
-				this.state = 162;
-				this.andAndExpression();
+				this.state = 133;
+				this.divTerm();
 				}
 				}
-				this.state = 167;
+				this.state = 138;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -826,28 +653,28 @@ export class kacoParser extends Parser {
 		return _localctx;
 	}
 	// @RuleVersion(0)
-	public andAndExpression(): AndAndExpressionContext {
-		let _localctx: AndAndExpressionContext = new AndAndExpressionContext(this._ctx, this.state);
-		this.enterRule(_localctx, 26, kacoParser.RULE_andAndExpression);
+	public divTerm(): DivTermContext {
+		let _localctx: DivTermContext = new DivTermContext(this._ctx, this.state);
+		this.enterRule(_localctx, 24, kacoParser.RULE_divTerm);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 168;
-			this.cmpExpression();
-			this.state = 173;
+			this.state = 139;
+			this.mulTerm();
+			this.state = 144;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			while (_la === kacoParser.T__6) {
 				{
 				{
-				this.state = 169;
+				this.state = 140;
 				this.match(kacoParser.T__6);
-				this.state = 170;
-				this.cmpExpression();
+				this.state = 141;
+				this.mulTerm();
 				}
 				}
-				this.state = 175;
+				this.state = 146;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -868,86 +695,28 @@ export class kacoParser extends Parser {
 		return _localctx;
 	}
 	// @RuleVersion(0)
-	public cmpExpression(): CmpExpressionContext {
-		let _localctx: CmpExpressionContext = new CmpExpressionContext(this._ctx, this.state);
-		this.enterRule(_localctx, 28, kacoParser.RULE_cmpExpression);
+	public mulTerm(): MulTermContext {
+		let _localctx: MulTermContext = new MulTermContext(this._ctx, this.state);
+		this.enterRule(_localctx, 26, kacoParser.RULE_mulTerm);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 176;
-			this.addExpression();
-			this.state = 179;
+			this.state = 147;
+			this.parnTerm();
+			this.state = 152;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << kacoParser.T__7) | (1 << kacoParser.T__8) | (1 << kacoParser.T__9) | (1 << kacoParser.T__10) | (1 << kacoParser.T__11) | (1 << kacoParser.T__12))) !== 0)) {
-				{
-				this.state = 177;
-				_la = this._input.LA(1);
-				if (!((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << kacoParser.T__7) | (1 << kacoParser.T__8) | (1 << kacoParser.T__9) | (1 << kacoParser.T__10) | (1 << kacoParser.T__11) | (1 << kacoParser.T__12))) !== 0))) {
-				this._errHandler.recoverInline(this);
-				} else {
-					if (this._input.LA(1) === Token.EOF) {
-						this.matchedEOF = true;
-					}
-
-					this._errHandler.reportMatch(this);
-					this.consume();
-				}
-				this.state = 178;
-				this.addExpression();
-				}
-			}
-
-			}
-		}
-		catch (re) {
-			if (re instanceof RecognitionException) {
-				_localctx.exception = re;
-				this._errHandler.reportError(this, re);
-				this._errHandler.recover(this, re);
-			} else {
-				throw re;
-			}
-		}
-		finally {
-			this.exitRule();
-		}
-		return _localctx;
-	}
-	// @RuleVersion(0)
-	public addExpression(): AddExpressionContext {
-		let _localctx: AddExpressionContext = new AddExpressionContext(this._ctx, this.state);
-		this.enterRule(_localctx, 30, kacoParser.RULE_addExpression);
-		let _la: number;
-		try {
-			this.enterOuterAlt(_localctx, 1);
-			{
-			this.state = 181;
-			this.mulExpression();
-			this.state = 186;
-			this._errHandler.sync(this);
-			_la = this._input.LA(1);
-			while (_la === kacoParser.T__13 || _la === kacoParser.T__14) {
+			while (_la === kacoParser.T__7) {
 				{
 				{
-				this.state = 182;
-				_la = this._input.LA(1);
-				if (!(_la === kacoParser.T__13 || _la === kacoParser.T__14)) {
-				this._errHandler.recoverInline(this);
-				} else {
-					if (this._input.LA(1) === Token.EOF) {
-						this.matchedEOF = true;
-					}
-
-					this._errHandler.reportMatch(this);
-					this.consume();
-				}
-				this.state = 183;
-				this.mulExpression();
+				this.state = 148;
+				this.match(kacoParser.T__7);
+				this.state = 149;
+				this.parnTerm();
 				}
 				}
-				this.state = 188;
+				this.state = 154;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -968,174 +737,46 @@ export class kacoParser extends Parser {
 		return _localctx;
 	}
 	// @RuleVersion(0)
-	public mulExpression(): MulExpressionContext {
-		let _localctx: MulExpressionContext = new MulExpressionContext(this._ctx, this.state);
-		this.enterRule(_localctx, 32, kacoParser.RULE_mulExpression);
-		let _la: number;
+	public parnTerm(): ParnTermContext {
+		let _localctx: ParnTermContext = new ParnTermContext(this._ctx, this.state);
+		this.enterRule(_localctx, 28, kacoParser.RULE_parnTerm);
 		try {
-			this.enterOuterAlt(_localctx, 1);
-			{
-			this.state = 189;
-			this.unaryExpression();
-			this.state = 194;
+			this.state = 164;
 			this._errHandler.sync(this);
-			_la = this._input.LA(1);
-			while (_la === kacoParser.T__15 || _la === kacoParser.T__16) {
-				{
-				{
-				this.state = 190;
-				_la = this._input.LA(1);
-				if (!(_la === kacoParser.T__15 || _la === kacoParser.T__16)) {
-				this._errHandler.recoverInline(this);
-				} else {
-					if (this._input.LA(1) === Token.EOF) {
-						this.matchedEOF = true;
-					}
-
-					this._errHandler.reportMatch(this);
-					this.consume();
-				}
-				this.state = 191;
-				this.unaryExpression();
-				}
-				}
-				this.state = 196;
-				this._errHandler.sync(this);
-				_la = this._input.LA(1);
-			}
-			}
-		}
-		catch (re) {
-			if (re instanceof RecognitionException) {
-				_localctx.exception = re;
-				this._errHandler.reportError(this, re);
-				this._errHandler.recover(this, re);
-			} else {
-				throw re;
-			}
-		}
-		finally {
-			this.exitRule();
-		}
-		return _localctx;
-	}
-	// @RuleVersion(0)
-	public unaryExpression(): UnaryExpressionContext {
-		let _localctx: UnaryExpressionContext = new UnaryExpressionContext(this._ctx, this.state);
-		this.enterRule(_localctx, 34, kacoParser.RULE_unaryExpression);
-		let _la: number;
-		try {
-			this.state = 200;
-			this._errHandler.sync(this);
-			switch ( this.interpreter.adaptivePredict(this._input, 19, this._ctx) ) {
+			switch ( this.interpreter.adaptivePredict(this._input, 15, this._ctx) ) {
 			case 1:
 				this.enterOuterAlt(_localctx, 1);
 				{
-				this.state = 197;
-				this.primaryExpression();
+				{
+				this.state = 155;
+				this.commonLiteral();
+				this.state = 156;
+				this.expression();
+				this.state = 157;
+				this.commonLiteral();
+				}
 				}
 				break;
 
 			case 2:
 				this.enterOuterAlt(_localctx, 2);
 				{
-				this.state = 198;
-				_la = this._input.LA(1);
-				if (!(_la === kacoParser.T__14 || _la === kacoParser.T__17)) {
-				this._errHandler.recoverInline(this);
-				} else {
-					if (this._input.LA(1) === Token.EOF) {
-						this.matchedEOF = true;
-					}
+				this.state = 159;
+				this.commonLiteral();
+				}
+				break;
 
-					this._errHandler.reportMatch(this);
-					this.consume();
-				}
-				this.state = 199;
-				this.unaryExpression();
-				}
-				break;
-			}
-		}
-		catch (re) {
-			if (re instanceof RecognitionException) {
-				_localctx.exception = re;
-				this._errHandler.reportError(this, re);
-				this._errHandler.recover(this, re);
-			} else {
-				throw re;
-			}
-		}
-		finally {
-			this.exitRule();
-		}
-		return _localctx;
-	}
-	// @RuleVersion(0)
-	public primaryExpression(): PrimaryExpressionContext {
-		let _localctx: PrimaryExpressionContext = new PrimaryExpressionContext(this._ctx, this.state);
-		this.enterRule(_localctx, 36, kacoParser.RULE_primaryExpression);
-		try {
-			this.state = 207;
-			this._errHandler.sync(this);
-			switch (this._input.LA(1)) {
-			case kacoParser.EOF:
-			case kacoParser.T__5:
-			case kacoParser.T__6:
-			case kacoParser.T__7:
-			case kacoParser.T__8:
-			case kacoParser.T__9:
-			case kacoParser.T__10:
-			case kacoParser.T__11:
-			case kacoParser.T__12:
-			case kacoParser.T__13:
-			case kacoParser.T__14:
-			case kacoParser.T__15:
-			case kacoParser.T__16:
-			case kacoParser.CloseParen:
-				this.enterOuterAlt(_localctx, 1);
+			case 3:
+				this.enterOuterAlt(_localctx, 3);
 				{
-				this.state = 202;
-				this.variableExpression();
-				}
-				break;
-			case kacoParser.OpenParen:
-				this.enterOuterAlt(_localctx, 2);
-				{
-				this.state = 203;
+				this.state = 160;
 				this.match(kacoParser.OpenParen);
-				this.state = 204;
+				this.state = 161;
 				this.expression();
-				this.state = 205;
+				this.state = 162;
 				this.match(kacoParser.CloseParen);
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-		}
-		catch (re) {
-			if (re instanceof RecognitionException) {
-				_localctx.exception = re;
-				this._errHandler.reportError(this, re);
-				this._errHandler.recover(this, re);
-			} else {
-				throw re;
-			}
-		}
-		finally {
-			this.exitRule();
-		}
-		return _localctx;
-	}
-	// @RuleVersion(0)
-	public variableExpression(): VariableExpressionContext {
-		let _localctx: VariableExpressionContext = new VariableExpressionContext(this._ctx, this.state);
-		this.enterRule(_localctx, 38, kacoParser.RULE_variableExpression);
-		try {
-			this.enterOuterAlt(_localctx, 1);
-			// tslint:disable-next-line:no-empty
-			{
 			}
 		}
 		catch (re) {
@@ -1155,75 +796,235 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public assign(): AssignContext {
 		let _localctx: AssignContext = new AssignContext(this._ctx, this.state);
-		this.enterRule(_localctx, 40, kacoParser.RULE_assign);
+		this.enterRule(_localctx, 30, kacoParser.RULE_assign);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 211;
-			this.match(kacoParser.OpenBracket);
-			this.state = 212;
-			this.match(kacoParser.StringLiteral);
-			this.state = 213;
-			this.match(kacoParser.CloseBracket);
-			this.state = 214;
+			this.state = 166;
+			this.assignStart();
+			this.state = 167;
 			this.match(kacoParser.Assign);
-			this.state = 227;
+			this.state = 168;
+			this.expression();
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public assignStart(): AssignStartContext {
+		let _localctx: AssignStartContext = new AssignStartContext(this._ctx, this.state);
+		this.enterRule(_localctx, 32, kacoParser.RULE_assignStart);
+		let _la: number;
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 175;
 			this._errHandler.sync(this);
-			switch ( this.interpreter.adaptivePredict(this._input, 21, this._ctx) ) {
+			switch ( this.interpreter.adaptivePredict(this._input, 16, this._ctx) ) {
 			case 1:
 				{
-				this.state = 215;
-				this.match(kacoParser.OpenBracket);
-				this.state = 216;
-				this.match(kacoParser.StringLiteral);
-				this.state = 217;
-				this.match(kacoParser.CloseBracket);
+				this.state = 170;
+				this.ctrlQuoteLiteral();
 				}
 				break;
 
 			case 2:
 				{
-				this.state = 218;
-				this.match(kacoParser.OpenBracket);
-				this.state = 219;
-				this.match(kacoParser.StringDotLiteral);
-				this.state = 220;
-				this.match(kacoParser.CloseBracket);
+				this.state = 171;
+				this.ctrlQuoteLiteral();
+				this.state = 172;
+				this.match(kacoParser.Dot);
+				this.state = 173;
+				this.ctrlQuoteLiteral();
+				}
+				break;
+			}
+			this.state = 181;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			while (_la === kacoParser.Comma) {
+				{
+				{
+				this.state = 177;
+				this.match(kacoParser.Comma);
+				this.state = 178;
+				this.ctrlQuoteLiteral();
+				}
+				}
+				this.state = 183;
+				this._errHandler.sync(this);
+				_la = this._input.LA(1);
+			}
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public ctrlQuoteLiteral(): CtrlQuoteLiteralContext {
+		let _localctx: CtrlQuoteLiteralContext = new CtrlQuoteLiteralContext(this._ctx, this.state);
+		this.enterRule(_localctx, 34, kacoParser.RULE_ctrlQuoteLiteral);
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 184;
+			this.match(kacoParser.OpenBracket);
+			this.state = 185;
+			this.match(kacoParser.StringLiteral);
+			this.state = 186;
+			this.match(kacoParser.CloseBracket);
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public ctrlQuoteDotLiteral(): CtrlQuoteDotLiteralContext {
+		let _localctx: CtrlQuoteDotLiteralContext = new CtrlQuoteDotLiteralContext(this._ctx, this.state);
+		this.enterRule(_localctx, 36, kacoParser.RULE_ctrlQuoteDotLiteral);
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 188;
+			this.match(kacoParser.OpenBracket);
+			this.state = 189;
+			this.match(kacoParser.StringDotLiteral);
+			this.state = 190;
+			this.match(kacoParser.CloseBracket);
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public ctrlQuoteParamLiteral(): CtrlQuoteParamLiteralContext {
+		let _localctx: CtrlQuoteParamLiteralContext = new CtrlQuoteParamLiteralContext(this._ctx, this.state);
+		this.enterRule(_localctx, 38, kacoParser.RULE_ctrlQuoteParamLiteral);
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 192;
+			this.match(kacoParser.OpenBracket);
+			this.state = 193;
+			this.match(kacoParser.ParamLiteral);
+			this.state = 194;
+			this.match(kacoParser.CloseBracket);
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public commonLiteral(): CommonLiteralContext {
+		let _localctx: CommonLiteralContext = new CommonLiteralContext(this._ctx, this.state);
+		this.enterRule(_localctx, 40, kacoParser.RULE_commonLiteral);
+		try {
+			this.state = 202;
+			this._errHandler.sync(this);
+			switch ( this.interpreter.adaptivePredict(this._input, 18, this._ctx) ) {
+			case 1:
+				this.enterOuterAlt(_localctx, 1);
+				{
+				this.state = 196;
+				this.ctrlQuoteLiteral();
+				}
+				break;
+
+			case 2:
+				this.enterOuterAlt(_localctx, 2);
+				{
+				this.state = 197;
+				this.ctrlQuoteDotLiteral();
 				}
 				break;
 
 			case 3:
+				this.enterOuterAlt(_localctx, 3);
 				{
-				this.state = 221;
-				this.match(kacoParser.OpenBracket);
-				this.state = 222;
-				this.match(kacoParser.QuoteLiteral);
-				this.state = 223;
-				this.match(kacoParser.CloseBracket);
+				this.state = 198;
+				this.ctrlQuoteParamLiteral();
 				}
 				break;
 
 			case 4:
+				this.enterOuterAlt(_localctx, 4);
 				{
-				this.state = 224;
+				this.state = 199;
 				this.match(kacoParser.DecimalLiteral);
 				}
 				break;
 
 			case 5:
+				this.enterOuterAlt(_localctx, 5);
 				{
-				this.state = 225;
+				this.state = 200;
 				this.match(kacoParser.BooleanLiteral);
 				}
 				break;
 
 			case 6:
+				this.enterOuterAlt(_localctx, 6);
 				{
-				this.state = 226;
+				this.state = 201;
 				this.match(kacoParser.StringLiteral);
 				}
 				break;
-			}
 			}
 		}
 		catch (re) {
@@ -1242,7 +1043,7 @@ export class kacoParser extends Parser {
 	}
 
 	public static readonly _serializedATN: string =
-		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03\'\xE8\x04\x02" +
+		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03\x1D\xCF\x04\x02" +
 		"\t\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x04\x06\t\x06\x04\x07" +
 		"\t\x07\x04\b\t\b\x04\t\t\t\x04\n\t\n\x04\v\t\v\x04\f\t\f\x04\r\t\r\x04" +
 		"\x0E\t\x0E\x04\x0F\t\x0F\x04\x10\t\x10\x04\x11\t\x11\x04\x12\t\x12\x04" +
@@ -1250,100 +1051,84 @@ export class kacoParser extends Parser {
 		"\n\x02\r\x02\x0E\x02/\x03\x02\x03\x02\x03\x03\x03\x03\x03\x03\x05\x03" +
 		"7\n\x03\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04" +
 		"\x03\x04\x03\x04\x05\x04C\n\x04\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05" +
-		"\x03\x05\x03\x05\x05\x05L\n\x05\x03\x05\x05\x05O\n\x05\x03\x06\x03\x06" +
-		"\x03\x06\x03\x06\x03\x06\x03\x06\x03\x06\x03\x06\x03\x06\x03\x06\x03\x06" +
-		"\x03\x06\x03\x06\x05\x06^\n\x06\x03\x06\x03\x06\x03\x06\x03\x06\x03\x06" +
-		"\x03\x06\x03\x06\x03\x06\x03\x06\x03\x06\x03\x06\x03\x06\x03\x06\x05\x06" +
-		"m\n\x06\x07\x06o\n\x06\f\x06\x0E\x06r\v\x06\x05\x06t\n\x06\x03\x06\x03" +
-		"\x06\x03\x07\x03\x07\x07\x07z\n\x07\f\x07\x0E\x07}\v\x07\x03\x07\x03\x07" +
-		"\x03\b\x03\b\x03\b\x03\t\x03\t\x03\t\x03\t\x03\t\x03\t\x03\n\x03\n\x03" +
-		"\n\x03\n\x03\n\x05\n\x8F\n\n\x03\n\x05\n\x92\n\n\x03\n\x05\n\x95\n\n\x03" +
-		"\n\x03\n\x03\v\x03\v\x03\v\x03\v\x03\f\x03\f\x03\r\x03\r\x05\r\xA1\n\r" +
-		"\x03\x0E\x03\x0E\x03\x0E\x07\x0E\xA6\n\x0E\f\x0E\x0E\x0E\xA9\v\x0E\x03" +
-		"\x0F\x03\x0F\x03\x0F\x07\x0F\xAE\n\x0F\f\x0F\x0E\x0F\xB1\v\x0F\x03\x10" +
-		"\x03\x10\x03\x10\x05\x10\xB6\n\x10\x03\x11\x03\x11\x03\x11\x07\x11\xBB" +
-		"\n\x11\f\x11\x0E\x11\xBE\v\x11\x03\x12\x03\x12\x03\x12\x07\x12\xC3\n\x12" +
-		"\f\x12\x0E\x12\xC6\v\x12\x03\x13\x03\x13\x03\x13\x05\x13\xCB\n\x13\x03" +
-		"\x14\x03\x14\x03\x14\x03\x14\x03\x14\x05\x14\xD2\n\x14\x03\x15\x03\x15" +
-		"\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16" +
-		"\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16\x05\x16\xE6\n" +
-		"\x16\x03\x16\x02\x02\x02\x17\x02\x02\x04\x02\x06\x02\b\x02\n\x02\f\x02" +
-		"\x0E\x02\x10\x02\x12\x02\x14\x02\x16\x02\x18\x02\x1A\x02\x1C\x02\x1E\x02" +
-		" \x02\"\x02$\x02&\x02(\x02*\x02\x02\x07\x04\x02  ##\x03\x02\n\x0F\x03" +
-		"\x02\x10\x11\x03\x02\x12\x13\x04\x02\x11\x11\x14\x14\x02\xF5\x02-\x03" +
-		"\x02\x02\x02\x046\x03\x02\x02\x02\x06B\x03\x02\x02\x02\bN\x03\x02\x02" +
-		"\x02\nP\x03\x02\x02\x02\fw\x03\x02\x02\x02\x0E\x80\x03\x02\x02\x02\x10" +
-		"\x83\x03\x02\x02\x02\x12\x89\x03\x02\x02\x02\x14\x98\x03\x02\x02\x02\x16" +
-		"\x9C\x03\x02\x02\x02\x18\xA0\x03\x02\x02\x02\x1A\xA2\x03\x02\x02\x02\x1C" +
-		"\xAA\x03\x02\x02\x02\x1E\xB2\x03\x02\x02\x02 \xB7\x03\x02\x02\x02\"\xBF" +
-		"\x03\x02\x02\x02$\xCA\x03\x02\x02\x02&\xD1\x03\x02\x02\x02(\xD3\x03\x02" +
-		"\x02\x02*\xD5\x03\x02\x02\x02,.\x05\x04\x03\x02-,\x03\x02\x02\x02./\x03" +
-		"\x02\x02\x02/-\x03\x02\x02\x02/0\x03\x02\x02\x0201\x03\x02\x02\x0212\x07" +
-		"\x02\x02\x032\x03\x03\x02\x02\x0237\x05\x12\n\x0247\x05\x14\v\x0257\x05" +
-		"\x0E\b\x0263\x03\x02\x02\x0264\x03\x02\x02\x0265\x03\x02\x02\x027\x05" +
-		"\x03\x02\x02\x0289\x07\x03\x02\x029:\x05\b\x05\x02:;\x05\f\x07\x02;C\x03" +
-		"\x02\x02\x02<=\x07\x03\x02\x02=>\x05\b\x05\x02>?\x05\f\x07\x02?@\x07\x04" +
-		"\x02\x02@A\x05\f\x07\x02AC\x03\x02\x02\x02B8\x03\x02\x02\x02B<\x03\x02" +
-		"\x02\x02C\x07\x03\x02\x02\x02DE\x07\x17\x02\x02EF\x07\x15\x02\x02FG\x07" +
-		"!\x02\x02GH\x07\x16\x02\x02HO\x07\x18\x02\x02IK\x07\x17\x02\x02JL\x07" +
-		" \x02\x02KJ\x03\x02\x02\x02KL\x03\x02\x02\x02LM\x03\x02\x02\x02MO\x07" +
-		"\x18\x02\x02ND\x03\x02\x02\x02NI\x03\x02\x02\x02O\t\x03\x02\x02\x02Ps" +
-		"\x07\x17\x02\x02Q^\x07 \x02\x02R^\x07#\x02\x02S^\x07\"\x02\x02TU\x07\x15" +
-		"\x02\x02UV\x07$\x02\x02V^\x07\x16\x02\x02WX\x07\x15\x02\x02XY\x07!\x02" +
-		"\x02Y^\x07\x16\x02\x02Z[\x07\x15\x02\x02[\\\x07 \x02\x02\\^\x07\x16\x02" +
-		"\x02]Q\x03\x02\x02\x02]R\x03\x02\x02\x02]S\x03\x02\x02\x02]T\x03\x02\x02" +
-		"\x02]W\x03\x02\x02\x02]Z\x03\x02\x02\x02^p\x03\x02\x02\x02_l\x07\x1A\x02" +
-		"\x02`m\x07 \x02\x02am\x07#\x02\x02bm\x07\"\x02\x02cd\x07\x15\x02\x02d" +
-		"e\x07$\x02\x02em\x07\x16\x02\x02fg\x07\x15\x02\x02gh\x07!\x02\x02hm\x07" +
-		"\x16\x02\x02ij\x07\x15\x02\x02jk\x07 \x02\x02km\x07\x16\x02\x02l`\x03" +
-		"\x02\x02\x02la\x03\x02\x02\x02lb\x03\x02\x02\x02lc\x03\x02\x02\x02lf\x03" +
-		"\x02\x02\x02li\x03\x02\x02\x02mo\x03\x02\x02\x02n_\x03\x02\x02\x02or\x03" +
-		"\x02\x02\x02pn\x03\x02\x02\x02pq\x03\x02\x02\x02qt\x03\x02\x02\x02rp\x03" +
-		"\x02\x02\x02s]\x03\x02\x02\x02st\x03\x02\x02\x02tu\x03\x02\x02\x02uv\x07" +
-		"\x18\x02\x02v\v\x03\x02\x02\x02w{\x07\x05\x02\x02xz\x05\x04\x03\x02yx" +
-		"\x03\x02\x02\x02z}\x03\x02\x02\x02{y\x03\x02\x02\x02{|\x03\x02\x02\x02" +
-		"|~\x03\x02\x02\x02}{\x03\x02\x02\x02~\x7F\x07\x06\x02\x02\x7F\r\x03\x02" +
-		"\x02\x02\x80\x81\x05*\x16\x02\x81\x82\x07\x19\x02\x02\x82\x0F\x03\x02" +
-		"\x02\x02\x83\x84\x07\x07\x02\x02\x84\x85\x07\x17\x02\x02\x85\x86\x05\x1A" +
-		"\x0E\x02\x86\x87\x07\x18\x02\x02\x87\x88\x07\x19\x02\x02\x88\x11\x03\x02" +
-		"\x02\x02\x89\x8A\x07\x1E\x02\x02\x8A\x8B\x07\x15\x02\x02\x8B\x8C\t\x02" +
-		"\x02\x02\x8C\x8E\x07\x16\x02\x02\x8D\x8F\x05\n\x06\x02\x8E\x8D\x03\x02" +
-		"\x02\x02\x8E\x8F\x03\x02\x02\x02\x8F\x91\x03\x02\x02\x02\x90\x92\x05\n" +
-		"\x06\x02\x91\x90\x03\x02\x02\x02\x91\x92\x03\x02\x02\x02\x92\x94\x03\x02" +
-		"\x02\x02\x93\x95\x05\n\x06\x02\x94\x93\x03\x02\x02\x02\x94\x95\x03\x02" +
-		"\x02\x02\x95\x96\x03\x02\x02\x02\x96\x97\x07\x19\x02\x02\x97\x13\x03\x02" +
-		"\x02\x02\x98\x99\x07\x1F\x02\x02\x99\x9A\x05\n\x06\x02\x9A\x9B\x07\x19" +
-		"\x02\x02\x9B\x15\x03\x02\x02\x02\x9C\x9D\x05\x18\r\x02\x9D\x17\x03\x02" +
-		"\x02\x02\x9E\xA1\x05*\x16\x02\x9F\xA1\x05\x1A\x0E\x02\xA0\x9E\x03\x02" +
-		"\x02\x02\xA0\x9F\x03\x02\x02\x02\xA1\x19\x03\x02\x02\x02\xA2\xA7\x05\x1C" +
-		"\x0F\x02\xA3\xA4\x07\b\x02\x02\xA4\xA6\x05\x1C\x0F\x02\xA5\xA3\x03\x02" +
-		"\x02\x02\xA6\xA9\x03\x02\x02\x02\xA7\xA5\x03\x02\x02\x02\xA7\xA8\x03\x02" +
-		"\x02\x02\xA8\x1B\x03\x02\x02\x02\xA9\xA7\x03\x02\x02\x02\xAA\xAF\x05\x1E" +
-		"\x10\x02\xAB\xAC\x07\t\x02\x02\xAC\xAE\x05\x1E\x10\x02\xAD\xAB\x03\x02" +
-		"\x02\x02\xAE\xB1\x03\x02\x02\x02\xAF\xAD\x03\x02\x02\x02\xAF\xB0\x03\x02" +
-		"\x02\x02\xB0\x1D\x03\x02\x02\x02\xB1\xAF\x03\x02\x02\x02\xB2\xB5\x05 " +
-		"\x11\x02\xB3\xB4\t\x03\x02\x02\xB4\xB6\x05 \x11\x02\xB5\xB3\x03\x02\x02" +
-		"\x02\xB5\xB6\x03\x02\x02\x02\xB6\x1F\x03\x02\x02\x02\xB7\xBC\x05\"\x12" +
-		"\x02\xB8\xB9\t\x04\x02\x02\xB9\xBB\x05\"\x12\x02\xBA\xB8\x03\x02\x02\x02" +
-		"\xBB\xBE\x03\x02\x02\x02\xBC\xBA\x03\x02\x02\x02\xBC\xBD\x03\x02\x02\x02" +
-		"\xBD!\x03\x02\x02\x02\xBE\xBC\x03\x02\x02\x02\xBF\xC4\x05$\x13\x02\xC0" +
-		"\xC1\t\x05\x02\x02\xC1\xC3\x05$\x13\x02\xC2\xC0\x03\x02\x02\x02\xC3\xC6" +
-		"\x03\x02\x02\x02\xC4\xC2\x03\x02\x02\x02\xC4\xC5\x03\x02\x02\x02\xC5#" +
-		"\x03\x02\x02\x02\xC6\xC4\x03\x02\x02\x02\xC7\xCB\x05&\x14\x02\xC8\xC9" +
-		"\t\x06\x02\x02\xC9\xCB\x05$\x13\x02\xCA\xC7\x03\x02\x02\x02\xCA\xC8\x03" +
-		"\x02\x02\x02\xCB%\x03\x02\x02\x02\xCC\xD2\x05(\x15\x02\xCD\xCE\x07\x17" +
-		"\x02\x02\xCE\xCF\x05\x1A\x0E\x02\xCF\xD0\x07\x18\x02\x02\xD0\xD2\x03\x02" +
-		"\x02\x02\xD1\xCC\x03\x02\x02\x02\xD1\xCD\x03\x02\x02\x02\xD2\'\x03\x02" +
-		"\x02\x02\xD3\xD4\x03\x02\x02\x02\xD4)\x03\x02\x02\x02\xD5\xD6\x07\x15" +
-		"\x02\x02\xD6\xD7\x07 \x02\x02\xD7\xD8\x07\x16\x02\x02\xD8\xE5\x07\x1B" +
-		"\x02\x02\xD9\xDA\x07\x15\x02\x02\xDA\xDB\x07 \x02\x02\xDB\xE6\x07\x16" +
-		"\x02\x02\xDC\xDD\x07\x15\x02\x02\xDD\xDE\x07!\x02\x02\xDE\xE6\x07\x16" +
-		"\x02\x02\xDF\xE0\x07\x15\x02\x02\xE0\xE1\x07$\x02\x02\xE1\xE6\x07\x16" +
-		"\x02\x02\xE2\xE6\x07#\x02\x02\xE3\xE6\x07\"\x02\x02\xE4\xE6\x07 \x02\x02" +
-		"\xE5\xD9\x03\x02\x02\x02\xE5\xDC\x03\x02\x02\x02\xE5\xDF\x03\x02\x02\x02" +
-		"\xE5\xE2\x03\x02\x02\x02\xE5\xE3\x03\x02\x02\x02\xE5\xE4\x03\x02\x02\x02" +
-		"\xE6+\x03\x02\x02\x02\x18/6BKN]lps{\x8E\x91\x94\xA0\xA7\xAF\xB5\xBC\xC4" +
-		"\xCA\xD1\xE5";
+		"\x03\x05\x05\x05K\n\x05\x03\x05\x05\x05N\n\x05\x03\x06\x03\x06\x03\x06" +
+		"\x03\x06\x07\x06T\n\x06\f\x06\x0E\x06W\v\x06\x05\x06Y\n\x06\x03\x06\x03" +
+		"\x06\x03\x07\x03\x07\x07\x07_\n\x07\f\x07\x0E\x07b\v\x07\x03\x07\x03\x07" +
+		"\x03\b\x03\b\x03\b\x03\t\x03\t\x03\t\x03\t\x03\t\x05\tn\n\t\x03\t\x05" +
+		"\tq\n\t\x03\t\x05\tt\n\t\x03\t\x03\t\x03\n\x03\n\x03\n\x03\n\x03\v\x03" +
+		"\v\x03\f\x03\f\x03\f\x07\f\x81\n\f\f\f\x0E\f\x84\v\f\x03\r\x03\r\x03\r" +
+		"\x07\r\x89\n\r\f\r\x0E\r\x8C\v\r\x03\x0E\x03\x0E\x03\x0E\x07\x0E\x91\n" +
+		"\x0E\f\x0E\x0E\x0E\x94\v\x0E\x03\x0F\x03\x0F\x03\x0F\x07\x0F\x99\n\x0F" +
+		"\f\x0F\x0E\x0F\x9C\v\x0F\x03\x10\x03\x10\x03\x10\x03\x10\x03\x10\x03\x10" +
+		"\x03\x10\x03\x10\x03\x10\x05\x10\xA7\n\x10\x03\x11\x03\x11\x03\x11\x03" +
+		"\x11\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x05\x12\xB2\n\x12\x03\x12" +
+		"\x03\x12\x07\x12\xB6\n\x12\f\x12\x0E\x12\xB9\v\x12\x03\x13\x03\x13\x03" +
+		"\x13\x03\x13\x03\x14\x03\x14\x03\x14\x03\x14\x03\x15\x03\x15\x03\x15\x03" +
+		"\x15\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16\x05\x16\xCD\n\x16" +
+		"\x03\x16\x02\x02\x02\x17\x02\x02\x04\x02\x06\x02\b\x02\n\x02\f\x02\x0E" +
+		"\x02\x10\x02\x12\x02\x14\x02\x16\x02\x18\x02\x1A\x02\x1C\x02\x1E\x02 " +
+		"\x02\"\x02$\x02&\x02(\x02*\x02\x02\x03\x04\x02\x16\x16\x19\x19\x02\xD2" +
+		"\x02-\x03\x02\x02\x02\x046\x03\x02\x02\x02\x06B\x03\x02\x02\x02\bM\x03" +
+		"\x02\x02\x02\nO\x03\x02\x02\x02\f\\\x03\x02\x02\x02\x0Ee\x03\x02\x02\x02" +
+		"\x10h\x03\x02\x02\x02\x12w\x03\x02\x02\x02\x14{\x03\x02\x02\x02\x16}\x03" +
+		"\x02\x02\x02\x18\x85\x03\x02\x02\x02\x1A\x8D\x03\x02\x02\x02\x1C\x95\x03" +
+		"\x02\x02\x02\x1E\xA6\x03\x02\x02\x02 \xA8\x03\x02\x02\x02\"\xB1\x03\x02" +
+		"\x02\x02$\xBA\x03\x02\x02\x02&\xBE\x03\x02\x02\x02(\xC2\x03\x02\x02\x02" +
+		"*\xCC\x03\x02\x02\x02,.\x05\x04\x03\x02-,\x03\x02\x02\x02./\x03\x02\x02" +
+		"\x02/-\x03\x02\x02\x02/0\x03\x02\x02\x0201\x03\x02\x02\x0212\x07\x02\x02" +
+		"\x032\x03\x03\x02\x02\x0237\x05\x10\t\x0247\x05\x12\n\x0257\x05\x0E\b" +
+		"\x0263\x03\x02\x02\x0264\x03\x02\x02\x0265\x03\x02\x02\x027\x05\x03\x02" +
+		"\x02\x0289\x07\x03\x02\x029:\x05\b\x05\x02:;\x05\f\x07\x02;C\x03\x02\x02" +
+		"\x02<=\x07\x03\x02\x02=>\x05\b\x05\x02>?\x05\f\x07\x02?@\x07\x04\x02\x02" +
+		"@A\x05\f\x07\x02AC\x03\x02\x02\x02B8\x03\x02\x02\x02B<\x03\x02\x02\x02" +
+		"C\x07\x03\x02\x02\x02DE\x07\r\x02\x02EF\x05&\x14\x02FG\x07\x0E\x02\x02" +
+		"GN\x03\x02\x02\x02HJ\x07\r\x02\x02IK\x07\x16\x02\x02JI\x03\x02\x02\x02" +
+		"JK\x03\x02\x02\x02KL\x03\x02\x02\x02LN\x07\x0E\x02\x02MD\x03\x02\x02\x02" +
+		"MH\x03\x02\x02\x02N\t\x03\x02\x02\x02OX\x07\r\x02\x02PU\x05*\x16\x02Q" +
+		"R\x07\x10\x02\x02RT\x05*\x16\x02SQ\x03\x02\x02\x02TW\x03\x02\x02\x02U" +
+		"S\x03\x02\x02\x02UV\x03\x02\x02\x02VY\x03\x02\x02\x02WU\x03\x02\x02\x02" +
+		"XP\x03\x02\x02\x02XY\x03\x02\x02\x02YZ\x03\x02\x02\x02Z[\x07\x0E\x02\x02" +
+		"[\v\x03\x02\x02\x02\\`\x07\x05\x02\x02]_\x05\x04\x03\x02^]\x03\x02\x02" +
+		"\x02_b\x03\x02\x02\x02`^\x03\x02\x02\x02`a\x03\x02\x02\x02ac\x03\x02\x02" +
+		"\x02b`\x03\x02\x02\x02cd\x07\x06\x02\x02d\r\x03\x02\x02\x02ef\x05 \x11" +
+		"\x02fg\x07\x0F\x02\x02g\x0F\x03\x02\x02\x02hi\x07\x14\x02\x02ij\x07\v" +
+		"\x02\x02jk\t\x02\x02\x02km\x07\f\x02\x02ln\x05\n\x06\x02ml\x03\x02\x02" +
+		"\x02mn\x03\x02\x02\x02np\x03\x02\x02\x02oq\x05\n\x06\x02po\x03\x02\x02" +
+		"\x02pq\x03\x02\x02\x02qs\x03\x02\x02\x02rt\x05\n\x06\x02sr\x03\x02\x02" +
+		"\x02st\x03\x02\x02\x02tu\x03\x02\x02\x02uv\x07\x0F\x02\x02v\x11\x03\x02" +
+		"\x02\x02wx\x07\x15\x02\x02xy\x05\n\x06\x02yz\x07\x0F\x02\x02z\x13\x03" +
+		"\x02\x02\x02{|\x05\x16\f\x02|\x15\x03\x02\x02\x02}\x82\x05\x18\r\x02~" +
+		"\x7F\x07\x07\x02\x02\x7F\x81\x05\x18\r\x02\x80~\x03\x02\x02\x02\x81\x84" +
+		"\x03\x02\x02\x02\x82\x80\x03\x02\x02\x02\x82\x83\x03\x02\x02\x02\x83\x17" +
+		"\x03\x02\x02\x02\x84\x82\x03\x02\x02\x02\x85\x8A\x05\x1A\x0E\x02\x86\x87" +
+		"\x07\b\x02\x02\x87\x89\x05\x1A\x0E\x02\x88\x86\x03\x02\x02\x02\x89\x8C" +
+		"\x03\x02\x02\x02\x8A\x88\x03\x02\x02\x02\x8A\x8B\x03\x02\x02\x02\x8B\x19" +
+		"\x03\x02\x02\x02\x8C\x8A\x03\x02\x02\x02\x8D\x92\x05\x1C\x0F\x02\x8E\x8F" +
+		"\x07\t\x02\x02\x8F\x91\x05\x1C\x0F\x02\x90\x8E\x03\x02\x02\x02\x91\x94" +
+		"\x03\x02\x02\x02\x92\x90\x03\x02\x02\x02\x92\x93\x03\x02\x02\x02\x93\x1B" +
+		"\x03\x02\x02\x02\x94\x92\x03\x02\x02\x02\x95\x9A\x05\x1E\x10\x02\x96\x97" +
+		"\x07\n\x02\x02\x97\x99\x05\x1E\x10\x02\x98\x96\x03\x02\x02\x02\x99\x9C" +
+		"\x03\x02\x02\x02\x9A\x98\x03\x02\x02\x02\x9A\x9B\x03\x02\x02\x02\x9B\x1D" +
+		"\x03\x02\x02\x02\x9C\x9A\x03\x02\x02\x02\x9D\x9E\x05*\x16\x02\x9E\x9F" +
+		"\x05\x14\v\x02\x9F\xA0\x05*\x16\x02\xA0\xA7\x03\x02\x02\x02\xA1\xA7\x05" +
+		"*\x16\x02\xA2\xA3\x07\r\x02\x02\xA3\xA4\x05\x14\v\x02\xA4\xA5\x07\x0E" +
+		"\x02\x02\xA5\xA7\x03\x02\x02\x02\xA6\x9D\x03\x02\x02\x02\xA6\xA1\x03\x02" +
+		"\x02\x02\xA6\xA2\x03\x02\x02\x02\xA7\x1F\x03\x02\x02\x02\xA8\xA9\x05\"" +
+		"\x12\x02\xA9\xAA\x07\x11\x02\x02\xAA\xAB\x05\x14\v\x02\xAB!\x03\x02\x02" +
+		"\x02\xAC\xB2\x05$\x13\x02\xAD\xAE\x05$\x13\x02\xAE\xAF\x07\x12\x02\x02" +
+		"\xAF\xB0\x05$\x13\x02\xB0\xB2\x03\x02\x02\x02\xB1\xAC\x03\x02\x02\x02" +
+		"\xB1\xAD\x03\x02\x02\x02\xB2\xB7\x03\x02\x02\x02\xB3\xB4\x07\x10\x02\x02" +
+		"\xB4\xB6\x05$\x13\x02\xB5\xB3\x03\x02\x02\x02\xB6\xB9\x03\x02\x02\x02" +
+		"\xB7\xB5\x03\x02\x02\x02\xB7\xB8\x03\x02\x02\x02\xB8#\x03\x02\x02\x02" +
+		"\xB9\xB7\x03\x02\x02\x02\xBA\xBB\x07\v\x02\x02\xBB\xBC\x07\x16\x02\x02" +
+		"\xBC\xBD\x07\f\x02\x02\xBD%\x03\x02\x02\x02\xBE\xBF\x07\v\x02\x02\xBF" +
+		"\xC0\x07\x17\x02\x02\xC0\xC1\x07\f\x02\x02\xC1\'\x03\x02\x02\x02\xC2\xC3" +
+		"\x07\v\x02\x02\xC3\xC4\x07\x1A\x02\x02\xC4\xC5\x07\f\x02\x02\xC5)\x03" +
+		"\x02\x02\x02\xC6\xCD\x05$\x13\x02\xC7\xCD\x05&\x14\x02\xC8\xCD\x05(\x15" +
+		"\x02\xC9\xCD\x07\x19\x02\x02\xCA\xCD\x07\x18\x02\x02\xCB\xCD\x07\x16\x02" +
+		"\x02\xCC\xC6\x03\x02\x02\x02\xCC\xC7\x03\x02\x02\x02\xCC\xC8\x03\x02\x02" +
+		"\x02\xCC\xC9\x03\x02\x02\x02\xCC\xCA\x03\x02\x02\x02\xCC\xCB\x03\x02\x02" +
+		"\x02\xCD+\x03\x02\x02\x02\x15/6BJMUX`mps\x82\x8A\x92\x9A\xA6\xB1\xB7\xCC";
 	public static __ATN: ATN;
 	public static get _ATN(): ATN {
 		if (!kacoParser.__ATN) {
@@ -1475,9 +1260,9 @@ export class IfStatementContext extends ParserRuleContext {
 
 export class QuoteExprContext extends ParserRuleContext {
 	public OpenParen(): TerminalNode { return this.getToken(kacoParser.OpenParen, 0); }
-	public OpenBracket(): TerminalNode | undefined { return this.tryGetToken(kacoParser.OpenBracket, 0); }
-	public StringDotLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.StringDotLiteral, 0); }
-	public CloseBracket(): TerminalNode | undefined { return this.tryGetToken(kacoParser.CloseBracket, 0); }
+	public ctrlQuoteDotLiteral(): CtrlQuoteDotLiteralContext | undefined {
+		return this.tryGetRuleContext(0, CtrlQuoteDotLiteralContext);
+	}
 	public CloseParen(): TerminalNode { return this.getToken(kacoParser.CloseParen, 0); }
 	public StringLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.StringLiteral, 0); }
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
@@ -1511,67 +1296,13 @@ export class QuoteExprContext extends ParserRuleContext {
 export class QuoteEllipsisExprContext extends ParserRuleContext {
 	public OpenParen(): TerminalNode { return this.getToken(kacoParser.OpenParen, 0); }
 	public CloseParen(): TerminalNode { return this.getToken(kacoParser.CloseParen, 0); }
-	public StringLiteral(): TerminalNode[];
-	public StringLiteral(i: number): TerminalNode;
-	public StringLiteral(i?: number): TerminalNode | TerminalNode[] {
+	public commonLiteral(): CommonLiteralContext[];
+	public commonLiteral(i: number): CommonLiteralContext;
+	public commonLiteral(i?: number): CommonLiteralContext | CommonLiteralContext[] {
 		if (i === undefined) {
-			return this.getTokens(kacoParser.StringLiteral);
+			return this.getRuleContexts(CommonLiteralContext);
 		} else {
-			return this.getToken(kacoParser.StringLiteral, i);
-		}
-	}
-	public DecimalLiteral(): TerminalNode[];
-	public DecimalLiteral(i: number): TerminalNode;
-	public DecimalLiteral(i?: number): TerminalNode | TerminalNode[] {
-		if (i === undefined) {
-			return this.getTokens(kacoParser.DecimalLiteral);
-		} else {
-			return this.getToken(kacoParser.DecimalLiteral, i);
-		}
-	}
-	public BooleanLiteral(): TerminalNode[];
-	public BooleanLiteral(i: number): TerminalNode;
-	public BooleanLiteral(i?: number): TerminalNode | TerminalNode[] {
-		if (i === undefined) {
-			return this.getTokens(kacoParser.BooleanLiteral);
-		} else {
-			return this.getToken(kacoParser.BooleanLiteral, i);
-		}
-	}
-	public OpenBracket(): TerminalNode[];
-	public OpenBracket(i: number): TerminalNode;
-	public OpenBracket(i?: number): TerminalNode | TerminalNode[] {
-		if (i === undefined) {
-			return this.getTokens(kacoParser.OpenBracket);
-		} else {
-			return this.getToken(kacoParser.OpenBracket, i);
-		}
-	}
-	public QuoteLiteral(): TerminalNode[];
-	public QuoteLiteral(i: number): TerminalNode;
-	public QuoteLiteral(i?: number): TerminalNode | TerminalNode[] {
-		if (i === undefined) {
-			return this.getTokens(kacoParser.QuoteLiteral);
-		} else {
-			return this.getToken(kacoParser.QuoteLiteral, i);
-		}
-	}
-	public CloseBracket(): TerminalNode[];
-	public CloseBracket(i: number): TerminalNode;
-	public CloseBracket(i?: number): TerminalNode | TerminalNode[] {
-		if (i === undefined) {
-			return this.getTokens(kacoParser.CloseBracket);
-		} else {
-			return this.getToken(kacoParser.CloseBracket, i);
-		}
-	}
-	public StringDotLiteral(): TerminalNode[];
-	public StringDotLiteral(i: number): TerminalNode;
-	public StringDotLiteral(i?: number): TerminalNode | TerminalNode[] {
-		if (i === undefined) {
-			return this.getTokens(kacoParser.StringDotLiteral);
-		} else {
-			return this.getToken(kacoParser.StringDotLiteral, i);
+			return this.getRuleContext(i, CommonLiteralContext);
 		}
 	}
 	public Comma(): TerminalNode[];
@@ -1682,41 +1413,6 @@ export class AssignStatementContext extends ParserRuleContext {
 }
 
 
-export class PrintStatementContext extends ParserRuleContext {
-	public OpenParen(): TerminalNode { return this.getToken(kacoParser.OpenParen, 0); }
-	public expression(): ExpressionContext {
-		return this.getRuleContext(0, ExpressionContext);
-	}
-	public CloseParen(): TerminalNode { return this.getToken(kacoParser.CloseParen, 0); }
-	public SemiColon(): TerminalNode { return this.getToken(kacoParser.SemiColon, 0); }
-	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
-		super(parent, invokingState);
-	}
-	// @Override
-	public get ruleIndex(): number { return kacoParser.RULE_printStatement; }
-	// @Override
-	public enterRule(listener: kacoListener): void {
-		if (listener.enterPrintStatement) {
-			listener.enterPrintStatement(this);
-		}
-	}
-	// @Override
-	public exitRule(listener: kacoListener): void {
-		if (listener.exitPrintStatement) {
-			listener.exitPrintStatement(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: kacoVisitor<Result>): Result {
-		if (visitor.visitPrintStatement) {
-			return visitor.visitPrintStatement(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
-}
-
-
 export class OpenFormStatementContext extends ParserRuleContext {
 	public OpenForm(): TerminalNode { return this.getToken(kacoParser.OpenForm, 0); }
 	public OpenBracket(): TerminalNode { return this.getToken(kacoParser.OpenBracket, 0); }
@@ -1795,82 +1491,9 @@ export class SaveFormStatementContext extends ParserRuleContext {
 }
 
 
-export class CommonExpressionContext extends ParserRuleContext {
-	public assignAbleStatement(): AssignAbleStatementContext {
-		return this.getRuleContext(0, AssignAbleStatementContext);
-	}
-	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
-		super(parent, invokingState);
-	}
-	// @Override
-	public get ruleIndex(): number { return kacoParser.RULE_commonExpression; }
-	// @Override
-	public enterRule(listener: kacoListener): void {
-		if (listener.enterCommonExpression) {
-			listener.enterCommonExpression(this);
-		}
-	}
-	// @Override
-	public exitRule(listener: kacoListener): void {
-		if (listener.exitCommonExpression) {
-			listener.exitCommonExpression(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: kacoVisitor<Result>): Result {
-		if (visitor.visitCommonExpression) {
-			return visitor.visitCommonExpression(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
-}
-
-
-export class AssignAbleStatementContext extends ParserRuleContext {
-	public assign(): AssignContext | undefined {
-		return this.tryGetRuleContext(0, AssignContext);
-	}
-	public expression(): ExpressionContext | undefined {
-		return this.tryGetRuleContext(0, ExpressionContext);
-	}
-	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
-		super(parent, invokingState);
-	}
-	// @Override
-	public get ruleIndex(): number { return kacoParser.RULE_assignAbleStatement; }
-	// @Override
-	public enterRule(listener: kacoListener): void {
-		if (listener.enterAssignAbleStatement) {
-			listener.enterAssignAbleStatement(this);
-		}
-	}
-	// @Override
-	public exitRule(listener: kacoListener): void {
-		if (listener.exitAssignAbleStatement) {
-			listener.exitAssignAbleStatement(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: kacoVisitor<Result>): Result {
-		if (visitor.visitAssignAbleStatement) {
-			return visitor.visitAssignAbleStatement(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
-}
-
-
 export class ExpressionContext extends ParserRuleContext {
-	public andAndExpression(): AndAndExpressionContext[];
-	public andAndExpression(i: number): AndAndExpressionContext;
-	public andAndExpression(i?: number): AndAndExpressionContext | AndAndExpressionContext[] {
-		if (i === undefined) {
-			return this.getRuleContexts(AndAndExpressionContext);
-		} else {
-			return this.getRuleContext(i, AndAndExpressionContext);
-		}
+	public subTerm(): SubTermContext {
+		return this.getRuleContext(0, SubTermContext);
 	}
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
 		super(parent, invokingState);
@@ -1900,37 +1523,37 @@ export class ExpressionContext extends ParserRuleContext {
 }
 
 
-export class AndAndExpressionContext extends ParserRuleContext {
-	public cmpExpression(): CmpExpressionContext[];
-	public cmpExpression(i: number): CmpExpressionContext;
-	public cmpExpression(i?: number): CmpExpressionContext | CmpExpressionContext[] {
+export class SubTermContext extends ParserRuleContext {
+	public addTerm(): AddTermContext[];
+	public addTerm(i: number): AddTermContext;
+	public addTerm(i?: number): AddTermContext | AddTermContext[] {
 		if (i === undefined) {
-			return this.getRuleContexts(CmpExpressionContext);
+			return this.getRuleContexts(AddTermContext);
 		} else {
-			return this.getRuleContext(i, CmpExpressionContext);
+			return this.getRuleContext(i, AddTermContext);
 		}
 	}
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
 		super(parent, invokingState);
 	}
 	// @Override
-	public get ruleIndex(): number { return kacoParser.RULE_andAndExpression; }
+	public get ruleIndex(): number { return kacoParser.RULE_subTerm; }
 	// @Override
 	public enterRule(listener: kacoListener): void {
-		if (listener.enterAndAndExpression) {
-			listener.enterAndAndExpression(this);
+		if (listener.enterSubTerm) {
+			listener.enterSubTerm(this);
 		}
 	}
 	// @Override
 	public exitRule(listener: kacoListener): void {
-		if (listener.exitAndAndExpression) {
-			listener.exitAndAndExpression(this);
+		if (listener.exitSubTerm) {
+			listener.exitSubTerm(this);
 		}
 	}
 	// @Override
 	public accept<Result>(visitor: kacoVisitor<Result>): Result {
-		if (visitor.visitAndAndExpression) {
-			return visitor.visitAndAndExpression(this);
+		if (visitor.visitSubTerm) {
+			return visitor.visitSubTerm(this);
 		} else {
 			return visitor.visitChildren(this);
 		}
@@ -1938,37 +1561,37 @@ export class AndAndExpressionContext extends ParserRuleContext {
 }
 
 
-export class CmpExpressionContext extends ParserRuleContext {
-	public addExpression(): AddExpressionContext[];
-	public addExpression(i: number): AddExpressionContext;
-	public addExpression(i?: number): AddExpressionContext | AddExpressionContext[] {
+export class AddTermContext extends ParserRuleContext {
+	public divTerm(): DivTermContext[];
+	public divTerm(i: number): DivTermContext;
+	public divTerm(i?: number): DivTermContext | DivTermContext[] {
 		if (i === undefined) {
-			return this.getRuleContexts(AddExpressionContext);
+			return this.getRuleContexts(DivTermContext);
 		} else {
-			return this.getRuleContext(i, AddExpressionContext);
+			return this.getRuleContext(i, DivTermContext);
 		}
 	}
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
 		super(parent, invokingState);
 	}
 	// @Override
-	public get ruleIndex(): number { return kacoParser.RULE_cmpExpression; }
+	public get ruleIndex(): number { return kacoParser.RULE_addTerm; }
 	// @Override
 	public enterRule(listener: kacoListener): void {
-		if (listener.enterCmpExpression) {
-			listener.enterCmpExpression(this);
+		if (listener.enterAddTerm) {
+			listener.enterAddTerm(this);
 		}
 	}
 	// @Override
 	public exitRule(listener: kacoListener): void {
-		if (listener.exitCmpExpression) {
-			listener.exitCmpExpression(this);
+		if (listener.exitAddTerm) {
+			listener.exitAddTerm(this);
 		}
 	}
 	// @Override
 	public accept<Result>(visitor: kacoVisitor<Result>): Result {
-		if (visitor.visitCmpExpression) {
-			return visitor.visitCmpExpression(this);
+		if (visitor.visitAddTerm) {
+			return visitor.visitAddTerm(this);
 		} else {
 			return visitor.visitChildren(this);
 		}
@@ -1976,37 +1599,37 @@ export class CmpExpressionContext extends ParserRuleContext {
 }
 
 
-export class AddExpressionContext extends ParserRuleContext {
-	public mulExpression(): MulExpressionContext[];
-	public mulExpression(i: number): MulExpressionContext;
-	public mulExpression(i?: number): MulExpressionContext | MulExpressionContext[] {
+export class DivTermContext extends ParserRuleContext {
+	public mulTerm(): MulTermContext[];
+	public mulTerm(i: number): MulTermContext;
+	public mulTerm(i?: number): MulTermContext | MulTermContext[] {
 		if (i === undefined) {
-			return this.getRuleContexts(MulExpressionContext);
+			return this.getRuleContexts(MulTermContext);
 		} else {
-			return this.getRuleContext(i, MulExpressionContext);
+			return this.getRuleContext(i, MulTermContext);
 		}
 	}
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
 		super(parent, invokingState);
 	}
 	// @Override
-	public get ruleIndex(): number { return kacoParser.RULE_addExpression; }
+	public get ruleIndex(): number { return kacoParser.RULE_divTerm; }
 	// @Override
 	public enterRule(listener: kacoListener): void {
-		if (listener.enterAddExpression) {
-			listener.enterAddExpression(this);
+		if (listener.enterDivTerm) {
+			listener.enterDivTerm(this);
 		}
 	}
 	// @Override
 	public exitRule(listener: kacoListener): void {
-		if (listener.exitAddExpression) {
-			listener.exitAddExpression(this);
+		if (listener.exitDivTerm) {
+			listener.exitDivTerm(this);
 		}
 	}
 	// @Override
 	public accept<Result>(visitor: kacoVisitor<Result>): Result {
-		if (visitor.visitAddExpression) {
-			return visitor.visitAddExpression(this);
+		if (visitor.visitDivTerm) {
+			return visitor.visitDivTerm(this);
 		} else {
 			return visitor.visitChildren(this);
 		}
@@ -2014,37 +1637,37 @@ export class AddExpressionContext extends ParserRuleContext {
 }
 
 
-export class MulExpressionContext extends ParserRuleContext {
-	public unaryExpression(): UnaryExpressionContext[];
-	public unaryExpression(i: number): UnaryExpressionContext;
-	public unaryExpression(i?: number): UnaryExpressionContext | UnaryExpressionContext[] {
+export class MulTermContext extends ParserRuleContext {
+	public parnTerm(): ParnTermContext[];
+	public parnTerm(i: number): ParnTermContext;
+	public parnTerm(i?: number): ParnTermContext | ParnTermContext[] {
 		if (i === undefined) {
-			return this.getRuleContexts(UnaryExpressionContext);
+			return this.getRuleContexts(ParnTermContext);
 		} else {
-			return this.getRuleContext(i, UnaryExpressionContext);
+			return this.getRuleContext(i, ParnTermContext);
 		}
 	}
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
 		super(parent, invokingState);
 	}
 	// @Override
-	public get ruleIndex(): number { return kacoParser.RULE_mulExpression; }
+	public get ruleIndex(): number { return kacoParser.RULE_mulTerm; }
 	// @Override
 	public enterRule(listener: kacoListener): void {
-		if (listener.enterMulExpression) {
-			listener.enterMulExpression(this);
+		if (listener.enterMulTerm) {
+			listener.enterMulTerm(this);
 		}
 	}
 	// @Override
 	public exitRule(listener: kacoListener): void {
-		if (listener.exitMulExpression) {
-			listener.exitMulExpression(this);
+		if (listener.exitMulTerm) {
+			listener.exitMulTerm(this);
 		}
 	}
 	// @Override
 	public accept<Result>(visitor: kacoVisitor<Result>): Result {
-		if (visitor.visitMulExpression) {
-			return visitor.visitMulExpression(this);
+		if (visitor.visitMulTerm) {
+			return visitor.visitMulTerm(this);
 		} else {
 			return visitor.visitChildren(this);
 		}
@@ -2052,100 +1675,42 @@ export class MulExpressionContext extends ParserRuleContext {
 }
 
 
-export class UnaryExpressionContext extends ParserRuleContext {
-	public primaryExpression(): PrimaryExpressionContext | undefined {
-		return this.tryGetRuleContext(0, PrimaryExpressionContext);
-	}
-	public unaryExpression(): UnaryExpressionContext | undefined {
-		return this.tryGetRuleContext(0, UnaryExpressionContext);
-	}
-	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
-		super(parent, invokingState);
-	}
-	// @Override
-	public get ruleIndex(): number { return kacoParser.RULE_unaryExpression; }
-	// @Override
-	public enterRule(listener: kacoListener): void {
-		if (listener.enterUnaryExpression) {
-			listener.enterUnaryExpression(this);
-		}
-	}
-	// @Override
-	public exitRule(listener: kacoListener): void {
-		if (listener.exitUnaryExpression) {
-			listener.exitUnaryExpression(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: kacoVisitor<Result>): Result {
-		if (visitor.visitUnaryExpression) {
-			return visitor.visitUnaryExpression(this);
+export class ParnTermContext extends ParserRuleContext {
+	public commonLiteral(): CommonLiteralContext[];
+	public commonLiteral(i: number): CommonLiteralContext;
+	public commonLiteral(i?: number): CommonLiteralContext | CommonLiteralContext[] {
+		if (i === undefined) {
+			return this.getRuleContexts(CommonLiteralContext);
 		} else {
-			return visitor.visitChildren(this);
+			return this.getRuleContext(i, CommonLiteralContext);
 		}
 	}
-}
-
-
-export class PrimaryExpressionContext extends ParserRuleContext {
-	public variableExpression(): VariableExpressionContext | undefined {
-		return this.tryGetRuleContext(0, VariableExpressionContext);
-	}
-	public OpenParen(): TerminalNode | undefined { return this.tryGetToken(kacoParser.OpenParen, 0); }
 	public expression(): ExpressionContext | undefined {
 		return this.tryGetRuleContext(0, ExpressionContext);
 	}
+	public OpenParen(): TerminalNode | undefined { return this.tryGetToken(kacoParser.OpenParen, 0); }
 	public CloseParen(): TerminalNode | undefined { return this.tryGetToken(kacoParser.CloseParen, 0); }
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
 		super(parent, invokingState);
 	}
 	// @Override
-	public get ruleIndex(): number { return kacoParser.RULE_primaryExpression; }
+	public get ruleIndex(): number { return kacoParser.RULE_parnTerm; }
 	// @Override
 	public enterRule(listener: kacoListener): void {
-		if (listener.enterPrimaryExpression) {
-			listener.enterPrimaryExpression(this);
+		if (listener.enterParnTerm) {
+			listener.enterParnTerm(this);
 		}
 	}
 	// @Override
 	public exitRule(listener: kacoListener): void {
-		if (listener.exitPrimaryExpression) {
-			listener.exitPrimaryExpression(this);
+		if (listener.exitParnTerm) {
+			listener.exitParnTerm(this);
 		}
 	}
 	// @Override
 	public accept<Result>(visitor: kacoVisitor<Result>): Result {
-		if (visitor.visitPrimaryExpression) {
-			return visitor.visitPrimaryExpression(this);
-		} else {
-			return visitor.visitChildren(this);
-		}
-	}
-}
-
-
-export class VariableExpressionContext extends ParserRuleContext {
-	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
-		super(parent, invokingState);
-	}
-	// @Override
-	public get ruleIndex(): number { return kacoParser.RULE_variableExpression; }
-	// @Override
-	public enterRule(listener: kacoListener): void {
-		if (listener.enterVariableExpression) {
-			listener.enterVariableExpression(this);
-		}
-	}
-	// @Override
-	public exitRule(listener: kacoListener): void {
-		if (listener.exitVariableExpression) {
-			listener.exitVariableExpression(this);
-		}
-	}
-	// @Override
-	public accept<Result>(visitor: kacoVisitor<Result>): Result {
-		if (visitor.visitVariableExpression) {
-			return visitor.visitVariableExpression(this);
+		if (visitor.visitParnTerm) {
+			return visitor.visitParnTerm(this);
 		} else {
 			return visitor.visitChildren(this);
 		}
@@ -2154,38 +1719,13 @@ export class VariableExpressionContext extends ParserRuleContext {
 
 
 export class AssignContext extends ParserRuleContext {
-	public OpenBracket(): TerminalNode[];
-	public OpenBracket(i: number): TerminalNode;
-	public OpenBracket(i?: number): TerminalNode | TerminalNode[] {
-		if (i === undefined) {
-			return this.getTokens(kacoParser.OpenBracket);
-		} else {
-			return this.getToken(kacoParser.OpenBracket, i);
-		}
-	}
-	public StringLiteral(): TerminalNode[];
-	public StringLiteral(i: number): TerminalNode;
-	public StringLiteral(i?: number): TerminalNode | TerminalNode[] {
-		if (i === undefined) {
-			return this.getTokens(kacoParser.StringLiteral);
-		} else {
-			return this.getToken(kacoParser.StringLiteral, i);
-		}
-	}
-	public CloseBracket(): TerminalNode[];
-	public CloseBracket(i: number): TerminalNode;
-	public CloseBracket(i?: number): TerminalNode | TerminalNode[] {
-		if (i === undefined) {
-			return this.getTokens(kacoParser.CloseBracket);
-		} else {
-			return this.getToken(kacoParser.CloseBracket, i);
-		}
+	public assignStart(): AssignStartContext {
+		return this.getRuleContext(0, AssignStartContext);
 	}
 	public Assign(): TerminalNode { return this.getToken(kacoParser.Assign, 0); }
-	public StringDotLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.StringDotLiteral, 0); }
-	public QuoteLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.QuoteLiteral, 0); }
-	public DecimalLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.DecimalLiteral, 0); }
-	public BooleanLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.BooleanLiteral, 0); }
+	public expression(): ExpressionContext {
+		return this.getRuleContext(0, ExpressionContext);
+	}
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
 		super(parent, invokingState);
 	}
@@ -2207,6 +1747,191 @@ export class AssignContext extends ParserRuleContext {
 	public accept<Result>(visitor: kacoVisitor<Result>): Result {
 		if (visitor.visitAssign) {
 			return visitor.visitAssign(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class AssignStartContext extends ParserRuleContext {
+	public ctrlQuoteLiteral(): CtrlQuoteLiteralContext[];
+	public ctrlQuoteLiteral(i: number): CtrlQuoteLiteralContext;
+	public ctrlQuoteLiteral(i?: number): CtrlQuoteLiteralContext | CtrlQuoteLiteralContext[] {
+		if (i === undefined) {
+			return this.getRuleContexts(CtrlQuoteLiteralContext);
+		} else {
+			return this.getRuleContext(i, CtrlQuoteLiteralContext);
+		}
+	}
+	public Dot(): TerminalNode | undefined { return this.tryGetToken(kacoParser.Dot, 0); }
+	public Comma(): TerminalNode[];
+	public Comma(i: number): TerminalNode;
+	public Comma(i?: number): TerminalNode | TerminalNode[] {
+		if (i === undefined) {
+			return this.getTokens(kacoParser.Comma);
+		} else {
+			return this.getToken(kacoParser.Comma, i);
+		}
+	}
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return kacoParser.RULE_assignStart; }
+	// @Override
+	public enterRule(listener: kacoListener): void {
+		if (listener.enterAssignStart) {
+			listener.enterAssignStart(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: kacoListener): void {
+		if (listener.exitAssignStart) {
+			listener.exitAssignStart(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: kacoVisitor<Result>): Result {
+		if (visitor.visitAssignStart) {
+			return visitor.visitAssignStart(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class CtrlQuoteLiteralContext extends ParserRuleContext {
+	public OpenBracket(): TerminalNode { return this.getToken(kacoParser.OpenBracket, 0); }
+	public StringLiteral(): TerminalNode { return this.getToken(kacoParser.StringLiteral, 0); }
+	public CloseBracket(): TerminalNode { return this.getToken(kacoParser.CloseBracket, 0); }
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return kacoParser.RULE_ctrlQuoteLiteral; }
+	// @Override
+	public enterRule(listener: kacoListener): void {
+		if (listener.enterCtrlQuoteLiteral) {
+			listener.enterCtrlQuoteLiteral(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: kacoListener): void {
+		if (listener.exitCtrlQuoteLiteral) {
+			listener.exitCtrlQuoteLiteral(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: kacoVisitor<Result>): Result {
+		if (visitor.visitCtrlQuoteLiteral) {
+			return visitor.visitCtrlQuoteLiteral(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class CtrlQuoteDotLiteralContext extends ParserRuleContext {
+	public OpenBracket(): TerminalNode { return this.getToken(kacoParser.OpenBracket, 0); }
+	public StringDotLiteral(): TerminalNode { return this.getToken(kacoParser.StringDotLiteral, 0); }
+	public CloseBracket(): TerminalNode { return this.getToken(kacoParser.CloseBracket, 0); }
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return kacoParser.RULE_ctrlQuoteDotLiteral; }
+	// @Override
+	public enterRule(listener: kacoListener): void {
+		if (listener.enterCtrlQuoteDotLiteral) {
+			listener.enterCtrlQuoteDotLiteral(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: kacoListener): void {
+		if (listener.exitCtrlQuoteDotLiteral) {
+			listener.exitCtrlQuoteDotLiteral(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: kacoVisitor<Result>): Result {
+		if (visitor.visitCtrlQuoteDotLiteral) {
+			return visitor.visitCtrlQuoteDotLiteral(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class CtrlQuoteParamLiteralContext extends ParserRuleContext {
+	public OpenBracket(): TerminalNode { return this.getToken(kacoParser.OpenBracket, 0); }
+	public ParamLiteral(): TerminalNode { return this.getToken(kacoParser.ParamLiteral, 0); }
+	public CloseBracket(): TerminalNode { return this.getToken(kacoParser.CloseBracket, 0); }
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return kacoParser.RULE_ctrlQuoteParamLiteral; }
+	// @Override
+	public enterRule(listener: kacoListener): void {
+		if (listener.enterCtrlQuoteParamLiteral) {
+			listener.enterCtrlQuoteParamLiteral(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: kacoListener): void {
+		if (listener.exitCtrlQuoteParamLiteral) {
+			listener.exitCtrlQuoteParamLiteral(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: kacoVisitor<Result>): Result {
+		if (visitor.visitCtrlQuoteParamLiteral) {
+			return visitor.visitCtrlQuoteParamLiteral(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class CommonLiteralContext extends ParserRuleContext {
+	public ctrlQuoteLiteral(): CtrlQuoteLiteralContext | undefined {
+		return this.tryGetRuleContext(0, CtrlQuoteLiteralContext);
+	}
+	public ctrlQuoteDotLiteral(): CtrlQuoteDotLiteralContext | undefined {
+		return this.tryGetRuleContext(0, CtrlQuoteDotLiteralContext);
+	}
+	public ctrlQuoteParamLiteral(): CtrlQuoteParamLiteralContext | undefined {
+		return this.tryGetRuleContext(0, CtrlQuoteParamLiteralContext);
+	}
+	public DecimalLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.DecimalLiteral, 0); }
+	public BooleanLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.BooleanLiteral, 0); }
+	public StringLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.StringLiteral, 0); }
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return kacoParser.RULE_commonLiteral; }
+	// @Override
+	public enterRule(listener: kacoListener): void {
+		if (listener.enterCommonLiteral) {
+			listener.enterCommonLiteral(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: kacoListener): void {
+		if (listener.exitCommonLiteral) {
+			listener.exitCommonLiteral(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: kacoVisitor<Result>): Result {
+		if (visitor.visitCommonLiteral) {
+			return visitor.visitCommonLiteral(this);
 		} else {
 			return visitor.visitChildren(this);
 		}

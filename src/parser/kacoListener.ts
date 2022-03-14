@@ -10,20 +10,20 @@ import { QuoteExprContext } from "./kacoParser";
 import { QuoteEllipsisExprContext } from "./kacoParser";
 import { BlockStatementContext } from "./kacoParser";
 import { AssignStatementContext } from "./kacoParser";
-import { PrintStatementContext } from "./kacoParser";
 import { OpenFormStatementContext } from "./kacoParser";
 import { SaveFormStatementContext } from "./kacoParser";
-import { CommonExpressionContext } from "./kacoParser";
-import { AssignAbleStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
-import { AndAndExpressionContext } from "./kacoParser";
-import { CmpExpressionContext } from "./kacoParser";
-import { AddExpressionContext } from "./kacoParser";
-import { MulExpressionContext } from "./kacoParser";
-import { UnaryExpressionContext } from "./kacoParser";
-import { PrimaryExpressionContext } from "./kacoParser";
-import { VariableExpressionContext } from "./kacoParser";
+import { SubTermContext } from "./kacoParser";
+import { AddTermContext } from "./kacoParser";
+import { DivTermContext } from "./kacoParser";
+import { MulTermContext } from "./kacoParser";
+import { ParnTermContext } from "./kacoParser";
 import { AssignContext } from "./kacoParser";
+import { AssignStartContext } from "./kacoParser";
+import { CtrlQuoteLiteralContext } from "./kacoParser";
+import { CtrlQuoteDotLiteralContext } from "./kacoParser";
+import { CtrlQuoteParamLiteralContext } from "./kacoParser";
+import { CommonLiteralContext } from "./kacoParser";
 
 
 /**
@@ -109,17 +109,6 @@ export interface kacoListener extends ParseTreeListener {
 	exitAssignStatement?: (ctx: AssignStatementContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `kacoParser.printStatement`.
-	 * @param ctx the parse tree
-	 */
-	enterPrintStatement?: (ctx: PrintStatementContext) => void;
-	/**
-	 * Exit a parse tree produced by `kacoParser.printStatement`.
-	 * @param ctx the parse tree
-	 */
-	exitPrintStatement?: (ctx: PrintStatementContext) => void;
-
-	/**
 	 * Enter a parse tree produced by `kacoParser.openFormStatement`.
 	 * @param ctx the parse tree
 	 */
@@ -142,28 +131,6 @@ export interface kacoListener extends ParseTreeListener {
 	exitSaveFormStatement?: (ctx: SaveFormStatementContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `kacoParser.commonExpression`.
-	 * @param ctx the parse tree
-	 */
-	enterCommonExpression?: (ctx: CommonExpressionContext) => void;
-	/**
-	 * Exit a parse tree produced by `kacoParser.commonExpression`.
-	 * @param ctx the parse tree
-	 */
-	exitCommonExpression?: (ctx: CommonExpressionContext) => void;
-
-	/**
-	 * Enter a parse tree produced by `kacoParser.assignAbleStatement`.
-	 * @param ctx the parse tree
-	 */
-	enterAssignAbleStatement?: (ctx: AssignAbleStatementContext) => void;
-	/**
-	 * Exit a parse tree produced by `kacoParser.assignAbleStatement`.
-	 * @param ctx the parse tree
-	 */
-	exitAssignAbleStatement?: (ctx: AssignAbleStatementContext) => void;
-
-	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.
 	 * @param ctx the parse tree
 	 */
@@ -175,81 +142,59 @@ export interface kacoListener extends ParseTreeListener {
 	exitExpression?: (ctx: ExpressionContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `kacoParser.andAndExpression`.
+	 * Enter a parse tree produced by `kacoParser.subTerm`.
 	 * @param ctx the parse tree
 	 */
-	enterAndAndExpression?: (ctx: AndAndExpressionContext) => void;
+	enterSubTerm?: (ctx: SubTermContext) => void;
 	/**
-	 * Exit a parse tree produced by `kacoParser.andAndExpression`.
+	 * Exit a parse tree produced by `kacoParser.subTerm`.
 	 * @param ctx the parse tree
 	 */
-	exitAndAndExpression?: (ctx: AndAndExpressionContext) => void;
+	exitSubTerm?: (ctx: SubTermContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `kacoParser.cmpExpression`.
+	 * Enter a parse tree produced by `kacoParser.addTerm`.
 	 * @param ctx the parse tree
 	 */
-	enterCmpExpression?: (ctx: CmpExpressionContext) => void;
+	enterAddTerm?: (ctx: AddTermContext) => void;
 	/**
-	 * Exit a parse tree produced by `kacoParser.cmpExpression`.
+	 * Exit a parse tree produced by `kacoParser.addTerm`.
 	 * @param ctx the parse tree
 	 */
-	exitCmpExpression?: (ctx: CmpExpressionContext) => void;
+	exitAddTerm?: (ctx: AddTermContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `kacoParser.addExpression`.
+	 * Enter a parse tree produced by `kacoParser.divTerm`.
 	 * @param ctx the parse tree
 	 */
-	enterAddExpression?: (ctx: AddExpressionContext) => void;
+	enterDivTerm?: (ctx: DivTermContext) => void;
 	/**
-	 * Exit a parse tree produced by `kacoParser.addExpression`.
+	 * Exit a parse tree produced by `kacoParser.divTerm`.
 	 * @param ctx the parse tree
 	 */
-	exitAddExpression?: (ctx: AddExpressionContext) => void;
+	exitDivTerm?: (ctx: DivTermContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `kacoParser.mulExpression`.
+	 * Enter a parse tree produced by `kacoParser.mulTerm`.
 	 * @param ctx the parse tree
 	 */
-	enterMulExpression?: (ctx: MulExpressionContext) => void;
+	enterMulTerm?: (ctx: MulTermContext) => void;
 	/**
-	 * Exit a parse tree produced by `kacoParser.mulExpression`.
+	 * Exit a parse tree produced by `kacoParser.mulTerm`.
 	 * @param ctx the parse tree
 	 */
-	exitMulExpression?: (ctx: MulExpressionContext) => void;
+	exitMulTerm?: (ctx: MulTermContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `kacoParser.unaryExpression`.
+	 * Enter a parse tree produced by `kacoParser.parnTerm`.
 	 * @param ctx the parse tree
 	 */
-	enterUnaryExpression?: (ctx: UnaryExpressionContext) => void;
+	enterParnTerm?: (ctx: ParnTermContext) => void;
 	/**
-	 * Exit a parse tree produced by `kacoParser.unaryExpression`.
+	 * Exit a parse tree produced by `kacoParser.parnTerm`.
 	 * @param ctx the parse tree
 	 */
-	exitUnaryExpression?: (ctx: UnaryExpressionContext) => void;
-
-	/**
-	 * Enter a parse tree produced by `kacoParser.primaryExpression`.
-	 * @param ctx the parse tree
-	 */
-	enterPrimaryExpression?: (ctx: PrimaryExpressionContext) => void;
-	/**
-	 * Exit a parse tree produced by `kacoParser.primaryExpression`.
-	 * @param ctx the parse tree
-	 */
-	exitPrimaryExpression?: (ctx: PrimaryExpressionContext) => void;
-
-	/**
-	 * Enter a parse tree produced by `kacoParser.variableExpression`.
-	 * @param ctx the parse tree
-	 */
-	enterVariableExpression?: (ctx: VariableExpressionContext) => void;
-	/**
-	 * Exit a parse tree produced by `kacoParser.variableExpression`.
-	 * @param ctx the parse tree
-	 */
-	exitVariableExpression?: (ctx: VariableExpressionContext) => void;
+	exitParnTerm?: (ctx: ParnTermContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.assign`.
@@ -261,5 +206,60 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitAssign?: (ctx: AssignContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.assignStart`.
+	 * @param ctx the parse tree
+	 */
+	enterAssignStart?: (ctx: AssignStartContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.assignStart`.
+	 * @param ctx the parse tree
+	 */
+	exitAssignStart?: (ctx: AssignStartContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.ctrlQuoteLiteral`.
+	 * @param ctx the parse tree
+	 */
+	enterCtrlQuoteLiteral?: (ctx: CtrlQuoteLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.ctrlQuoteLiteral`.
+	 * @param ctx the parse tree
+	 */
+	exitCtrlQuoteLiteral?: (ctx: CtrlQuoteLiteralContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.ctrlQuoteDotLiteral`.
+	 * @param ctx the parse tree
+	 */
+	enterCtrlQuoteDotLiteral?: (ctx: CtrlQuoteDotLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.ctrlQuoteDotLiteral`.
+	 * @param ctx the parse tree
+	 */
+	exitCtrlQuoteDotLiteral?: (ctx: CtrlQuoteDotLiteralContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.ctrlQuoteParamLiteral`.
+	 * @param ctx the parse tree
+	 */
+	enterCtrlQuoteParamLiteral?: (ctx: CtrlQuoteParamLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.ctrlQuoteParamLiteral`.
+	 * @param ctx the parse tree
+	 */
+	exitCtrlQuoteParamLiteral?: (ctx: CtrlQuoteParamLiteralContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.commonLiteral`.
+	 * @param ctx the parse tree
+	 */
+	enterCommonLiteral?: (ctx: CommonLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.commonLiteral`.
+	 * @param ctx the parse tree
+	 */
+	exitCommonLiteral?: (ctx: CommonLiteralContext) => void;
 }
 

@@ -10,20 +10,20 @@ import { QuoteExprContext } from "./kacoParser";
 import { QuoteEllipsisExprContext } from "./kacoParser";
 import { BlockStatementContext } from "./kacoParser";
 import { AssignStatementContext } from "./kacoParser";
-import { PrintStatementContext } from "./kacoParser";
 import { OpenFormStatementContext } from "./kacoParser";
 import { SaveFormStatementContext } from "./kacoParser";
-import { CommonExpressionContext } from "./kacoParser";
-import { AssignAbleStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
-import { AndAndExpressionContext } from "./kacoParser";
-import { CmpExpressionContext } from "./kacoParser";
-import { AddExpressionContext } from "./kacoParser";
-import { MulExpressionContext } from "./kacoParser";
-import { UnaryExpressionContext } from "./kacoParser";
-import { PrimaryExpressionContext } from "./kacoParser";
-import { VariableExpressionContext } from "./kacoParser";
+import { SubTermContext } from "./kacoParser";
+import { AddTermContext } from "./kacoParser";
+import { DivTermContext } from "./kacoParser";
+import { MulTermContext } from "./kacoParser";
+import { ParnTermContext } from "./kacoParser";
 import { AssignContext } from "./kacoParser";
+import { AssignStartContext } from "./kacoParser";
+import { CtrlQuoteLiteralContext } from "./kacoParser";
+import { CtrlQuoteDotLiteralContext } from "./kacoParser";
+import { CtrlQuoteParamLiteralContext } from "./kacoParser";
+import { CommonLiteralContext } from "./kacoParser";
 
 
 /**
@@ -84,13 +84,6 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitAssignStatement?: (ctx: AssignStatementContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `kacoParser.printStatement`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	visitPrintStatement?: (ctx: PrintStatementContext) => Result;
-
-	/**
 	 * Visit a parse tree produced by `kacoParser.openFormStatement`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -105,20 +98,6 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitSaveFormStatement?: (ctx: SaveFormStatementContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `kacoParser.commonExpression`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	visitCommonExpression?: (ctx: CommonExpressionContext) => Result;
-
-	/**
-	 * Visit a parse tree produced by `kacoParser.assignAbleStatement`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	visitAssignAbleStatement?: (ctx: AssignAbleStatementContext) => Result;
-
-	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -126,53 +105,39 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitExpression?: (ctx: ExpressionContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `kacoParser.andAndExpression`.
+	 * Visit a parse tree produced by `kacoParser.subTerm`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitAndAndExpression?: (ctx: AndAndExpressionContext) => Result;
+	visitSubTerm?: (ctx: SubTermContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `kacoParser.cmpExpression`.
+	 * Visit a parse tree produced by `kacoParser.addTerm`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitCmpExpression?: (ctx: CmpExpressionContext) => Result;
+	visitAddTerm?: (ctx: AddTermContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `kacoParser.addExpression`.
+	 * Visit a parse tree produced by `kacoParser.divTerm`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitAddExpression?: (ctx: AddExpressionContext) => Result;
+	visitDivTerm?: (ctx: DivTermContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `kacoParser.mulExpression`.
+	 * Visit a parse tree produced by `kacoParser.mulTerm`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitMulExpression?: (ctx: MulExpressionContext) => Result;
+	visitMulTerm?: (ctx: MulTermContext) => Result;
 
 	/**
-	 * Visit a parse tree produced by `kacoParser.unaryExpression`.
+	 * Visit a parse tree produced by `kacoParser.parnTerm`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	visitUnaryExpression?: (ctx: UnaryExpressionContext) => Result;
-
-	/**
-	 * Visit a parse tree produced by `kacoParser.primaryExpression`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	visitPrimaryExpression?: (ctx: PrimaryExpressionContext) => Result;
-
-	/**
-	 * Visit a parse tree produced by `kacoParser.variableExpression`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	visitVariableExpression?: (ctx: VariableExpressionContext) => Result;
+	visitParnTerm?: (ctx: ParnTermContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.assign`.
@@ -180,5 +145,40 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitAssign?: (ctx: AssignContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.assignStart`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAssignStart?: (ctx: AssignStartContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.ctrlQuoteLiteral`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCtrlQuoteLiteral?: (ctx: CtrlQuoteLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.ctrlQuoteDotLiteral`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCtrlQuoteDotLiteral?: (ctx: CtrlQuoteDotLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.ctrlQuoteParamLiteral`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCtrlQuoteParamLiteral?: (ctx: CtrlQuoteParamLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.commonLiteral`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCommonLiteral?: (ctx: CommonLiteralContext) => Result;
 }
 
