@@ -34,7 +34,6 @@ SaveForm
 statement
     // : ifStatement
     // | blockStatement
-    // | printStatement
     : openFormStatement
     | saveFormStatement
     | assignStatement
@@ -44,12 +43,12 @@ ifStatement
     | 'if' quoteExpr blockStatement 'else' blockStatement
     ;
 quoteExpr
-    : '(' '[' StringDotLiteral ']' ')'
+    : '(' ctrlQuoteDotLiteral ')'
     | '(' StringLiteral? ')'
     ;
 
 quoteEllipsisExpr
-    : '(' ((StringLiteral | DecimalLiteral | BooleanLiteral | '[' QuoteLiteral ']' | '[' StringDotLiteral ']' | '[' StringLiteral ']') (',' (StringLiteral | DecimalLiteral | BooleanLiteral | '[' QuoteLiteral ']' | '[' StringDotLiteral ']' | '[' StringLiteral ']'))* )? ')'
+    : '(' (commonLiteral (',' commonLiteral)* )? ')'
     ;
 
 blockStatement
@@ -57,10 +56,6 @@ blockStatement
     ;
 assignStatement
     : assign ';'
-    ;
-
-printStatement
-    : 'print' '(' expression ')' ';'
     ;
 
 openFormStatement
@@ -71,46 +66,47 @@ saveFormStatement
     : 'SaveForm' quoteEllipsisExpr ';'
     ;
 
-commonExpression
-    : assignAbleStatement
-    ;
-assignAbleStatement
-    : assign
-    | expression
-    ;
 
 //==============================================================
 
 expression
-    : andAndExpression ('||' andAndExpression)*
+    : subTerm
     ;
-andAndExpression
-    : cmpExpression ('&&' cmpExpression)*
-    ;
-cmpExpression
-    : addExpression (('==' | '!=' | '<' | '<=' | '>' | '>=') addExpression)?
-    ;
-addExpression
-    : mulExpression (('+' | '-') mulExpression)*
-    ;
-mulExpression
-    : unaryExpression (('*' | '/') unaryExpression)*
-    ;
-unaryExpression
-    : primaryExpression
-    | ('-' | '!') unaryExpression
-    ;
-primaryExpression
-    : variableExpression
-    | '(' expression ')'
-    ;
-variableExpression
-    : 
-    ;
+
+subTerm: addTerm ('-' addTerm)*;
+addTerm: divTerm('+' divTerm)*;
+divTerm: mulTerm ('/' mulTerm)*;
+mulTerm: parnTerm ('*' parnTerm)*;
+
+parnTerm: (commonLiteral expression commonLiteral) | commonLiteral | '(' expression ')';
+
 //==============================================================
 
 assign
-    : '[' StringLiteral ']' Assign ('[' StringLiteral ']' | '[' StringDotLiteral ']' | '[' QuoteLiteral ']' | DecimalLiteral | BooleanLiteral | StringLiteral)
+    : assignStart '=' expression
+    ;
+
+assignStart
+    : (ctrlQuoteLiteral | ctrlQuoteLiteral '.' ctrlQuoteLiteral) (',' ctrlQuoteLiteral)*
+    ;
+
+
+// composes
+
+ctrlQuoteLiteral
+    : '[' StringLiteral ']'
+    ;
+
+ctrlQuoteDotLiteral
+    : '[' StringDotLiteral ']'
+    ;
+
+ctrlQuoteParamLiteral
+    : '[' ParamLiteral ']'
+    ;
+
+commonLiteral
+    : ctrlQuoteLiteral | ctrlQuoteDotLiteral | ctrlQuoteParamLiteral | DecimalLiteral | BooleanLiteral | StringLiteral
     ;
 
 //==============================================================
@@ -132,7 +128,7 @@ DecimalLiteral
     : Decimal
     ;
 
-QuoteLiteral
+ParamLiteral
     : '@' WhiteSpace '0'
     | '@' WhiteSpace NonZeroDigit (DigitChar)*
     ;
