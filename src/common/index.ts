@@ -28,8 +28,10 @@ export const getAST = (input: string) => {
 export const TokenMap: Record<string, string> = {
   OpenForm: 'keyword',
   SaveForm: 'keyword',
+  Selected: 'keyword',
 
   Assign: 'operator',
+  Equal: 'operator',
 
   OpenBracket: 'delimiter.square',
   CloseBracket: 'delimiter.square',
@@ -52,6 +54,7 @@ export const TokenMap: Record<string, string> = {
 
   QuoteLiteral: 'number',
   DecimalLiteral: 'number',
+  All: 'number',
 
   Comment: 'comment',
 
