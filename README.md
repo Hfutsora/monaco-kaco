@@ -22,7 +22,7 @@ $ yarn install
 $ yarn run serve
 ```
 
-## Npm
+## NPM
 
 ### Install
 
@@ -35,6 +35,7 @@ $ yarn add monaco-kaco
 ```ts
 import Vue from 'vue';
 import MonacoKaco from 'monaco-kaco';
+import 'monaco-kaco/lib/index.css';
 
 Vue.use(MonacoKaco);
 ```
