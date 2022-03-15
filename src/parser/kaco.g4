@@ -12,12 +12,26 @@ OpenBracket:                    '[';
 CloseBracket:                   ']';
 OpenParen:                      '(';
 CloseParen:                     ')';
+OpenBrace:                      '{';
+CloseBrace:                     '}';
 SemiColon:                      ';';
 Comma:                          ',';
+Plus:                           '+';
+Minus:                          '-';
+Multiply:                       '*';
+Divide:                         '/';
 Assign:                         '=';
-Equal:                          '==';
 Dot:                            '.';
 Ellipsis:                       '...';
+Equal:                          '==';
+NotEqual:                       '!=';
+LessThan:                       '<';
+MoreThan:                       '>';
+LessThanEquals:                 '<=';
+GreaterThanEquals:              '>=';
+And:                            '&&';
+Or:                             '||';
+Sql:                            '#';
 
 /// Keywords
 
@@ -34,37 +48,51 @@ Selected
     | 'SELECTED'
     ;
 
-All
-    : '*'
+If
+    : 'if'
     ;
 
 //==============================================================
 
 statement
-    // : ifStatement
-    // | blockStatement
+    : ifStatement
+    | functionStatement
+    ;
+
+functionStatement
     : openFormStatement
     | saveFormStatement
     | assignStatement
     ;
+
 ifStatement
-    : 'if' quoteExpr blockStatement
-    | 'if' quoteExpr blockStatement 'else' blockStatement
+    : 'if' '(' expressionSequence ')' blockStatement
     ;
-quoteExpr
-    : '(' ctrlQuoteDotLiteral ')'
-    | '(' StringLiteral? ')'
+
+blockStatement
+    : '{' (functionStatement | assignStatement)* '}'
+    ;
+
+expressionSequence
+    : singleExpression
+    ;
+
+singleExpression
+    : commonLiteral
+    | singleExpression ('<' | '>' | '<=' | '>=') singleExpression
+    | singleExpression ('+' | '-') singleExpression  
+    | singleExpression ('==' | '!=') singleExpression
+    | singleExpression '&&' singleExpression
+    | singleExpression '||' singleExpression
+    | '(' expressionSequence ')'
+    ;
+
+assignStatement
+    : assign ';'
     ;
 
 quoteEllipsisExpr
     : '(' (commonLiteral (',' commonLiteral)* )? ')'
-    ;
-
-blockStatement
-    : '{' (statement)* '}'
-    ;
-assignStatement
-    : assign ';'
     ;
 
 openFormStatement
@@ -74,7 +102,6 @@ openFormStatement
 saveFormStatement
     : 'SaveForm' quoteEllipsisExpr ';'
     ;
-
 
 //==============================================================
 
@@ -87,7 +114,11 @@ addTerm: divTerm('+' divTerm)*;
 divTerm: mulTerm ('/' mulTerm)*;
 mulTerm: parnTerm ('*' parnTerm)*;
 
-parnTerm: (commonLiteral expression commonLiteral) | commonLiteral | '(' expression ')';
+parnTerm
+    : (commonLiteral | sqlLiteral) expression (commonLiteral | sqlLiteral)
+    | (commonLiteral | sqlLiteral) 
+    | '(' expression ')'
+    ;
 
 //==============================================================
 
@@ -107,7 +138,7 @@ ctrlQuoteLiteral
     ;
 
 ctrlQuoteDotLiteral
-    : '[' StringDotLiteral ('(' Selected WhiteSpace* '==' WhiteSpace* ('-1' | '*' | Natural) ')')? ']'
+    : '[' StringDotLiteral ('(' Selected '==' ('-1' | '*' | Natural) ')')? ']'
     ;
 
 ctrlQuoteParamLiteral
@@ -125,7 +156,7 @@ StringLiteral
     ;
 
 StringDotLiteral
-    :  StringLiteral ('.' StringLiteral)? (',' WhiteSpace* StringLiteral)*
+    :  StringLiteral ('.' StringLiteral)? (',' StringLiteral)*
     ;
 
 
@@ -139,8 +170,11 @@ DecimalLiteral
     ;
 
 ParamLiteral
-    : '@' WhiteSpace '0'
-    | '@' WhiteSpace NonZeroDigit (DigitChar)*
+    : '@' WHITESPACE Natural
+    ;
+
+sqlLiteral
+    : '[' '#' (.)*? ']'
     ;
 
 Decimal
@@ -153,20 +187,25 @@ Natural
     | [1-9][0-9]*
     ;
 
-fragment NonZeroDigit
+NonZeroDigit
 	: '1'..'9'
 	;
-fragment DigitChar
-	: '0'
-	| NonZeroDigit
+DigitChar
+	: Natural
 	| '_'
 	;
 
 //==============================================================
 
-LineComment
+
+WS 
+    : [\t\r\n]+ -> skip 
+    ; // skip spaces, newlines
+
+COMMENT
     : '//' ~('\n'|'\r')* '\r'? '\n' -> skip
     ;
-WhiteSpace
+
+WHITESPACE
     : (' ' | '\r' | '\n' | '\t') -> skip
     ;

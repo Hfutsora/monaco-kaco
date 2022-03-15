@@ -1,5 +1,6 @@
 import { Token } from 'antlr4ts';
 import { ParseTreeWalker } from 'antlr4ts/tree/ParseTreeWalker';
+import { range } from 'lodash-es';
 import * as monaco from 'monaco-editor';
 import { getAST } from '../common';
 import { kacoListener } from '../parser/kacoListener';
@@ -39,6 +40,27 @@ const getRangeFromToken = (input: Token) => {
   return new monaco.Range(startLineNumber, startColumn, startLineNumber, startColumn + length);
 };
 
+function findMatch(ctx: ProgramContext, position: monaco.Position): undefined | { ctx: ProgramContext, range: monaco.Range }  {
+  if (!ctx.start) return;
+
+  const range =  getRangeFromToken(ctx.start);
+
+  if (monaco.Range.containsPosition(range, position)) {
+    return {
+      ctx,
+      range
+    };
+  } else if (ctx.children?.length) {
+    for (const child of ctx.children) {
+      const match = findMatch(child as ProgramContext, position);
+
+      if (match) return match;
+    }
+  }
+
+  return;
+}
+
 class HoverFinder implements kacoListener {
   result?: {
     range: monaco.Range;
@@ -50,23 +72,15 @@ class HoverFinder implements kacoListener {
     this.position = position;
   }
 
-  enterProgram(ctx: ProgramContext) {
+  enterProgram(context: ProgramContext) {
     if (!this.result) {
-      let range: monaco.Range | undefined;
+      const match = findMatch(context, this.position);
 
-      const matched = (ctx.children as ProgramContext[]).find((child) => {
-        if (!child.start) return false;
-
-        range = getRangeFromToken(child.start);
-
-        return monaco.Range.containsPosition(range, this.position);
-      });
-
-      if (matched?.start.text && range) {
+      if (match && match?.ctx.start.text) {
         this.result = {
-          range,
-          type: matched.start.text,
-          name: matched.start.text
+          range: match.range,
+          type: match.ctx.start.text,
+          name: match.ctx.start.text
         };
       }
     }

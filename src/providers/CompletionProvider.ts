@@ -1,7 +1,9 @@
 import * as monaco from 'monaco-editor';
 
 export class CompletionItemProvider implements monaco.languages.CompletionItemProvider {
-  provideCompletionItems(model: monaco.editor.IModel, position: monaco.Position) {
+  triggerCharacters = ['.'];
+
+  provideCompletionItems(model: monaco.editor.IModel, position: monaco.Position): monaco.languages.ProviderResult<monaco.languages.CompletionList> {
     const word = model.getWordAtPosition(position);
 
     return {
@@ -24,6 +26,18 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           insertText: 'SaveForm();',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '保存表单',
+          range: new monaco.Range(
+            position.lineNumber,
+            word?.startColumn ?? position.column,
+            model.getLineCount(),
+            model.getLineMaxColumn(model.getLineCount())
+          )
+        }, {
+          label: 'If',
+          kind: monaco.languages.CompletionItemKind.Struct,
+          insertText: 'if (true) {\n\n}\n',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '条件',
           range: new monaco.Range(
             position.lineNumber,
             word?.startColumn ?? position.column,
