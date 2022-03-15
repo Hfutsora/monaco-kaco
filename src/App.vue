@@ -20,8 +20,9 @@ export default class App extends Vue {
     if (root) {
       registerProvier('kaco');
 
-      monaco.editor.create(root, {
+      const editor = monaco.editor.create(root, {
         language: 'kaco',
+        theme: 'vs-dark',
         bracketPairColorization: {
           enabled: true
         },
@@ -39,6 +40,11 @@ SaveForm(['form-name']);
 ['parent_form'].['ctrl_input'] = 100;
 ['parent_form'].['ctrl_input'],['ctrl_textarea'] = ('123' + ['123'.'123']) + [@ 1] + 1000 + false + (1 - (2 * (3 / 2)));
 
+if (1 > 2) {
+['ctrl'] = ['value'];
+
+['CTRL'] = [# 'select key from table where id=[$ USERID]'];
+}
 `
       });
     }

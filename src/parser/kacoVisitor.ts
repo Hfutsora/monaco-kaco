@@ -5,11 +5,13 @@ import { ParseTreeVisitor } from "antlr4ts/tree/ParseTreeVisitor";
 
 import { ProgramContext } from "./kacoParser";
 import { StatementContext } from "./kacoParser";
+import { FunctionStatementContext } from "./kacoParser";
 import { IfStatementContext } from "./kacoParser";
-import { QuoteExprContext } from "./kacoParser";
-import { QuoteEllipsisExprContext } from "./kacoParser";
 import { BlockStatementContext } from "./kacoParser";
+import { ExpressionSequenceContext } from "./kacoParser";
+import { SingleExpressionContext } from "./kacoParser";
 import { AssignStatementContext } from "./kacoParser";
+import { QuoteEllipsisExprContext } from "./kacoParser";
 import { OpenFormStatementContext } from "./kacoParser";
 import { SaveFormStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
@@ -24,6 +26,7 @@ import { CtrlQuoteLiteralContext } from "./kacoParser";
 import { CtrlQuoteDotLiteralContext } from "./kacoParser";
 import { CtrlQuoteParamLiteralContext } from "./kacoParser";
 import { CommonLiteralContext } from "./kacoParser";
+import { SqlLiteralContext } from "./kacoParser";
 
 
 /**
@@ -49,25 +52,18 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitStatement?: (ctx: StatementContext) => Result;
 
 	/**
+	 * Visit a parse tree produced by `kacoParser.functionStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFunctionStatement?: (ctx: FunctionStatementContext) => Result;
+
+	/**
 	 * Visit a parse tree produced by `kacoParser.ifStatement`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitIfStatement?: (ctx: IfStatementContext) => Result;
-
-	/**
-	 * Visit a parse tree produced by `kacoParser.quoteExpr`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	visitQuoteExpr?: (ctx: QuoteExprContext) => Result;
-
-	/**
-	 * Visit a parse tree produced by `kacoParser.quoteEllipsisExpr`.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	visitQuoteEllipsisExpr?: (ctx: QuoteEllipsisExprContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.blockStatement`.
@@ -77,11 +73,32 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitBlockStatement?: (ctx: BlockStatementContext) => Result;
 
 	/**
+	 * Visit a parse tree produced by `kacoParser.expressionSequence`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitExpressionSequence?: (ctx: ExpressionSequenceContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.singleExpression`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSingleExpression?: (ctx: SingleExpressionContext) => Result;
+
+	/**
 	 * Visit a parse tree produced by `kacoParser.assignStatement`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	visitAssignStatement?: (ctx: AssignStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.quoteEllipsisExpr`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQuoteEllipsisExpr?: (ctx: QuoteEllipsisExprContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.openFormStatement`.
@@ -180,5 +197,12 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitCommonLiteral?: (ctx: CommonLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.sqlLiteral`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSqlLiteral?: (ctx: SqlLiteralContext) => Result;
 }
 

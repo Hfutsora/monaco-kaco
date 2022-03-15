@@ -5,11 +5,13 @@ import { ParseTreeListener } from "antlr4ts/tree/ParseTreeListener";
 
 import { ProgramContext } from "./kacoParser";
 import { StatementContext } from "./kacoParser";
+import { FunctionStatementContext } from "./kacoParser";
 import { IfStatementContext } from "./kacoParser";
-import { QuoteExprContext } from "./kacoParser";
-import { QuoteEllipsisExprContext } from "./kacoParser";
 import { BlockStatementContext } from "./kacoParser";
+import { ExpressionSequenceContext } from "./kacoParser";
+import { SingleExpressionContext } from "./kacoParser";
 import { AssignStatementContext } from "./kacoParser";
+import { QuoteEllipsisExprContext } from "./kacoParser";
 import { OpenFormStatementContext } from "./kacoParser";
 import { SaveFormStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
@@ -24,6 +26,7 @@ import { CtrlQuoteLiteralContext } from "./kacoParser";
 import { CtrlQuoteDotLiteralContext } from "./kacoParser";
 import { CtrlQuoteParamLiteralContext } from "./kacoParser";
 import { CommonLiteralContext } from "./kacoParser";
+import { SqlLiteralContext } from "./kacoParser";
 
 
 /**
@@ -54,6 +57,17 @@ export interface kacoListener extends ParseTreeListener {
 	exitStatement?: (ctx: StatementContext) => void;
 
 	/**
+	 * Enter a parse tree produced by `kacoParser.functionStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterFunctionStatement?: (ctx: FunctionStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.functionStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitFunctionStatement?: (ctx: FunctionStatementContext) => void;
+
+	/**
 	 * Enter a parse tree produced by `kacoParser.ifStatement`.
 	 * @param ctx the parse tree
 	 */
@@ -63,28 +77,6 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitIfStatement?: (ctx: IfStatementContext) => void;
-
-	/**
-	 * Enter a parse tree produced by `kacoParser.quoteExpr`.
-	 * @param ctx the parse tree
-	 */
-	enterQuoteExpr?: (ctx: QuoteExprContext) => void;
-	/**
-	 * Exit a parse tree produced by `kacoParser.quoteExpr`.
-	 * @param ctx the parse tree
-	 */
-	exitQuoteExpr?: (ctx: QuoteExprContext) => void;
-
-	/**
-	 * Enter a parse tree produced by `kacoParser.quoteEllipsisExpr`.
-	 * @param ctx the parse tree
-	 */
-	enterQuoteEllipsisExpr?: (ctx: QuoteEllipsisExprContext) => void;
-	/**
-	 * Exit a parse tree produced by `kacoParser.quoteEllipsisExpr`.
-	 * @param ctx the parse tree
-	 */
-	exitQuoteEllipsisExpr?: (ctx: QuoteEllipsisExprContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.blockStatement`.
@@ -98,6 +90,28 @@ export interface kacoListener extends ParseTreeListener {
 	exitBlockStatement?: (ctx: BlockStatementContext) => void;
 
 	/**
+	 * Enter a parse tree produced by `kacoParser.expressionSequence`.
+	 * @param ctx the parse tree
+	 */
+	enterExpressionSequence?: (ctx: ExpressionSequenceContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.expressionSequence`.
+	 * @param ctx the parse tree
+	 */
+	exitExpressionSequence?: (ctx: ExpressionSequenceContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.singleExpression`.
+	 * @param ctx the parse tree
+	 */
+	enterSingleExpression?: (ctx: SingleExpressionContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.singleExpression`.
+	 * @param ctx the parse tree
+	 */
+	exitSingleExpression?: (ctx: SingleExpressionContext) => void;
+
+	/**
 	 * Enter a parse tree produced by `kacoParser.assignStatement`.
 	 * @param ctx the parse tree
 	 */
@@ -107,6 +121,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitAssignStatement?: (ctx: AssignStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.quoteEllipsisExpr`.
+	 * @param ctx the parse tree
+	 */
+	enterQuoteEllipsisExpr?: (ctx: QuoteEllipsisExprContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.quoteEllipsisExpr`.
+	 * @param ctx the parse tree
+	 */
+	exitQuoteEllipsisExpr?: (ctx: QuoteEllipsisExprContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.openFormStatement`.
@@ -261,5 +286,16 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitCommonLiteral?: (ctx: CommonLiteralContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.sqlLiteral`.
+	 * @param ctx the parse tree
+	 */
+	enterSqlLiteral?: (ctx: SqlLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.sqlLiteral`.
+	 * @param ctx the parse tree
+	 */
+	exitSqlLiteral?: (ctx: SqlLiteralContext) => void;
 }
 

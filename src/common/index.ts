@@ -29,14 +29,29 @@ export const TokenMap: Record<string, string> = {
   OpenForm: 'keyword',
   SaveForm: 'keyword',
   Selected: 'keyword',
+  If: 'keyword',
+  Sql: 'keyword',
 
   Assign: 'operator',
+  Plus: 'operator',
+  Minus: 'operator',
+  Multiply: 'operator',
+  Divide: 'operator',
   Equal: 'operator',
+  NotEqual: 'operator',
+  LessThan: 'operator',
+  MoreThan: 'operator',
+  LessThanEquals: 'operator',
+  GreaterThanEquals: 'operator',
+  And: 'operator',
+  Or: 'operator',
 
   OpenBracket: 'delimiter.square',
   CloseBracket: 'delimiter.square',
   OpenParen: 'delimiter.parenthesis',
   CloseParen: 'delimiter.parenthesis',
+  OpenBrace: 'delimiter.bracket',
+  CloseBrace: 'delimiter.bracket',
 
   Ellipsis: 'delimiter',
   SemiColon: 'delimiter',
@@ -52,9 +67,9 @@ export const TokenMap: Record<string, string> = {
   StringLiteral: 'string',
   StringDotLiteral: 'string',
 
+  ParamLiteral: 'number',
   QuoteLiteral: 'number',
   DecimalLiteral: 'number',
-  All: 'number',
 
   Comment: 'comment',
 
