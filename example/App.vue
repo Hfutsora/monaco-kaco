@@ -2,7 +2,7 @@
   <div id="app">
     <h1>Monaco Kaco</h1>
 
-    <div id="monaco" ref="root"></div>
+    <MonacoKaco id="monaco" theme="vs-dark" :value="value"></MonacoKaco>
   </div>
 </template>
 
@@ -10,24 +10,15 @@
 import { Component, Vue } from 'vue-property-decorator';
 import * as monaco from 'monaco-editor';
 
-import { registerProvier } from './providers/registerProvider';
+import MonacoKaco from '@/index.vue';
 
-@Component
+@Component({
+  components: {
+    MonacoKaco
+  }
+})
 export default class App extends Vue {
-  mounted() {
-    const root = this.$refs['root'] as HTMLElement;
-
-    if (root) {
-      registerProvier('kaco');
-
-      const editor = monaco.editor.create(root, {
-        language: 'kaco',
-        theme: 'vs-dark',
-        bracketPairColorization: {
-          enabled: true
-        },
-        autoClosingBrackets: 'always',
-        value: `\
+  value = `\
 OpenForm[\'default\']([\'a\'.\'b\'], 1001.5)(\'b\', [@ 0])(false);
 
 SaveForm(['form-name']);
@@ -46,9 +37,6 @@ if (1 > 2) {
     ['CTRL'] = [# 'select key from table where id=[$ USERID]'];
 }
 `
-      });
-    }
-  }
 }
 </script>
 
