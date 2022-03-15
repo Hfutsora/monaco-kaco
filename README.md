@@ -21,3 +21,20 @@ Try the editor out [on website](https://hfutsora.github.io/monaco-kaco/).
 $ yarn install
 $ yarn run serve
 ```
+
+## Npm
+
+### Install
+
+```shell
+$ yarn add monaco-kaco
+```
+
+### Quick Start 
+
+```ts
+import Vue from 'vue';
+import MonacoKaco from 'monaco-kaco';
+
+Vue.use(MonacoKaco);
+```

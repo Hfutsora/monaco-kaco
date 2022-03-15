@@ -10,11 +10,17 @@
     "lint": "vue-cli-service lint",
     "antlr4ts": "antlr4ts -visitor src/parser/kaco.g4",
     "compile-parser": "node scripts/parser.js",
-    "clean": "node scripts/clean.js"
+    "clean": "node scripts/clean.js",
+    "package": "vue-cli-service build --target lib ./src/index.js --name index --formats umd --dest lib"
   },
   "repository": {
     "url": "https://github.com/Hfutsora/monaco-kaco"
   },
+  "workspaces": [
+    "src/*"
+  ],
+  "keywords": ["language", "javascript", "monaco-editor", "visual-studio-monaco"],
+  "license": "MIT",
   "dependencies": {
     "antlr4ts": "^0.5.0-alpha.4",
     "assert": "^2.0.0",
@@ -45,6 +51,9 @@
     "typescript": "~4.5.5",
     "vue-template-compiler": "^2.6.14"
   },
+  "main": "lib/index.umd.js",
+  "unpkg": "lib/index.umd.js",
+  "typings": "types/index.d.ts",
   "eslintConfig": {
     "root": true,
     "env": {
