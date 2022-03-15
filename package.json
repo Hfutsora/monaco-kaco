@@ -19,7 +19,12 @@
   "workspaces": [
     "src/*"
   ],
-  "keywords": ["language", "javascript", "monaco-editor", "visual-studio-monaco"],
+  "keywords": [
+    "language",
+    "javascript",
+    "monaco-editor",
+    "visual-studio-monaco"
+  ],
   "license": "MIT",
   "dependencies": {
     "antlr4ts": "^0.5.0-alpha.4",
