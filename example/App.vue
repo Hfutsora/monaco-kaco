@@ -72,6 +72,10 @@ if (1 > 2) {
   height: 100vh;
 }
 
+header {
+  overflow: hidden;
+}
+
 a {
   position: absolute;
   top: 20px;
