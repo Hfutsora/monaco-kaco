@@ -3,6 +3,7 @@ node_modules
 /dist
 .antlr
 *.lock
+lib
 
 # local env files
 .env.local

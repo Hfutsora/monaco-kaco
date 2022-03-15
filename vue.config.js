@@ -7,6 +7,7 @@ module.exports = defineConfig({
   publicPath: process.env.NODE_ENV === 'production'
     ? '/monaco-kaco/'
     : '/',
+  productionSourceMap: false,
   configureWebpack: {
     resolve: {
       fallback: {
@@ -14,5 +15,9 @@ module.exports = defineConfig({
       }
     },
     plugins: [new monacoWebpackPlugin()]
+  },
+  chainWebpack: (config) => {
+    config.output
+      .libraryExport('default');
   }
 });
