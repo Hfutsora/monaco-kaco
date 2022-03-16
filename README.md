@@ -30,7 +30,7 @@ $ yarn run serve
 $ yarn add monaco-kaco
 ```
 
-### Quick Start 
+### Quick Start
 
 ```ts
 import Vue from 'vue';
@@ -39,3 +39,16 @@ import 'monaco-kaco/lib/index.css';
 
 Vue.use(MonacoKaco);
 ```
+
+## Attributes
+
+| Attribute | Description                                               | Type   | Default   |
+| --------- | --------------------------------------------------------- | ------ | --------- |
+| theme     | Monaco editor initial theme                               | string | 'vs-dark' |
+| value     | The initial value of the auto created model in the editor | string |     一    |
+
+## Methods
+
+| Method   | Description            | Type         |
+| -------- | ---------------------- | ------------ |
+| getValue | Get editor model value | () => string |

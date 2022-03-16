@@ -11,7 +11,9 @@ import { registerProvier } from './providers/registerProvider';
 @Component
 export default class MonacoKaco extends Vue {
   @Prop({ default: 'vs-dark' }) theme!: monaco.editor.IStandaloneEditorConstructionOptions['theme'];
-  @Prop({ default: '', type: String }) value!: monaco.editor.IStandaloneEditorConstructionOptions['value'];
+  @Prop({ type: String }) value: monaco.editor.IStandaloneEditorConstructionOptions['value'];
+
+  private editor: monaco.editor.IStandaloneCodeEditor | undefined = undefined;
 
   mounted() {
     const root = this.$refs['root'] as HTMLElement;
@@ -19,7 +21,7 @@ export default class MonacoKaco extends Vue {
     if (root) {
       registerProvier('kaco');
 
-      monaco.editor.create(root, {
+      this.editor = monaco.editor.create(root, {
         language: 'kaco',
         theme: this.theme,
         value: this.value,
@@ -29,6 +31,13 @@ export default class MonacoKaco extends Vue {
         autoClosingBrackets: 'always'
       });
     }
+  }
+
+  /**
+   * get editor model value
+   */
+  getValue() {
+    return this.editor?.getValue() ?? '';
   }
 }
 </script>
