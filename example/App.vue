@@ -76,7 +76,7 @@ header {
   overflow: hidden;
 }
 
-a {
+header > a {
   position: absolute;
   top: 20px;
   right: 40px;

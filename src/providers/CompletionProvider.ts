@@ -1,10 +1,15 @@
 import * as monaco from 'monaco-editor';
 
 export class CompletionItemProvider implements monaco.languages.CompletionItemProvider {
-  triggerCharacters = ['.'];
-
   provideCompletionItems(model: monaco.editor.IModel, position: monaco.Position): monaco.languages.ProviderResult<monaco.languages.CompletionList> {
-    const word = model.getWordAtPosition(position);
+    const word = model.getWordUntilPosition(position);
+
+    const range = new monaco.Range(
+      position.lineNumber,
+      word?.startColumn ?? position.column,
+      position.lineNumber,
+      model.getLineMaxColumn(position.lineNumber)
+    );
 
     return {
       suggestions: [
@@ -14,36 +19,21 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           insertText: 'OpenForm[\'\']()()();',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '打开表单',
-          range: new monaco.Range(
-            position.lineNumber,
-            word?.startColumn ?? position.column,
-            model.getLineCount(),
-            model.getLineMaxColumn(model.getLineCount())
-          )
+          range
         }, {
           label: 'SaveForm',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'SaveForm();',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '保存表单',
-          range: new monaco.Range(
-            position.lineNumber,
-            word?.startColumn ?? position.column,
-            model.getLineCount(),
-            model.getLineMaxColumn(model.getLineCount())
-          )
+          range
         }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: 'if (true) {\n\n}\n',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '条件',
-          range: new monaco.Range(
-            position.lineNumber,
-            word?.startColumn ?? position.column,
-            model.getLineCount(),
-            model.getLineMaxColumn(model.getLineCount())
-          )
+          range
         }
       ]
     };
