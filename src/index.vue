@@ -28,9 +28,17 @@ export default class MonacoKaco extends Vue {
         bracketPairColorization: {
           enabled: true
         },
-        autoClosingBrackets: 'always'
+        autoClosingBrackets: 'always',
+        automaticLayout: true
       });
     }
+  }
+
+  /**
+   * set editor model value
+   */
+  setValue(value: string) {
+    this.editor?.setValue(value);
   }
 
   /**

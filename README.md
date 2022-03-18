@@ -49,6 +49,7 @@ Vue.use(MonacoKaco);
 
 ## Methods
 
-| Method   | Description            | Type         |
-| -------- | ---------------------- | ------------ |
-| getValue | Get editor model value | () => string |
+| Method   | Description            | Type                    |
+| -------- | ---------------------- | ----------------------- |
+| setValue | Set editor model value | (value: string) => void |
+| getValue | Get editor model value | () => string            |
