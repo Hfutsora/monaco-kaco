@@ -16,23 +16,30 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
         {
           label: 'OpenForm',
           kind: monaco.languages.CompletionItemKind.Function,
-          insertText: 'OpenForm[\'\']()()();',
+          insertText: 'OpenForm[\'$1\']($2)($3)($4);',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '打开表单',
           range
         }, {
           label: 'SaveForm',
           kind: monaco.languages.CompletionItemKind.Function,
-          insertText: 'SaveForm();',
+          insertText: 'SaveForm($0);',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '保存表单',
           range
         }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
-          insertText: 'if (true) {\n\n}\n',
+          insertText: 'if ($1) {\n$0\n}\n',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '条件',
+          range
+        }, {
+          label: 'Variable',
+          kind: monaco.languages.CompletionItemKind.Struct,
+          insertText: '[$ $1]$0',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '系统变量',
           range
         }
       ]

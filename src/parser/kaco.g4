@@ -32,6 +32,7 @@ GreaterThanEquals:              '>=';
 And:                            '&&';
 Or:                             '||';
 Sql:                            '#';
+Const:                          '$';
 
 /// Keywords
 
@@ -50,6 +51,22 @@ Selected
 
 If
     : 'if'
+    ;
+
+Constant
+    : 'USERID'
+    | 'USERNAME'
+    | 'USERCODE'
+    | 'ORGNAME1'
+    | 'ORGCODE1'
+    | 'INSTANCE'
+    | 'CURTIME'
+    | 'CURROLE'
+    | 'CURFLOW'
+    | 'CURFTASK'
+    | 'CURTACHE'
+    | 'CURSTATE'
+    | 'UPLOADFILE'
     ;
 
 //==============================================================
@@ -145,8 +162,18 @@ ctrlQuoteParamLiteral
     : '[' ParamLiteral ']'
     ;
 
+ctrlConstantLiteral
+    : '[' '$' Constant ']'
+    ;
+
 commonLiteral
-    : ctrlQuoteLiteral | ctrlQuoteDotLiteral | ctrlQuoteParamLiteral | DecimalLiteral | BooleanLiteral | StringLiteral
+    : ctrlQuoteLiteral
+    | ctrlQuoteDotLiteral
+    | ctrlQuoteParamLiteral
+    | ctrlConstantLiteral
+    | DecimalLiteral
+    | BooleanLiteral
+    | StringLiteral
     ;
 
 //==============================================================

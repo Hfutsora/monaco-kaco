@@ -25,6 +25,7 @@ import { AssignStartContext } from "./kacoParser";
 import { CtrlQuoteLiteralContext } from "./kacoParser";
 import { CtrlQuoteDotLiteralContext } from "./kacoParser";
 import { CtrlQuoteParamLiteralContext } from "./kacoParser";
+import { CtrlConstantLiteralContext } from "./kacoParser";
 import { CommonLiteralContext } from "./kacoParser";
 import { SqlLiteralContext } from "./kacoParser";
 
@@ -275,6 +276,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitCtrlQuoteParamLiteral?: (ctx: CtrlQuoteParamLiteralContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.ctrlConstantLiteral`.
+	 * @param ctx the parse tree
+	 */
+	enterCtrlConstantLiteral?: (ctx: CtrlConstantLiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.ctrlConstantLiteral`.
+	 * @param ctx the parse tree
+	 */
+	exitCtrlConstantLiteral?: (ctx: CtrlConstantLiteralContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.commonLiteral`.
