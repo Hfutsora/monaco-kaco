@@ -91,12 +91,17 @@ class HoverFinder implements kacoListener {
 
 export const kacoKeywords = [
   'OpenForm',
-  'SaveForm'
+  'SaveForm',
+  'Close',
+  'Refresh',
+  'MessageBox',
+  'ClickButton',
+  'GetComboDic'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   OpenForm: [
-    { value: '```\nOpenForm[\'表单名称\'](...主键)(...黙认值主键)(...参数)\n```' },
+    { value: '```\nOpenForm[\'表单名称\'](主键)(...黙认值主键)(...参数)\n```' },
     { value: '打开表单' },
     { value: '```\n示例\nOpenForm[\'基本信息\']([\'受理号\'])()([\'姓名\'])\n```' }
   ],
@@ -105,5 +110,37 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '保存表单' },
     { value: '```\n有主键时，根据主键值保存表单数据\n无主键时，以当前模型表单保存数据，不会提示"保存成功"\n```' },
     { value: '```\n示例\nSaveForm[\'基本信息\']\n```' }
+  ],
+  Close: [
+    { value: '```\nClose(\'表单名\')\n```' },
+    { value: '关闭表单' },
+    { value: '```\n关闭指定的表单申请表，没有参数时默认关闭当前表单\n```' }
+  ],
+  Refresh: [
+    { value: '```\nRefresh(\'表单名\')\n```' },
+    { value: '刷新表单' },
+    { value: '```\n刷新指定表单，没有参数时默认刷新当前表单\n```' }
+  ],
+  MessageBox: [
+    { value: '```\nMessageBox(\'信息类型\', \'信息内容\')\n```' },
+    { value: '弹出信息提示框' },
+    {
+      value: '```\n\
+\'提示\': 继续执行后续事件\n\
+\'警告\': 不执行后续事件\n\
+\'询问\': "确定" 继续执行后续事件，"取消" 则中断\n```'
+    },
+    { value: '```\n示例\nMessageBox(\'警告\',\'该调查表已使用!\'); // 弹出警告提示框，警告该调查表已使用\n```' }
+  ],
+  ClickButton: [
+    { value: '```\nClickButton([\'按钮名\'])\n```' },
+    { value: '执行按钮事件' },
+    { value: '```\n仅支持当前表单按钮调用，不能跨表单调用\n```' }
+  ],
+  GetComboDic: [
+    { value: '```\nGetComboDic([\'下拉框控件名称\'],[# \'select field1,field2 from table where...\'])\n```' },
+    { value: '获取动态字典值' },
+    { value: '需要在数字字典中配置各项字典值' },
+    { value: '```\n示例\nGetComboDic([\'区\'],[# \'select sd_keyno,sd_value from oa2_sysdic where sd_main<>0\'])\n```' }
   ]
 };
