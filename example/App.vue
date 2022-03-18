@@ -52,7 +52,7 @@ SaveForm(['form-name']);
 ['parent_form'].['ctrl_input'],['ctrl_textarea'] = ('123' + ['123'.'123']) + [@ 1] + 1000 + false + (1 - (2 * (3 / 2)));
 
 if (1 > 2) {
-    ['ctrl'] = ['value'];
+    ['ctrl'] = [$ USERID];
 
     ['CTRL'] = [# 'select key from table where id=[$ USERID]'];
 }

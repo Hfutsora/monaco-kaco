@@ -31,6 +31,8 @@ export const TokenMap: Record<string, string> = {
   Selected: 'keyword',
   If: 'keyword',
   Sql: 'keyword',
+  Const: 'keyword',
+  Constant: 'keyword',
 
   Assign: 'operator',
   Plus: 'operator',
