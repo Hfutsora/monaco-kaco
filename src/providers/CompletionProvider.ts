@@ -30,16 +30,23 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
         }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
-          insertText: 'if ($1) {\n$0\n}\n',
+          insertText: 'if (${1:true}) {\n$0\n}\n',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '条件',
           range
         }, {
           label: 'Variable',
           kind: monaco.languages.CompletionItemKind.Struct,
-          insertText: '[$ $1]$0',
+          insertText: '[$ ${1|USERID,USERNAME,USERCODE,ORGNAME1,ORGCODE1,INSTANCE,CURTIME,CURROLE,CURFLOW,CURFTASK,CURTACHE,CURSTATE,UPLOADFILE|}]$0',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '系统变量',
+          range
+        }, {
+          label: 'Assign',
+          kind: monaco.languages.CompletionItemKind.Struct,
+          insertText: '[\'$1\'] = ${2:\'\'};',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '赋值',
           range
         }
       ]
