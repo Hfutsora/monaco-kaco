@@ -14,6 +14,22 @@ const registerDispose = (disposables: monaco.IDisposable[]) => ({
 
 export const registerProvier = (id: string) => {
   monaco.languages.register({ id: 'kaco' });
+  monaco.languages.setLanguageConfiguration('kaco', {
+    brackets: [
+      ['[', ']'],
+      ['(', ')'],
+      ['{', '}'],
+      ['"', '"'],
+      ['\'', '\'']
+    ],
+    surroundingPairs: [
+      { open: '[', close: ']' },
+      { open: '(', close: ')' },
+      { open: '{', close: '}' },
+      { open: '"', close: '"' },
+      { open: '\'', close: '\'' }
+    ]
+  });
 
   const disposables: monaco.IDisposable[] = [];
 
