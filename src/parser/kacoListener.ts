@@ -14,6 +14,11 @@ import { AssignStatementContext } from "./kacoParser";
 import { QuoteEllipsisExprContext } from "./kacoParser";
 import { OpenFormStatementContext } from "./kacoParser";
 import { SaveFormStatementContext } from "./kacoParser";
+import { CloseStatementContext } from "./kacoParser";
+import { RefreshStatementContext } from "./kacoParser";
+import { MessageStatementContext } from "./kacoParser";
+import { ClickButtonStatementContext } from "./kacoParser";
+import { GetComboDicStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -155,6 +160,61 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitSaveFormStatement?: (ctx: SaveFormStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.closeStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterCloseStatement?: (ctx: CloseStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.closeStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitCloseStatement?: (ctx: CloseStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.refreshStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterRefreshStatement?: (ctx: RefreshStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.refreshStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitRefreshStatement?: (ctx: RefreshStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.messageStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterMessageStatement?: (ctx: MessageStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.messageStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitMessageStatement?: (ctx: MessageStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.clickButtonStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterClickButtonStatement?: (ctx: ClickButtonStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.clickButtonStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitClickButtonStatement?: (ctx: ClickButtonStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.getComboDicStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterGetComboDicStatement?: (ctx: GetComboDicStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.getComboDicStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitGetComboDicStatement?: (ctx: GetComboDicStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.

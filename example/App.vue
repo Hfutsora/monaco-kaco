@@ -51,10 +51,14 @@ SaveForm(['form-name']);
 ['parent_form'].['ctrl_input'] = 100;
 ['parent_form'].['ctrl_input'],['ctrl_textarea'] = ('123' + ['123'.'123']) + [@ 1] + 1000 + false + (1 - (2 * (3 / 2)));
 
-if (1 > 2) {
+if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     ['ctrl'] = [$ USERID];
-
     ['CTRL'] = [# 'select key from table where id=[$ USERID]'];
+    MessageBox('警告', '该调查表已使用!');
+    ClickButton(['保存']);
+    GetComboDic(['下拉框控件名称'],[# 'select field1,field2 from table where...']);
+    Refresh();
+    Close();
 }
 `;
 }

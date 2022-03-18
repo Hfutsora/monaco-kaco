@@ -44,6 +44,26 @@ SaveForm
     : 'SaveForm'
     ;
 
+Close
+    : 'Close'
+    ;
+
+Refresh
+    : 'Refresh'
+    ;
+
+MessageBox
+    : 'MessageBox'
+    ;
+
+ClickButton
+    : 'ClickButton'
+    ;
+
+GetComboDic
+    : 'GetComboDic'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -79,6 +99,11 @@ statement
 functionStatement
     : openFormStatement
     | saveFormStatement
+    | closeStatement
+    | refreshStatement
+    | messageStatement
+    | clickButtonStatement
+    | getComboDicStatement
     | assignStatement
     ;
 
@@ -120,6 +145,26 @@ saveFormStatement
     : 'SaveForm' quoteEllipsisExpr ';'
     ;
 
+closeStatement
+    : 'Close' '(' StringLiteral? ')' ';'
+    ;
+
+refreshStatement
+    : 'Refresh' '(' StringLiteral? ')' ';'
+    ;
+
+messageStatement
+    : 'MessageBox' '(' MessageLiteral ',' StringLiteral ')' ';'
+    ;
+
+clickButtonStatement
+    : 'ClickButton' '(' ctrlQuoteLiteral ')' ';'
+    ;
+
+getComboDicStatement
+    : 'GetComboDic' '(' ctrlQuoteLiteral ',' sqlLiteral ')' ';'
+    ;
+
 //==============================================================
 
 expression
@@ -155,7 +200,7 @@ ctrlQuoteLiteral
     ;
 
 ctrlQuoteDotLiteral
-    : '[' StringDotLiteral ('(' Selected '==' ('-1' | '*' | Natural) ')')? ']'
+    : '[' StringLiteral ('.' StringLiteral)? (',' StringLiteral)* ('(' Selected '==' ('-1' | '*' | Natural) ')')? ']'
     ;
 
 ctrlQuoteParamLiteral
@@ -178,14 +223,13 @@ commonLiteral
 
 //==============================================================
 
+MessageLiteral
+    : '\'' ( '警告' | '提示' | '询问') '\''
+    ;
+
 StringLiteral
     : '\'' (~[\\\r\n])*? '\''
     ;
-
-StringDotLiteral
-    :  StringLiteral ('.' StringLiteral)? (',' StringLiteral)*
-    ;
-
 
 BooleanLiteral
     : 'true'

@@ -23,21 +23,56 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
         }, {
           label: 'SaveForm',
           kind: monaco.languages.CompletionItemKind.Function,
-          insertText: 'SaveForm($0);',
+          insertText: 'SaveForm($1);',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '保存表单',
           range
         }, {
+          label: 'Close',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'Close($1);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '关闭表单',
+          range
+        }, {
+          label: 'Refresh',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'Refresh($1);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '刷新表单',
+          range
+        }, {
+          label: 'MessageBox',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'MessageBox(\'${1|提示,警告,询问|}\', \'$2\');',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '信息提示框',
+          range
+        }, {
+          label: 'ClickButton',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'ClickButton([\'$1\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '按钮事件',
+          range
+        }, {
+          label: 'GetComboDic',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'GetComboDic([\'$1\'], [# \'$2\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '获取字典',
+          range
+        }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
-          insertText: 'if (${1:true}) {\n$0\n}\n',
+          insertText: 'if (${1:true}) {\n$2\n}\n',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '条件',
           range
         }, {
           label: 'Variable',
           kind: monaco.languages.CompletionItemKind.Struct,
-          insertText: '[$ ${1|USERID,USERNAME,USERCODE,ORGNAME1,ORGCODE1,INSTANCE,CURTIME,CURROLE,CURFLOW,CURFTASK,CURTACHE,CURSTATE,UPLOADFILE|}]$0',
+          insertText: '[$ ${1|USERID,USERNAME,USERCODE,ORGNAME1,ORGCODE1,INSTANCE,CURTIME,CURROLE,CURFLOW,CURFTASK,CURTACHE,CURSTATE,UPLOADFILE|}]',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '系统变量',
           range

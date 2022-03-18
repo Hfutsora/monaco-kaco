@@ -14,6 +14,11 @@ import { AssignStatementContext } from "./kacoParser";
 import { QuoteEllipsisExprContext } from "./kacoParser";
 import { OpenFormStatementContext } from "./kacoParser";
 import { SaveFormStatementContext } from "./kacoParser";
+import { CloseStatementContext } from "./kacoParser";
+import { RefreshStatementContext } from "./kacoParser";
+import { MessageStatementContext } from "./kacoParser";
+import { ClickButtonStatementContext } from "./kacoParser";
+import { GetComboDicStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -114,6 +119,41 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitSaveFormStatement?: (ctx: SaveFormStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.closeStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCloseStatement?: (ctx: CloseStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.refreshStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRefreshStatement?: (ctx: RefreshStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.messageStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitMessageStatement?: (ctx: MessageStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.clickButtonStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitClickButtonStatement?: (ctx: ClickButtonStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.getComboDicStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitGetComboDicStatement?: (ctx: GetComboDicStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.
