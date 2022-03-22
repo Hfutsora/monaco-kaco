@@ -8,7 +8,7 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
       position.lineNumber,
       word?.startColumn ?? position.column,
       position.lineNumber,
-      model.getLineMaxColumn(position.lineNumber)
+      word?.startColumn ?? position.column // insert into current position
     );
 
     return {
