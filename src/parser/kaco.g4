@@ -112,6 +112,10 @@ SetColor
     : 'SetColor'
     ;
 
+ChangeTab
+    : 'ChangeTab'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -164,6 +168,7 @@ functionStatement
     | setEnableStatement
     | setFocusStatement
     | setColorStatement
+    | changeTabStatement
     | assignStatement
     ;
 
@@ -280,6 +285,10 @@ setFocusStatement
 
 setColorStatement
     : 'SetColor' '(' ctrlQuoteLiteral ',' (HexLiteral | StringLiteral) ')' ';'
+    ;
+
+changeTabStatement
+    : 'ChangeTab' '(' ctrlQuoteLiteral ',' Natural ')' ';'
     ;
 
 //==============================================================

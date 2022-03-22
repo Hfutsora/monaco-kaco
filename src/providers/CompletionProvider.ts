@@ -147,6 +147,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '设置字体颜色',
           range
         }, {
+          label: 'ChangeTab',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'ChangeTab([\'$1\'], ${2:1});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '切换标签页',
+          range
+        }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: 'if (${1:true}) {\n$2\n}\n',

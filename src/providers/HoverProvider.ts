@@ -108,7 +108,8 @@ export const kacoKeywords = [
   'SetVisiable',
   'SetEnable',
   'SetFocus',
-  'SetColor'
+  'SetColor',
+  'ChangeTab'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -218,5 +219,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nSetColor([\'控件名称\'], \'字体颜色\')\n```' },
     { value: '设置指定控件的字体颜色' },
     { value: '```\n示例\nSetColor([\'Input\'], \'#ffffff\')\n```' }
+  ],
+  ChangeTab: [
+    { value: '```\nChangeTab([\'控件名称\'], 页编号)\n```' },
+    { value: '切换标签页控件至指定页' },
+    { value: '```\n示例\nChangeTab([\'tab-1\'], 1)\n```' }
   ]
 };

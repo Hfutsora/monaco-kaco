@@ -71,6 +71,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     SetEnable(['权利人名称'], 1);
     SetFocus(['申请人']);
     SetColor(['申请人'], '#ffffff');
+    ChangeTab(['tp-1'], 1);
 }
 `;
 }
