@@ -98,7 +98,8 @@ export const kacoKeywords = [
   'ClickButton',
   'GetComboDic',
   'QueryData',
-  'CarryData'
+  'CarryData',
+  'SQLExecute'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -156,5 +157,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '按数据关联模板中映射关系将数据从源对象赋值给目标对象' },
     { value: '\n- 源对象类型是数据模型，目标对象类型是数据模型或者表单模板\n - 关联模板中未设置映射关系，按编号进行映射' },
     { value: '```\n示例\nCarryData[\'国有档案录入数据关联\']([\'受理号\'])\n```' }
+  ],
+  SQLExecute: [
+    { value: '```\nSQLExecute([# SQL语句 #])\n```' },
+    { value: 'SQL语句一般是delete 、insert into 、update 等没有数据返回的SQL' },
+    { value: '```\n示例\nSQLExecute([# update d_rec set state = 0 where slid =[$ INSTANCE] #])\n```' }
   ]
 };

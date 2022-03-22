@@ -77,6 +77,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '关联模板赋值',
           range
         }, {
+          label: 'SQLExecute',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SQLExecute([# $1 #]);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '执行SQL',
+          range
+        }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: 'if (${1:true}) {\n$2\n}\n',
@@ -96,6 +103,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           insertText: '[\'$1\'] = ${2:\'\'};',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '赋值',
+          range
+        }, {
+          label: 'Sql',
+          kind: monaco.languages.CompletionItemKind.Struct,
+          insertText: '[# $1 #]',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: 'sql',
           range
         }
       ]

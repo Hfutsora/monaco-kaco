@@ -22,6 +22,7 @@ import { ClickButtonStatementContext } from "./kacoParser";
 import { GetComboDicStatementContext } from "./kacoParser";
 import { QueryDataStatementContext } from "./kacoParser";
 import { CarryDataStatementContext } from "./kacoParser";
+import { SqlExecuteStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -250,6 +251,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitCarryDataStatement?: (ctx: CarryDataStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.sqlExecuteStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSqlExecuteStatement?: (ctx: SqlExecuteStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.sqlExecuteStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSqlExecuteStatement?: (ctx: SqlExecuteStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.

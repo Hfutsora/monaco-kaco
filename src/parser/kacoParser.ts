@@ -63,22 +63,23 @@ export class kacoParser extends Parser {
 	public static readonly GetComboDic = 33;
 	public static readonly QueryData = 34;
 	public static readonly CarryData = 35;
-	public static readonly Selected = 36;
-	public static readonly If = 37;
-	public static readonly Constant = 38;
-	public static readonly Natural = 39;
-	public static readonly MessageLiteral = 40;
-	public static readonly StringLiteral = 41;
-	public static readonly BooleanLiteral = 42;
-	public static readonly DecimalLiteral = 43;
-	public static readonly ParamLiteral = 44;
-	public static readonly SqlLiteral = 45;
-	public static readonly Decimal = 46;
-	public static readonly NonZeroDigit = 47;
-	public static readonly DigitChar = 48;
-	public static readonly WS = 49;
-	public static readonly COMMENT = 50;
-	public static readonly WHITESPACE = 51;
+	public static readonly SQLExecute = 36;
+	public static readonly Selected = 37;
+	public static readonly If = 38;
+	public static readonly Constant = 39;
+	public static readonly Natural = 40;
+	public static readonly MessageLiteral = 41;
+	public static readonly StringLiteral = 42;
+	public static readonly BooleanLiteral = 43;
+	public static readonly DecimalLiteral = 44;
+	public static readonly ParamLiteral = 45;
+	public static readonly SqlLiteral = 46;
+	public static readonly Decimal = 47;
+	public static readonly NonZeroDigit = 48;
+	public static readonly DigitChar = 49;
+	public static readonly WS = 50;
+	public static readonly COMMENT = 51;
+	public static readonly WHITESPACE = 52;
 	public static readonly RULE_program = 0;
 	public static readonly RULE_statement = 1;
 	public static readonly RULE_functionStatement = 2;
@@ -98,28 +99,29 @@ export class kacoParser extends Parser {
 	public static readonly RULE_getComboDicStatement = 16;
 	public static readonly RULE_queryDataStatement = 17;
 	public static readonly RULE_carryDataStatement = 18;
-	public static readonly RULE_expression = 19;
-	public static readonly RULE_subTerm = 20;
-	public static readonly RULE_addTerm = 21;
-	public static readonly RULE_divTerm = 22;
-	public static readonly RULE_mulTerm = 23;
-	public static readonly RULE_parnTerm = 24;
-	public static readonly RULE_assign = 25;
-	public static readonly RULE_assignStart = 26;
-	public static readonly RULE_ctrlQuoteLiteral = 27;
-	public static readonly RULE_ctrlQuoteDotLiteral = 28;
-	public static readonly RULE_ctrlQuoteParamLiteral = 29;
-	public static readonly RULE_ctrlConstantLiteral = 30;
-	public static readonly RULE_commonLiteral = 31;
+	public static readonly RULE_sqlExecuteStatement = 19;
+	public static readonly RULE_expression = 20;
+	public static readonly RULE_subTerm = 21;
+	public static readonly RULE_addTerm = 22;
+	public static readonly RULE_divTerm = 23;
+	public static readonly RULE_mulTerm = 24;
+	public static readonly RULE_parnTerm = 25;
+	public static readonly RULE_assign = 26;
+	public static readonly RULE_assignStart = 27;
+	public static readonly RULE_ctrlQuoteLiteral = 28;
+	public static readonly RULE_ctrlQuoteDotLiteral = 29;
+	public static readonly RULE_ctrlQuoteParamLiteral = 30;
+	public static readonly RULE_ctrlConstantLiteral = 31;
+	public static readonly RULE_commonLiteral = 32;
 	// tslint:disable:no-trailing-whitespace
 	public static readonly ruleNames: string[] = [
 		"program", "statement", "functionStatement", "ifStatement", "blockStatement", 
 		"expressionSequence", "singleExpression", "assignStatement", "quoteEllipsisExpr", 
 		"quoteNaturalExpr", "openFormStatement", "saveFormStatement", "closeStatement", 
 		"refreshStatement", "messageStatement", "clickButtonStatement", "getComboDicStatement", 
-		"queryDataStatement", "carryDataStatement", "expression", "subTerm", "addTerm", 
-		"divTerm", "mulTerm", "parnTerm", "assign", "assignStart", "ctrlQuoteLiteral", 
-		"ctrlQuoteDotLiteral", "ctrlQuoteParamLiteral", "ctrlConstantLiteral", 
+		"queryDataStatement", "carryDataStatement", "sqlExecuteStatement", "expression", 
+		"subTerm", "addTerm", "divTerm", "mulTerm", "parnTerm", "assign", "assignStart", 
+		"ctrlQuoteLiteral", "ctrlQuoteDotLiteral", "ctrlQuoteParamLiteral", "ctrlConstantLiteral", 
 		"commonLiteral",
 	];
 
@@ -128,7 +130,7 @@ export class kacoParser extends Parser {
 		"'+'", "'-'", "'*'", "'/'", "'='", "'.'", "'...'", "'=='", "'!='", "'<'", 
 		"'>'", "'<='", "'>='", "'&&'", "'||'", "'#'", "'$'", "'OpenForm'", "'SaveForm'", 
 		"'Close'", "'Refresh'", "'MessageBox'", "'ClickButton'", "'GetComboDic'", 
-		"'QueryData'", "'CarryData'", undefined, "'if'",
+		"'QueryData'", "'CarryData'", "'SQLExecute'", undefined, "'if'",
 	];
 	private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
 		undefined, undefined, "OpenBracket", "CloseBracket", "OpenParen", "CloseParen", 
@@ -136,10 +138,10 @@ export class kacoParser extends Parser {
 		"Divide", "Assign", "Dot", "Ellipsis", "Equal", "NotEqual", "LessThan", 
 		"MoreThan", "LessThanEquals", "GreaterThanEquals", "And", "Or", "Sql", 
 		"Const", "OpenForm", "SaveForm", "Close", "Refresh", "MessageBox", "ClickButton", 
-		"GetComboDic", "QueryData", "CarryData", "Selected", "If", "Constant", 
-		"Natural", "MessageLiteral", "StringLiteral", "BooleanLiteral", "DecimalLiteral", 
-		"ParamLiteral", "SqlLiteral", "Decimal", "NonZeroDigit", "DigitChar", 
-		"WS", "COMMENT", "WHITESPACE",
+		"GetComboDic", "QueryData", "CarryData", "SQLExecute", "Selected", "If", 
+		"Constant", "Natural", "MessageLiteral", "StringLiteral", "BooleanLiteral", 
+		"DecimalLiteral", "ParamLiteral", "SqlLiteral", "Decimal", "NonZeroDigit", 
+		"DigitChar", "WS", "COMMENT", "WHITESPACE",
 	];
 	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(kacoParser._LITERAL_NAMES, kacoParser._SYMBOLIC_NAMES, []);
 
@@ -175,21 +177,21 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 65;
+			this.state = 67;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			do {
 				{
 				{
-				this.state = 64;
+				this.state = 66;
 				this.statement();
 				}
 				}
-				this.state = 67;
+				this.state = 69;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
-			} while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << kacoParser.OpenBracket) | (1 << kacoParser.OpenForm) | (1 << kacoParser.SaveForm) | (1 << kacoParser.Close) | (1 << kacoParser.Refresh) | (1 << kacoParser.MessageBox))) !== 0) || ((((_la - 32)) & ~0x1F) === 0 && ((1 << (_la - 32)) & ((1 << (kacoParser.ClickButton - 32)) | (1 << (kacoParser.GetComboDic - 32)) | (1 << (kacoParser.QueryData - 32)) | (1 << (kacoParser.CarryData - 32)) | (1 << (kacoParser.If - 32)))) !== 0));
-			this.state = 69;
+			} while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << kacoParser.OpenBracket) | (1 << kacoParser.OpenForm) | (1 << kacoParser.SaveForm) | (1 << kacoParser.Close) | (1 << kacoParser.Refresh) | (1 << kacoParser.MessageBox))) !== 0) || ((((_la - 32)) & ~0x1F) === 0 && ((1 << (_la - 32)) & ((1 << (kacoParser.ClickButton - 32)) | (1 << (kacoParser.GetComboDic - 32)) | (1 << (kacoParser.QueryData - 32)) | (1 << (kacoParser.CarryData - 32)) | (1 << (kacoParser.SQLExecute - 32)) | (1 << (kacoParser.If - 32)))) !== 0));
+			this.state = 71;
 			this.match(kacoParser.EOF);
 			}
 		}
@@ -212,13 +214,13 @@ export class kacoParser extends Parser {
 		let _localctx: StatementContext = new StatementContext(this._ctx, this.state);
 		this.enterRule(_localctx, 2, kacoParser.RULE_statement);
 		try {
-			this.state = 73;
+			this.state = 75;
 			this._errHandler.sync(this);
 			switch (this._input.LA(1)) {
 			case kacoParser.If:
 				this.enterOuterAlt(_localctx, 1);
 				{
-				this.state = 71;
+				this.state = 73;
 				this.ifStatement();
 				}
 				break;
@@ -232,9 +234,10 @@ export class kacoParser extends Parser {
 			case kacoParser.GetComboDic:
 			case kacoParser.QueryData:
 			case kacoParser.CarryData:
+			case kacoParser.SQLExecute:
 				this.enterOuterAlt(_localctx, 2);
 				{
-				this.state = 72;
+				this.state = 74;
 				this.functionStatement();
 				}
 				break;
@@ -261,76 +264,83 @@ export class kacoParser extends Parser {
 		let _localctx: FunctionStatementContext = new FunctionStatementContext(this._ctx, this.state);
 		this.enterRule(_localctx, 4, kacoParser.RULE_functionStatement);
 		try {
-			this.state = 85;
+			this.state = 88;
 			this._errHandler.sync(this);
 			switch (this._input.LA(1)) {
 			case kacoParser.OpenForm:
 				this.enterOuterAlt(_localctx, 1);
 				{
-				this.state = 75;
+				this.state = 77;
 				this.openFormStatement();
 				}
 				break;
 			case kacoParser.SaveForm:
 				this.enterOuterAlt(_localctx, 2);
 				{
-				this.state = 76;
+				this.state = 78;
 				this.saveFormStatement();
 				}
 				break;
 			case kacoParser.Close:
 				this.enterOuterAlt(_localctx, 3);
 				{
-				this.state = 77;
+				this.state = 79;
 				this.closeStatement();
 				}
 				break;
 			case kacoParser.Refresh:
 				this.enterOuterAlt(_localctx, 4);
 				{
-				this.state = 78;
+				this.state = 80;
 				this.refreshStatement();
 				}
 				break;
 			case kacoParser.MessageBox:
 				this.enterOuterAlt(_localctx, 5);
 				{
-				this.state = 79;
+				this.state = 81;
 				this.messageStatement();
 				}
 				break;
 			case kacoParser.ClickButton:
 				this.enterOuterAlt(_localctx, 6);
 				{
-				this.state = 80;
+				this.state = 82;
 				this.clickButtonStatement();
 				}
 				break;
 			case kacoParser.GetComboDic:
 				this.enterOuterAlt(_localctx, 7);
 				{
-				this.state = 81;
+				this.state = 83;
 				this.getComboDicStatement();
 				}
 				break;
 			case kacoParser.QueryData:
 				this.enterOuterAlt(_localctx, 8);
 				{
-				this.state = 82;
+				this.state = 84;
 				this.queryDataStatement();
 				}
 				break;
 			case kacoParser.CarryData:
 				this.enterOuterAlt(_localctx, 9);
 				{
-				this.state = 83;
+				this.state = 85;
 				this.carryDataStatement();
 				}
 				break;
-			case kacoParser.OpenBracket:
+			case kacoParser.SQLExecute:
 				this.enterOuterAlt(_localctx, 10);
 				{
-				this.state = 84;
+				this.state = 86;
+				this.sqlExecuteStatement();
+				}
+				break;
+			case kacoParser.OpenBracket:
+				this.enterOuterAlt(_localctx, 11);
+				{
+				this.state = 87;
 				this.assignStatement();
 				}
 				break;
@@ -359,15 +369,15 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 87;
-			this.match(kacoParser.If);
-			this.state = 88;
-			this.match(kacoParser.OpenParen);
-			this.state = 89;
-			this.expressionSequence();
 			this.state = 90;
-			this.match(kacoParser.CloseParen);
+			this.match(kacoParser.If);
 			this.state = 91;
+			this.match(kacoParser.OpenParen);
+			this.state = 92;
+			this.expressionSequence();
+			this.state = 93;
+			this.match(kacoParser.CloseParen);
+			this.state = 94;
 			this.blockStatement();
 			}
 		}
@@ -393,36 +403,36 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 93;
+			this.state = 96;
 			this.match(kacoParser.OpenBrace);
-			this.state = 98;
+			this.state = 101;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << kacoParser.OpenBracket) | (1 << kacoParser.OpenForm) | (1 << kacoParser.SaveForm) | (1 << kacoParser.Close) | (1 << kacoParser.Refresh) | (1 << kacoParser.MessageBox))) !== 0) || ((((_la - 32)) & ~0x1F) === 0 && ((1 << (_la - 32)) & ((1 << (kacoParser.ClickButton - 32)) | (1 << (kacoParser.GetComboDic - 32)) | (1 << (kacoParser.QueryData - 32)) | (1 << (kacoParser.CarryData - 32)))) !== 0)) {
+			while ((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << kacoParser.OpenBracket) | (1 << kacoParser.OpenForm) | (1 << kacoParser.SaveForm) | (1 << kacoParser.Close) | (1 << kacoParser.Refresh) | (1 << kacoParser.MessageBox))) !== 0) || ((((_la - 32)) & ~0x1F) === 0 && ((1 << (_la - 32)) & ((1 << (kacoParser.ClickButton - 32)) | (1 << (kacoParser.GetComboDic - 32)) | (1 << (kacoParser.QueryData - 32)) | (1 << (kacoParser.CarryData - 32)) | (1 << (kacoParser.SQLExecute - 32)))) !== 0)) {
 				{
-				this.state = 96;
+				this.state = 99;
 				this._errHandler.sync(this);
 				switch ( this.interpreter.adaptivePredict(this._input, 3, this._ctx) ) {
 				case 1:
 					{
-					this.state = 94;
+					this.state = 97;
 					this.functionStatement();
 					}
 					break;
 
 				case 2:
 					{
-					this.state = 95;
+					this.state = 98;
 					this.assignStatement();
 					}
 					break;
 				}
 				}
-				this.state = 100;
+				this.state = 103;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
-			this.state = 101;
+			this.state = 104;
 			this.match(kacoParser.CloseBrace);
 			}
 		}
@@ -447,7 +457,7 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 103;
+			this.state = 106;
 			this.singleExpression(0);
 			}
 		}
@@ -485,7 +495,7 @@ export class kacoParser extends Parser {
 			let _alt: number;
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 111;
+			this.state = 114;
 			this._errHandler.sync(this);
 			switch (this._input.LA(1)) {
 			case kacoParser.OpenBracket:
@@ -494,17 +504,17 @@ export class kacoParser extends Parser {
 			case kacoParser.BooleanLiteral:
 			case kacoParser.DecimalLiteral:
 				{
-				this.state = 106;
+				this.state = 109;
 				this.commonLiteral();
 				}
 				break;
 			case kacoParser.OpenParen:
 				{
-				this.state = 107;
+				this.state = 110;
 				this.match(kacoParser.OpenParen);
-				this.state = 108;
+				this.state = 111;
 				this.expressionSequence();
-				this.state = 109;
+				this.state = 112;
 				this.match(kacoParser.CloseParen);
 				}
 				break;
@@ -512,7 +522,7 @@ export class kacoParser extends Parser {
 				throw new NoViableAltException(this);
 			}
 			this._ctx._stop = this._input.tryLT(-1);
-			this.state = 130;
+			this.state = 133;
 			this._errHandler.sync(this);
 			_alt = this.interpreter.adaptivePredict(this._input, 7, this._ctx);
 			while (_alt !== 2 && _alt !== ATN.INVALID_ALT_NUMBER) {
@@ -522,18 +532,18 @@ export class kacoParser extends Parser {
 					}
 					_prevctx = _localctx;
 					{
-					this.state = 128;
+					this.state = 131;
 					this._errHandler.sync(this);
 					switch ( this.interpreter.adaptivePredict(this._input, 6, this._ctx) ) {
 					case 1:
 						{
 						_localctx = new SingleExpressionContext(_parentctx, _parentState);
 						this.pushNewRecursionContext(_localctx, _startState, kacoParser.RULE_singleExpression);
-						this.state = 113;
+						this.state = 116;
 						if (!(this.precpred(this._ctx, 6))) {
 							throw this.createFailedPredicateException("this.precpred(this._ctx, 6)");
 						}
-						this.state = 114;
+						this.state = 117;
 						_la = this._input.LA(1);
 						if (!((((_la) & ~0x1F) === 0 && ((1 << _la) & ((1 << kacoParser.LessThan) | (1 << kacoParser.MoreThan) | (1 << kacoParser.LessThanEquals) | (1 << kacoParser.GreaterThanEquals))) !== 0))) {
 						this._errHandler.recoverInline(this);
@@ -545,7 +555,7 @@ export class kacoParser extends Parser {
 							this._errHandler.reportMatch(this);
 							this.consume();
 						}
-						this.state = 115;
+						this.state = 118;
 						this.singleExpression(7);
 						}
 						break;
@@ -554,11 +564,11 @@ export class kacoParser extends Parser {
 						{
 						_localctx = new SingleExpressionContext(_parentctx, _parentState);
 						this.pushNewRecursionContext(_localctx, _startState, kacoParser.RULE_singleExpression);
-						this.state = 116;
+						this.state = 119;
 						if (!(this.precpred(this._ctx, 5))) {
 							throw this.createFailedPredicateException("this.precpred(this._ctx, 5)");
 						}
-						this.state = 117;
+						this.state = 120;
 						_la = this._input.LA(1);
 						if (!(_la === kacoParser.Plus || _la === kacoParser.Minus)) {
 						this._errHandler.recoverInline(this);
@@ -570,7 +580,7 @@ export class kacoParser extends Parser {
 							this._errHandler.reportMatch(this);
 							this.consume();
 						}
-						this.state = 118;
+						this.state = 121;
 						this.singleExpression(6);
 						}
 						break;
@@ -579,11 +589,11 @@ export class kacoParser extends Parser {
 						{
 						_localctx = new SingleExpressionContext(_parentctx, _parentState);
 						this.pushNewRecursionContext(_localctx, _startState, kacoParser.RULE_singleExpression);
-						this.state = 119;
+						this.state = 122;
 						if (!(this.precpred(this._ctx, 4))) {
 							throw this.createFailedPredicateException("this.precpred(this._ctx, 4)");
 						}
-						this.state = 120;
+						this.state = 123;
 						_la = this._input.LA(1);
 						if (!(_la === kacoParser.Equal || _la === kacoParser.NotEqual)) {
 						this._errHandler.recoverInline(this);
@@ -595,7 +605,7 @@ export class kacoParser extends Parser {
 							this._errHandler.reportMatch(this);
 							this.consume();
 						}
-						this.state = 121;
+						this.state = 124;
 						this.singleExpression(5);
 						}
 						break;
@@ -604,13 +614,13 @@ export class kacoParser extends Parser {
 						{
 						_localctx = new SingleExpressionContext(_parentctx, _parentState);
 						this.pushNewRecursionContext(_localctx, _startState, kacoParser.RULE_singleExpression);
-						this.state = 122;
+						this.state = 125;
 						if (!(this.precpred(this._ctx, 3))) {
 							throw this.createFailedPredicateException("this.precpred(this._ctx, 3)");
 						}
-						this.state = 123;
+						this.state = 126;
 						this.match(kacoParser.And);
-						this.state = 124;
+						this.state = 127;
 						this.singleExpression(4);
 						}
 						break;
@@ -619,20 +629,20 @@ export class kacoParser extends Parser {
 						{
 						_localctx = new SingleExpressionContext(_parentctx, _parentState);
 						this.pushNewRecursionContext(_localctx, _startState, kacoParser.RULE_singleExpression);
-						this.state = 125;
+						this.state = 128;
 						if (!(this.precpred(this._ctx, 2))) {
 							throw this.createFailedPredicateException("this.precpred(this._ctx, 2)");
 						}
-						this.state = 126;
+						this.state = 129;
 						this.match(kacoParser.Or);
-						this.state = 127;
+						this.state = 130;
 						this.singleExpression(3);
 						}
 						break;
 					}
 					}
 				}
-				this.state = 132;
+				this.state = 135;
 				this._errHandler.sync(this);
 				_alt = this.interpreter.adaptivePredict(this._input, 7, this._ctx);
 			}
@@ -659,9 +669,9 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 133;
+			this.state = 136;
 			this.assign();
-			this.state = 134;
+			this.state = 137;
 			this.match(kacoParser.SemiColon);
 			}
 		}
@@ -687,35 +697,35 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 136;
+			this.state = 139;
 			this.match(kacoParser.OpenParen);
-			this.state = 145;
+			this.state = 148;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
-			if (_la === kacoParser.OpenBracket || ((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (kacoParser.Natural - 39)) | (1 << (kacoParser.StringLiteral - 39)) | (1 << (kacoParser.BooleanLiteral - 39)) | (1 << (kacoParser.DecimalLiteral - 39)))) !== 0)) {
+			if (_la === kacoParser.OpenBracket || ((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (kacoParser.Natural - 40)) | (1 << (kacoParser.StringLiteral - 40)) | (1 << (kacoParser.BooleanLiteral - 40)) | (1 << (kacoParser.DecimalLiteral - 40)))) !== 0)) {
 				{
-				this.state = 137;
+				this.state = 140;
 				this.commonLiteral();
-				this.state = 142;
+				this.state = 145;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 				while (_la === kacoParser.Comma) {
 					{
 					{
-					this.state = 138;
+					this.state = 141;
 					this.match(kacoParser.Comma);
-					this.state = 139;
+					this.state = 142;
 					this.commonLiteral();
 					}
 					}
-					this.state = 144;
+					this.state = 147;
 					this._errHandler.sync(this);
 					_la = this._input.LA(1);
 				}
 				}
 			}
 
-			this.state = 147;
+			this.state = 150;
 			this.match(kacoParser.CloseParen);
 			}
 		}
@@ -741,19 +751,19 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 149;
+			this.state = 152;
 			this.match(kacoParser.OpenParen);
-			this.state = 151;
+			this.state = 154;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la === kacoParser.Natural) {
 				{
-				this.state = 150;
+				this.state = 153;
 				this.match(kacoParser.Natural);
 				}
 			}
 
-			this.state = 153;
+			this.state = 156;
 			this.match(kacoParser.CloseParen);
 			}
 		}
@@ -779,13 +789,13 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 155;
+			this.state = 158;
 			this.match(kacoParser.OpenForm);
-			this.state = 156;
+			this.state = 159;
 			this.match(kacoParser.OpenBracket);
-			this.state = 157;
+			this.state = 160;
 			_la = this._input.LA(1);
-			if (!(((((_la - 39)) & ~0x1F) === 0 && ((1 << (_la - 39)) & ((1 << (kacoParser.Natural - 39)) | (1 << (kacoParser.StringLiteral - 39)) | (1 << (kacoParser.DecimalLiteral - 39)))) !== 0))) {
+			if (!(((((_la - 40)) & ~0x1F) === 0 && ((1 << (_la - 40)) & ((1 << (kacoParser.Natural - 40)) | (1 << (kacoParser.StringLiteral - 40)) | (1 << (kacoParser.DecimalLiteral - 40)))) !== 0))) {
 			this._errHandler.recoverInline(this);
 			} else {
 				if (this._input.LA(1) === Token.EOF) {
@@ -795,21 +805,11 @@ export class kacoParser extends Parser {
 				this._errHandler.reportMatch(this);
 				this.consume();
 			}
-			this.state = 158;
+			this.state = 161;
 			this.match(kacoParser.CloseBracket);
-			this.state = 160;
-			this._errHandler.sync(this);
-			switch ( this.interpreter.adaptivePredict(this._input, 11, this._ctx) ) {
-			case 1:
-				{
-				this.state = 159;
-				this.quoteEllipsisExpr();
-				}
-				break;
-			}
 			this.state = 163;
 			this._errHandler.sync(this);
-			switch ( this.interpreter.adaptivePredict(this._input, 12, this._ctx) ) {
+			switch ( this.interpreter.adaptivePredict(this._input, 11, this._ctx) ) {
 			case 1:
 				{
 				this.state = 162;
@@ -819,15 +819,25 @@ export class kacoParser extends Parser {
 			}
 			this.state = 166;
 			this._errHandler.sync(this);
-			_la = this._input.LA(1);
-			if (_la === kacoParser.OpenParen) {
+			switch ( this.interpreter.adaptivePredict(this._input, 12, this._ctx) ) {
+			case 1:
 				{
 				this.state = 165;
 				this.quoteEllipsisExpr();
 				}
+				break;
+			}
+			this.state = 169;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			if (_la === kacoParser.OpenParen) {
+				{
+				this.state = 168;
+				this.quoteEllipsisExpr();
+				}
 			}
 
-			this.state = 168;
+			this.state = 171;
 			this.match(kacoParser.SemiColon);
 			}
 		}
@@ -852,11 +862,11 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 170;
+			this.state = 173;
 			this.match(kacoParser.SaveForm);
-			this.state = 171;
+			this.state = 174;
 			this.quoteEllipsisExpr();
-			this.state = 172;
+			this.state = 175;
 			this.match(kacoParser.SemiColon);
 			}
 		}
@@ -882,23 +892,23 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 174;
-			this.match(kacoParser.Close);
-			this.state = 175;
-			this.match(kacoParser.OpenParen);
 			this.state = 177;
+			this.match(kacoParser.Close);
+			this.state = 178;
+			this.match(kacoParser.OpenParen);
+			this.state = 180;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la === kacoParser.StringLiteral) {
 				{
-				this.state = 176;
+				this.state = 179;
 				this.match(kacoParser.StringLiteral);
 				}
 			}
 
-			this.state = 179;
+			this.state = 182;
 			this.match(kacoParser.CloseParen);
-			this.state = 180;
+			this.state = 183;
 			this.match(kacoParser.SemiColon);
 			}
 		}
@@ -924,23 +934,23 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 182;
-			this.match(kacoParser.Refresh);
-			this.state = 183;
-			this.match(kacoParser.OpenParen);
 			this.state = 185;
+			this.match(kacoParser.Refresh);
+			this.state = 186;
+			this.match(kacoParser.OpenParen);
+			this.state = 188;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la === kacoParser.StringLiteral) {
 				{
-				this.state = 184;
+				this.state = 187;
 				this.match(kacoParser.StringLiteral);
 				}
 			}
 
-			this.state = 187;
+			this.state = 190;
 			this.match(kacoParser.CloseParen);
-			this.state = 188;
+			this.state = 191;
 			this.match(kacoParser.SemiColon);
 			}
 		}
@@ -965,19 +975,19 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 190;
-			this.match(kacoParser.MessageBox);
-			this.state = 191;
-			this.match(kacoParser.OpenParen);
-			this.state = 192;
-			this.match(kacoParser.MessageLiteral);
 			this.state = 193;
-			this.match(kacoParser.Comma);
+			this.match(kacoParser.MessageBox);
 			this.state = 194;
-			this.match(kacoParser.StringLiteral);
+			this.match(kacoParser.OpenParen);
 			this.state = 195;
-			this.match(kacoParser.CloseParen);
+			this.match(kacoParser.MessageLiteral);
 			this.state = 196;
+			this.match(kacoParser.Comma);
+			this.state = 197;
+			this.match(kacoParser.StringLiteral);
+			this.state = 198;
+			this.match(kacoParser.CloseParen);
+			this.state = 199;
 			this.match(kacoParser.SemiColon);
 			}
 		}
@@ -1002,15 +1012,15 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 198;
-			this.match(kacoParser.ClickButton);
-			this.state = 199;
-			this.match(kacoParser.OpenParen);
-			this.state = 200;
-			this.ctrlQuoteLiteral();
 			this.state = 201;
-			this.match(kacoParser.CloseParen);
+			this.match(kacoParser.ClickButton);
 			this.state = 202;
+			this.match(kacoParser.OpenParen);
+			this.state = 203;
+			this.ctrlQuoteLiteral();
+			this.state = 204;
+			this.match(kacoParser.CloseParen);
+			this.state = 205;
 			this.match(kacoParser.SemiColon);
 			}
 		}
@@ -1035,19 +1045,19 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 204;
-			this.match(kacoParser.GetComboDic);
-			this.state = 205;
-			this.match(kacoParser.OpenParen);
-			this.state = 206;
-			this.ctrlQuoteLiteral();
 			this.state = 207;
-			this.match(kacoParser.Comma);
+			this.match(kacoParser.GetComboDic);
 			this.state = 208;
-			this.match(kacoParser.SqlLiteral);
+			this.match(kacoParser.OpenParen);
 			this.state = 209;
-			this.match(kacoParser.CloseParen);
+			this.ctrlQuoteLiteral();
 			this.state = 210;
+			this.match(kacoParser.Comma);
+			this.state = 211;
+			this.match(kacoParser.SqlLiteral);
+			this.state = 212;
+			this.match(kacoParser.CloseParen);
+			this.state = 213;
 			this.match(kacoParser.SemiColon);
 			}
 		}
@@ -1073,45 +1083,45 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 212;
-			this.match(kacoParser.QueryData);
-			this.state = 213;
-			this.ctrlQuoteLiteral();
-			this.state = 214;
-			this.match(kacoParser.Comma);
 			this.state = 215;
+			this.match(kacoParser.QueryData);
+			this.state = 216;
 			this.ctrlQuoteLiteral();
 			this.state = 217;
+			this.match(kacoParser.Comma);
+			this.state = 218;
+			this.ctrlQuoteLiteral();
+			this.state = 220;
 			this._errHandler.sync(this);
 			switch ( this.interpreter.adaptivePredict(this._input, 16, this._ctx) ) {
 			case 1:
 				{
-				this.state = 216;
-				this.quoteEllipsisExpr();
-				}
-				break;
-			}
-			this.state = 220;
-			this._errHandler.sync(this);
-			switch ( this.interpreter.adaptivePredict(this._input, 17, this._ctx) ) {
-			case 1:
-				{
 				this.state = 219;
-				this.quoteNaturalExpr();
+				this.quoteEllipsisExpr();
 				}
 				break;
 			}
 			this.state = 223;
 			this._errHandler.sync(this);
-			_la = this._input.LA(1);
-			if (_la === kacoParser.OpenParen) {
+			switch ( this.interpreter.adaptivePredict(this._input, 17, this._ctx) ) {
+			case 1:
 				{
 				this.state = 222;
 				this.quoteNaturalExpr();
 				}
+				break;
+			}
+			this.state = 226;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			if (_la === kacoParser.OpenParen) {
+				{
+				this.state = 225;
+				this.quoteNaturalExpr();
+				}
 			}
 
-			this.state = 225;
+			this.state = 228;
 			this.match(kacoParser.SemiColon);
 			}
 		}
@@ -1137,33 +1147,75 @@ export class kacoParser extends Parser {
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 227;
+			this.state = 230;
 			this.match(kacoParser.CarryData);
-			this.state = 228;
+			this.state = 231;
 			this.ctrlQuoteLiteral();
-			this.state = 234;
+			this.state = 237;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la === kacoParser.OpenParen) {
 				{
-				this.state = 229;
+				this.state = 232;
 				this.match(kacoParser.OpenParen);
-				this.state = 231;
+				this.state = 234;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 				if (_la === kacoParser.OpenBracket) {
 					{
-					this.state = 230;
+					this.state = 233;
 					this.ctrlQuoteLiteral();
 					}
 				}
 
-				this.state = 233;
+				this.state = 236;
 				this.match(kacoParser.CloseParen);
 				}
 			}
 
-			this.state = 236;
+			this.state = 239;
+			this.match(kacoParser.SemiColon);
+			}
+		}
+		catch (re) {
+			if (re instanceof RecognitionException) {
+				_localctx.exception = re;
+				this._errHandler.reportError(this, re);
+				this._errHandler.recover(this, re);
+			} else {
+				throw re;
+			}
+		}
+		finally {
+			this.exitRule();
+		}
+		return _localctx;
+	}
+	// @RuleVersion(0)
+	public sqlExecuteStatement(): SqlExecuteStatementContext {
+		let _localctx: SqlExecuteStatementContext = new SqlExecuteStatementContext(this._ctx, this.state);
+		this.enterRule(_localctx, 38, kacoParser.RULE_sqlExecuteStatement);
+		let _la: number;
+		try {
+			this.enterOuterAlt(_localctx, 1);
+			{
+			this.state = 241;
+			this.match(kacoParser.SQLExecute);
+			this.state = 242;
+			this.match(kacoParser.OpenParen);
+			this.state = 244;
+			this._errHandler.sync(this);
+			_la = this._input.LA(1);
+			if (_la === kacoParser.SqlLiteral) {
+				{
+				this.state = 243;
+				this.match(kacoParser.SqlLiteral);
+				}
+			}
+
+			this.state = 246;
+			this.match(kacoParser.CloseParen);
+			this.state = 247;
 			this.match(kacoParser.SemiColon);
 			}
 		}
@@ -1184,11 +1236,11 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public expression(): ExpressionContext {
 		let _localctx: ExpressionContext = new ExpressionContext(this._ctx, this.state);
-		this.enterRule(_localctx, 38, kacoParser.RULE_expression);
+		this.enterRule(_localctx, 40, kacoParser.RULE_expression);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 238;
+			this.state = 249;
 			this.subTerm();
 			}
 		}
@@ -1209,26 +1261,26 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public subTerm(): SubTermContext {
 		let _localctx: SubTermContext = new SubTermContext(this._ctx, this.state);
-		this.enterRule(_localctx, 40, kacoParser.RULE_subTerm);
+		this.enterRule(_localctx, 42, kacoParser.RULE_subTerm);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 240;
+			this.state = 251;
 			this.addTerm();
-			this.state = 245;
+			this.state = 256;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			while (_la === kacoParser.Minus) {
 				{
 				{
-				this.state = 241;
+				this.state = 252;
 				this.match(kacoParser.Minus);
-				this.state = 242;
+				this.state = 253;
 				this.addTerm();
 				}
 				}
-				this.state = 247;
+				this.state = 258;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -1251,26 +1303,26 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public addTerm(): AddTermContext {
 		let _localctx: AddTermContext = new AddTermContext(this._ctx, this.state);
-		this.enterRule(_localctx, 42, kacoParser.RULE_addTerm);
+		this.enterRule(_localctx, 44, kacoParser.RULE_addTerm);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 248;
+			this.state = 259;
 			this.divTerm();
-			this.state = 253;
+			this.state = 264;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			while (_la === kacoParser.Plus) {
 				{
 				{
-				this.state = 249;
+				this.state = 260;
 				this.match(kacoParser.Plus);
-				this.state = 250;
+				this.state = 261;
 				this.divTerm();
 				}
 				}
-				this.state = 255;
+				this.state = 266;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -1293,26 +1345,26 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public divTerm(): DivTermContext {
 		let _localctx: DivTermContext = new DivTermContext(this._ctx, this.state);
-		this.enterRule(_localctx, 44, kacoParser.RULE_divTerm);
+		this.enterRule(_localctx, 46, kacoParser.RULE_divTerm);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 256;
+			this.state = 267;
 			this.mulTerm();
-			this.state = 261;
+			this.state = 272;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			while (_la === kacoParser.Divide) {
 				{
 				{
-				this.state = 257;
+				this.state = 268;
 				this.match(kacoParser.Divide);
-				this.state = 258;
+				this.state = 269;
 				this.mulTerm();
 				}
 				}
-				this.state = 263;
+				this.state = 274;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -1335,26 +1387,26 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public mulTerm(): MulTermContext {
 		let _localctx: MulTermContext = new MulTermContext(this._ctx, this.state);
-		this.enterRule(_localctx, 46, kacoParser.RULE_mulTerm);
+		this.enterRule(_localctx, 48, kacoParser.RULE_mulTerm);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 264;
+			this.state = 275;
 			this.parnTerm();
-			this.state = 269;
+			this.state = 280;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			while (_la === kacoParser.Multiply) {
 				{
 				{
-				this.state = 265;
+				this.state = 276;
 				this.match(kacoParser.Multiply);
-				this.state = 266;
+				this.state = 277;
 				this.parnTerm();
 				}
 				}
-				this.state = 271;
+				this.state = 282;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -1377,15 +1429,15 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public parnTerm(): ParnTermContext {
 		let _localctx: ParnTermContext = new ParnTermContext(this._ctx, this.state);
-		this.enterRule(_localctx, 48, kacoParser.RULE_parnTerm);
+		this.enterRule(_localctx, 50, kacoParser.RULE_parnTerm);
 		try {
-			this.state = 289;
+			this.state = 300;
 			this._errHandler.sync(this);
-			switch ( this.interpreter.adaptivePredict(this._input, 28, this._ctx) ) {
+			switch ( this.interpreter.adaptivePredict(this._input, 29, this._ctx) ) {
 			case 1:
 				this.enterOuterAlt(_localctx, 1);
 				{
-				this.state = 274;
+				this.state = 285;
 				this._errHandler.sync(this);
 				switch (this._input.LA(1)) {
 				case kacoParser.OpenBracket:
@@ -1394,22 +1446,22 @@ export class kacoParser extends Parser {
 				case kacoParser.BooleanLiteral:
 				case kacoParser.DecimalLiteral:
 					{
-					this.state = 272;
+					this.state = 283;
 					this.commonLiteral();
 					}
 					break;
 				case kacoParser.SqlLiteral:
 					{
-					this.state = 273;
+					this.state = 284;
 					this.match(kacoParser.SqlLiteral);
 					}
 					break;
 				default:
 					throw new NoViableAltException(this);
 				}
-				this.state = 276;
+				this.state = 287;
 				this.expression();
-				this.state = 279;
+				this.state = 290;
 				this._errHandler.sync(this);
 				switch (this._input.LA(1)) {
 				case kacoParser.OpenBracket:
@@ -1418,13 +1470,13 @@ export class kacoParser extends Parser {
 				case kacoParser.BooleanLiteral:
 				case kacoParser.DecimalLiteral:
 					{
-					this.state = 277;
+					this.state = 288;
 					this.commonLiteral();
 					}
 					break;
 				case kacoParser.SqlLiteral:
 					{
-					this.state = 278;
+					this.state = 289;
 					this.match(kacoParser.SqlLiteral);
 					}
 					break;
@@ -1437,7 +1489,7 @@ export class kacoParser extends Parser {
 			case 2:
 				this.enterOuterAlt(_localctx, 2);
 				{
-				this.state = 283;
+				this.state = 294;
 				this._errHandler.sync(this);
 				switch (this._input.LA(1)) {
 				case kacoParser.OpenBracket:
@@ -1446,13 +1498,13 @@ export class kacoParser extends Parser {
 				case kacoParser.BooleanLiteral:
 				case kacoParser.DecimalLiteral:
 					{
-					this.state = 281;
+					this.state = 292;
 					this.commonLiteral();
 					}
 					break;
 				case kacoParser.SqlLiteral:
 					{
-					this.state = 282;
+					this.state = 293;
 					this.match(kacoParser.SqlLiteral);
 					}
 					break;
@@ -1465,11 +1517,11 @@ export class kacoParser extends Parser {
 			case 3:
 				this.enterOuterAlt(_localctx, 3);
 				{
-				this.state = 285;
+				this.state = 296;
 				this.match(kacoParser.OpenParen);
-				this.state = 286;
+				this.state = 297;
 				this.expression();
-				this.state = 287;
+				this.state = 298;
 				this.match(kacoParser.CloseParen);
 				}
 				break;
@@ -1492,15 +1544,15 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public assign(): AssignContext {
 		let _localctx: AssignContext = new AssignContext(this._ctx, this.state);
-		this.enterRule(_localctx, 50, kacoParser.RULE_assign);
+		this.enterRule(_localctx, 52, kacoParser.RULE_assign);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 291;
+			this.state = 302;
 			this.assignStart();
-			this.state = 292;
+			this.state = 303;
 			this.match(kacoParser.Assign);
-			this.state = 293;
+			this.state = 304;
 			this.expression();
 			}
 		}
@@ -1521,45 +1573,45 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public assignStart(): AssignStartContext {
 		let _localctx: AssignStartContext = new AssignStartContext(this._ctx, this.state);
-		this.enterRule(_localctx, 52, kacoParser.RULE_assignStart);
+		this.enterRule(_localctx, 54, kacoParser.RULE_assignStart);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 300;
+			this.state = 311;
 			this._errHandler.sync(this);
-			switch ( this.interpreter.adaptivePredict(this._input, 29, this._ctx) ) {
+			switch ( this.interpreter.adaptivePredict(this._input, 30, this._ctx) ) {
 			case 1:
 				{
-				this.state = 295;
+				this.state = 306;
 				this.ctrlQuoteLiteral();
 				}
 				break;
 
 			case 2:
 				{
-				this.state = 296;
+				this.state = 307;
 				this.ctrlQuoteLiteral();
-				this.state = 297;
+				this.state = 308;
 				this.match(kacoParser.Dot);
-				this.state = 298;
+				this.state = 309;
 				this.ctrlQuoteLiteral();
 				}
 				break;
 			}
-			this.state = 306;
+			this.state = 317;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			while (_la === kacoParser.Comma) {
 				{
 				{
-				this.state = 302;
+				this.state = 313;
 				this.match(kacoParser.Comma);
-				this.state = 303;
+				this.state = 314;
 				this.ctrlQuoteLiteral();
 				}
 				}
-				this.state = 308;
+				this.state = 319;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
@@ -1582,15 +1634,15 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public ctrlQuoteLiteral(): CtrlQuoteLiteralContext {
 		let _localctx: CtrlQuoteLiteralContext = new CtrlQuoteLiteralContext(this._ctx, this.state);
-		this.enterRule(_localctx, 54, kacoParser.RULE_ctrlQuoteLiteral);
+		this.enterRule(_localctx, 56, kacoParser.RULE_ctrlQuoteLiteral);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 309;
+			this.state = 320;
 			this.match(kacoParser.OpenBracket);
-			this.state = 310;
+			this.state = 321;
 			this.match(kacoParser.StringLiteral);
-			this.state = 311;
+			this.state = 322;
 			this.match(kacoParser.CloseBracket);
 			}
 		}
@@ -1611,55 +1663,55 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public ctrlQuoteDotLiteral(): CtrlQuoteDotLiteralContext {
 		let _localctx: CtrlQuoteDotLiteralContext = new CtrlQuoteDotLiteralContext(this._ctx, this.state);
-		this.enterRule(_localctx, 56, kacoParser.RULE_ctrlQuoteDotLiteral);
+		this.enterRule(_localctx, 58, kacoParser.RULE_ctrlQuoteDotLiteral);
 		let _la: number;
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 313;
+			this.state = 324;
 			this.match(kacoParser.OpenBracket);
-			this.state = 314;
+			this.state = 325;
 			this.match(kacoParser.StringLiteral);
-			this.state = 317;
+			this.state = 328;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la === kacoParser.Dot) {
 				{
-				this.state = 315;
+				this.state = 326;
 				this.match(kacoParser.Dot);
-				this.state = 316;
+				this.state = 327;
 				this.match(kacoParser.StringLiteral);
 				}
 			}
 
-			this.state = 323;
+			this.state = 334;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			while (_la === kacoParser.Comma) {
 				{
 				{
-				this.state = 319;
+				this.state = 330;
 				this.match(kacoParser.Comma);
-				this.state = 320;
+				this.state = 331;
 				this.match(kacoParser.StringLiteral);
 				}
 				}
-				this.state = 325;
+				this.state = 336;
 				this._errHandler.sync(this);
 				_la = this._input.LA(1);
 			}
-			this.state = 331;
+			this.state = 342;
 			this._errHandler.sync(this);
 			_la = this._input.LA(1);
 			if (_la === kacoParser.OpenParen) {
 				{
-				this.state = 326;
+				this.state = 337;
 				this.match(kacoParser.OpenParen);
-				this.state = 327;
+				this.state = 338;
 				this.match(kacoParser.Selected);
-				this.state = 328;
+				this.state = 339;
 				this.match(kacoParser.Equal);
-				this.state = 329;
+				this.state = 340;
 				_la = this._input.LA(1);
 				if (!(_la === kacoParser.T__0 || _la === kacoParser.Multiply || _la === kacoParser.Natural)) {
 				this._errHandler.recoverInline(this);
@@ -1671,12 +1723,12 @@ export class kacoParser extends Parser {
 					this._errHandler.reportMatch(this);
 					this.consume();
 				}
-				this.state = 330;
+				this.state = 341;
 				this.match(kacoParser.CloseParen);
 				}
 			}
 
-			this.state = 333;
+			this.state = 344;
 			this.match(kacoParser.CloseBracket);
 			}
 		}
@@ -1697,15 +1749,15 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public ctrlQuoteParamLiteral(): CtrlQuoteParamLiteralContext {
 		let _localctx: CtrlQuoteParamLiteralContext = new CtrlQuoteParamLiteralContext(this._ctx, this.state);
-		this.enterRule(_localctx, 58, kacoParser.RULE_ctrlQuoteParamLiteral);
+		this.enterRule(_localctx, 60, kacoParser.RULE_ctrlQuoteParamLiteral);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 335;
+			this.state = 346;
 			this.match(kacoParser.OpenBracket);
-			this.state = 336;
+			this.state = 347;
 			this.match(kacoParser.ParamLiteral);
-			this.state = 337;
+			this.state = 348;
 			this.match(kacoParser.CloseBracket);
 			}
 		}
@@ -1726,17 +1778,17 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public ctrlConstantLiteral(): CtrlConstantLiteralContext {
 		let _localctx: CtrlConstantLiteralContext = new CtrlConstantLiteralContext(this._ctx, this.state);
-		this.enterRule(_localctx, 60, kacoParser.RULE_ctrlConstantLiteral);
+		this.enterRule(_localctx, 62, kacoParser.RULE_ctrlConstantLiteral);
 		try {
 			this.enterOuterAlt(_localctx, 1);
 			{
-			this.state = 339;
+			this.state = 350;
 			this.match(kacoParser.OpenBracket);
-			this.state = 340;
+			this.state = 351;
 			this.match(kacoParser.Const);
-			this.state = 341;
+			this.state = 352;
 			this.match(kacoParser.Constant);
-			this.state = 342;
+			this.state = 353;
 			this.match(kacoParser.CloseBracket);
 			}
 		}
@@ -1757,15 +1809,15 @@ export class kacoParser extends Parser {
 	// @RuleVersion(0)
 	public commonLiteral(): CommonLiteralContext {
 		let _localctx: CommonLiteralContext = new CommonLiteralContext(this._ctx, this.state);
-		this.enterRule(_localctx, 62, kacoParser.RULE_commonLiteral);
+		this.enterRule(_localctx, 64, kacoParser.RULE_commonLiteral);
 		try {
-			this.state = 352;
+			this.state = 363;
 			this._errHandler.sync(this);
-			switch ( this.interpreter.adaptivePredict(this._input, 34, this._ctx) ) {
+			switch ( this.interpreter.adaptivePredict(this._input, 35, this._ctx) ) {
 			case 1:
 				this.enterOuterAlt(_localctx, 1);
 				{
-				this.state = 344;
+				this.state = 355;
 				this.ctrlQuoteLiteral();
 				}
 				break;
@@ -1773,7 +1825,7 @@ export class kacoParser extends Parser {
 			case 2:
 				this.enterOuterAlt(_localctx, 2);
 				{
-				this.state = 345;
+				this.state = 356;
 				this.ctrlQuoteDotLiteral();
 				}
 				break;
@@ -1781,7 +1833,7 @@ export class kacoParser extends Parser {
 			case 3:
 				this.enterOuterAlt(_localctx, 3);
 				{
-				this.state = 346;
+				this.state = 357;
 				this.ctrlQuoteParamLiteral();
 				}
 				break;
@@ -1789,7 +1841,7 @@ export class kacoParser extends Parser {
 			case 4:
 				this.enterOuterAlt(_localctx, 4);
 				{
-				this.state = 347;
+				this.state = 358;
 				this.ctrlConstantLiteral();
 				}
 				break;
@@ -1797,7 +1849,7 @@ export class kacoParser extends Parser {
 			case 5:
 				this.enterOuterAlt(_localctx, 5);
 				{
-				this.state = 348;
+				this.state = 359;
 				this.match(kacoParser.DecimalLiteral);
 				}
 				break;
@@ -1805,7 +1857,7 @@ export class kacoParser extends Parser {
 			case 6:
 				this.enterOuterAlt(_localctx, 6);
 				{
-				this.state = 349;
+				this.state = 360;
 				this.match(kacoParser.Natural);
 				}
 				break;
@@ -1813,7 +1865,7 @@ export class kacoParser extends Parser {
 			case 7:
 				this.enterOuterAlt(_localctx, 7);
 				{
-				this.state = 350;
+				this.state = 361;
 				this.match(kacoParser.BooleanLiteral);
 				}
 				break;
@@ -1821,7 +1873,7 @@ export class kacoParser extends Parser {
 			case 8:
 				this.enterOuterAlt(_localctx, 8);
 				{
-				this.state = 351;
+				this.state = 362;
 				this.match(kacoParser.StringLiteral);
 				}
 				break;
@@ -1870,172 +1922,179 @@ export class kacoParser extends Parser {
 	}
 
 	public static readonly _serializedATN: string =
-		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x035\u0165\x04\x02" +
+		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x036\u0170\x04\x02" +
 		"\t\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x04\x06\t\x06\x04\x07" +
 		"\t\x07\x04\b\t\b\x04\t\t\t\x04\n\t\n\x04\v\t\v\x04\f\t\f\x04\r\t\r\x04" +
 		"\x0E\t\x0E\x04\x0F\t\x0F\x04\x10\t\x10\x04\x11\t\x11\x04\x12\t\x12\x04" +
 		"\x13\t\x13\x04\x14\t\x14\x04\x15\t\x15\x04\x16\t\x16\x04\x17\t\x17\x04" +
 		"\x18\t\x18\x04\x19\t\x19\x04\x1A\t\x1A\x04\x1B\t\x1B\x04\x1C\t\x1C\x04" +
-		"\x1D\t\x1D\x04\x1E\t\x1E\x04\x1F\t\x1F\x04 \t \x04!\t!\x03\x02\x06\x02" +
-		"D\n\x02\r\x02\x0E\x02E\x03\x02\x03\x02\x03\x03\x03\x03\x05\x03L\n\x03" +
-		"\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04" +
-		"\x03\x04\x05\x04X\n\x04\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05" +
-		"\x03\x06\x03\x06\x03\x06\x07\x06c\n\x06\f\x06\x0E\x06f\v\x06\x03\x06\x03" +
-		"\x06\x03\x07\x03\x07\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x05\br\n\b\x03" +
-		"\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03" +
-		"\b\x03\b\x03\b\x07\b\x83\n\b\f\b\x0E\b\x86\v\b\x03\t\x03\t\x03\t\x03\n" +
-		"\x03\n\x03\n\x03\n\x07\n\x8F\n\n\f\n\x0E\n\x92\v\n\x05\n\x94\n\n\x03\n" +
-		"\x03\n\x03\v\x03\v\x05\v\x9A\n\v\x03\v\x03\v\x03\f\x03\f\x03\f\x03\f\x03" +
-		"\f\x05\f\xA3\n\f\x03\f\x05\f\xA6\n\f\x03\f\x05\f\xA9\n\f\x03\f\x03\f\x03" +
-		"\r\x03\r\x03\r\x03\r\x03\x0E\x03\x0E\x03\x0E\x05\x0E\xB4\n\x0E\x03\x0E" +
-		"\x03\x0E\x03\x0E\x03\x0F\x03\x0F\x03\x0F\x05\x0F\xBC\n\x0F\x03\x0F\x03" +
-		"\x0F\x03\x0F\x03\x10\x03\x10\x03\x10\x03\x10\x03\x10\x03\x10\x03\x10\x03" +
-		"\x10\x03\x11\x03\x11\x03\x11\x03\x11\x03\x11\x03\x11\x03\x12\x03\x12\x03" +
-		"\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x13\x03\x13\x03\x13\x03" +
-		"\x13\x03\x13\x05\x13\xDC\n\x13\x03\x13\x05\x13\xDF\n\x13\x03\x13\x05\x13" +
-		"\xE2\n\x13\x03\x13\x03\x13\x03\x14\x03\x14\x03\x14\x03\x14\x05\x14\xEA" +
-		"\n\x14\x03\x14\x05\x14\xED\n\x14\x03\x14\x03\x14\x03\x15\x03\x15\x03\x16" +
-		"\x03\x16\x03\x16\x07\x16\xF6\n\x16\f\x16\x0E\x16\xF9\v\x16\x03\x17\x03" +
-		"\x17\x03\x17\x07\x17\xFE\n\x17\f\x17\x0E\x17\u0101\v\x17\x03\x18\x03\x18" +
-		"\x03\x18\x07\x18\u0106\n\x18\f\x18\x0E\x18\u0109\v\x18\x03\x19\x03\x19" +
-		"\x03\x19\x07\x19\u010E\n\x19\f\x19\x0E\x19\u0111\v\x19\x03\x1A\x03\x1A" +
-		"\x05\x1A\u0115\n\x1A\x03\x1A\x03\x1A\x03\x1A\x05\x1A\u011A\n\x1A\x03\x1A" +
-		"\x03\x1A\x05\x1A\u011E\n\x1A\x03\x1A\x03\x1A\x03\x1A\x03\x1A\x05\x1A\u0124" +
-		"\n\x1A\x03\x1B\x03\x1B\x03\x1B\x03\x1B\x03\x1C\x03\x1C\x03\x1C\x03\x1C" +
-		"\x03\x1C\x05\x1C\u012F\n\x1C\x03\x1C\x03\x1C\x07\x1C\u0133\n\x1C\f\x1C" +
-		"\x0E\x1C\u0136\v\x1C\x03\x1D\x03\x1D\x03\x1D\x03\x1D\x03\x1E\x03\x1E\x03" +
-		"\x1E\x03\x1E\x05\x1E\u0140\n\x1E\x03\x1E\x03\x1E\x07\x1E\u0144\n\x1E\f" +
-		"\x1E\x0E\x1E\u0147\v\x1E\x03\x1E\x03\x1E\x03\x1E\x03\x1E\x03\x1E\x05\x1E" +
-		"\u014E\n\x1E\x03\x1E\x03\x1E\x03\x1F\x03\x1F\x03\x1F\x03\x1F\x03 \x03" +
-		" \x03 \x03 \x03 \x03!\x03!\x03!\x03!\x03!\x03!\x03!\x03!\x05!\u0163\n" +
-		"!\x03!\x02\x02\x03\x0E\"\x02\x02\x04\x02\x06\x02\b\x02\n\x02\f\x02\x0E" +
-		"\x02\x10\x02\x12\x02\x14\x02\x16\x02\x18\x02\x1A\x02\x1C\x02\x1E\x02 " +
-		"\x02\"\x02$\x02&\x02(\x02*\x02,\x02.\x020\x022\x024\x026\x028\x02:\x02" +
-		"<\x02>\x02@\x02\x02\x07\x03\x02\x15\x18\x03\x02\f\r\x03\x02\x13\x14\x05" +
-		"\x02))++--\x05\x02\x03\x03\x0E\x0E))\x02\u0179\x02C\x03\x02\x02\x02\x04" +
-		"K\x03\x02\x02\x02\x06W\x03\x02\x02\x02\bY\x03\x02\x02\x02\n_\x03\x02\x02" +
-		"\x02\fi\x03\x02\x02\x02\x0Eq\x03\x02\x02\x02\x10\x87\x03\x02\x02\x02\x12" +
-		"\x8A\x03\x02\x02\x02\x14\x97\x03\x02\x02\x02\x16\x9D\x03\x02\x02\x02\x18" +
-		"\xAC\x03\x02\x02\x02\x1A\xB0\x03\x02\x02\x02\x1C\xB8\x03\x02\x02\x02\x1E" +
-		"\xC0\x03\x02\x02\x02 \xC8\x03\x02\x02\x02\"\xCE\x03\x02\x02\x02$\xD6\x03" +
-		"\x02\x02\x02&\xE5\x03\x02\x02\x02(\xF0\x03\x02\x02\x02*\xF2\x03\x02\x02" +
-		"\x02,\xFA\x03\x02\x02\x02.\u0102\x03\x02\x02\x020\u010A\x03\x02\x02\x02" +
-		"2\u0123\x03\x02\x02\x024\u0125\x03\x02\x02\x026\u012E\x03\x02\x02\x02" +
-		"8\u0137\x03\x02\x02\x02:\u013B\x03\x02\x02\x02<\u0151\x03\x02\x02\x02" +
-		">\u0155\x03\x02\x02\x02@\u0162\x03\x02\x02\x02BD\x05\x04\x03\x02CB\x03" +
-		"\x02\x02\x02DE\x03\x02\x02\x02EC\x03\x02\x02\x02EF\x03\x02\x02\x02FG\x03" +
-		"\x02\x02\x02GH\x07\x02\x02\x03H\x03\x03\x02\x02\x02IL\x05\b\x05\x02JL" +
-		"\x05\x06\x04\x02KI\x03\x02\x02\x02KJ\x03\x02\x02\x02L\x05\x03\x02\x02" +
-		"\x02MX\x05\x16\f\x02NX\x05\x18\r\x02OX\x05\x1A\x0E\x02PX\x05\x1C\x0F\x02" +
-		"QX\x05\x1E\x10\x02RX\x05 \x11\x02SX\x05\"\x12\x02TX\x05$\x13\x02UX\x05" +
-		"&\x14\x02VX\x05\x10\t\x02WM\x03\x02\x02\x02WN\x03\x02\x02\x02WO\x03\x02" +
-		"\x02\x02WP\x03\x02\x02\x02WQ\x03\x02\x02\x02WR\x03\x02\x02\x02WS\x03\x02" +
-		"\x02\x02WT\x03\x02\x02\x02WU\x03\x02\x02\x02WV\x03\x02\x02\x02X\x07\x03" +
-		"\x02\x02\x02YZ\x07\'\x02\x02Z[\x07\x06\x02\x02[\\\x05\f\x07\x02\\]\x07" +
-		"\x07\x02\x02]^\x05\n\x06\x02^\t\x03\x02\x02\x02_d\x07\b\x02\x02`c\x05" +
-		"\x06\x04\x02ac\x05\x10\t\x02b`\x03\x02\x02\x02ba\x03\x02\x02\x02cf\x03" +
-		"\x02\x02\x02db\x03\x02\x02\x02de\x03\x02\x02\x02eg\x03\x02\x02\x02fd\x03" +
-		"\x02\x02\x02gh\x07\t\x02\x02h\v\x03\x02\x02\x02ij\x05\x0E\b\x02j\r\x03" +
-		"\x02\x02\x02kl\b\b\x01\x02lr\x05@!\x02mn\x07\x06\x02\x02no\x05\f\x07\x02" +
-		"op\x07\x07\x02\x02pr\x03\x02\x02\x02qk\x03\x02\x02\x02qm\x03\x02\x02\x02" +
-		"r\x84\x03\x02\x02\x02st\f\b\x02\x02tu\t\x02\x02\x02u\x83\x05\x0E\b\tv" +
-		"w\f\x07\x02\x02wx\t\x03\x02\x02x\x83\x05\x0E\b\byz\f\x06\x02\x02z{\t\x04" +
-		"\x02\x02{\x83\x05\x0E\b\x07|}\f\x05\x02\x02}~\x07\x19\x02\x02~\x83\x05" +
-		"\x0E\b\x06\x7F\x80\f\x04\x02\x02\x80\x81\x07\x1A\x02\x02\x81\x83\x05\x0E" +
-		"\b\x05\x82s\x03\x02\x02\x02\x82v\x03\x02\x02\x02\x82y\x03\x02\x02\x02" +
-		"\x82|\x03\x02\x02\x02\x82\x7F\x03\x02\x02\x02\x83\x86\x03\x02\x02\x02" +
-		"\x84\x82\x03\x02\x02\x02\x84\x85\x03\x02\x02\x02\x85\x0F\x03\x02\x02\x02" +
-		"\x86\x84\x03\x02\x02\x02\x87\x88\x054\x1B\x02\x88\x89\x07\n\x02\x02\x89" +
-		"\x11\x03\x02\x02\x02\x8A\x93\x07\x06\x02\x02\x8B\x90\x05@!\x02\x8C\x8D" +
-		"\x07\v\x02\x02\x8D\x8F\x05@!\x02\x8E\x8C\x03\x02\x02\x02\x8F\x92\x03\x02" +
-		"\x02\x02\x90\x8E\x03\x02\x02\x02\x90\x91\x03\x02\x02\x02\x91\x94\x03\x02" +
-		"\x02\x02\x92\x90\x03\x02\x02\x02\x93\x8B\x03\x02\x02\x02\x93\x94\x03\x02" +
-		"\x02\x02\x94\x95\x03\x02\x02\x02\x95\x96\x07\x07\x02\x02\x96\x13\x03\x02" +
-		"\x02\x02\x97\x99\x07\x06\x02\x02\x98\x9A\x07)\x02\x02\x99\x98\x03\x02" +
-		"\x02\x02\x99\x9A\x03\x02\x02\x02\x9A\x9B\x03\x02\x02\x02\x9B\x9C\x07\x07" +
-		"\x02\x02\x9C\x15\x03\x02\x02\x02\x9D\x9E\x07\x1D\x02\x02\x9E\x9F\x07\x04" +
-		"\x02\x02\x9F\xA0\t\x05\x02\x02\xA0\xA2\x07\x05\x02\x02\xA1\xA3\x05\x12" +
-		"\n\x02\xA2\xA1\x03\x02\x02\x02\xA2\xA3\x03\x02\x02\x02\xA3\xA5\x03\x02" +
-		"\x02\x02\xA4\xA6\x05\x12\n\x02\xA5\xA4\x03\x02\x02\x02\xA5\xA6\x03\x02" +
-		"\x02\x02\xA6\xA8\x03\x02\x02\x02\xA7\xA9\x05\x12\n\x02\xA8\xA7\x03\x02" +
-		"\x02\x02\xA8\xA9\x03\x02\x02\x02\xA9\xAA\x03\x02\x02\x02\xAA\xAB\x07\n" +
-		"\x02\x02\xAB\x17\x03\x02\x02\x02\xAC\xAD\x07\x1E\x02\x02\xAD\xAE\x05\x12" +
-		"\n\x02\xAE\xAF\x07\n\x02\x02\xAF\x19\x03\x02\x02\x02\xB0\xB1\x07\x1F\x02" +
-		"\x02\xB1\xB3\x07\x06\x02\x02\xB2\xB4\x07+\x02\x02\xB3\xB2\x03\x02\x02" +
-		"\x02\xB3\xB4\x03\x02\x02\x02\xB4\xB5\x03\x02\x02\x02\xB5\xB6\x07\x07\x02" +
-		"\x02\xB6\xB7\x07\n\x02\x02\xB7\x1B\x03\x02\x02\x02\xB8\xB9\x07 \x02\x02" +
-		"\xB9\xBB\x07\x06\x02\x02\xBA\xBC\x07+\x02\x02\xBB\xBA\x03\x02\x02\x02" +
-		"\xBB\xBC\x03\x02\x02\x02\xBC\xBD\x03\x02\x02\x02\xBD\xBE\x07\x07\x02\x02" +
-		"\xBE\xBF\x07\n\x02\x02\xBF\x1D\x03\x02\x02\x02\xC0\xC1\x07!\x02\x02\xC1" +
-		"\xC2\x07\x06\x02\x02\xC2\xC3\x07*\x02\x02\xC3\xC4\x07\v\x02\x02\xC4\xC5" +
-		"\x07+\x02\x02\xC5\xC6\x07\x07\x02\x02\xC6\xC7\x07\n\x02\x02\xC7\x1F\x03" +
-		"\x02\x02\x02\xC8\xC9\x07\"\x02\x02\xC9\xCA\x07\x06\x02\x02\xCA\xCB\x05" +
-		"8\x1D\x02\xCB\xCC\x07\x07\x02\x02\xCC\xCD\x07\n\x02\x02\xCD!\x03\x02\x02" +
-		"\x02\xCE\xCF\x07#\x02\x02\xCF\xD0\x07\x06\x02\x02\xD0\xD1\x058\x1D\x02" +
-		"\xD1\xD2\x07\v\x02\x02\xD2\xD3\x07/\x02\x02\xD3\xD4\x07\x07\x02\x02\xD4" +
-		"\xD5\x07\n\x02\x02\xD5#\x03\x02\x02\x02\xD6\xD7\x07$\x02\x02\xD7\xD8\x05" +
-		"8\x1D\x02\xD8\xD9\x07\v\x02\x02\xD9\xDB\x058\x1D\x02\xDA\xDC\x05\x12\n" +
-		"\x02\xDB\xDA\x03\x02\x02\x02\xDB\xDC\x03\x02\x02\x02\xDC\xDE\x03\x02\x02" +
-		"\x02\xDD\xDF\x05\x14\v\x02\xDE\xDD\x03\x02\x02\x02\xDE\xDF\x03\x02\x02" +
-		"\x02\xDF\xE1\x03\x02\x02\x02\xE0\xE2\x05\x14\v\x02\xE1\xE0\x03\x02\x02" +
-		"\x02\xE1\xE2\x03\x02\x02\x02\xE2\xE3\x03\x02\x02\x02\xE3\xE4\x07\n\x02" +
-		"\x02\xE4%\x03\x02\x02\x02\xE5\xE6\x07%\x02\x02\xE6\xEC\x058\x1D\x02\xE7" +
-		"\xE9\x07\x06\x02\x02\xE8\xEA\x058\x1D\x02\xE9\xE8\x03\x02\x02\x02\xE9" +
-		"\xEA\x03\x02\x02\x02\xEA\xEB\x03\x02\x02\x02\xEB\xED\x07\x07\x02\x02\xEC" +
-		"\xE7\x03\x02\x02\x02\xEC\xED\x03\x02\x02\x02\xED\xEE\x03\x02\x02\x02\xEE" +
-		"\xEF\x07\n\x02\x02\xEF\'\x03\x02\x02\x02\xF0\xF1\x05*\x16\x02\xF1)\x03" +
-		"\x02\x02\x02\xF2\xF7\x05,\x17\x02\xF3\xF4\x07\r\x02\x02\xF4\xF6\x05,\x17" +
-		"\x02\xF5\xF3\x03\x02\x02\x02\xF6\xF9\x03\x02\x02\x02\xF7\xF5\x03\x02\x02" +
-		"\x02\xF7\xF8\x03\x02\x02\x02\xF8+\x03\x02\x02\x02\xF9\xF7\x03\x02\x02" +
-		"\x02\xFA\xFF\x05.\x18\x02\xFB\xFC\x07\f\x02\x02\xFC\xFE\x05.\x18\x02\xFD" +
-		"\xFB\x03\x02\x02\x02\xFE\u0101\x03\x02\x02\x02\xFF\xFD\x03\x02\x02\x02" +
-		"\xFF\u0100\x03\x02\x02\x02\u0100-\x03\x02\x02\x02\u0101\xFF\x03\x02\x02" +
-		"\x02\u0102\u0107\x050\x19\x02\u0103\u0104\x07\x0F\x02\x02\u0104\u0106" +
-		"\x050\x19\x02\u0105\u0103\x03\x02\x02\x02\u0106\u0109\x03\x02\x02\x02" +
-		"\u0107\u0105\x03\x02\x02\x02\u0107\u0108\x03\x02\x02\x02\u0108/\x03\x02" +
-		"\x02\x02\u0109\u0107\x03\x02\x02\x02\u010A\u010F\x052\x1A\x02\u010B\u010C" +
-		"\x07\x0E\x02\x02\u010C\u010E\x052\x1A\x02\u010D\u010B\x03\x02\x02\x02" +
-		"\u010E\u0111\x03\x02\x02\x02\u010F\u010D\x03\x02\x02\x02\u010F\u0110\x03" +
-		"\x02\x02\x02\u01101\x03\x02\x02\x02\u0111\u010F\x03\x02\x02\x02\u0112" +
-		"\u0115\x05@!\x02\u0113\u0115\x07/\x02\x02\u0114\u0112\x03\x02\x02\x02" +
-		"\u0114\u0113\x03\x02\x02\x02\u0115\u0116\x03\x02\x02\x02\u0116\u0119\x05" +
-		"(\x15\x02\u0117\u011A\x05@!\x02\u0118\u011A\x07/\x02\x02\u0119\u0117\x03" +
-		"\x02\x02\x02\u0119\u0118\x03\x02\x02\x02\u011A\u0124\x03\x02\x02\x02\u011B" +
-		"\u011E\x05@!\x02\u011C\u011E\x07/\x02\x02\u011D\u011B\x03\x02\x02\x02" +
-		"\u011D\u011C\x03\x02\x02\x02\u011E\u0124\x03\x02\x02\x02\u011F\u0120\x07" +
-		"\x06\x02\x02\u0120\u0121\x05(\x15\x02\u0121\u0122\x07\x07\x02\x02\u0122" +
-		"\u0124\x03\x02\x02\x02\u0123\u0114\x03\x02\x02\x02\u0123\u011D\x03\x02" +
-		"\x02\x02\u0123\u011F\x03\x02\x02\x02\u01243\x03\x02\x02\x02\u0125\u0126" +
-		"\x056\x1C\x02\u0126\u0127\x07\x10\x02\x02\u0127\u0128\x05(\x15\x02\u0128" +
-		"5\x03\x02\x02\x02\u0129\u012F\x058\x1D\x02\u012A\u012B\x058\x1D\x02\u012B" +
-		"\u012C\x07\x11\x02\x02\u012C\u012D\x058\x1D\x02\u012D\u012F\x03\x02\x02" +
-		"\x02\u012E\u0129\x03\x02\x02\x02\u012E\u012A\x03\x02\x02\x02\u012F\u0134" +
-		"\x03\x02\x02\x02\u0130\u0131\x07\v\x02\x02\u0131\u0133\x058\x1D\x02\u0132" +
-		"\u0130\x03\x02\x02\x02\u0133\u0136\x03\x02\x02\x02\u0134\u0132\x03\x02" +
-		"\x02\x02\u0134\u0135\x03\x02\x02\x02\u01357\x03\x02\x02\x02\u0136\u0134" +
-		"\x03\x02\x02\x02\u0137\u0138\x07\x04\x02\x02\u0138\u0139\x07+\x02\x02" +
-		"\u0139\u013A\x07\x05\x02\x02\u013A9\x03\x02\x02\x02\u013B\u013C\x07\x04" +
-		"\x02\x02\u013C\u013F\x07+\x02\x02\u013D\u013E\x07\x11\x02\x02\u013E\u0140" +
-		"\x07+\x02\x02\u013F\u013D\x03\x02\x02\x02\u013F\u0140\x03\x02\x02\x02" +
-		"\u0140\u0145\x03\x02\x02\x02\u0141\u0142\x07\v\x02\x02\u0142\u0144\x07" +
-		"+\x02\x02\u0143\u0141\x03\x02\x02\x02\u0144\u0147\x03\x02\x02\x02\u0145" +
-		"\u0143\x03\x02\x02\x02\u0145\u0146\x03\x02\x02\x02\u0146\u014D\x03\x02" +
-		"\x02\x02\u0147\u0145\x03\x02\x02\x02\u0148\u0149\x07\x06\x02\x02\u0149" +
-		"\u014A\x07&\x02\x02\u014A\u014B\x07\x13\x02\x02\u014B\u014C\t\x06\x02" +
-		"\x02\u014C\u014E\x07\x07\x02\x02\u014D\u0148\x03\x02\x02\x02\u014D\u014E" +
-		"\x03\x02\x02\x02\u014E\u014F\x03\x02\x02\x02\u014F\u0150\x07\x05\x02\x02" +
-		"\u0150;\x03\x02\x02\x02\u0151\u0152\x07\x04\x02\x02\u0152\u0153\x07.\x02" +
-		"\x02\u0153\u0154\x07\x05\x02\x02\u0154=\x03\x02\x02\x02\u0155\u0156\x07" +
-		"\x04\x02\x02\u0156\u0157\x07\x1C\x02\x02\u0157\u0158\x07(\x02\x02\u0158" +
-		"\u0159\x07\x05\x02\x02\u0159?\x03\x02\x02\x02\u015A\u0163\x058\x1D\x02" +
-		"\u015B\u0163\x05:\x1E\x02\u015C\u0163\x05<\x1F\x02\u015D\u0163\x05> \x02" +
-		"\u015E\u0163\x07-\x02\x02\u015F\u0163\x07)\x02\x02\u0160\u0163\x07,\x02" +
-		"\x02\u0161\u0163\x07+\x02\x02\u0162\u015A\x03\x02\x02\x02\u0162\u015B" +
-		"\x03\x02\x02\x02\u0162\u015C\x03\x02\x02\x02\u0162\u015D\x03\x02\x02\x02" +
-		"\u0162\u015E\x03\x02\x02\x02\u0162\u015F\x03\x02\x02\x02\u0162\u0160\x03" +
-		"\x02\x02\x02\u0162\u0161\x03\x02\x02\x02\u0163A\x03\x02\x02\x02%EKWbd" +
-		"q\x82\x84\x90\x93\x99\xA2\xA5\xA8\xB3\xBB\xDB\xDE\xE1\xE9\xEC\xF7\xFF" +
-		"\u0107\u010F\u0114\u0119\u011D\u0123\u012E\u0134\u013F\u0145\u014D\u0162";
+		"\x1D\t\x1D\x04\x1E\t\x1E\x04\x1F\t\x1F\x04 \t \x04!\t!\x04\"\t\"\x03\x02" +
+		"\x06\x02F\n\x02\r\x02\x0E\x02G\x03\x02\x03\x02\x03\x03\x03\x03\x05\x03" +
+		"N\n\x03\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04" +
+		"\x03\x04\x03\x04\x03\x04\x05\x04[\n\x04\x03\x05\x03\x05\x03\x05\x03\x05" +
+		"\x03\x05\x03\x05\x03\x06\x03\x06\x03\x06\x07\x06f\n\x06\f\x06\x0E\x06" +
+		"i\v\x06\x03\x06\x03\x06\x03\x07\x03\x07\x03\b\x03\b\x03\b\x03\b\x03\b" +
+		"\x03\b\x05\bu\n\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03" +
+		"\b\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x07\b\x86\n\b\f\b\x0E\b\x89\v\b" +
+		"\x03\t\x03\t\x03\t\x03\n\x03\n\x03\n\x03\n\x07\n\x92\n\n\f\n\x0E\n\x95" +
+		"\v\n\x05\n\x97\n\n\x03\n\x03\n\x03\v\x03\v\x05\v\x9D\n\v\x03\v\x03\v\x03" +
+		"\f\x03\f\x03\f\x03\f\x03\f\x05\f\xA6\n\f\x03\f\x05\f\xA9\n\f\x03\f\x05" +
+		"\f\xAC\n\f\x03\f\x03\f\x03\r\x03\r\x03\r\x03\r\x03\x0E\x03\x0E\x03\x0E" +
+		"\x05\x0E\xB7\n\x0E\x03\x0E\x03\x0E\x03\x0E\x03\x0F\x03\x0F\x03\x0F\x05" +
+		"\x0F\xBF\n\x0F\x03\x0F\x03\x0F\x03\x0F\x03\x10\x03\x10\x03\x10\x03\x10" +
+		"\x03\x10\x03\x10\x03\x10\x03\x10\x03\x11\x03\x11\x03\x11\x03\x11\x03\x11" +
+		"\x03\x11\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12" +
+		"\x03\x13\x03\x13\x03\x13\x03\x13\x03\x13\x05\x13\xDF\n\x13\x03\x13\x05" +
+		"\x13\xE2\n\x13\x03\x13\x05\x13\xE5\n\x13\x03\x13\x03\x13\x03\x14\x03\x14" +
+		"\x03\x14\x03\x14\x05\x14\xED\n\x14\x03\x14\x05\x14\xF0\n\x14\x03\x14\x03" +
+		"\x14\x03\x15\x03\x15\x03\x15\x05\x15\xF7\n\x15\x03\x15\x03\x15\x03\x15" +
+		"\x03\x16\x03\x16\x03\x17\x03\x17\x03\x17\x07\x17\u0101\n\x17\f\x17\x0E" +
+		"\x17\u0104\v\x17\x03\x18\x03\x18\x03\x18\x07\x18\u0109\n\x18\f\x18\x0E" +
+		"\x18\u010C\v\x18\x03\x19\x03\x19\x03\x19\x07\x19\u0111\n\x19\f\x19\x0E" +
+		"\x19\u0114\v\x19\x03\x1A\x03\x1A\x03\x1A\x07\x1A\u0119\n\x1A\f\x1A\x0E" +
+		"\x1A\u011C\v\x1A\x03\x1B\x03\x1B\x05\x1B\u0120\n\x1B\x03\x1B\x03\x1B\x03" +
+		"\x1B\x05\x1B\u0125\n\x1B\x03\x1B\x03\x1B\x05\x1B\u0129\n\x1B\x03\x1B\x03" +
+		"\x1B\x03\x1B\x03\x1B\x05\x1B\u012F\n\x1B\x03\x1C\x03\x1C\x03\x1C\x03\x1C" +
+		"\x03\x1D\x03\x1D\x03\x1D\x03\x1D\x03\x1D\x05\x1D\u013A\n\x1D\x03\x1D\x03" +
+		"\x1D\x07\x1D\u013E\n\x1D\f\x1D\x0E\x1D\u0141\v\x1D\x03\x1E\x03\x1E\x03" +
+		"\x1E\x03\x1E\x03\x1F\x03\x1F\x03\x1F\x03\x1F\x05\x1F\u014B\n\x1F\x03\x1F" +
+		"\x03\x1F\x07\x1F\u014F\n\x1F\f\x1F\x0E\x1F\u0152\v\x1F\x03\x1F\x03\x1F" +
+		"\x03\x1F\x03\x1F\x03\x1F\x05\x1F\u0159\n\x1F\x03\x1F\x03\x1F\x03 \x03" +
+		" \x03 \x03 \x03!\x03!\x03!\x03!\x03!\x03\"\x03\"\x03\"\x03\"\x03\"\x03" +
+		"\"\x03\"\x03\"\x05\"\u016E\n\"\x03\"\x02\x02\x03\x0E#\x02\x02\x04\x02" +
+		"\x06\x02\b\x02\n\x02\f\x02\x0E\x02\x10\x02\x12\x02\x14\x02\x16\x02\x18" +
+		"\x02\x1A\x02\x1C\x02\x1E\x02 \x02\"\x02$\x02&\x02(\x02*\x02,\x02.\x02" +
+		"0\x022\x024\x026\x028\x02:\x02<\x02>\x02@\x02B\x02\x02\x07\x03\x02\x15" +
+		"\x18\x03\x02\f\r\x03\x02\x13\x14\x05\x02**,,..\x05\x02\x03\x03\x0E\x0E" +
+		"**\x02\u0185\x02E\x03\x02\x02\x02\x04M\x03\x02\x02\x02\x06Z\x03\x02\x02" +
+		"\x02\b\\\x03\x02\x02\x02\nb\x03\x02\x02\x02\fl\x03\x02\x02\x02\x0Et\x03" +
+		"\x02\x02\x02\x10\x8A\x03\x02\x02\x02\x12\x8D\x03\x02\x02\x02\x14\x9A\x03" +
+		"\x02\x02\x02\x16\xA0\x03\x02\x02\x02\x18\xAF\x03\x02\x02\x02\x1A\xB3\x03" +
+		"\x02\x02\x02\x1C\xBB\x03\x02\x02\x02\x1E\xC3\x03\x02\x02\x02 \xCB\x03" +
+		"\x02\x02\x02\"\xD1\x03\x02\x02\x02$\xD9\x03\x02\x02\x02&\xE8\x03\x02\x02" +
+		"\x02(\xF3\x03\x02\x02\x02*\xFB\x03\x02\x02\x02,\xFD\x03\x02\x02\x02.\u0105" +
+		"\x03\x02\x02\x020\u010D\x03\x02\x02\x022\u0115\x03\x02\x02\x024\u012E" +
+		"\x03\x02\x02\x026\u0130\x03\x02\x02\x028\u0139\x03\x02\x02\x02:\u0142" +
+		"\x03\x02\x02\x02<\u0146\x03\x02\x02\x02>\u015C\x03\x02\x02\x02@\u0160" +
+		"\x03\x02\x02\x02B\u016D\x03\x02\x02\x02DF\x05\x04\x03\x02ED\x03\x02\x02" +
+		"\x02FG\x03\x02\x02\x02GE\x03\x02\x02\x02GH\x03\x02\x02\x02HI\x03\x02\x02" +
+		"\x02IJ\x07\x02\x02\x03J\x03\x03\x02\x02\x02KN\x05\b\x05\x02LN\x05\x06" +
+		"\x04\x02MK\x03\x02\x02\x02ML\x03\x02\x02\x02N\x05\x03\x02\x02\x02O[\x05" +
+		"\x16\f\x02P[\x05\x18\r\x02Q[\x05\x1A\x0E\x02R[\x05\x1C\x0F\x02S[\x05\x1E" +
+		"\x10\x02T[\x05 \x11\x02U[\x05\"\x12\x02V[\x05$\x13\x02W[\x05&\x14\x02" +
+		"X[\x05(\x15\x02Y[\x05\x10\t\x02ZO\x03\x02\x02\x02ZP\x03\x02\x02\x02ZQ" +
+		"\x03\x02\x02\x02ZR\x03\x02\x02\x02ZS\x03\x02\x02\x02ZT\x03\x02\x02\x02" +
+		"ZU\x03\x02\x02\x02ZV\x03\x02\x02\x02ZW\x03\x02\x02\x02ZX\x03\x02\x02\x02" +
+		"ZY\x03\x02\x02\x02[\x07\x03\x02\x02\x02\\]\x07(\x02\x02]^\x07\x06\x02" +
+		"\x02^_\x05\f\x07\x02_`\x07\x07\x02\x02`a\x05\n\x06\x02a\t\x03\x02\x02" +
+		"\x02bg\x07\b\x02\x02cf\x05\x06\x04\x02df\x05\x10\t\x02ec\x03\x02\x02\x02" +
+		"ed\x03\x02\x02\x02fi\x03\x02\x02\x02ge\x03\x02\x02\x02gh\x03\x02\x02\x02" +
+		"hj\x03\x02\x02\x02ig\x03\x02\x02\x02jk\x07\t\x02\x02k\v\x03\x02\x02\x02" +
+		"lm\x05\x0E\b\x02m\r\x03\x02\x02\x02no\b\b\x01\x02ou\x05B\"\x02pq\x07\x06" +
+		"\x02\x02qr\x05\f\x07\x02rs\x07\x07\x02\x02su\x03\x02\x02\x02tn\x03\x02" +
+		"\x02\x02tp\x03\x02\x02\x02u\x87\x03\x02\x02\x02vw\f\b\x02\x02wx\t\x02" +
+		"\x02\x02x\x86\x05\x0E\b\tyz\f\x07\x02\x02z{\t\x03\x02\x02{\x86\x05\x0E" +
+		"\b\b|}\f\x06\x02\x02}~\t\x04\x02\x02~\x86\x05\x0E\b\x07\x7F\x80\f\x05" +
+		"\x02\x02\x80\x81\x07\x19\x02\x02\x81\x86\x05\x0E\b\x06\x82\x83\f\x04\x02" +
+		"\x02\x83\x84\x07\x1A\x02\x02\x84\x86\x05\x0E\b\x05\x85v\x03\x02\x02\x02" +
+		"\x85y\x03\x02\x02\x02\x85|\x03\x02\x02\x02\x85\x7F\x03\x02\x02\x02\x85" +
+		"\x82\x03\x02\x02\x02\x86\x89\x03\x02\x02\x02\x87\x85\x03\x02\x02\x02\x87" +
+		"\x88\x03\x02\x02\x02\x88\x0F\x03\x02\x02\x02\x89\x87\x03\x02\x02\x02\x8A" +
+		"\x8B\x056\x1C\x02\x8B\x8C\x07\n\x02\x02\x8C\x11\x03\x02\x02\x02\x8D\x96" +
+		"\x07\x06\x02\x02\x8E\x93\x05B\"\x02\x8F\x90\x07\v\x02\x02\x90\x92\x05" +
+		"B\"\x02\x91\x8F\x03\x02\x02\x02\x92\x95\x03\x02\x02\x02\x93\x91\x03\x02" +
+		"\x02\x02\x93\x94\x03\x02\x02\x02\x94\x97\x03\x02\x02\x02\x95\x93\x03\x02" +
+		"\x02\x02\x96\x8E\x03\x02\x02\x02\x96\x97\x03\x02\x02\x02\x97\x98\x03\x02" +
+		"\x02\x02\x98\x99\x07\x07\x02\x02\x99\x13\x03\x02\x02\x02\x9A\x9C\x07\x06" +
+		"\x02\x02\x9B\x9D\x07*\x02\x02\x9C\x9B\x03\x02\x02\x02\x9C\x9D\x03\x02" +
+		"\x02\x02\x9D\x9E\x03\x02\x02\x02\x9E\x9F\x07\x07\x02\x02\x9F\x15\x03\x02" +
+		"\x02\x02\xA0\xA1\x07\x1D\x02\x02\xA1\xA2\x07\x04\x02\x02\xA2\xA3\t\x05" +
+		"\x02\x02\xA3\xA5\x07\x05\x02\x02\xA4\xA6\x05\x12\n\x02\xA5\xA4\x03\x02" +
+		"\x02\x02\xA5\xA6\x03\x02\x02\x02\xA6\xA8\x03\x02\x02\x02\xA7\xA9\x05\x12" +
+		"\n\x02\xA8\xA7\x03\x02\x02\x02\xA8\xA9\x03\x02\x02\x02\xA9\xAB\x03\x02" +
+		"\x02\x02\xAA\xAC\x05\x12\n\x02\xAB\xAA\x03\x02\x02\x02\xAB\xAC\x03\x02" +
+		"\x02\x02\xAC\xAD\x03\x02\x02\x02\xAD\xAE\x07\n\x02\x02\xAE\x17\x03\x02" +
+		"\x02\x02\xAF\xB0\x07\x1E\x02\x02\xB0\xB1\x05\x12\n\x02\xB1\xB2\x07\n\x02" +
+		"\x02\xB2\x19\x03\x02\x02\x02\xB3\xB4\x07\x1F\x02\x02\xB4\xB6\x07\x06\x02" +
+		"\x02\xB5\xB7\x07,\x02\x02\xB6\xB5\x03\x02\x02\x02\xB6\xB7\x03\x02\x02" +
+		"\x02\xB7\xB8\x03\x02\x02\x02\xB8\xB9\x07\x07\x02\x02\xB9\xBA\x07\n\x02" +
+		"\x02\xBA\x1B\x03\x02\x02\x02\xBB\xBC\x07 \x02\x02\xBC\xBE\x07\x06\x02" +
+		"\x02\xBD\xBF\x07,\x02\x02\xBE\xBD\x03\x02\x02\x02\xBE\xBF\x03\x02\x02" +
+		"\x02\xBF\xC0\x03\x02\x02\x02\xC0\xC1\x07\x07\x02\x02\xC1\xC2\x07\n\x02" +
+		"\x02\xC2\x1D\x03\x02\x02\x02\xC3\xC4\x07!\x02\x02\xC4\xC5\x07\x06\x02" +
+		"\x02\xC5\xC6\x07+\x02\x02\xC6\xC7\x07\v\x02\x02\xC7\xC8\x07,\x02\x02\xC8" +
+		"\xC9\x07\x07\x02\x02\xC9\xCA\x07\n\x02\x02\xCA\x1F\x03\x02\x02\x02\xCB" +
+		"\xCC\x07\"\x02\x02\xCC\xCD\x07\x06\x02\x02\xCD\xCE\x05:\x1E\x02\xCE\xCF" +
+		"\x07\x07\x02\x02\xCF\xD0\x07\n\x02\x02\xD0!\x03\x02\x02\x02\xD1\xD2\x07" +
+		"#\x02\x02\xD2\xD3\x07\x06\x02\x02\xD3\xD4\x05:\x1E\x02\xD4\xD5\x07\v\x02" +
+		"\x02\xD5\xD6\x070\x02\x02\xD6\xD7\x07\x07\x02\x02\xD7\xD8\x07\n\x02\x02" +
+		"\xD8#\x03\x02\x02\x02\xD9\xDA\x07$\x02\x02\xDA\xDB\x05:\x1E\x02\xDB\xDC" +
+		"\x07\v\x02\x02\xDC\xDE\x05:\x1E\x02\xDD\xDF\x05\x12\n\x02\xDE\xDD\x03" +
+		"\x02\x02\x02\xDE\xDF\x03\x02\x02\x02\xDF\xE1\x03\x02\x02\x02\xE0\xE2\x05" +
+		"\x14\v\x02\xE1\xE0\x03\x02\x02\x02\xE1\xE2\x03\x02\x02\x02\xE2\xE4\x03" +
+		"\x02\x02\x02\xE3\xE5\x05\x14\v\x02\xE4\xE3\x03\x02\x02\x02\xE4\xE5\x03" +
+		"\x02\x02\x02\xE5\xE6\x03\x02\x02\x02\xE6\xE7\x07\n\x02\x02\xE7%\x03\x02" +
+		"\x02\x02\xE8\xE9\x07%\x02\x02\xE9\xEF\x05:\x1E\x02\xEA\xEC\x07\x06\x02" +
+		"\x02\xEB\xED\x05:\x1E\x02\xEC\xEB\x03\x02\x02\x02\xEC\xED\x03\x02\x02" +
+		"\x02\xED\xEE\x03\x02\x02\x02\xEE\xF0\x07\x07\x02\x02\xEF\xEA\x03\x02\x02" +
+		"\x02\xEF\xF0\x03\x02\x02\x02\xF0\xF1\x03\x02\x02\x02\xF1\xF2\x07\n\x02" +
+		"\x02\xF2\'\x03\x02\x02\x02\xF3\xF4\x07&\x02\x02\xF4\xF6\x07\x06\x02\x02" +
+		"\xF5\xF7\x070\x02\x02\xF6\xF5\x03\x02\x02\x02\xF6\xF7\x03\x02\x02\x02" +
+		"\xF7\xF8\x03\x02\x02\x02\xF8\xF9\x07\x07\x02\x02\xF9\xFA\x07\n\x02\x02" +
+		"\xFA)\x03\x02\x02\x02\xFB\xFC\x05,\x17\x02\xFC+\x03\x02\x02\x02\xFD\u0102" +
+		"\x05.\x18\x02\xFE\xFF\x07\r\x02\x02\xFF\u0101\x05.\x18\x02\u0100\xFE\x03" +
+		"\x02\x02\x02\u0101\u0104\x03\x02\x02\x02\u0102\u0100\x03\x02\x02\x02\u0102" +
+		"\u0103\x03\x02\x02\x02\u0103-\x03\x02\x02\x02\u0104\u0102\x03\x02\x02" +
+		"\x02\u0105\u010A\x050\x19\x02\u0106\u0107\x07\f\x02\x02\u0107\u0109\x05" +
+		"0\x19\x02\u0108\u0106\x03\x02\x02\x02\u0109\u010C\x03\x02\x02\x02\u010A" +
+		"\u0108\x03\x02\x02\x02\u010A\u010B\x03\x02\x02\x02\u010B/\x03\x02\x02" +
+		"\x02\u010C\u010A\x03\x02\x02\x02\u010D\u0112\x052\x1A\x02\u010E\u010F" +
+		"\x07\x0F\x02\x02\u010F\u0111\x052\x1A\x02\u0110\u010E\x03\x02\x02\x02" +
+		"\u0111\u0114\x03\x02\x02\x02\u0112\u0110\x03\x02\x02\x02\u0112\u0113\x03" +
+		"\x02\x02\x02\u01131\x03\x02\x02\x02\u0114\u0112\x03\x02\x02\x02\u0115" +
+		"\u011A\x054\x1B\x02\u0116\u0117\x07\x0E\x02\x02\u0117\u0119\x054\x1B\x02" +
+		"\u0118\u0116\x03\x02\x02\x02\u0119\u011C\x03\x02\x02\x02\u011A\u0118\x03" +
+		"\x02\x02\x02\u011A\u011B\x03\x02\x02\x02\u011B3\x03\x02\x02\x02\u011C" +
+		"\u011A\x03\x02\x02\x02\u011D\u0120\x05B\"\x02\u011E\u0120\x070\x02\x02" +
+		"\u011F\u011D\x03\x02\x02\x02\u011F\u011E\x03\x02\x02\x02\u0120\u0121\x03" +
+		"\x02\x02\x02\u0121\u0124\x05*\x16\x02\u0122\u0125\x05B\"\x02\u0123\u0125" +
+		"\x070\x02\x02\u0124\u0122\x03\x02\x02\x02\u0124\u0123\x03\x02\x02\x02" +
+		"\u0125\u012F\x03\x02\x02\x02\u0126\u0129\x05B\"\x02\u0127\u0129\x070\x02" +
+		"\x02\u0128\u0126\x03\x02\x02\x02\u0128\u0127\x03\x02\x02\x02\u0129\u012F" +
+		"\x03\x02\x02\x02\u012A\u012B\x07\x06\x02\x02\u012B\u012C\x05*\x16\x02" +
+		"\u012C\u012D\x07\x07\x02\x02\u012D\u012F\x03\x02\x02\x02\u012E\u011F\x03" +
+		"\x02\x02\x02\u012E\u0128\x03\x02\x02\x02\u012E\u012A\x03\x02\x02\x02\u012F" +
+		"5\x03\x02\x02\x02\u0130\u0131\x058\x1D\x02\u0131\u0132\x07\x10\x02\x02" +
+		"\u0132\u0133\x05*\x16\x02\u01337\x03\x02\x02\x02\u0134\u013A\x05:\x1E" +
+		"\x02\u0135\u0136\x05:\x1E\x02\u0136\u0137\x07\x11\x02\x02\u0137\u0138" +
+		"\x05:\x1E\x02\u0138\u013A\x03\x02\x02\x02\u0139\u0134\x03\x02\x02\x02" +
+		"\u0139\u0135\x03\x02\x02\x02\u013A\u013F\x03\x02\x02\x02\u013B\u013C\x07" +
+		"\v\x02\x02\u013C\u013E\x05:\x1E\x02\u013D\u013B\x03\x02\x02\x02\u013E" +
+		"\u0141\x03\x02\x02\x02\u013F\u013D\x03\x02\x02\x02\u013F\u0140\x03\x02" +
+		"\x02\x02\u01409\x03\x02\x02\x02\u0141\u013F\x03\x02\x02\x02\u0142\u0143" +
+		"\x07\x04\x02\x02\u0143\u0144\x07,\x02\x02\u0144\u0145\x07\x05\x02\x02" +
+		"\u0145;\x03\x02\x02\x02\u0146\u0147\x07\x04\x02\x02\u0147\u014A\x07,\x02" +
+		"\x02\u0148\u0149\x07\x11\x02\x02\u0149\u014B\x07,\x02\x02\u014A\u0148" +
+		"\x03\x02\x02\x02\u014A\u014B\x03\x02\x02\x02\u014B\u0150\x03\x02\x02\x02" +
+		"\u014C\u014D\x07\v\x02\x02\u014D\u014F\x07,\x02\x02\u014E\u014C\x03\x02" +
+		"\x02\x02\u014F\u0152\x03\x02\x02\x02\u0150\u014E\x03\x02\x02\x02\u0150" +
+		"\u0151\x03\x02\x02\x02\u0151\u0158\x03\x02\x02\x02\u0152\u0150\x03\x02" +
+		"\x02\x02\u0153\u0154\x07\x06\x02\x02\u0154\u0155\x07\'\x02\x02\u0155\u0156" +
+		"\x07\x13\x02\x02\u0156\u0157\t\x06\x02\x02\u0157\u0159\x07\x07\x02\x02" +
+		"\u0158\u0153\x03\x02\x02\x02\u0158\u0159\x03\x02\x02\x02\u0159\u015A\x03" +
+		"\x02\x02\x02\u015A\u015B\x07\x05\x02\x02\u015B=\x03\x02\x02\x02\u015C" +
+		"\u015D\x07\x04\x02\x02\u015D\u015E\x07/\x02\x02\u015E\u015F\x07\x05\x02" +
+		"\x02\u015F?\x03\x02\x02\x02\u0160\u0161\x07\x04\x02\x02\u0161\u0162\x07" +
+		"\x1C\x02\x02\u0162\u0163\x07)\x02\x02\u0163\u0164\x07\x05\x02\x02\u0164" +
+		"A\x03\x02\x02\x02\u0165\u016E\x05:\x1E\x02\u0166\u016E\x05<\x1F\x02\u0167" +
+		"\u016E\x05> \x02\u0168\u016E\x05@!\x02\u0169\u016E\x07.\x02\x02\u016A" +
+		"\u016E\x07*\x02\x02\u016B\u016E\x07-\x02\x02\u016C\u016E\x07,\x02\x02" +
+		"\u016D\u0165\x03\x02\x02\x02\u016D\u0166\x03\x02\x02\x02\u016D\u0167\x03" +
+		"\x02\x02\x02\u016D\u0168\x03\x02\x02\x02\u016D\u0169\x03\x02\x02\x02\u016D" +
+		"\u016A\x03\x02\x02\x02\u016D\u016B\x03\x02\x02\x02\u016D\u016C\x03\x02" +
+		"\x02\x02\u016EC\x03\x02\x02\x02&GMZegt\x85\x87\x93\x96\x9C\xA5\xA8\xAB" +
+		"\xB6\xBE\xDE\xE1\xE4\xEC\xEF\xF6\u0102\u010A\u0112\u011A\u011F\u0124\u0128" +
+		"\u012E\u0139\u013F\u014A\u0150\u0158\u016D";
 	public static __ATN: ATN;
 	public static get _ATN(): ATN {
 		if (!kacoParser.__ATN) {
@@ -2148,6 +2207,9 @@ export class FunctionStatementContext extends ParserRuleContext {
 	}
 	public carryDataStatement(): CarryDataStatementContext | undefined {
 		return this.tryGetRuleContext(0, CarryDataStatementContext);
+	}
+	public sqlExecuteStatement(): SqlExecuteStatementContext | undefined {
+		return this.tryGetRuleContext(0, SqlExecuteStatementContext);
 	}
 	public assignStatement(): AssignStatementContext | undefined {
 		return this.tryGetRuleContext(0, AssignStatementContext);
@@ -2814,6 +2876,40 @@ export class CarryDataStatementContext extends ParserRuleContext {
 	public accept<Result>(visitor: kacoVisitor<Result>): Result {
 		if (visitor.visitCarryDataStatement) {
 			return visitor.visitCarryDataStatement(this);
+		} else {
+			return visitor.visitChildren(this);
+		}
+	}
+}
+
+
+export class SqlExecuteStatementContext extends ParserRuleContext {
+	public SQLExecute(): TerminalNode { return this.getToken(kacoParser.SQLExecute, 0); }
+	public OpenParen(): TerminalNode { return this.getToken(kacoParser.OpenParen, 0); }
+	public CloseParen(): TerminalNode { return this.getToken(kacoParser.CloseParen, 0); }
+	public SemiColon(): TerminalNode { return this.getToken(kacoParser.SemiColon, 0); }
+	public SqlLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.SqlLiteral, 0); }
+	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
+		super(parent, invokingState);
+	}
+	// @Override
+	public get ruleIndex(): number { return kacoParser.RULE_sqlExecuteStatement; }
+	// @Override
+	public enterRule(listener: kacoListener): void {
+		if (listener.enterSqlExecuteStatement) {
+			listener.enterSqlExecuteStatement(this);
+		}
+	}
+	// @Override
+	public exitRule(listener: kacoListener): void {
+		if (listener.exitSqlExecuteStatement) {
+			listener.exitSqlExecuteStatement(this);
+		}
+	}
+	// @Override
+	public accept<Result>(visitor: kacoVisitor<Result>): Result {
+		if (visitor.visitSqlExecuteStatement) {
+			return visitor.visitSqlExecuteStatement(this);
 		} else {
 			return visitor.visitChildren(this);
 		}

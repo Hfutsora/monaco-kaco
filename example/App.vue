@@ -61,6 +61,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     Close();
     QueryData['收件单查询'],['结果列表'](['受理编号'],['权利人'])(100)(0);
     CarryData['国有档案录入数据关联'](['受理号']);
+    SQLExecute([# update d_rec set state = 0 where slid =[$ INSTANCE] #]);
 }
 `;
 }

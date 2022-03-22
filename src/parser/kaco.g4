@@ -72,6 +72,10 @@ CarryData
     : 'CarryData'
     ;
 
+SQLExecute
+    : 'SQLExecute'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -114,6 +118,7 @@ functionStatement
     | getComboDicStatement
     | queryDataStatement
     | carryDataStatement
+    | sqlExecuteStatement
     | assignStatement
     ;
 
@@ -190,6 +195,10 @@ queryDataStatement
 
 carryDataStatement
     : 'CarryData' ctrlQuoteLiteral ('(' ctrlQuoteLiteral? ')')? ';'
+    ;
+
+sqlExecuteStatement
+    : 'SQLExecute' '(' SqlLiteral? ')' ';'
     ;
 
 //==============================================================

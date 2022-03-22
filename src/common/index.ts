@@ -35,6 +35,7 @@ export const TokenMap: Record<string, string> = {
   GetComboDic: 'keyword',
   QueryData: 'keyword',
   CarryData: 'keyword',
+  SQLExecute: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',
