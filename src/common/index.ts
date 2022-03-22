@@ -36,6 +36,7 @@ export const TokenMap: Record<string, string> = {
   QueryData: 'keyword',
   CarryData: 'keyword',
   SQLExecute: 'keyword',
+  GetCoder: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',
@@ -83,6 +84,7 @@ export const TokenMap: Record<string, string> = {
   DecimalLiteral: 'number',
   Natural: 'number',
   MessageLiteral: 'number',
+  CoderLiteral: 'number',
   SqlLiteral: 'type',
 
   COMMENT: 'comment',

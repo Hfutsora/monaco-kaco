@@ -76,6 +76,10 @@ SQLExecute
     : 'SQLExecute'
     ;
 
+GetCoder
+    : 'GetCoder'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -119,6 +123,7 @@ functionStatement
     | queryDataStatement
     | carryDataStatement
     | sqlExecuteStatement
+    | getCoderStatement
     | assignStatement
     ;
 
@@ -201,6 +206,10 @@ sqlExecuteStatement
     : 'SQLExecute' '(' SqlLiteral? ')' ';'
     ;
 
+getCoderStatement
+    : 'GetCoder' '(' (ctrlQuoteLiteral ',' CoderLiteral)? ')' ';'
+    ;
+
 //==============================================================
 
 expression
@@ -264,6 +273,10 @@ MessageLiteral
     : '\'' ( '警告' | '提示' | '询问') '\''
     ;
 
+CoderLiteral
+    : '\'' '%' (Natural | UpperCaseChar | LowerCaseChar)*? '[' Natural? ']' '\''
+    ;
+
 StringLiteral
     : '\'' (~[\\\r\n])*? '\''
     ;
@@ -296,6 +309,14 @@ NonZeroDigit
 DigitChar
     : Natural
     | '_'
+    ;
+
+UpperCaseChar
+    : [A-Z]
+    ;
+
+LowerCaseChar
+    : [a-z]
     ;
 
 //==============================================================
