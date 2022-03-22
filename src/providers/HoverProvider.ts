@@ -96,7 +96,24 @@ export const kacoKeywords = [
   'Refresh',
   'MessageBox',
   'ClickButton',
-  'GetComboDic'
+  'GetComboDic',
+  'QueryData',
+  'CarryData',
+  'SQLExecute',
+  'GetCoder',
+  'SetCoder',
+  'ResetCtrlValue',
+  'SaveLastValue',
+  'LoadLastValue',
+  'SetVisiable',
+  'SetEnable',
+  'SetFocus',
+  'SetColor',
+  'ChangeTab',
+  'SwitchDisplay',
+  'StringSub',
+  'StringLen',
+  'StringStr'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -142,5 +159,94 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '获取动态字典值' },
     { value: '需要在数字字典中配置各项字典值' },
     { value: '```\n示例\nGetComboDic([\'区\'],[# \'select sd_keyno,sd_value from oa2_sysdic where sd_main<>0\'])\n```' }
+  ],
+  QueryData: [
+    { value: '```\nQueryData[\'查询模板名称\'],[\'表格控件名称\'](...参数)(返回行数)(起始位置)\n```' },
+    { value: '按查询模板查询数据，并填充至指定的表格控件' },
+    { value: '查询数据给表格控件，一般不在指令中设置返回行数与起始位置，省略时表格控件中设置的参数生效' },
+    { value: '```\n示例\nQueryData[\'收件单查询\'],[\'结果列表\']([\'受理编号\'],[\'权利人\'])(100)(0)\n```' }
+  ],
+  CarryData: [
+    { value: '```\nCarryData[\'数据关联模板名称\'](源数据对象主键)\n```' },
+    { value: '按数据关联模板中映射关系将数据从源对象赋值给目标对象' },
+    { value: '\n- 源对象类型是数据模型，目标对象类型是数据模型或者表单模板\n - 关联模板中未设置映射关系，按编号进行映射' },
+    { value: '```\n示例\nCarryData[\'国有档案录入数据关联\']([\'受理号\'])\n```' }
+  ],
+  SQLExecute: [
+    { value: '```\nSQLExecute([# SQL语句 #])\n```' },
+    { value: 'SQL语句一般是delete 、insert into 、update 等没有数据返回的SQL' },
+    { value: '```\n示例\nSQLExecute([# update d_rec set state = 0 where slid =[$ INSTANCE] #])\n```' }
+  ],
+  GetCoder: [
+    { value: '```\nGetCoder([\'控件名称\'],编号规则,是否跳号)\n```' },
+    { value: '获取计数器编号' },
+    { value: '\n- 编号规则：支持字符常量、年(%4Y)、月(%2M)、日(%2D)\n - 是否跳号：0或者空表示不跳号，编号未使用，下次获取还是此编号，1代表跳号，编号有没有使用，下次获取都是新编号' },
+    { value: '```\n示例\nGetCoder([\'受理号\'],\'%11[1001]\')\n```' }
+  ],
+  SetCoder: [
+    { value: '```\nSetCoder([\'控件名称\'],编号规则,是否跳号)\n```' },
+    { value: '回收计数器编号' },
+    { value: '\n- 编号规则：支持字符常量、年(%4Y)、月(%2M)、日(%2D)\n - 是否跳号：0或者空表示不跳号，编号未使用，下次获取还是此编号，1代表跳号，编号有没有使用，下次获取都是新编号' },
+    { value: '```\n示例\nSetCoder([\'受理号\'],\'%11[1001]\')\n```' }
+  ],
+  ResetCtrlValue: [
+    { value: '```\nResetCtrlValue(...[\'控件名称\'])\n```' },
+    { value: '清除指定控件的值' }
+  ],
+  SaveLastValue: [
+    { value: '```\nSaveLastValue(...[\'控件名称\'])\n```' },
+    { value: '暂存指定控件的值' },
+    { value: '暂存的值通过 LoadLastValue 获取' }
+  ],
+  LoadLastValue: [
+    { value: '```\nLoadLastValue(...[\'控件名称\'])\n```' },
+    { value: '加载指定控件暂存的值' }
+  ],
+  SetVisiable: [
+    { value: '```\nSetVisiable([\'控件名称\'], 是否可见)\n```' },
+    { value: '设置控件是否可见' },
+    { value: '是否可见：`0` 为不可见，`1` 为可见' },
+    { value: '```\n示例\nSetVisiable([\'Button\'], 1)\n```' }
+  ],
+  SetEnable: [
+    { value: '```\nSetEnable([\'控件名称\'], 是否可用)\n```' },
+    { value: '设置控件是否可用' },
+    { value: '是否可用：`0` 为不可用，`1` 为可用' },
+    { value: '```\n示例\nSetEnable([\'Button\'], 1)\n```' }
+  ],
+  SetFocus: [
+    { value: '```\nSetFocus([\'控件名称\'])\n```' },
+    { value: '将焦点设置在指定控件上' },
+    { value: '```\n示例\nSetFocus([\'Input\'])\n```' }
+  ],
+  SetColor: [
+    { value: '```\nSetColor([\'控件名称\'], \'字体颜色\')\n```' },
+    { value: '设置指定控件的字体颜色' },
+    { value: '```\n示例\nSetColor([\'Input\'], \'#ffffff\')\n```' }
+  ],
+  ChangeTab: [
+    { value: '```\nChangeTab([\'控件名称\'], 页编号)\n```' },
+    { value: '切换标签页控件至指定页' },
+    { value: '```\n示例\nChangeTab([\'tab-1\'], 1)\n```' }
+  ],
+  SwitchDisplay: [
+    { value: '```\nSwitchDisplay(...[\'控件名称\'])\n```' },
+    { value: '切换显示控件' },
+    { value: '```\n示例\nSwitchDisplay([\'控件1\'],[\'控件2\'],[\'控件3\'],[\'控件4\'])\n```' }
+  ],
+  StringSub: [
+    { value: '```\nStringSub[\'控件名称\'](字符串, 起始位置, 截取长度)\n```' },
+    { value: '截取字符串指定位置, 并将结果赋值给控件' },
+    { value: '```\n示例\nStringSub[\'A\'] ([\'B\'], 1, 3)\n```' }
+  ],
+  StringLen: [
+    { value: '```\nStringLen[\'控件名称\'](字符串)\n```' },
+    { value: '计算字符串长度，并将结果赋值给控件' },
+    { value: '```\n示例\nStringLen[\'A\']([\'B\']);\nStringLen[\'A\'](\'一段字符串文本\');\n```' }
+  ],
+  StringStr: [
+    { value: '```\nStringStr[\'控件名称\'](字符串, 关键字)\n```' },
+    { value: '查询关键字在字符串第一次出现位置，并将其位置赋值给控件' },
+    { value: '```\n示例\nStringStr[\'L\']([\'A\'], \'B\')\n```' }
   ]
 };

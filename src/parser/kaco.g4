@@ -64,6 +64,74 @@ GetComboDic
     : 'GetComboDic'
     ;
 
+QueryData
+    : 'QueryData'
+    ;
+
+CarryData
+    : 'CarryData'
+    ;
+
+SQLExecute
+    : 'SQLExecute'
+    ;
+
+GetCoder
+    : 'GetCoder'
+    ;
+
+SetCoder
+    : 'SetCoder'
+    ;
+
+ResetCtrlValue
+    : 'ResetCtrlValue'
+    ;
+
+SaveLastValue
+    : 'SaveLastValue'
+    ;
+
+LoadLastValue
+    : 'LoadLastValue'
+    ;
+
+SetVisiable
+    : 'SetVisiable'
+    ;
+
+SetEnable
+    : 'SetEnable'
+    ;
+
+SetFocus
+    : 'SetFocus'
+    ;
+
+SetColor
+    : 'SetColor'
+    ;
+
+ChangeTab
+    : 'ChangeTab'
+    ;
+
+SwitchDisplay
+    : 'SwitchDisplay'
+    ;
+
+StringSub
+    : 'StringSub'
+    ;
+
+StringLen
+    : 'StringLen'
+    ;
+
+StringStr
+    : 'StringStr'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -104,6 +172,23 @@ functionStatement
     | messageStatement
     | clickButtonStatement
     | getComboDicStatement
+    | queryDataStatement
+    | carryDataStatement
+    | sqlExecuteStatement
+    | getCoderStatement
+    | setCoderStatement
+    | resetCtrlValueStatement
+    | saveLastValueStatement
+    | loadLastValueStatement
+    | setVisiableStatement
+    | setEnableStatement
+    | setFocusStatement
+    | setColorStatement
+    | changeTabStatement
+    | switchDisplayStatement
+    | stringSubStatement
+    | stringLenStatement
+    | stringStrStatement
     | assignStatement
     ;
 
@@ -137,8 +222,17 @@ quoteEllipsisExpr
     : '(' (commonLiteral (',' commonLiteral)* )? ')'
     ;
 
+Natural
+    : '0'
+    | [1-9][0-9]*
+    ;
+
+quoteNaturalExpr
+    : '(' Natural? ')'
+    ;
+
 openFormStatement
-    : 'OpenForm' '[' (StringLiteral | DecimalLiteral) ']' quoteEllipsisExpr? quoteEllipsisExpr? quoteEllipsisExpr? ';'
+    : 'OpenForm' '[' (StringLiteral | DecimalLiteral | Natural) ']' quoteEllipsisExpr? quoteEllipsisExpr? quoteEllipsisExpr? ';'
     ;
 
 saveFormStatement
@@ -163,6 +257,74 @@ clickButtonStatement
 
 getComboDicStatement
     : 'GetComboDic' '(' ctrlQuoteLiteral ',' SqlLiteral ')' ';'
+    ;
+
+queryDataStatement
+    : 'QueryData' ctrlQuoteLiteral ',' ctrlQuoteLiteral quoteEllipsisExpr? quoteNaturalExpr? quoteNaturalExpr? ';'
+    ;
+
+carryDataStatement
+    : 'CarryData' ctrlQuoteLiteral ('(' ctrlQuoteLiteral? ')')? ';'
+    ;
+
+sqlExecuteStatement
+    : 'SQLExecute' '(' SqlLiteral? ')' ';'
+    ;
+
+getCoderStatement
+    : 'GetCoder' '(' (ctrlQuoteLiteral ',' CoderLiteral)? ')' ';'
+    ;
+
+setCoderStatement
+    : 'SetCoder' '(' (ctrlQuoteLiteral ',' CoderLiteral)? ')' ';'
+    ;
+
+resetCtrlValueStatement
+    : 'ResetCtrlValue' quoteEllipsisExpr ';'
+    ;
+
+saveLastValueStatement
+    : 'SaveLastValue' quoteEllipsisExpr ';'
+    ;
+
+loadLastValueStatement
+    : 'LoadLastValue' quoteEllipsisExpr ';'
+    ;
+
+setVisiableStatement
+    : 'SetVisiable' '(' ctrlQuoteLiteral ','  Natural ')' ';'
+    ;
+
+setEnableStatement
+    : 'SetEnable' '(' ctrlQuoteLiteral ','  Natural ')' ';'
+    ;
+
+setFocusStatement
+    : 'SetFocus' '(' ctrlQuoteLiteral ')' ';'
+    ;
+
+setColorStatement
+    : 'SetColor' '(' ctrlQuoteLiteral ',' (HexLiteral | StringLiteral) ')' ';'
+    ;
+
+changeTabStatement
+    : 'ChangeTab' '(' ctrlQuoteLiteral ',' Natural ')' ';'
+    ;
+
+switchDisplayStatement
+    : 'SwitchDisplay' quoteEllipsisExpr ';'
+    ;
+
+stringSubStatement
+    : 'StringSub' ctrlQuoteLiteral '(' (ctrlQuoteLiteral | StringLiteral) ',' Natural ',' Natural ')' ';'
+    ;
+
+stringLenStatement
+    : 'StringLen' ctrlQuoteLiteral '(' (ctrlQuoteLiteral | StringLiteral) ')' ';'
+    ;
+
+stringStrStatement
+    : 'StringStr' ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')' ';'
     ;
 
 //==============================================================
@@ -217,6 +379,7 @@ commonLiteral
     | ctrlQuoteParamLiteral
     | ctrlConstantLiteral
     | DecimalLiteral
+    | Natural
     | BooleanLiteral
     | StringLiteral
     ;
@@ -225,6 +388,14 @@ commonLiteral
 
 MessageLiteral
     : '\'' ( '警告' | '提示' | '询问') '\''
+    ;
+
+CoderLiteral
+    : '\'' '%' (Natural | UpperCaseChar | LowerCaseChar)*? '[' Natural? ']' '\''
+    ;
+
+HexLiteral
+    : '\'' '#' [0-9a-fA-F]* '\''
     ;
 
 StringLiteral
@@ -253,17 +424,20 @@ Decimal
     | NonZeroDigit (DigitChar)* ('.' (DigitChar)* NonZeroDigit)?
     ;
 
-Natural
-    : '0'
-    | [1-9][0-9]*
-    ;
-
 NonZeroDigit
     : '1'..'9'
     ;
 DigitChar
     : Natural
     | '_'
+    ;
+
+UpperCaseChar
+    : [A-Z]
+    ;
+
+LowerCaseChar
+    : [a-z]
     ;
 
 //==============================================================

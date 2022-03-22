@@ -12,6 +12,7 @@ import { ExpressionSequenceContext } from "./kacoParser";
 import { SingleExpressionContext } from "./kacoParser";
 import { AssignStatementContext } from "./kacoParser";
 import { QuoteEllipsisExprContext } from "./kacoParser";
+import { QuoteNaturalExprContext } from "./kacoParser";
 import { OpenFormStatementContext } from "./kacoParser";
 import { SaveFormStatementContext } from "./kacoParser";
 import { CloseStatementContext } from "./kacoParser";
@@ -19,6 +20,23 @@ import { RefreshStatementContext } from "./kacoParser";
 import { MessageStatementContext } from "./kacoParser";
 import { ClickButtonStatementContext } from "./kacoParser";
 import { GetComboDicStatementContext } from "./kacoParser";
+import { QueryDataStatementContext } from "./kacoParser";
+import { CarryDataStatementContext } from "./kacoParser";
+import { SqlExecuteStatementContext } from "./kacoParser";
+import { GetCoderStatementContext } from "./kacoParser";
+import { SetCoderStatementContext } from "./kacoParser";
+import { ResetCtrlValueStatementContext } from "./kacoParser";
+import { SaveLastValueStatementContext } from "./kacoParser";
+import { LoadLastValueStatementContext } from "./kacoParser";
+import { SetVisiableStatementContext } from "./kacoParser";
+import { SetEnableStatementContext } from "./kacoParser";
+import { SetFocusStatementContext } from "./kacoParser";
+import { SetColorStatementContext } from "./kacoParser";
+import { ChangeTabStatementContext } from "./kacoParser";
+import { SwitchDisplayStatementContext } from "./kacoParser";
+import { StringSubStatementContext } from "./kacoParser";
+import { StringLenStatementContext } from "./kacoParser";
+import { StringStrStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -139,6 +157,17 @@ export interface kacoListener extends ParseTreeListener {
 	exitQuoteEllipsisExpr?: (ctx: QuoteEllipsisExprContext) => void;
 
 	/**
+	 * Enter a parse tree produced by `kacoParser.quoteNaturalExpr`.
+	 * @param ctx the parse tree
+	 */
+	enterQuoteNaturalExpr?: (ctx: QuoteNaturalExprContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.quoteNaturalExpr`.
+	 * @param ctx the parse tree
+	 */
+	exitQuoteNaturalExpr?: (ctx: QuoteNaturalExprContext) => void;
+
+	/**
 	 * Enter a parse tree produced by `kacoParser.openFormStatement`.
 	 * @param ctx the parse tree
 	 */
@@ -214,6 +243,193 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitGetComboDicStatement?: (ctx: GetComboDicStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.queryDataStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterQueryDataStatement?: (ctx: QueryDataStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.queryDataStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitQueryDataStatement?: (ctx: QueryDataStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.carryDataStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterCarryDataStatement?: (ctx: CarryDataStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.carryDataStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitCarryDataStatement?: (ctx: CarryDataStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.sqlExecuteStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSqlExecuteStatement?: (ctx: SqlExecuteStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.sqlExecuteStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSqlExecuteStatement?: (ctx: SqlExecuteStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.getCoderStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterGetCoderStatement?: (ctx: GetCoderStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.getCoderStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitGetCoderStatement?: (ctx: GetCoderStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.setCoderStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSetCoderStatement?: (ctx: SetCoderStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.setCoderStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSetCoderStatement?: (ctx: SetCoderStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.resetCtrlValueStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterResetCtrlValueStatement?: (ctx: ResetCtrlValueStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.resetCtrlValueStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitResetCtrlValueStatement?: (ctx: ResetCtrlValueStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.saveLastValueStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSaveLastValueStatement?: (ctx: SaveLastValueStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.saveLastValueStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSaveLastValueStatement?: (ctx: SaveLastValueStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.loadLastValueStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterLoadLastValueStatement?: (ctx: LoadLastValueStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.loadLastValueStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitLoadLastValueStatement?: (ctx: LoadLastValueStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.setVisiableStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSetVisiableStatement?: (ctx: SetVisiableStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.setVisiableStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSetVisiableStatement?: (ctx: SetVisiableStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.setEnableStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSetEnableStatement?: (ctx: SetEnableStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.setEnableStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSetEnableStatement?: (ctx: SetEnableStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.setFocusStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSetFocusStatement?: (ctx: SetFocusStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.setFocusStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSetFocusStatement?: (ctx: SetFocusStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.setColorStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSetColorStatement?: (ctx: SetColorStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.setColorStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSetColorStatement?: (ctx: SetColorStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.changeTabStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterChangeTabStatement?: (ctx: ChangeTabStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.changeTabStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitChangeTabStatement?: (ctx: ChangeTabStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.switchDisplayStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSwitchDisplayStatement?: (ctx: SwitchDisplayStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.switchDisplayStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSwitchDisplayStatement?: (ctx: SwitchDisplayStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.stringSubStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterStringSubStatement?: (ctx: StringSubStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.stringSubStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitStringSubStatement?: (ctx: StringSubStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.stringLenStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterStringLenStatement?: (ctx: StringLenStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.stringLenStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitStringLenStatement?: (ctx: StringLenStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.stringStrStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterStringStrStatement?: (ctx: StringStrStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.stringStrStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitStringStrStatement?: (ctx: StringStrStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.

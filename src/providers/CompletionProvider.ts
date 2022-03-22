@@ -8,7 +8,7 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
       position.lineNumber,
       word?.startColumn ?? position.column,
       position.lineNumber,
-      model.getLineMaxColumn(position.lineNumber)
+      word?.startColumn ?? position.column // insert into current position
     );
 
     return {
@@ -56,11 +56,130 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '按钮事件',
           range
         }, {
+          label: 'QueryData',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'QueryData[\'$1\'],[\'$2\']([\'$3\'])($4)($5);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '查询数据',
+          range
+        }, {
           label: 'GetComboDic',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'GetComboDic([\'$1\'], [# $2 #]);',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '获取字典',
+          range
+        }, {
+          label: 'CarryData',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'CarryData[\'$1\']([\'$2\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '关联模板赋值',
+          range
+        }, {
+          label: 'SQLExecute',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SQLExecute([# $1 #]);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '执行SQL',
+          range
+        }, {
+          label: 'GetCoder',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'GetCoder([\'$1\'], \'%$2[$3]\');',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '获取计数器编号',
+          range
+        }, {
+          label: 'SetCoder',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SetCoder([\'$1\'], \'%$2[$3]\');',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '回收计数器编号',
+          range
+        }, {
+          label: 'ResetCtrlValue',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'ResetCtrlValue([\'$1\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '清除控件值',
+          range
+        }, {
+          label: 'SaveLastValue',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SaveLastValue([\'$1\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '暂存指定控件值',
+          range
+        }, {
+          label: 'LoadLastValue',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'LoadLastValue([\'$1\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '加载指定控件暂存值',
+          range
+        }, {
+          label: 'SetVisiable',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SetVisiable([\'$1\'], ${2|0,1|});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '设置控件是否可见',
+          range
+        }, {
+          label: 'SetEnable',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SetEnable([\'$1\'], ${2|0,1|});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '设置控件是否可用',
+          range
+        }, {
+          label: 'SetFocus',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SetFocus([\'$1\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '设置控件焦点',
+          range
+        }, {
+          label: 'SetColor',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SetColor([\'$1\'], \'${2:#ffffff}\');',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '设置字体颜色',
+          range
+        }, {
+          label: 'ChangeTab',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'ChangeTab([\'$1\'], ${2:1});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '切换标签页',
+          range
+        }, {
+          label: 'SwitchDisplay',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SwitchDisplay([\'$1\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '切换显示',
+          range
+        }, {
+          label: 'StringSub',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'StringSub[\'$1\'](${2:[\'\']}, ${3:0}, ${4:0});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '截取字符串',
+          range
+        }, {
+          label: 'StringLen',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'StringLen[\'$1\'](${2:[\'\']});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '计算字符串长度',
+          range
+        }, {
+          label: 'StringStr',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'StringStr[\'$1\'](${2:[\'\']}, ${3:[\'\']});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '查询关键字位置',
           range
         }, {
           label: 'If',
@@ -82,6 +201,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           insertText: '[\'$1\'] = ${2:\'\'};',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '赋值',
+          range
+        }, {
+          label: 'Sql',
+          kind: monaco.languages.CompletionItemKind.Struct,
+          insertText: '[# $1 #]',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: 'sql',
           range
         }
       ]

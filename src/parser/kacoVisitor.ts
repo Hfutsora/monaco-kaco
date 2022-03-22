@@ -12,6 +12,7 @@ import { ExpressionSequenceContext } from "./kacoParser";
 import { SingleExpressionContext } from "./kacoParser";
 import { AssignStatementContext } from "./kacoParser";
 import { QuoteEllipsisExprContext } from "./kacoParser";
+import { QuoteNaturalExprContext } from "./kacoParser";
 import { OpenFormStatementContext } from "./kacoParser";
 import { SaveFormStatementContext } from "./kacoParser";
 import { CloseStatementContext } from "./kacoParser";
@@ -19,6 +20,23 @@ import { RefreshStatementContext } from "./kacoParser";
 import { MessageStatementContext } from "./kacoParser";
 import { ClickButtonStatementContext } from "./kacoParser";
 import { GetComboDicStatementContext } from "./kacoParser";
+import { QueryDataStatementContext } from "./kacoParser";
+import { CarryDataStatementContext } from "./kacoParser";
+import { SqlExecuteStatementContext } from "./kacoParser";
+import { GetCoderStatementContext } from "./kacoParser";
+import { SetCoderStatementContext } from "./kacoParser";
+import { ResetCtrlValueStatementContext } from "./kacoParser";
+import { SaveLastValueStatementContext } from "./kacoParser";
+import { LoadLastValueStatementContext } from "./kacoParser";
+import { SetVisiableStatementContext } from "./kacoParser";
+import { SetEnableStatementContext } from "./kacoParser";
+import { SetFocusStatementContext } from "./kacoParser";
+import { SetColorStatementContext } from "./kacoParser";
+import { ChangeTabStatementContext } from "./kacoParser";
+import { SwitchDisplayStatementContext } from "./kacoParser";
+import { StringSubStatementContext } from "./kacoParser";
+import { StringLenStatementContext } from "./kacoParser";
+import { StringStrStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -106,6 +124,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	visitQuoteEllipsisExpr?: (ctx: QuoteEllipsisExprContext) => Result;
 
 	/**
+	 * Visit a parse tree produced by `kacoParser.quoteNaturalExpr`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQuoteNaturalExpr?: (ctx: QuoteNaturalExprContext) => Result;
+
+	/**
 	 * Visit a parse tree produced by `kacoParser.openFormStatement`.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -153,6 +178,125 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitGetComboDicStatement?: (ctx: GetComboDicStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.queryDataStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQueryDataStatement?: (ctx: QueryDataStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.carryDataStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCarryDataStatement?: (ctx: CarryDataStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.sqlExecuteStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSqlExecuteStatement?: (ctx: SqlExecuteStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.getCoderStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitGetCoderStatement?: (ctx: GetCoderStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.setCoderStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSetCoderStatement?: (ctx: SetCoderStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.resetCtrlValueStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitResetCtrlValueStatement?: (ctx: ResetCtrlValueStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.saveLastValueStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSaveLastValueStatement?: (ctx: SaveLastValueStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.loadLastValueStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitLoadLastValueStatement?: (ctx: LoadLastValueStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.setVisiableStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSetVisiableStatement?: (ctx: SetVisiableStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.setEnableStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSetEnableStatement?: (ctx: SetEnableStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.setFocusStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSetFocusStatement?: (ctx: SetFocusStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.setColorStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSetColorStatement?: (ctx: SetColorStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.changeTabStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitChangeTabStatement?: (ctx: ChangeTabStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.switchDisplayStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSwitchDisplayStatement?: (ctx: SwitchDisplayStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.stringSubStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitStringSubStatement?: (ctx: StringSubStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.stringLenStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitStringLenStatement?: (ctx: StringLenStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.stringStrStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitStringStrStatement?: (ctx: StringStrStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.
