@@ -29,6 +29,7 @@ import { ResetCtrlValueStatementContext } from "./kacoParser";
 import { SaveLastValueStatementContext } from "./kacoParser";
 import { LoadLastValueStatementContext } from "./kacoParser";
 import { SetVisiableStatementContext } from "./kacoParser";
+import { SetEnableStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -334,6 +335,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitSetVisiableStatement?: (ctx: SetVisiableStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.setEnableStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSetEnableStatement?: (ctx: SetEnableStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.setEnableStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSetEnableStatement?: (ctx: SetEnableStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.

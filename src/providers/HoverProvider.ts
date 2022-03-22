@@ -105,7 +105,8 @@ export const kacoKeywords = [
   'ResetCtrlValue',
   'SaveLastValue',
   'LoadLastValue',
-  'SetVisiable'
+  'SetVisiable',
+  'SetEnable'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -197,7 +198,13 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   SetVisiable: [
     { value: '```\nSetVisiable([\'控件名称\'], 是否可见)\n```' },
     { value: '设置控件是否可见' },
-    { value: '是否可见：0 为不可见，1 为可见' },
+    { value: '是否可见：`0` 为不可见，`1` 为可见' },
     { value: '```\n示例\nSetVisiable([\'Button\'], 1)\n```' }
+  ],
+  SetEnable: [
+    { value: '```\nSetEnable([\'控件名称\'], 是否可用)\n```' },
+    { value: '设置控件是否可用' },
+    { value: '是否可用：`0` 为不可用，`1` 为可用' },
+    { value: '```\n示例\nSetEnable([\'Button\'], 1)\n```' }
   ]
 };

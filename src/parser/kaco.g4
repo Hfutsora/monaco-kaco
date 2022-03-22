@@ -100,6 +100,10 @@ SetVisiable
     : 'SetVisiable'
     ;
 
+SetEnable
+    : 'SetEnable'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -149,6 +153,7 @@ functionStatement
     | saveLastValueStatement
     | loadLastValueStatement
     | setVisiableStatement
+    | setEnableStatement
     | assignStatement
     ;
 
@@ -253,6 +258,10 @@ loadLastValueStatement
 
 setVisiableStatement
     : 'SetVisiable' '(' ctrlQuoteLiteral ','  Natural ')' ';'
+    ;
+
+setEnableStatement
+    : 'SetEnable' '(' ctrlQuoteLiteral ','  Natural ')' ';'
     ;
 
 //==============================================================
