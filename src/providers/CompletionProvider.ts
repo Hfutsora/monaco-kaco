@@ -91,6 +91,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '获取计数器编号',
           range
         }, {
+          label: 'SetCoder',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SetCoder([\'$1\'], \'%$2[$3]\');',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '回收计数器编号',
+          range
+        }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: 'if (${1:true}) {\n$2\n}\n',

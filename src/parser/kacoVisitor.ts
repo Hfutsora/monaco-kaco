@@ -24,6 +24,7 @@ import { QueryDataStatementContext } from "./kacoParser";
 import { CarryDataStatementContext } from "./kacoParser";
 import { SqlExecuteStatementContext } from "./kacoParser";
 import { GetCoderStatementContext } from "./kacoParser";
+import { SetCoderStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -193,6 +194,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitGetCoderStatement?: (ctx: GetCoderStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.setCoderStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSetCoderStatement?: (ctx: SetCoderStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.

@@ -37,6 +37,7 @@ export const TokenMap: Record<string, string> = {
   CarryData: 'keyword',
   SQLExecute: 'keyword',
   GetCoder: 'keyword',
+  SetCoder: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

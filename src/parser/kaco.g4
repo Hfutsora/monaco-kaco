@@ -80,6 +80,10 @@ GetCoder
     : 'GetCoder'
     ;
 
+SetCoder
+    : 'SetCoder'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -124,6 +128,7 @@ functionStatement
     | carryDataStatement
     | sqlExecuteStatement
     | getCoderStatement
+    | setCoderStatement
     | assignStatement
     ;
 
@@ -208,6 +213,10 @@ sqlExecuteStatement
 
 getCoderStatement
     : 'GetCoder' '(' (ctrlQuoteLiteral ',' CoderLiteral)? ')' ';'
+    ;
+
+setCoderStatement
+    : 'SetCoder' '(' (ctrlQuoteLiteral ',' CoderLiteral)? ')' ';'
     ;
 
 //==============================================================

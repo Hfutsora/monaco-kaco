@@ -100,7 +100,8 @@ export const kacoKeywords = [
   'QueryData',
   'CarryData',
   'SQLExecute',
-  'GetCoder'
+  'GetCoder',
+  'SetCoder'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -169,5 +170,11 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '获取计数器编号' },
     { value: '\n- 编号规则：支持字符常量、年(%4Y)、月(%2M)、日(%2D)\n - 是否跳号：0或者空表示不跳号，编号未使用，下次获取还是此编号，1代表跳号，编号有没有使用，下次获取都是新编号' },
     { value: '```\n示例\nGetCoder([\'受理号\'],\'%11[1001]\')\n```' }
+  ],
+  SetCoder: [
+    { value: '```\nSetCoder([\'控件名称\'],编号规则,是否跳号)\n```' },
+    { value: '回收计数器编号' },
+    { value: '\n- 编号规则：支持字符常量、年(%4Y)、月(%2M)、日(%2D)\n - 是否跳号：0或者空表示不跳号，编号未使用，下次获取还是此编号，1代表跳号，编号有没有使用，下次获取都是新编号' },
+    { value: '```\n示例\nSetCoder([\'受理号\'],\'%11[1001]\')\n```' }
   ]
 };
