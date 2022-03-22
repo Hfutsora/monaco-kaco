@@ -38,6 +38,7 @@ import { StringSubStatementContext } from "./kacoParser";
 import { StringLenStatementContext } from "./kacoParser";
 import { StringStrStatementContext } from "./kacoParser";
 import { StringRepStatementContext } from "./kacoParser";
+import { StringCatStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -442,6 +443,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitStringRepStatement?: (ctx: StringRepStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.stringCatStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterStringCatStatement?: (ctx: StringCatStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.stringCatStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitStringCatStatement?: (ctx: StringCatStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.

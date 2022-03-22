@@ -189,6 +189,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '替换字符串',
           range
         }, {
+          label: 'StringCat',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'StringCat([\'$1\'], ${2:[\'\']});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '拼接字符串',
+          range
+        }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: 'if (${1:true}) {\n$2\n}\n',

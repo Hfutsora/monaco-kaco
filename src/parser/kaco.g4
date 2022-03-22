@@ -136,6 +136,10 @@ StringRep
     : 'StringRep'
     ;
 
+StringCat
+    : 'StringCat'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -194,6 +198,7 @@ functionStatement
     | stringLenStatement
     | stringStrStatement
     | stringRepStatement
+    | stringCatStatement
     | assignStatement
     ;
 
@@ -334,6 +339,10 @@ stringStrStatement
 
 stringRepStatement
     : 'StringRep' '(' ctrlQuoteLiteral ',' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    ;
+
+stringCatStatement
+    : 'StringCat' '(' ctrlQuoteLiteral (',' (StringLiteral | ctrlQuoteLiteral))+ ')' ';'
     ;
 
 //==============================================================

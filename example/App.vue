@@ -77,6 +77,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     StringLen['H'](['地号']);
     StringStr['L'](['A'], ['B']);
     StringRep(['L'],['A'],['B']);
+    StringCat(['L'],['A'],'content');
 }
 `;
 }

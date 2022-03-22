@@ -114,7 +114,8 @@ export const kacoKeywords = [
   'StringSub',
   'StringLen',
   'StringStr',
-  'StringRep'
+  'StringRep',
+  'StringCat'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -254,5 +255,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nStringRep([\'控件名称\'], 原字符串, 代替字符串)\n```' },
     { value: '将控件值中的原字符串中替换为代替字符串' },
     { value: '```\n示例\nStringRep([\'L\'], \'旧字符串\', \'新字符串\')\n```' }
+  ],
+  StringCat: [
+    { value: '```\nStringCat([\'控件名称\'], ...字符串)\n```' },
+    { value: '拼接字符串至控件' },
+    { value: '```\n示例\nStringCat([\'L\'], [\'A\'], [\'B\'], \'拼接字符串\')\n```' }
   ]
 };
