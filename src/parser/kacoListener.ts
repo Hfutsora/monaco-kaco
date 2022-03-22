@@ -37,6 +37,10 @@ import { SwitchDisplayStatementContext } from "./kacoParser";
 import { StringSubStatementContext } from "./kacoParser";
 import { StringLenStatementContext } from "./kacoParser";
 import { StringStrStatementContext } from "./kacoParser";
+import { StringRepStatementContext } from "./kacoParser";
+import { StringCatStatementContext } from "./kacoParser";
+import { EncodeBase64StatementContext } from "./kacoParser";
+import { DecodeBase64StatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -430,6 +434,50 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitStringStrStatement?: (ctx: StringStrStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.stringRepStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterStringRepStatement?: (ctx: StringRepStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.stringRepStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitStringRepStatement?: (ctx: StringRepStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.stringCatStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterStringCatStatement?: (ctx: StringCatStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.stringCatStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitStringCatStatement?: (ctx: StringCatStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.encodeBase64Statement`.
+	 * @param ctx the parse tree
+	 */
+	enterEncodeBase64Statement?: (ctx: EncodeBase64StatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.encodeBase64Statement`.
+	 * @param ctx the parse tree
+	 */
+	exitEncodeBase64Statement?: (ctx: EncodeBase64StatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.decodeBase64Statement`.
+	 * @param ctx the parse tree
+	 */
+	enterDecodeBase64Statement?: (ctx: DecodeBase64StatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.decodeBase64Statement`.
+	 * @param ctx the parse tree
+	 */
+	exitDecodeBase64Statement?: (ctx: DecodeBase64StatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.

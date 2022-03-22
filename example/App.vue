@@ -76,6 +76,10 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     StringSub['A'](['B'], 1, 3);
     StringLen['H'](['地号']);
     StringStr['L'](['A'], ['B']);
+    StringRep(['L'],['A'],['B']);
+    StringCat(['L'],['A'],'content');
+    EncodeBase64['编码'](['产权']);
+    DecodeBase64['编码'](['产权']);
 }
 `;
 }

@@ -132,6 +132,22 @@ StringStr
     : 'StringStr'
     ;
 
+StringRep
+    : 'StringRep'
+    ;
+
+StringCat
+    : 'StringCat'
+    ;
+
+EncodeBase64
+    : 'EncodeBase64'
+    ;
+
+DecodeBase64
+    : 'DecodeBase64'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -189,6 +205,10 @@ functionStatement
     | stringSubStatement
     | stringLenStatement
     | stringStrStatement
+    | stringRepStatement
+    | stringCatStatement
+    | encodeBase64Statement
+    | decodeBase64Statement
     | assignStatement
     ;
 
@@ -325,6 +345,22 @@ stringLenStatement
 
 stringStrStatement
     : 'StringStr' ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    ;
+
+stringRepStatement
+    : 'StringRep' '(' ctrlQuoteLiteral ',' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    ;
+
+stringCatStatement
+    : 'StringCat' '(' ctrlQuoteLiteral (',' (StringLiteral | ctrlQuoteLiteral))+ ')' ';'
+    ;
+
+encodeBase64Statement
+    : 'EncodeBase64' ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    ;
+
+decodeBase64Statement
+    : 'DecodeBase64' ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')' ';'
     ;
 
 //==============================================================

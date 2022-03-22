@@ -113,7 +113,11 @@ export const kacoKeywords = [
   'SwitchDisplay',
   'StringSub',
   'StringLen',
-  'StringStr'
+  'StringStr',
+  'StringRep',
+  'StringCat',
+  'EncodeBase64',
+  'DecodeBase64'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -248,5 +252,25 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nStringStr[\'控件名称\'](字符串, 关键字)\n```' },
     { value: '查询关键字在字符串第一次出现位置，并将其位置赋值给控件' },
     { value: '```\n示例\nStringStr[\'L\']([\'A\'], \'B\')\n```' }
+  ],
+  StringRep: [
+    { value: '```\nStringRep([\'控件名称\'], 原字符串, 代替字符串)\n```' },
+    { value: '将控件值中的原字符串中替换为代替字符串' },
+    { value: '```\n示例\nStringRep([\'L\'], \'旧字符串\', \'新字符串\')\n```' }
+  ],
+  StringCat: [
+    { value: '```\nStringCat([\'控件名称\'], ...字符串)\n```' },
+    { value: '拼接字符串至控件' },
+    { value: '```\n示例\nStringCat([\'L\'], [\'A\'], [\'B\'], \'拼接字符串\')\n```' }
+  ],
+  EncodeBase64: [
+    { value: '```\nEncodeBase64[\'控件名称\'](数据)\n```' },
+    { value: '将数据按Base64编码，并赋值给控件' },
+    { value: '```\n示例\nEncodeBase64[\'编码\']([\'证号\'])\n```' }
+  ],
+  DecodeBase64: [
+    { value: '```\nDecodeBase64[\'控件名称\'](数据)\n```' },
+    { value: '将数据按Base64解码，并赋值给控件' },
+    { value: '```\n示例\nDecodeBase64[\'编码\']([\'证号\'])\n```' }
   ]
 };

@@ -37,6 +37,10 @@ import { SwitchDisplayStatementContext } from "./kacoParser";
 import { StringSubStatementContext } from "./kacoParser";
 import { StringLenStatementContext } from "./kacoParser";
 import { StringStrStatementContext } from "./kacoParser";
+import { StringRepStatementContext } from "./kacoParser";
+import { StringCatStatementContext } from "./kacoParser";
+import { EncodeBase64StatementContext } from "./kacoParser";
+import { DecodeBase64StatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -297,6 +301,34 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitStringStrStatement?: (ctx: StringStrStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.stringRepStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitStringRepStatement?: (ctx: StringRepStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.stringCatStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitStringCatStatement?: (ctx: StringCatStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.encodeBase64Statement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitEncodeBase64Statement?: (ctx: EncodeBase64StatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.decodeBase64Statement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDecodeBase64Statement?: (ctx: DecodeBase64StatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.
