@@ -92,6 +92,10 @@ SaveLastValue
     : 'SaveLastValue'
     ;
 
+LoadLastValue
+    : 'LoadLastValue'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -139,6 +143,7 @@ functionStatement
     | setCoderStatement
     | resetCtrlValueStatement
     | saveLastValueStatement
+    | loadLastValueStatement
     | assignStatement
     ;
 
@@ -235,6 +240,10 @@ resetCtrlValueStatement
 
 saveLastValueStatement
     : 'SaveLastValue' quoteEllipsisExpr ';'
+    ;
+
+loadLastValueStatement
+    : 'LoadLastValue' quoteEllipsisExpr ';'
     ;
 
 //==============================================================

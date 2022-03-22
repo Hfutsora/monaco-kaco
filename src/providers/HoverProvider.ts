@@ -103,7 +103,8 @@ export const kacoKeywords = [
   'GetCoder',
   'SetCoder',
   'ResetCtrlValue',
-  'SaveLastValue'
+  'SaveLastValue',
+  'LoadLastValue'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -187,5 +188,9 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nSaveLastValue(...[\'控件名\'])\n```' },
     { value: '暂存指定控件的值' },
     { value: '暂存的值通过 LoadLastValue 获取' }
+  ],
+  LoadLastValue: [
+    { value: '```\nLoadLastValue(...[\'控件名\'])\n```' },
+    { value: '加载指定控件暂存的值' }
   ]
 };

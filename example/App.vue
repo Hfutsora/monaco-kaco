@@ -66,6 +66,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     SetCoder(['受理号'],'%11[1001]');
     ResetCtrlValue(['控件1'], ['控件2'], ['控件3'], ['控件4']);
     SaveLastValue(['控件1'], ['控件2'], ['控件3']);
+    LoadLastValue(['控件1'], ['控件2'], ['控件3']);
 }
 `;
 }

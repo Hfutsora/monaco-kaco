@@ -40,6 +40,7 @@ export const TokenMap: Record<string, string> = {
   SetCoder: 'keyword',
   ResetCtrlValue: 'keyword',
   SaveLastValue: 'keyword',
+  LoadLastValue: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

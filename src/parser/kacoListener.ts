@@ -27,6 +27,7 @@ import { GetCoderStatementContext } from "./kacoParser";
 import { SetCoderStatementContext } from "./kacoParser";
 import { ResetCtrlValueStatementContext } from "./kacoParser";
 import { SaveLastValueStatementContext } from "./kacoParser";
+import { LoadLastValueStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -310,6 +311,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitSaveLastValueStatement?: (ctx: SaveLastValueStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.loadLastValueStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterLoadLastValueStatement?: (ctx: LoadLastValueStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.loadLastValueStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitLoadLastValueStatement?: (ctx: LoadLastValueStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.
