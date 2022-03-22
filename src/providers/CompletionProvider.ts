@@ -196,11 +196,25 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '拼接字符串',
           range
         }, {
-          label: 'If',
-          kind: monaco.languages.CompletionItemKind.Struct,
-          insertText: 'if (${1:true}) {\n$2\n}\n',
+          label: 'StringCat',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'StringCat([\'$1\'], ${2:[\'\']});',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-          detail: '条件',
+          detail: '拼接字符串',
+          range
+        }, {
+          label: 'EncodeBase64',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'EncodeBase64[\'$1\'](${2:[\'\']});\n',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: 'Base64编码',
+          range
+        }, {
+          label: 'DecodeBase64',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'DecodeBase64[\'$1\'](${2:[\'\']});\n',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: 'Base64解码',
           range
         }, {
           label: 'Variable',

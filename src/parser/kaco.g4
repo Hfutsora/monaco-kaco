@@ -140,6 +140,14 @@ StringCat
     : 'StringCat'
     ;
 
+EncodeBase64
+    : 'EncodeBase64'
+    ;
+
+DecodeBase64
+    : 'DecodeBase64'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -199,6 +207,8 @@ functionStatement
     | stringStrStatement
     | stringRepStatement
     | stringCatStatement
+    | encodeBase64Statement
+    | decodeBase64Statement
     | assignStatement
     ;
 
@@ -343,6 +353,14 @@ stringRepStatement
 
 stringCatStatement
     : 'StringCat' '(' ctrlQuoteLiteral (',' (StringLiteral | ctrlQuoteLiteral))+ ')' ';'
+    ;
+
+encodeBase64Statement
+    : 'EncodeBase64' ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    ;
+
+decodeBase64Statement
+    : 'DecodeBase64' ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')' ';'
     ;
 
 //==============================================================

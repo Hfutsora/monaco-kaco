@@ -115,7 +115,9 @@ export const kacoKeywords = [
   'StringLen',
   'StringStr',
   'StringRep',
-  'StringCat'
+  'StringCat',
+  'EncodeBase64',
+  'DecodeBase64'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -260,5 +262,15 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nStringCat([\'控件名称\'], ...字符串)\n```' },
     { value: '拼接字符串至控件' },
     { value: '```\n示例\nStringCat([\'L\'], [\'A\'], [\'B\'], \'拼接字符串\')\n```' }
+  ],
+  EncodeBase64: [
+    { value: '```\nEncodeBase64[\'控件名称\'](数据)\n```' },
+    { value: '将数据按Base64编码，并赋值给控件' },
+    { value: '```\n示例\nEncodeBase64[\'编码\']([\'证号\'])\n```' }
+  ],
+  DecodeBase64: [
+    { value: '```\nDecodeBase64[\'控件名称\'](数据)\n```' },
+    { value: '将数据按Base64解码，并赋值给控件' },
+    { value: '```\n示例\nDecodeBase64[\'编码\']([\'证号\'])\n```' }
   ]
 };

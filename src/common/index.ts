@@ -52,6 +52,8 @@ export const TokenMap: Record<string, string> = {
   StringStr: 'keyword',
   StringRep: 'keyword',
   StringCat: 'keyword',
+  EncodeBase64: 'keyword',
+  DecodeBase64: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',
