@@ -88,6 +88,10 @@ ResetCtrlValue
     : 'ResetCtrlValue'
     ;
 
+SaveLastValue
+    : 'SaveLastValue'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -134,6 +138,7 @@ functionStatement
     | getCoderStatement
     | setCoderStatement
     | resetCtrlValueStatement
+    | saveLastValueStatement
     | assignStatement
     ;
 
@@ -226,6 +231,10 @@ setCoderStatement
 
 resetCtrlValueStatement
     : 'ResetCtrlValue' quoteEllipsisExpr ';'
+    ;
+
+saveLastValueStatement
+    : 'SaveLastValue' quoteEllipsisExpr ';'
     ;
 
 //==============================================================

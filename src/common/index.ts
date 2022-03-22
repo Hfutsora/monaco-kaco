@@ -39,6 +39,7 @@ export const TokenMap: Record<string, string> = {
   GetCoder: 'keyword',
   SetCoder: 'keyword',
   ResetCtrlValue: 'keyword',
+  SaveLastValue: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

@@ -102,7 +102,8 @@ export const kacoKeywords = [
   'SQLExecute',
   'GetCoder',
   'SetCoder',
-  'ResetCtrlValue'
+  'ResetCtrlValue',
+  'SaveLastValue'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -181,5 +182,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   ResetCtrlValue: [
     { value: '```\nResetCtrlValue(...[\'控件名\'])\n```' },
     { value: '清除指定控件的值' }
+  ],
+  SaveLastValue: [
+    { value: '```\nSaveLastValue(...[\'控件名\'])\n```' },
+    { value: '暂存指定控件的值' },
+    { value: '暂存的值通过 LoadLastValue 获取' }
   ]
 };

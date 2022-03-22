@@ -105,6 +105,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '清除控件值',
           range
         }, {
+          label: 'SaveLastValue',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SaveLastValue([\'$1\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '暂存指定控件值',
+          range
+        }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: 'if (${1:true}) {\n$2\n}\n',
