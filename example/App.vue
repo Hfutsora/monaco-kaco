@@ -53,10 +53,10 @@ SaveForm(['form-name']);
 
 if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     ['ctrl'] = [$ USERID];
-    ['CTRL'] = [# 'select key from table where id=[$ USERID]'];
+    ['CTRL'] = [# 'select key from table where id=[$ USERID]' #];
     MessageBox('警告', '该调查表已使用!');
     ClickButton(['保存']);
-    GetComboDic(['下拉框控件名称'],[# 'select field1,field2 from table where...']);
+    GetComboDic(['下拉框控件名称'], [# select field1,field2 from table where... #]);
     Refresh();
     Close();
 }

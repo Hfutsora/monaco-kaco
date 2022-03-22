@@ -162,7 +162,7 @@ clickButtonStatement
     ;
 
 getComboDicStatement
-    : 'GetComboDic' '(' ctrlQuoteLiteral ',' sqlLiteral ')' ';'
+    : 'GetComboDic' '(' ctrlQuoteLiteral ',' SqlLiteral ')' ';'
     ;
 
 //==============================================================
@@ -177,8 +177,8 @@ divTerm: mulTerm ('/' mulTerm)*;
 mulTerm: parnTerm ('*' parnTerm)*;
 
 parnTerm
-    : (commonLiteral | sqlLiteral) expression (commonLiteral | sqlLiteral)
-    | (commonLiteral | sqlLiteral) 
+    : (commonLiteral | SqlLiteral) expression (commonLiteral | SqlLiteral)
+    | (commonLiteral | SqlLiteral) 
     | '(' expression ')'
     ;
 
@@ -244,14 +244,14 @@ ParamLiteral
     : '@' WHITESPACE Natural
     ;
 
-sqlLiteral
-    : '[' '#' (.)*? ']'
+SqlLiteral
+    : '[' '#' (~[\\\r\n] | '\'' | SqlLiteral | '[' '$' Constant ']' | '[' '@' WHITESPACE Natural ']')*? '#]'
     ;
 
 Decimal
-	: '0' ('.' (DigitChar)* NonZeroDigit)?
-	| NonZeroDigit (DigitChar)* ('.' (DigitChar)* NonZeroDigit)?
-	;
+    : '0' ('.' (DigitChar)* NonZeroDigit)?
+    | NonZeroDigit (DigitChar)* ('.' (DigitChar)* NonZeroDigit)?
+    ;
 
 Natural
     : '0'
@@ -259,12 +259,12 @@ Natural
     ;
 
 NonZeroDigit
-	: '1'..'9'
-	;
+    : '1'..'9'
+    ;
 DigitChar
-	: Natural
-	| '_'
-	;
+    : Natural
+    | '_'
+    ;
 
 //==============================================================
 
@@ -274,7 +274,7 @@ WS
     ; // skip spaces, newlines
 
 COMMENT
-    : '//' ~('\n'|'\r')* '\r'? '\n' -> skip
+    : '//' ~[\r\n\u2028\u2029]* -> channel(HIDDEN)
     ;
 
 WHITESPACE
