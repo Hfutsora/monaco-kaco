@@ -120,6 +120,18 @@ SwitchDisplay
     : 'SwitchDisplay'
     ;
 
+StringSub
+    : 'StringSub'
+    ;
+
+StringLen
+    : 'StringLen'
+    ;
+
+StringStr
+    : 'StringStr'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -174,6 +186,9 @@ functionStatement
     | setColorStatement
     | changeTabStatement
     | switchDisplayStatement
+    | stringSubStatement
+    | stringLenStatement
+    | stringStrStatement
     | assignStatement
     ;
 
@@ -298,6 +313,18 @@ changeTabStatement
 
 switchDisplayStatement
     : 'SwitchDisplay' quoteEllipsisExpr ';'
+    ;
+
+stringSubStatement
+    : 'StringSub' ctrlQuoteLiteral '(' (ctrlQuoteLiteral | StringLiteral) ',' Natural ',' Natural ')' ';'
+    ;
+
+stringLenStatement
+    : 'StringLen' ctrlQuoteLiteral '(' (ctrlQuoteLiteral | StringLiteral) ')' ';'
+    ;
+
+stringStrStatement
+    : 'StringStr' ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')' ';'
     ;
 
 //==============================================================

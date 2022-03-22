@@ -110,7 +110,10 @@ export const kacoKeywords = [
   'SetFocus',
   'SetColor',
   'ChangeTab',
-  'SwitchDisplay'
+  'SwitchDisplay',
+  'StringSub',
+  'StringLen',
+  'StringStr'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -230,5 +233,20 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nSwitchDisplay(...[\'控件名称\'])\n```' },
     { value: '切换显示控件' },
     { value: '```\n示例\nSwitchDisplay([\'控件1\'],[\'控件2\'],[\'控件3\'],[\'控件4\'])\n```' }
+  ],
+  StringSub: [
+    { value: '```\nStringSub[\'控件名称\'](字符串, 起始位置, 截取长度)\n```' },
+    { value: '截取字符串指定位置, 并将结果赋值给控件' },
+    { value: '```\n示例\nStringSub[\'A\'] ([\'B\'], 1, 3)\n```' }
+  ],
+  StringLen: [
+    { value: '```\nStringLen[\'控件名称\'](字符串)\n```' },
+    { value: '计算字符串长度，并将结果赋值给控件' },
+    { value: '```\n示例\nStringLen[\'A\']([\'B\']);\nStringLen[\'A\'](\'一段字符串文本\');\n```' }
+  ],
+  StringStr: [
+    { value: '```\nStringStr[\'控件名称\'](字符串, 关键字)\n```' },
+    { value: '查询关键字在字符串第一次出现位置，并将其位置赋值给控件' },
+    { value: '```\n示例\nStringStr[\'L\']([\'A\'], \'B\')\n```' }
   ]
 };

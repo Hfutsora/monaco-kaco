@@ -34,6 +34,9 @@ import { SetFocusStatementContext } from "./kacoParser";
 import { SetColorStatementContext } from "./kacoParser";
 import { ChangeTabStatementContext } from "./kacoParser";
 import { SwitchDisplayStatementContext } from "./kacoParser";
+import { StringSubStatementContext } from "./kacoParser";
+import { StringLenStatementContext } from "./kacoParser";
+import { StringStrStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -273,6 +276,27 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitSwitchDisplayStatement?: (ctx: SwitchDisplayStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.stringSubStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitStringSubStatement?: (ctx: StringSubStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.stringLenStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitStringLenStatement?: (ctx: StringLenStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.stringStrStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitStringStrStatement?: (ctx: StringStrStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.

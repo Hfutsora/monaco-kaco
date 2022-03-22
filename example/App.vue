@@ -73,6 +73,9 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     SetColor(['申请人'], '#ffffff');
     ChangeTab(['tp-1'], 1);
     SwitchDisplay(['控件1'],['控件2'],['控件3'],['控件4']);
+    StringSub['A'](['B'], 1, 3);
+    StringLen['H'](['地号']);
+    StringStr['L'](['A'], ['B']);
 }
 `;
 }

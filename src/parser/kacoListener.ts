@@ -34,6 +34,9 @@ import { SetFocusStatementContext } from "./kacoParser";
 import { SetColorStatementContext } from "./kacoParser";
 import { ChangeTabStatementContext } from "./kacoParser";
 import { SwitchDisplayStatementContext } from "./kacoParser";
+import { StringSubStatementContext } from "./kacoParser";
+import { StringLenStatementContext } from "./kacoParser";
+import { StringStrStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -394,6 +397,39 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitSwitchDisplayStatement?: (ctx: SwitchDisplayStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.stringSubStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterStringSubStatement?: (ctx: StringSubStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.stringSubStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitStringSubStatement?: (ctx: StringSubStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.stringLenStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterStringLenStatement?: (ctx: StringLenStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.stringLenStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitStringLenStatement?: (ctx: StringLenStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.stringStrStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterStringStrStatement?: (ctx: StringStrStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.stringStrStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitStringStrStatement?: (ctx: StringStrStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.

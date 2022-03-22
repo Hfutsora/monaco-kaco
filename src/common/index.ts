@@ -47,6 +47,9 @@ export const TokenMap: Record<string, string> = {
   SetColor: 'keyword',
   ChangeTab: 'keyword',
   SwitchDisplay: 'keyword',
+  StringSub: 'keyword',
+  StringLen: 'keyword',
+  StringStr: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

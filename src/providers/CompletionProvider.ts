@@ -161,6 +161,27 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '切换显示',
           range
         }, {
+          label: 'StringSub',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'StringSub[\'$1\'](${2:[\'\']}, ${3:0}, ${4:0});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '截取字符串',
+          range
+        }, {
+          label: 'StringLen',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'StringLen[\'$1\'](${2:[\'\']});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '计算字符串长度',
+          range
+        }, {
+          label: 'StringStr',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'StringStr[\'$1\'](${2:[\'\']}, ${3:[\'\']});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '查询关键字位置',
+          range
+        }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: 'if (${1:true}) {\n$2\n}\n',
