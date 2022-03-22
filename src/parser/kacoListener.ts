@@ -12,6 +12,7 @@ import { ExpressionSequenceContext } from "./kacoParser";
 import { SingleExpressionContext } from "./kacoParser";
 import { AssignStatementContext } from "./kacoParser";
 import { QuoteEllipsisExprContext } from "./kacoParser";
+import { QuoteNaturalExprContext } from "./kacoParser";
 import { OpenFormStatementContext } from "./kacoParser";
 import { SaveFormStatementContext } from "./kacoParser";
 import { CloseStatementContext } from "./kacoParser";
@@ -19,6 +20,7 @@ import { RefreshStatementContext } from "./kacoParser";
 import { MessageStatementContext } from "./kacoParser";
 import { ClickButtonStatementContext } from "./kacoParser";
 import { GetComboDicStatementContext } from "./kacoParser";
+import { QueryDataStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -139,6 +141,17 @@ export interface kacoListener extends ParseTreeListener {
 	exitQuoteEllipsisExpr?: (ctx: QuoteEllipsisExprContext) => void;
 
 	/**
+	 * Enter a parse tree produced by `kacoParser.quoteNaturalExpr`.
+	 * @param ctx the parse tree
+	 */
+	enterQuoteNaturalExpr?: (ctx: QuoteNaturalExprContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.quoteNaturalExpr`.
+	 * @param ctx the parse tree
+	 */
+	exitQuoteNaturalExpr?: (ctx: QuoteNaturalExprContext) => void;
+
+	/**
 	 * Enter a parse tree produced by `kacoParser.openFormStatement`.
 	 * @param ctx the parse tree
 	 */
@@ -214,6 +227,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitGetComboDicStatement?: (ctx: GetComboDicStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.queryDataStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterQueryDataStatement?: (ctx: QueryDataStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.queryDataStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitQueryDataStatement?: (ctx: QueryDataStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.

@@ -96,7 +96,8 @@ export const kacoKeywords = [
   'Refresh',
   'MessageBox',
   'ClickButton',
-  'GetComboDic'
+  'GetComboDic',
+  'QueryData'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -142,5 +143,11 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '获取动态字典值' },
     { value: '需要在数字字典中配置各项字典值' },
     { value: '```\n示例\nGetComboDic([\'区\'],[# \'select sd_keyno,sd_value from oa2_sysdic where sd_main<>0\'])\n```' }
+  ],
+  QueryData: [
+    { value: '```\nQueryData[\'查询模板名称\'],[\'表格控件名称\'](...参数)(返回行数)(起始位置)\n```' },
+    { value: '按查询模板查询数据，并填充至指定的表格控件' },
+    { value: '查询数据给表格控件，一般不在指令中设置返回行数与起始位置，省略时表格控件中设置的参数生效' },
+    { value: '```\n示例\nQueryData[\'收件单查询\'],[\'结果列表\']([\'受理编号\'],[\'权利人\'])(100)(0)\n```' }
   ]
 };

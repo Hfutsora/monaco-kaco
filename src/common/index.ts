@@ -33,6 +33,8 @@ export const TokenMap: Record<string, string> = {
   MessageBox: 'keyword',
   ClickButton: 'keyword',
   GetComboDic: 'keyword',
+  QueryData: 'keyword',
+
   Selected: 'keyword',
   If: 'keyword',
   Sql: 'keyword',
@@ -77,6 +79,7 @@ export const TokenMap: Record<string, string> = {
   ParamLiteral: 'number',
   QuoteLiteral: 'number',
   DecimalLiteral: 'number',
+  Natural: 'number',
   MessageLiteral: 'number',
   SqlLiteral: 'type',
 

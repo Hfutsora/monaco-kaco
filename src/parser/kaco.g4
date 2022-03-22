@@ -64,6 +64,10 @@ GetComboDic
     : 'GetComboDic'
     ;
 
+QueryData
+    : 'QueryData'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -104,6 +108,7 @@ functionStatement
     | messageStatement
     | clickButtonStatement
     | getComboDicStatement
+    | queryDataStatement
     | assignStatement
     ;
 
@@ -137,8 +142,17 @@ quoteEllipsisExpr
     : '(' (commonLiteral (',' commonLiteral)* )? ')'
     ;
 
+Natural
+    : '0'
+    | [1-9][0-9]*
+    ;
+
+quoteNaturalExpr
+    : '(' Natural? ')'
+    ;
+
 openFormStatement
-    : 'OpenForm' '[' (StringLiteral | DecimalLiteral) ']' quoteEllipsisExpr? quoteEllipsisExpr? quoteEllipsisExpr? ';'
+    : 'OpenForm' '[' (StringLiteral | DecimalLiteral | Natural) ']' quoteEllipsisExpr? quoteEllipsisExpr? quoteEllipsisExpr? ';'
     ;
 
 saveFormStatement
@@ -163,6 +177,10 @@ clickButtonStatement
 
 getComboDicStatement
     : 'GetComboDic' '(' ctrlQuoteLiteral ',' SqlLiteral ')' ';'
+    ;
+
+queryDataStatement
+    : 'QueryData' ctrlQuoteLiteral ',' ctrlQuoteLiteral quoteEllipsisExpr? quoteNaturalExpr? quoteNaturalExpr? ';'
     ;
 
 //==============================================================
@@ -217,6 +235,7 @@ commonLiteral
     | ctrlQuoteParamLiteral
     | ctrlConstantLiteral
     | DecimalLiteral
+    | Natural
     | BooleanLiteral
     | StringLiteral
     ;
@@ -251,11 +270,6 @@ SqlLiteral
 Decimal
     : '0' ('.' (DigitChar)* NonZeroDigit)?
     | NonZeroDigit (DigitChar)* ('.' (DigitChar)* NonZeroDigit)?
-    ;
-
-Natural
-    : '0'
-    | [1-9][0-9]*
     ;
 
 NonZeroDigit

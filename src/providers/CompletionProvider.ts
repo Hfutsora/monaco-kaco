@@ -56,6 +56,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '按钮事件',
           range
         }, {
+          label: 'QueryData',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'QueryData[\'$1\'],[\'$2\']([\'$3\'])($4)($5);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '查询数据',
+          range
+        }, {
           label: 'GetComboDic',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'GetComboDic([\'$1\'], [# $2 #]);',
