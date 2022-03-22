@@ -84,6 +84,10 @@ SetCoder
     : 'SetCoder'
     ;
 
+ResetCtrlValue
+    : 'ResetCtrlValue'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -129,6 +133,7 @@ functionStatement
     | sqlExecuteStatement
     | getCoderStatement
     | setCoderStatement
+    | resetCtrlValueStatement
     | assignStatement
     ;
 
@@ -217,6 +222,10 @@ getCoderStatement
 
 setCoderStatement
     : 'SetCoder' '(' (ctrlQuoteLiteral ',' CoderLiteral)? ')' ';'
+    ;
+
+resetCtrlValueStatement
+    : 'ResetCtrlValue' quoteEllipsisExpr ';'
     ;
 
 //==============================================================

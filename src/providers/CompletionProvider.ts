@@ -98,6 +98,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '回收计数器编号',
           range
         }, {
+          label: 'ResetCtrlValue',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'ResetCtrlValue([\'$1\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '清除控件值',
+          range
+        }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: 'if (${1:true}) {\n$2\n}\n',

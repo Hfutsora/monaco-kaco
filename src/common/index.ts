@@ -38,6 +38,7 @@ export const TokenMap: Record<string, string> = {
   SQLExecute: 'keyword',
   GetCoder: 'keyword',
   SetCoder: 'keyword',
+  ResetCtrlValue: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',
