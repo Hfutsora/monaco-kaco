@@ -106,7 +106,8 @@ export const kacoKeywords = [
   'SaveLastValue',
   'LoadLastValue',
   'SetVisiable',
-  'SetEnable'
+  'SetEnable',
+  'SetFocus'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -206,5 +207,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '设置控件是否可用' },
     { value: '是否可用：`0` 为不可用，`1` 为可用' },
     { value: '```\n示例\nSetEnable([\'Button\'], 1)\n```' }
+  ],
+  SetFocus: [
+    { value: '```\nSetFocus([\'控件名称\'])\n```' },
+    { value: '将焦点设置在指定控件上' },
+    { value: '```\n示例\nSetFocus([\'Input\'])\n```' }
   ]
 };

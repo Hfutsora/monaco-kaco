@@ -43,6 +43,7 @@ export const TokenMap: Record<string, string> = {
   LoadLastValue: 'keyword',
   SetVisiable: 'keyword',
   SetEnable: 'keyword',
+  SetFocus: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

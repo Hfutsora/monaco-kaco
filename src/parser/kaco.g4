@@ -104,6 +104,10 @@ SetEnable
     : 'SetEnable'
     ;
 
+SetFocus
+    : 'SetFocus'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -154,6 +158,7 @@ functionStatement
     | loadLastValueStatement
     | setVisiableStatement
     | setEnableStatement
+    | setFocusStatement
     | assignStatement
     ;
 
@@ -262,6 +267,10 @@ setVisiableStatement
 
 setEnableStatement
     : 'SetEnable' '(' ctrlQuoteLiteral ','  Natural ')' ';'
+    ;
+
+setFocusStatement
+    : 'SetFocus' '(' ctrlQuoteLiteral ')' ';'
     ;
 
 //==============================================================

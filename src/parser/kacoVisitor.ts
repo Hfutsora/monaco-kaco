@@ -30,6 +30,7 @@ import { SaveLastValueStatementContext } from "./kacoParser";
 import { LoadLastValueStatementContext } from "./kacoParser";
 import { SetVisiableStatementContext } from "./kacoParser";
 import { SetEnableStatementContext } from "./kacoParser";
+import { SetFocusStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -241,6 +242,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitSetEnableStatement?: (ctx: SetEnableStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.setFocusStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSetFocusStatement?: (ctx: SetFocusStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.

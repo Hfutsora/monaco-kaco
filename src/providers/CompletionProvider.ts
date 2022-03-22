@@ -133,6 +133,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '设置控件是否可用',
           range
         }, {
+          label: 'SetFocus',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SetFocus([\'$1\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '设置控件焦点',
+          range
+        }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: 'if (${1:true}) {\n$2\n}\n',

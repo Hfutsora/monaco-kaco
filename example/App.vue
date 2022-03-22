@@ -69,6 +69,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     LoadLastValue(['控件1'], ['控件2'], ['控件3']);
     SetVisiable(['Button'], 0);
     SetEnable(['权利人名称'], 1);
+    SetFocus(['申请人']);
 }
 `;
 }
