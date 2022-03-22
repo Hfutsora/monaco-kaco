@@ -104,7 +104,8 @@ export const kacoKeywords = [
   'SetCoder',
   'ResetCtrlValue',
   'SaveLastValue',
-  'LoadLastValue'
+  'LoadLastValue',
+  'SetVisiable'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -181,16 +182,22 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\n示例\nSetCoder([\'受理号\'],\'%11[1001]\')\n```' }
   ],
   ResetCtrlValue: [
-    { value: '```\nResetCtrlValue(...[\'控件名\'])\n```' },
+    { value: '```\nResetCtrlValue(...[\'控件名称\'])\n```' },
     { value: '清除指定控件的值' }
   ],
   SaveLastValue: [
-    { value: '```\nSaveLastValue(...[\'控件名\'])\n```' },
+    { value: '```\nSaveLastValue(...[\'控件名称\'])\n```' },
     { value: '暂存指定控件的值' },
     { value: '暂存的值通过 LoadLastValue 获取' }
   ],
   LoadLastValue: [
-    { value: '```\nLoadLastValue(...[\'控件名\'])\n```' },
+    { value: '```\nLoadLastValue(...[\'控件名称\'])\n```' },
     { value: '加载指定控件暂存的值' }
+  ],
+  SetVisiable: [
+    { value: '```\nSetVisiable([\'控件名称\'], 是否可见)\n```' },
+    { value: '设置控件是否可见' },
+    { value: '是否可见：0 为不可见，1 为可见' },
+    { value: '```\n示例\nSetVisiable([\'Button\'], 1)\n```' }
   ]
 };

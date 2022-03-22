@@ -63,10 +63,11 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     CarryData['国有档案录入数据关联'](['受理号']);
     SQLExecute([# update d_rec set state = 0 where slid =[$ INSTANCE] #]);
     GetCoder(['受理号'],'%11[1001]');
-    SetCoder(['受理号'],'%11[1001]');
+    SetCoder(['受理号'],'%2D[1001]');
     ResetCtrlValue(['控件1'], ['控件2'], ['控件3'], ['控件4']);
     SaveLastValue(['控件1'], ['控件2'], ['控件3']);
     LoadLastValue(['控件1'], ['控件2'], ['控件3']);
+    SetVisiable(['Button'], 0);
 }
 `;
 }

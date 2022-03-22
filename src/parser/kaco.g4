@@ -96,6 +96,10 @@ LoadLastValue
     : 'LoadLastValue'
     ;
 
+SetVisiable
+    : 'SetVisiable'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -144,6 +148,7 @@ functionStatement
     | resetCtrlValueStatement
     | saveLastValueStatement
     | loadLastValueStatement
+    | setVisiableStatement
     | assignStatement
     ;
 
@@ -244,6 +249,10 @@ saveLastValueStatement
 
 loadLastValueStatement
     : 'LoadLastValue' quoteEllipsisExpr ';'
+    ;
+
+setVisiableStatement
+    : 'SetVisiable' '(' ctrlQuoteLiteral ','  Natural ')' ';'
     ;
 
 //==============================================================
