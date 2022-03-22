@@ -70,6 +70,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '获取字典',
           range
         }, {
+          label: 'CarryData',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'CarryData[\'$1\']([\'$2\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '关联模板赋值',
+          range
+        }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: 'if (${1:true}) {\n$2\n}\n',

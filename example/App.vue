@@ -60,6 +60,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     Refresh();
     Close();
     QueryData['收件单查询'],['结果列表'](['受理编号'],['权利人'])(100)(0);
+    CarryData['国有档案录入数据关联'](['受理号']);
 }
 `;
 }

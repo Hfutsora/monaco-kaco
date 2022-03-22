@@ -34,6 +34,7 @@ export const TokenMap: Record<string, string> = {
   ClickButton: 'keyword',
   GetComboDic: 'keyword',
   QueryData: 'keyword',
+  CarryData: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

@@ -97,7 +97,8 @@ export const kacoKeywords = [
   'MessageBox',
   'ClickButton',
   'GetComboDic',
-  'QueryData'
+  'QueryData',
+  'CarryData'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -149,5 +150,11 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '按查询模板查询数据，并填充至指定的表格控件' },
     { value: '查询数据给表格控件，一般不在指令中设置返回行数与起始位置，省略时表格控件中设置的参数生效' },
     { value: '```\n示例\nQueryData[\'收件单查询\'],[\'结果列表\']([\'受理编号\'],[\'权利人\'])(100)(0)\n```' }
+  ],
+  CarryData: [
+    { value: '```\nCarryData[\'数据关联模板名称\'](源数据对象主键)\n```' },
+    { value: '按数据关联模板中映射关系将数据从源对象赋值给目标对象' },
+    { value: '\n- 源对象类型是数据模型，目标对象类型是数据模型或者表单模板\n - 关联模板中未设置映射关系，按编号进行映射' },
+    { value: '```\n示例\nCarryData[\'国有档案录入数据关联\']([\'受理号\'])\n```' }
   ]
 };

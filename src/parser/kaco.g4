@@ -68,6 +68,10 @@ QueryData
     : 'QueryData'
     ;
 
+CarryData
+    : 'CarryData'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -109,6 +113,7 @@ functionStatement
     | clickButtonStatement
     | getComboDicStatement
     | queryDataStatement
+    | carryDataStatement
     | assignStatement
     ;
 
@@ -181,6 +186,10 @@ getComboDicStatement
 
 queryDataStatement
     : 'QueryData' ctrlQuoteLiteral ',' ctrlQuoteLiteral quoteEllipsisExpr? quoteNaturalExpr? quoteNaturalExpr? ';'
+    ;
+
+carryDataStatement
+    : 'CarryData' ctrlQuoteLiteral ('(' ctrlQuoteLiteral? ')')? ';'
     ;
 
 //==============================================================
