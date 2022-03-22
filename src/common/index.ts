@@ -78,8 +78,9 @@ export const TokenMap: Record<string, string> = {
   QuoteLiteral: 'number',
   DecimalLiteral: 'number',
   MessageLiteral: 'number',
+  SqlLiteral: 'type',
 
-  Comment: 'comment',
+  COMMENT: 'comment',
 
   UnexpectedCharacter: 'invalid'
 };

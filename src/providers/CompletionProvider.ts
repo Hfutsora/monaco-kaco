@@ -58,7 +58,7 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
         }, {
           label: 'GetComboDic',
           kind: monaco.languages.CompletionItemKind.Function,
-          insertText: 'GetComboDic([\'$1\'], [# \'$2\']);',
+          insertText: 'GetComboDic([\'$1\'], [# $2 #]);',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '获取字典',
           range
