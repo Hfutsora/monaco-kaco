@@ -132,6 +132,10 @@ StringStr
     : 'StringStr'
     ;
 
+StringRep
+    : 'StringRep'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -189,6 +193,7 @@ functionStatement
     | stringSubStatement
     | stringLenStatement
     | stringStrStatement
+    | stringRepStatement
     | assignStatement
     ;
 
@@ -325,6 +330,10 @@ stringLenStatement
 
 stringStrStatement
     : 'StringStr' ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    ;
+
+stringRepStatement
+    : 'StringRep' '(' ctrlQuoteLiteral ',' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')' ';'
     ;
 
 //==============================================================
