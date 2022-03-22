@@ -116,6 +116,10 @@ ChangeTab
     : 'ChangeTab'
     ;
 
+SwitchDisplay
+    : 'SwitchDisplay'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -169,6 +173,7 @@ functionStatement
     | setFocusStatement
     | setColorStatement
     | changeTabStatement
+    | switchDisplayStatement
     | assignStatement
     ;
 
@@ -289,6 +294,10 @@ setColorStatement
 
 changeTabStatement
     : 'ChangeTab' '(' ctrlQuoteLiteral ',' Natural ')' ';'
+    ;
+
+switchDisplayStatement
+    : 'SwitchDisplay' quoteEllipsisExpr ';'
     ;
 
 //==============================================================

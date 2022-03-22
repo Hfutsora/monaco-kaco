@@ -109,7 +109,8 @@ export const kacoKeywords = [
   'SetEnable',
   'SetFocus',
   'SetColor',
-  'ChangeTab'
+  'ChangeTab',
+  'SwitchDisplay'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -224,5 +225,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nChangeTab([\'控件名称\'], 页编号)\n```' },
     { value: '切换标签页控件至指定页' },
     { value: '```\n示例\nChangeTab([\'tab-1\'], 1)\n```' }
+  ],
+  SwitchDisplay: [
+    { value: '```\nSwitchDisplay(...[\'控件名称\'])\n```' },
+    { value: '切换显示控件' },
+    { value: '```\n示例\nSwitchDisplay([\'控件1\'],[\'控件2\'],[\'控件3\'],[\'控件4\'])\n```' }
   ]
 };

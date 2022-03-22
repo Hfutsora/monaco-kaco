@@ -33,6 +33,7 @@ import { SetEnableStatementContext } from "./kacoParser";
 import { SetFocusStatementContext } from "./kacoParser";
 import { SetColorStatementContext } from "./kacoParser";
 import { ChangeTabStatementContext } from "./kacoParser";
+import { SwitchDisplayStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -382,6 +383,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitChangeTabStatement?: (ctx: ChangeTabStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.switchDisplayStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSwitchDisplayStatement?: (ctx: SwitchDisplayStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.switchDisplayStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSwitchDisplayStatement?: (ctx: SwitchDisplayStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.
