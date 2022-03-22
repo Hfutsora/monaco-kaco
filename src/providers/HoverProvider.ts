@@ -107,7 +107,8 @@ export const kacoKeywords = [
   'LoadLastValue',
   'SetVisiable',
   'SetEnable',
-  'SetFocus'
+  'SetFocus',
+  'SetColor'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -212,5 +213,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nSetFocus([\'控件名称\'])\n```' },
     { value: '将焦点设置在指定控件上' },
     { value: '```\n示例\nSetFocus([\'Input\'])\n```' }
+  ],
+  SetColor: [
+    { value: '```\nSetColor([\'控件名称\'], \'字体颜色\')\n```' },
+    { value: '设置指定控件的字体颜色' },
+    { value: '```\n示例\nSetColor([\'Input\'], \'#ffffff\')\n```' }
   ]
 };

@@ -140,6 +140,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '设置控件焦点',
           range
         }, {
+          label: 'SetColor',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SetColor([\'$1\'], \'${2:#ffffff}\');',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '设置字体颜色',
+          range
+        }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: 'if (${1:true}) {\n$2\n}\n',

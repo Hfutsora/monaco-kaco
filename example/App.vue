@@ -70,6 +70,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     SetVisiable(['Button'], 0);
     SetEnable(['权利人名称'], 1);
     SetFocus(['申请人']);
+    SetColor(['申请人'], '#ffffff');
 }
 `;
 }

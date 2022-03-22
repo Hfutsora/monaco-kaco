@@ -108,6 +108,10 @@ SetFocus
     : 'SetFocus'
     ;
 
+SetColor
+    : 'SetColor'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -159,6 +163,7 @@ functionStatement
     | setVisiableStatement
     | setEnableStatement
     | setFocusStatement
+    | setColorStatement
     | assignStatement
     ;
 
@@ -273,6 +278,10 @@ setFocusStatement
     : 'SetFocus' '(' ctrlQuoteLiteral ')' ';'
     ;
 
+setColorStatement
+    : 'SetColor' '(' ctrlQuoteLiteral ',' (HexLiteral | StringLiteral) ')' ';'
+    ;
+
 //==============================================================
 
 expression
@@ -338,6 +347,10 @@ MessageLiteral
 
 CoderLiteral
     : '\'' '%' (Natural | UpperCaseChar | LowerCaseChar)*? '[' Natural? ']' '\''
+    ;
+
+HexLiteral
+    : '\'' '#' [0-9a-fA-F]* '\''
     ;
 
 StringLiteral

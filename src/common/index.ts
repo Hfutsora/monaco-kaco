@@ -44,6 +44,7 @@ export const TokenMap: Record<string, string> = {
   SetVisiable: 'keyword',
   SetEnable: 'keyword',
   SetFocus: 'keyword',
+  SetColor: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',
@@ -93,6 +94,8 @@ export const TokenMap: Record<string, string> = {
   MessageLiteral: 'number',
   CoderLiteral: 'number',
   BooleanNumberLiteral: 'number',
+  HexLiteral: 'number.hex',
+
   SqlLiteral: 'type',
 
   COMMENT: 'comment',
