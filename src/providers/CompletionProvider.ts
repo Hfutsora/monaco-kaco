@@ -251,6 +251,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: 'sql',
           range
+        }, {
+          label: 'Select',
+          kind: monaco.languages.CompletionItemKind.Struct,
+          insertText: '[\'${1:列表名}\'.\'${2:列名}\'(selected == ${3|-1,*,0,1,2|})]',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: 'sql',
+          range
         }
       ]
     };
