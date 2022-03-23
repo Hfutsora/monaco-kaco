@@ -13,6 +13,9 @@ const registerDispose = (disposables: monaco.IDisposable[]) => ({
 });
 
 export const registerProvier = (id: string) => {
+  const languages = monaco.languages.getLanguages();
+  if (languages.some(l => l.id === 'kaco')) return;
+
   monaco.languages.register({ id: 'kaco' });
   monaco.languages.setLanguageConfiguration('kaco', {
     brackets: [
