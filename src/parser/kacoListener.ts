@@ -7,6 +7,7 @@ import { ProgramContext } from "./kacoParser";
 import { StatementContext } from "./kacoParser";
 import { FunctionStatementContext } from "./kacoParser";
 import { IfStatementContext } from "./kacoParser";
+import { WhileStatementContext } from "./kacoParser";
 import { BlockStatementContext } from "./kacoParser";
 import { ExpressionSequenceContext } from "./kacoParser";
 import { SingleExpressionContext } from "./kacoParser";
@@ -108,6 +109,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitIfStatement?: (ctx: IfStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.whileStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterWhileStatement?: (ctx: WhileStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.whileStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitWhileStatement?: (ctx: WhileStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.blockStatement`.

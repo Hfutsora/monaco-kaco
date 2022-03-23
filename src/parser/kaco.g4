@@ -173,6 +173,10 @@ If
     : 'if'
     ;
 
+While
+    : 'while'
+    ;
+
 Constant
     : 'USERID'
     | 'USERNAME'
@@ -229,11 +233,16 @@ functionStatement
     | addGridRowStatement
     | delGridRowStatement
     | selGridRowStatement
+    | whileStatement
     | assignStatement
     ;
 
 ifStatement
     : 'if' '(' expressionSequence ')' blockStatement
+    ;
+
+whileStatement
+    : 'while' '(' ctrlQuoteDotLiteral ')' blockStatement
     ;
 
 blockStatement

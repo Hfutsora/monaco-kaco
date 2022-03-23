@@ -245,6 +245,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '选中列表行',
           range
         }, {
+          label: 'While',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'while ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '循环',
+          range
+        }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: 'if (${1:true}) {\n$2\n}\n',

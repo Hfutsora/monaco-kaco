@@ -7,6 +7,7 @@ import { ProgramContext } from "./kacoParser";
 import { StatementContext } from "./kacoParser";
 import { FunctionStatementContext } from "./kacoParser";
 import { IfStatementContext } from "./kacoParser";
+import { WhileStatementContext } from "./kacoParser";
 import { BlockStatementContext } from "./kacoParser";
 import { ExpressionSequenceContext } from "./kacoParser";
 import { SingleExpressionContext } from "./kacoParser";
@@ -95,6 +96,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitIfStatement?: (ctx: IfStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.whileStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitWhileStatement?: (ctx: WhileStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.blockStatement`.
