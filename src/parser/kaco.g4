@@ -164,6 +164,14 @@ SelGridRow
     : 'SelGridRow'
     ;
 
+ExportXls
+    : 'ExportXls'
+    ;
+
+ImportXls
+    : 'ImportXls'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -174,7 +182,7 @@ If
     ;
 
 While
-    : 'while'
+    : 'While'
     ;
 
 Constant
@@ -233,6 +241,8 @@ functionStatement
     | addGridRowStatement
     | delGridRowStatement
     | selGridRowStatement
+    | exportXlsStatement
+    | importXlsStatement
     | whileStatement
     | assignStatement
     ;
@@ -242,7 +252,7 @@ ifStatement
     ;
 
 whileStatement
-    : 'while' '(' ctrlQuoteDotLiteral ')' blockStatement
+    : 'While' '(' ctrlQuoteDotLiteral ')' blockStatement
     ;
 
 blockStatement
@@ -406,6 +416,14 @@ delGridRowStatement
 
 selGridRowStatement
     : 'SelGridRow' '(' ctrlQuoteDotLiteral ')' ';'
+    ;
+
+exportXlsStatement
+    : 'ExportXls' '(' ctrlQuoteLiteral (',' Natural)? ')' ';'
+    ;
+
+importXlsStatement
+    : 'ImportXls' '(' ctrlQuoteLiteral ')' ';'
     ;
 
 //==============================================================
