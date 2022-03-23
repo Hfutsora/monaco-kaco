@@ -14,7 +14,6 @@ export const validate = async(model: monaco.editor.IModel) => {
   let content = '';
   try {
     content = model.getValue();
-    console.log(content);
   } catch {
     monaco.editor.setModelMarkers(model, 'ruleLint', []);
 
