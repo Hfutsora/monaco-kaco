@@ -205,30 +205,37 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
         }, {
           label: 'EncodeBase64',
           kind: monaco.languages.CompletionItemKind.Function,
-          insertText: 'EncodeBase64[\'$1\'](${2:[\'\']});\n',
+          insertText: 'EncodeBase64[\'$1\'](${2:[\'\']});',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: 'Base64编码',
           range
         }, {
           label: 'DecodeBase64',
           kind: monaco.languages.CompletionItemKind.Function,
-          insertText: 'DecodeBase64[\'$1\'](${2:[\'\']});\n',
+          insertText: 'DecodeBase64[\'$1\'](${2:[\'\']});',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: 'Base64解码',
           range
         }, {
           label: 'GetGridRows',
           kind: monaco.languages.CompletionItemKind.Function,
-          insertText: 'GetGridRows([\'$1\'], [\'$2\'.\'$3\'(selected == ${4|*,-1,0,1|})]);\n',
+          insertText: 'GetGridRows([\'$1\'], [\'$2\'.\'$3\'(selected == ${4|*,-1,0,1|})]);',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '获取数据列表的行数',
           range
         }, {
           label: 'AddGridRow',
           kind: monaco.languages.CompletionItemKind.Function,
-          insertText: 'AddGridRow([\'${1:数据列表}\'.\'${2:列名}\'], ${3:数据});\n',
+          insertText: 'AddGridRow([\'${1:数据列表}\'.\'${2:列名}\'], ${3:数据});',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '增加列表数据',
+          range
+        }, {
+          label: 'DelGridRow',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'DelGridRow([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '删除列表行',
           range
         }, {
           label: 'If',
@@ -261,7 +268,7 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
         }, {
           label: 'Select',
           kind: monaco.languages.CompletionItemKind.Struct,
-          insertText: '[\'${1:列表名}\'.\'${2:列名}\'(selected == ${3|-1,*,0,1,2|})]',
+          insertText: '[\'${1:列表名}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: 'sql',
           range

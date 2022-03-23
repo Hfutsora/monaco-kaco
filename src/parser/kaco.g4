@@ -156,6 +156,10 @@ AddGridRow
     : 'AddGridRow'
     ;
 
+DelGridRow
+    : 'DelGridRow'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -219,6 +223,7 @@ functionStatement
     | decodeBase64Statement
     | getGridRowsStatement
     | addGridRowStatement
+    | delGridRowStatement
     | assignStatement
     ;
 
@@ -379,6 +384,10 @@ getGridRowsStatement
 
 addGridRowStatement
     : 'AddGridRow' '(' ctrlQuoteDotLiteral ((',' ctrlQuoteDotLiteral) | (',' commonLiteral)*) ')' ';'
+    ;
+
+delGridRowStatement
+    : 'DelGridRow' '(' ctrlQuoteDotLiteral ')' ';'
     ;
 
 //==============================================================
