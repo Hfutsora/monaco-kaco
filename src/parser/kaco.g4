@@ -160,6 +160,10 @@ DelGridRow
     : 'DelGridRow'
     ;
 
+SelGridRow
+    : 'SelGridRow'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -224,6 +228,7 @@ functionStatement
     | getGridRowsStatement
     | addGridRowStatement
     | delGridRowStatement
+    | selGridRowStatement
     | assignStatement
     ;
 
@@ -390,6 +395,10 @@ delGridRowStatement
     : 'DelGridRow' '(' ctrlQuoteDotLiteral ')' ';'
     ;
 
+selGridRowStatement
+    : 'SelGridRow' '(' ctrlQuoteDotLiteral ')' ';'
+    ;
+
 //==============================================================
 
 expression
@@ -425,7 +434,7 @@ ctrlQuoteLiteral
     ;
 
 ctrlQuoteDotLiteral
-    : '[' StringLiteral ('.' StringLiteral)? (',' StringLiteral)* ('(' Selected '==' (DecimalLiteral | '*' | Natural) ')')? ']'
+    : '[' StringLiteral ('.' StringLiteral)? (',' StringLiteral)* ('(' ((Selected '==' (DecimalLiteral | '*' | Natural)) | (StringLiteral '==' commonLiteral)) ')')? ']'
     ;
 
 ctrlQuoteParamLiteral

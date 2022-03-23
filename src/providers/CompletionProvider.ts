@@ -238,6 +238,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '删除列表行',
           range
         }, {
+          label: 'SelGridRow',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'SelGridRow([\'${1:数据列表}\'.\'${2:列名}\'(\'${4:条件}\' == ${5:条件值})]);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '选中列表行',
+          range
+        }, {
           label: 'If',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: 'if (${1:true}) {\n$2\n}\n',

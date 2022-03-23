@@ -120,7 +120,8 @@ export const kacoKeywords = [
   'DecodeBase64',
   'GetGridRows',
   'AddGridRow',
-  'DelGridRow'
+  'DelGridRow',
+  'SelGridRow'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -290,5 +291,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nDelGridRow([\'数据列表名称\'.\'列名\'(条件)])\n```' },
     { value: '删除数据列表符合条件的数据' },
     { value: '```\n示例\nDelGridRow([\'记事列表\'.\'证书记事日期\'(selected == -1)])\n```' }
+  ],
+  SelGridRow: [
+    { value: '```\nSelGridRow([\'数据列表名称\'.\'列名\'(条件)])\n```' },
+    { value: '选中数据列表符合条件的行' },
+    { value: '```\n示例\nSelGridRow([\'记事列表\'.\'证书记事日期\'(\'办理状态\' == -1)])\n```' }
   ]
 };
