@@ -31,6 +31,14 @@ export const registerProvier = (id: string) => {
     ]
   });
 
+  monaco.languages.registerDocumentFormattingEditProvider('kaco', { // TODO:
+    provideDocumentFormattingEdits(model, option, token) {
+      const result: monaco.languages.TextEdit[] = [];
+
+      return result;
+    }
+  });
+
   const disposables: monaco.IDisposable[] = [];
 
   disposables.push(monaco.languages.setTokensProvider(id, new TokensProviders()));
