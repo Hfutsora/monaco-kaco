@@ -2,12 +2,13 @@
 
 <div align=center><img width="128" height="128" src="./kaco.png"/></div>
 
-Kaco language plugin for Monoco Editor. Provides the following features in future:
+Kaco language plugin for Monoco Editor. Provides the following features:
 
-- [ ] Syntax highlighting
-- [ ] Code completion
-- [ ] Validation: Syntax errors and linting
-- [ ] Hovers
+- [x] Syntax highlighting
+- [x] Code completion
+- [x] Validation: Syntax errors and linting
+- [x] Hovers
+- [ ] Format
 
 ## Try it out
 
