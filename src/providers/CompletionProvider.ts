@@ -231,6 +231,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '增加列表数据',
           range
         }, {
+          label: 'If',
+          kind: monaco.languages.CompletionItemKind.Struct,
+          insertText: 'if (${1:true}) {\n$2\n}\n',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '条件',
+          range
+        }, {
           label: 'Variable',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: '[$ ${1|USERID,USERNAME,USERCODE,ORGNAME1,ORGCODE1,INSTANCE,CURTIME,CURROLE,CURFLOW,CURFTASK,CURTACHE,CURSTATE,UPLOADFILE|}]',
