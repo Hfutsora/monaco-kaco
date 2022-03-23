@@ -118,7 +118,8 @@ export const kacoKeywords = [
   'StringCat',
   'EncodeBase64',
   'DecodeBase64',
-  'GetGridRows'
+  'GetGridRows',
+  'AddGridRow'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -278,5 +279,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nGetGridRows ([\'控件名称\'],[\'数据列表名称\'.\'列名\'(条件)])\n```' },
     { value: '获取数据列表的行数' },
     { value: '```\n示例\nGetGridRows([\'行数\'],[\'结果列表\'.\'宗海ID\'(selected == -1)])\n```' }
+  ],
+  AddGridRow: [
+    { value: '```\nAddGridRow([\'数据列表名称\'.\'列名\'], 数据)\n```' },
+    { value: '增加列表数据' },
+    { value: '```\n示例\nAddGridRow([\'记事列表\'.\'证书记事内容\',\'证书记事日期\'], 100, [$ CURTIME])\n```' }
   ]
 };

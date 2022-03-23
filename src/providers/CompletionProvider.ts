@@ -224,6 +224,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '获取数据列表的行数',
           range
         }, {
+          label: 'AddGridRow',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'AddGridRow([\'${1:数据列表}\'.\'${2:列名}\'], ${3:数据});\n',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '增加列表数据',
+          range
+        }, {
           label: 'Variable',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: '[$ ${1|USERID,USERNAME,USERCODE,ORGNAME1,ORGCODE1,INSTANCE,CURTIME,CURROLE,CURFLOW,CURFTASK,CURTACHE,CURSTATE,UPLOADFILE|}]',

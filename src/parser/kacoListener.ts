@@ -42,6 +42,7 @@ import { StringCatStatementContext } from "./kacoParser";
 import { EncodeBase64StatementContext } from "./kacoParser";
 import { DecodeBase64StatementContext } from "./kacoParser";
 import { GetGridRowsStatementContext } from "./kacoParser";
+import { AddGridRowStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -490,6 +491,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitGetGridRowsStatement?: (ctx: GetGridRowsStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.addGridRowStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterAddGridRowStatement?: (ctx: AddGridRowStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.addGridRowStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitAddGridRowStatement?: (ctx: AddGridRowStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.

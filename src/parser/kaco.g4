@@ -152,6 +152,10 @@ GetGridRows
     : 'GetGridRows'
     ;
 
+AddGridRow
+    : 'AddGridRow'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -214,6 +218,7 @@ functionStatement
     | encodeBase64Statement
     | decodeBase64Statement
     | getGridRowsStatement
+    | addGridRowStatement
     | assignStatement
     ;
 
@@ -370,6 +375,10 @@ decodeBase64Statement
 
 getGridRowsStatement
     : 'GetGridRows' '(' ctrlQuoteLiteral ',' ctrlQuoteDotLiteral ')' ';'
+    ;
+
+addGridRowStatement
+    : 'AddGridRow' '(' ctrlQuoteDotLiteral ((',' ctrlQuoteDotLiteral) | (',' commonLiteral)*) ')' ';'
     ;
 
 //==============================================================
