@@ -117,7 +117,8 @@ export const kacoKeywords = [
   'StringRep',
   'StringCat',
   'EncodeBase64',
-  'DecodeBase64'
+  'DecodeBase64',
+  'GetGridRows'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -272,5 +273,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nDecodeBase64[\'控件名称\'](数据)\n```' },
     { value: '将数据按Base64解码，并赋值给控件' },
     { value: '```\n示例\nDecodeBase64[\'编码\']([\'证号\'])\n```' }
+  ],
+  GetGridRows: [
+    { value: '```\nGetGridRows ([\'控件名称\'],[\'数据列表名称\'.\'列名\'(条件)])\n```' },
+    { value: '获取数据列表的行数' },
+    { value: '```\n示例\nGetGridRows([\'行数\'],[\'结果列表\'.\'宗海ID\'(selected == -1)])\n```' }
   ]
 };

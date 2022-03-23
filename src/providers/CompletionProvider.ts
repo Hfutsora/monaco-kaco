@@ -217,6 +217,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: 'Base64解码',
           range
         }, {
+          label: 'GetGridRows',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'GetGridRows([\'$1\'], [\'$2\'.\'$3\'(selected == ${4|*,-1,0,1|})]);\n',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '获取数据列表的行数',
+          range
+        }, {
           label: 'Variable',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: '[$ ${1|USERID,USERNAME,USERCODE,ORGNAME1,ORGCODE1,INSTANCE,CURTIME,CURROLE,CURFLOW,CURFTASK,CURTACHE,CURSTATE,UPLOADFILE|}]',

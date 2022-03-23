@@ -80,6 +80,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     StringCat(['L'],['A'],'content');
     EncodeBase64['编码'](['产权']);
     DecodeBase64['编码'](['产权']);
+    GetGridRows(['控件'], ['数据列表名称'.'列名'(selected == *)]);
 }
 `;
 }

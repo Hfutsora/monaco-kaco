@@ -41,6 +41,7 @@ import { StringRepStatementContext } from "./kacoParser";
 import { StringCatStatementContext } from "./kacoParser";
 import { EncodeBase64StatementContext } from "./kacoParser";
 import { DecodeBase64StatementContext } from "./kacoParser";
+import { GetGridRowsStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -329,6 +330,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitDecodeBase64Statement?: (ctx: DecodeBase64StatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.getGridRowsStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitGetGridRowsStatement?: (ctx: GetGridRowsStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.

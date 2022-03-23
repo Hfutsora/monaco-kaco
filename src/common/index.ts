@@ -54,6 +54,7 @@ export const TokenMap: Record<string, string> = {
   StringCat: 'keyword',
   EncodeBase64: 'keyword',
   DecodeBase64: 'keyword',
+  GetGridRows: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

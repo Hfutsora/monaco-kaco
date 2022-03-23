@@ -148,6 +148,10 @@ DecodeBase64
     : 'DecodeBase64'
     ;
 
+GetGridRows
+    : 'GetGridRows'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -209,6 +213,7 @@ functionStatement
     | stringCatStatement
     | encodeBase64Statement
     | decodeBase64Statement
+    | getGridRowsStatement
     | assignStatement
     ;
 
@@ -363,6 +368,10 @@ decodeBase64Statement
     : 'DecodeBase64' ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')' ';'
     ;
 
+getGridRowsStatement
+    : 'GetGridRows' '(' ctrlQuoteLiteral ',' ctrlQuoteDotLiteral ')' ';'
+    ;
+
 //==============================================================
 
 expression
@@ -398,7 +407,7 @@ ctrlQuoteLiteral
     ;
 
 ctrlQuoteDotLiteral
-    : '[' StringLiteral ('.' StringLiteral)? (',' StringLiteral)* ('(' Selected '==' ('-1' | '*' | Natural) ')')? ']'
+    : '[' StringLiteral ('.' StringLiteral)? (',' StringLiteral)* ('(' Selected '==' (DecimalLiteral | '*' | Natural) ')')? ']'
     ;
 
 ctrlQuoteParamLiteral
@@ -444,7 +453,7 @@ BooleanLiteral
     ;
 
 DecimalLiteral
-    : Decimal
+    : '-'? Decimal
     ;
 
 ParamLiteral
