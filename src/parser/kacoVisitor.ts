@@ -7,6 +7,7 @@ import { ProgramContext } from "./kacoParser";
 import { StatementContext } from "./kacoParser";
 import { FunctionStatementContext } from "./kacoParser";
 import { IfStatementContext } from "./kacoParser";
+import { WhileStatementContext } from "./kacoParser";
 import { BlockStatementContext } from "./kacoParser";
 import { ExpressionSequenceContext } from "./kacoParser";
 import { SingleExpressionContext } from "./kacoParser";
@@ -41,6 +42,10 @@ import { StringRepStatementContext } from "./kacoParser";
 import { StringCatStatementContext } from "./kacoParser";
 import { EncodeBase64StatementContext } from "./kacoParser";
 import { DecodeBase64StatementContext } from "./kacoParser";
+import { GetGridRowsStatementContext } from "./kacoParser";
+import { AddGridRowStatementContext } from "./kacoParser";
+import { DelGridRowStatementContext } from "./kacoParser";
+import { SelGridRowStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -91,6 +96,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitIfStatement?: (ctx: IfStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.whileStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitWhileStatement?: (ctx: WhileStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.blockStatement`.
@@ -329,6 +341,34 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitDecodeBase64Statement?: (ctx: DecodeBase64StatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.getGridRowsStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitGetGridRowsStatement?: (ctx: GetGridRowsStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.addGridRowStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAddGridRowStatement?: (ctx: AddGridRowStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.delGridRowStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitDelGridRowStatement?: (ctx: DelGridRowStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.selGridRowStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSelGridRowStatement?: (ctx: SelGridRowStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.

@@ -117,7 +117,12 @@ export const kacoKeywords = [
   'StringRep',
   'StringCat',
   'EncodeBase64',
-  'DecodeBase64'
+  'DecodeBase64',
+  'GetGridRows',
+  'AddGridRow',
+  'DelGridRow',
+  'SelGridRow',
+  'While'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -272,5 +277,29 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nDecodeBase64[\'控件名称\'](数据)\n```' },
     { value: '将数据按Base64解码，并赋值给控件' },
     { value: '```\n示例\nDecodeBase64[\'编码\']([\'证号\'])\n```' }
+  ],
+  GetGridRows: [
+    { value: '```\nGetGridRows ([\'控件名称\'],[\'数据列表名称\'.\'列名\'(条件)])\n```' },
+    { value: '获取数据列表的行数' },
+    { value: '```\n示例\nGetGridRows([\'行数\'],[\'结果列表\'.\'宗海ID\'(selected == -1)])\n```' }
+  ],
+  AddGridRow: [
+    { value: '```\nAddGridRow([\'数据列表名称\'.\'列名\'], 数据)\n```' },
+    { value: '增加列表数据' },
+    { value: '```\n示例\nAddGridRow([\'记事列表\'.\'证书记事内容\',\'证书记事日期\'], 100, [$ CURTIME])\n```' }
+  ],
+  DelGridRow: [
+    { value: '```\nDelGridRow([\'数据列表名称\'.\'列名\'(条件)])\n```' },
+    { value: '删除数据列表符合条件的数据' },
+    { value: '```\n示例\nDelGridRow([\'记事列表\'.\'证书记事日期\'(selected == -1)])\n```' }
+  ],
+  SelGridRow: [
+    { value: '```\nSelGridRow([\'数据列表名称\'.\'列名\'(条件)])\n```' },
+    { value: '选中数据列表符合条件的行' },
+    { value: '```\n示例\nSelGridRow([\'记事列表\'.\'证书记事日期\'(\'办理状态\' == -1)])\n```' }
+  ],
+  While: [
+    { value: '```\nWhile([\'数据列表名称\'.\'列名\'(条件)])\n```' },
+    { value: '循环列表中符合条件的行，并执行循环体中的事件内容' }
   ]
 };

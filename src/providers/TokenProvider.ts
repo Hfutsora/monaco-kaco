@@ -17,9 +17,6 @@ function getTokens(input: string) {
 
   const res: monaco.languages.IToken[] = tokens.map(token => {
     const type = lexer.ruleNames[token.type - 1];
-
-    console.log('type', type);
-
     const typeName = TokenMap[type] || TokenMap.UnexpectedCharacter;
 
     return {

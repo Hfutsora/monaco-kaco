@@ -148,6 +148,22 @@ DecodeBase64
     : 'DecodeBase64'
     ;
 
+GetGridRows
+    : 'GetGridRows'
+    ;
+
+AddGridRow
+    : 'AddGridRow'
+    ;
+
+DelGridRow
+    : 'DelGridRow'
+    ;
+
+SelGridRow
+    : 'SelGridRow'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -155,6 +171,10 @@ Selected
 
 If
     : 'if'
+    ;
+
+While
+    : 'while'
     ;
 
 Constant
@@ -209,11 +229,20 @@ functionStatement
     | stringCatStatement
     | encodeBase64Statement
     | decodeBase64Statement
+    | getGridRowsStatement
+    | addGridRowStatement
+    | delGridRowStatement
+    | selGridRowStatement
+    | whileStatement
     | assignStatement
     ;
 
 ifStatement
     : 'if' '(' expressionSequence ')' blockStatement
+    ;
+
+whileStatement
+    : 'while' '(' ctrlQuoteDotLiteral ')' blockStatement
     ;
 
 blockStatement
@@ -363,6 +392,22 @@ decodeBase64Statement
     : 'DecodeBase64' ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')' ';'
     ;
 
+getGridRowsStatement
+    : 'GetGridRows' '(' ctrlQuoteLiteral ',' ctrlQuoteDotLiteral ')' ';'
+    ;
+
+addGridRowStatement
+    : 'AddGridRow' '(' ctrlQuoteDotLiteral ((',' ctrlQuoteDotLiteral) | (',' commonLiteral)*) ')' ';'
+    ;
+
+delGridRowStatement
+    : 'DelGridRow' '(' ctrlQuoteDotLiteral ')' ';'
+    ;
+
+selGridRowStatement
+    : 'SelGridRow' '(' ctrlQuoteDotLiteral ')' ';'
+    ;
+
 //==============================================================
 
 expression
@@ -398,7 +443,7 @@ ctrlQuoteLiteral
     ;
 
 ctrlQuoteDotLiteral
-    : '[' StringLiteral ('.' StringLiteral)? (',' StringLiteral)* ('(' Selected '==' ('-1' | '*' | Natural) ')')? ']'
+    : '[' StringLiteral ('.' StringLiteral)? (',' StringLiteral)* ('(' ((Selected '==' (DecimalLiteral | '*' | Natural)) | (StringLiteral '==' commonLiteral)) ')')? ']'
     ;
 
 ctrlQuoteParamLiteral
@@ -444,7 +489,7 @@ BooleanLiteral
     ;
 
 DecimalLiteral
-    : Decimal
+    : '-'? Decimal
     ;
 
 ParamLiteral

@@ -7,6 +7,7 @@ import { ProgramContext } from "./kacoParser";
 import { StatementContext } from "./kacoParser";
 import { FunctionStatementContext } from "./kacoParser";
 import { IfStatementContext } from "./kacoParser";
+import { WhileStatementContext } from "./kacoParser";
 import { BlockStatementContext } from "./kacoParser";
 import { ExpressionSequenceContext } from "./kacoParser";
 import { SingleExpressionContext } from "./kacoParser";
@@ -41,6 +42,10 @@ import { StringRepStatementContext } from "./kacoParser";
 import { StringCatStatementContext } from "./kacoParser";
 import { EncodeBase64StatementContext } from "./kacoParser";
 import { DecodeBase64StatementContext } from "./kacoParser";
+import { GetGridRowsStatementContext } from "./kacoParser";
+import { AddGridRowStatementContext } from "./kacoParser";
+import { DelGridRowStatementContext } from "./kacoParser";
+import { SelGridRowStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -104,6 +109,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitIfStatement?: (ctx: IfStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.whileStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterWhileStatement?: (ctx: WhileStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.whileStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitWhileStatement?: (ctx: WhileStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.blockStatement`.
@@ -478,6 +494,50 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitDecodeBase64Statement?: (ctx: DecodeBase64StatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.getGridRowsStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterGetGridRowsStatement?: (ctx: GetGridRowsStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.getGridRowsStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitGetGridRowsStatement?: (ctx: GetGridRowsStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.addGridRowStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterAddGridRowStatement?: (ctx: AddGridRowStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.addGridRowStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitAddGridRowStatement?: (ctx: AddGridRowStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.delGridRowStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterDelGridRowStatement?: (ctx: DelGridRowStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.delGridRowStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitDelGridRowStatement?: (ctx: DelGridRowStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.selGridRowStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSelGridRowStatement?: (ctx: SelGridRowStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.selGridRowStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSelGridRowStatement?: (ctx: SelGridRowStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.

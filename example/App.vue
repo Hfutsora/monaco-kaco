@@ -80,6 +80,12 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     StringCat(['L'],['A'],'content');
     EncodeBase64['编码'](['产权']);
     DecodeBase64['编码'](['产权']);
+    GetGridRows(['控件'], ['数据列表名称'.'列名'(selected == *)]);
+
+    while(['数据列表名称'.'列名'(selected == *)]) {
+      AddGridRow(['记事列表'.'证书记事内容','证书记事日期'], '', [$ CURTIME]);
+      SelGridRow(['分割登记明细表'.'受理号'('办理状态' == '通过')]);
+    }
 }
 `;
 }
