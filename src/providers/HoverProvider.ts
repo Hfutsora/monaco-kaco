@@ -123,7 +123,8 @@ export const kacoKeywords = [
   'DelGridRow',
   'SelGridRow',
   'While',
-  'ExportXls'
+  'ExportXls',
+  'ImportXls'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -307,5 +308,9 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nExportXls([\'列表名称\'], 参数)\n```' },
     { value: '导出excel' },
     { value: '参数：\n- 空 或 `0`：导出当前页\n- `1`：导出所有数据\n- `2`：导出空表\n- `3`：导出选中行' }
+  ],
+  ImportXls: [
+    { value: '```\nImportXls([\'列表名称\'])\n```' },
+    { value: '导入Excel' }
   ]
 };

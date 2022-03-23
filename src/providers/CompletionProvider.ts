@@ -252,6 +252,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '导出excel',
           range
         }, {
+          label: 'ImportXls',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'ImportXls([\'${1:列表名称}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '导入excel',
+          range
+        }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'while ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',
