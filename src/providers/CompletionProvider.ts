@@ -261,7 +261,7 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
         }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
-          insertText: 'while ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',
+          insertText: 'While ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '循环',
           range

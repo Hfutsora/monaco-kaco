@@ -134,7 +134,7 @@ export class kacoLexer extends Lexer {
 		"'SetEnable'", "'SetFocus'", "'SetColor'", "'ChangeTab'", "'SwitchDisplay'", 
 		"'StringSub'", "'StringLen'", "'StringStr'", "'StringRep'", "'StringCat'", 
 		"'EncodeBase64'", "'DecodeBase64'", "'GetGridRows'", "'AddGridRow'", "'DelGridRow'", 
-		"'SelGridRow'", "'ExportXls'", "'ImportXls'", undefined, "'if'", "'while'",
+		"'SelGridRow'", "'ExportXls'", "'ImportXls'", undefined, "'if'", "'While'",
 	];
 	private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
 		undefined, "OpenBracket", "CloseBracket", "OpenParen", "CloseParen", "OpenBrace", 
@@ -471,7 +471,7 @@ export class kacoLexer extends Lexer {
 		"V\x02\x02\u0257\u0258\x07G\x02\x02\u0258\u025A\x07F\x02\x02\u0259\u0249" +
 		"\x03\x02\x02\x02\u0259\u0251\x03\x02\x02\x02\u025Az\x03\x02\x02\x02\u025B" +
 		"\u025C\x07k\x02\x02\u025C\u025D\x07h\x02\x02\u025D|\x03\x02\x02\x02\u025E" +
-		"\u025F\x07y\x02\x02\u025F\u0260\x07j\x02\x02\u0260\u0261\x07k\x02\x02" +
+		"\u025F\x07Y\x02\x02\u025F\u0260\x07j\x02\x02\u0260\u0261\x07k\x02\x02" +
 		"\u0261\u0262\x07n\x02\x02\u0262\u0263\x07g\x02\x02\u0263~\x03\x02\x02" +
 		"\x02\u0264\u0265\x07W\x02\x02\u0265\u0266\x07U\x02\x02\u0266\u0267\x07" +
 		"G\x02\x02\u0267\u0268\x07T\x02\x02\u0268\u0269\x07K\x02\x02\u0269\u02CA" +

@@ -195,7 +195,7 @@ export class kacoParser extends Parser {
 		"'SetEnable'", "'SetFocus'", "'SetColor'", "'ChangeTab'", "'SwitchDisplay'", 
 		"'StringSub'", "'StringLen'", "'StringStr'", "'StringRep'", "'StringCat'", 
 		"'EncodeBase64'", "'DecodeBase64'", "'GetGridRows'", "'AddGridRow'", "'DelGridRow'", 
-		"'SelGridRow'", "'ExportXls'", "'ImportXls'", undefined, "'if'", "'while'",
+		"'SelGridRow'", "'ExportXls'", "'ImportXls'", undefined, "'if'", "'While'",
 	];
 	private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
 		undefined, "OpenBracket", "CloseBracket", "OpenParen", "CloseParen", "OpenBrace", 

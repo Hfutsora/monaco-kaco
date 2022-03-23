@@ -182,7 +182,7 @@ If
     ;
 
 While
-    : 'while'
+    : 'While'
     ;
 
 Constant
@@ -252,7 +252,7 @@ ifStatement
     ;
 
 whileStatement
-    : 'while' '(' ctrlQuoteDotLiteral ')' blockStatement
+    : 'While' '(' ctrlQuoteDotLiteral ')' blockStatement
     ;
 
 blockStatement
