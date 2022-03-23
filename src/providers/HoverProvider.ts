@@ -122,7 +122,8 @@ export const kacoKeywords = [
   'AddGridRow',
   'DelGridRow',
   'SelGridRow',
-  'While'
+  'While',
+  'ExportXls'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -301,5 +302,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   While: [
     { value: '```\nWhile([\'数据列表名称\'.\'列名\'(条件)])\n```' },
     { value: '循环列表中符合条件的行，并执行循环体中的事件内容' }
+  ],
+  ExportXls: [
+    { value: '```\nExportXls([\'列表名称\'], 参数)\n```' },
+    { value: '导出excel' },
+    { value: '参数：\n- 空 或 `0`：导出当前页\n- `1`：导出所有数据\n- `2`：导出空表\n- `3`：导出选中行' }
   ]
 };

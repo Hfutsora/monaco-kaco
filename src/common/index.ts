@@ -58,6 +58,7 @@ export const TokenMap: Record<string, string> = {
   AddGridRow: 'keyword',
   DelGridRow: 'keyword',
   SelGridRow: 'keyword',
+  ExportXls: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

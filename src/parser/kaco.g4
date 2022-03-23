@@ -164,6 +164,10 @@ SelGridRow
     : 'SelGridRow'
     ;
 
+ExportXls
+    : 'ExportXls'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -233,6 +237,7 @@ functionStatement
     | addGridRowStatement
     | delGridRowStatement
     | selGridRowStatement
+    | exportXlsStatement
     | whileStatement
     | assignStatement
     ;
@@ -406,6 +411,10 @@ delGridRowStatement
 
 selGridRowStatement
     : 'SelGridRow' '(' ctrlQuoteDotLiteral ')' ';'
+    ;
+
+exportXlsStatement
+    : 'ExportXls' '(' ctrlQuoteLiteral (',' Natural)? ')' ';'
     ;
 
 //==============================================================
