@@ -200,6 +200,10 @@ FlowMend
     : 'FlowMend'
     ;
 
+FlowPrint
+    : 'FlowPrint'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -279,6 +283,7 @@ functionStatement
     | flowBackStatement
     | flowBack2Statement
     | flowMendStatement
+    | flowPrintStatement
     | assignStatement
     ;
 
@@ -489,6 +494,10 @@ flowMendStatement
     : 'FlowMend' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
     ;
 
+flowPrintStatement
+    : 'FlowPrint' '(' ')' ';'
+    ;
+
 //==============================================================
 
 expression
@@ -611,7 +620,7 @@ LowerCaseChar
 //==============================================================
 
 
-WS 
+WS
     : [\t\r\n]+ -> skip 
     ; // skip spaces, newlines
 

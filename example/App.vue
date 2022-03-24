@@ -96,6 +96,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     FlowBack(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
     FlowBack2(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
     FlowMend(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
+    FlowPrint();
 }
 `;
 }

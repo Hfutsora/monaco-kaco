@@ -70,6 +70,7 @@ export const TokenMap: Record<string, string> = {
   FlowBack: 'keyword',
   FlowBack2: 'keyword',
   FlowMend: 'keyword',
+  FlowPrint: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

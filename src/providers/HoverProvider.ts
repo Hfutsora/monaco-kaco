@@ -131,7 +131,8 @@ export const kacoKeywords = [
   'FlowSend',
   'FlowBack',
   'FlowBack2',
-  'FlowMend'
+  'FlowMend',
+  'FlowPrint'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -354,5 +355,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nFlowMend([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
     { value: '流程补办，可将流程转发到任意一个已经办理过的环节，办理完成后可以直接发送到进行补办操作的人员' },
     { value: '```\n示例\nFlowMend([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  FlowPrint: [
+    { value: '```\nFlowPrint()\n```' },
+    { value: '流程办理打印' },
+    { value: '在流程工具栏上，配置 FlowPrint，且要打印的表单上以`打印`为控件名称配置按钮控件，实现打印功能'}
   ]
 };
