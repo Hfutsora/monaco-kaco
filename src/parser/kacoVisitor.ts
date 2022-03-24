@@ -61,6 +61,7 @@ import { FlowQueryStatementContext } from "./kacoParser";
 import { TaskHangStatementContext } from "./kacoParser";
 import { TaskFreeStatementContext } from "./kacoParser";
 import { FlowTestStatementContext } from "./kacoParser";
+import { FlowDropStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -489,6 +490,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitFlowTestStatement?: (ctx: FlowTestStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowDropStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowDropStatement?: (ctx: FlowDropStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.

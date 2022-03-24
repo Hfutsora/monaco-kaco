@@ -224,6 +224,10 @@ FlowTest
     : 'FlowTest'
     ;
 
+FlowDrop
+    : 'FlowDrop'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -309,6 +313,7 @@ functionStatement
     | taskHangStatement
     | taskFreeStatement
     | flowTestStatement
+    | flowDropStatement
     | assignStatement
     ;
 
@@ -541,6 +546,10 @@ taskFreeStatement
 
 flowTestStatement
     : 'FlowTest' '(' ')' ';'
+    ;
+
+flowDropStatement
+    : 'FlowDrop' '(' ctrlQuoteDotLiteral? ')' ';'
     ;
 
 //==============================================================
