@@ -95,6 +95,7 @@ export const TokenMap: Record<string, string> = {
   Dot: 'delimiter',
 
   BooleanLiteral: 'keyword',
+  NullLiteral: 'keyword',
 
   SINGLE_QUOTE: 'string.quote',
   DOUBLE_QUOTE: 'string.quote',

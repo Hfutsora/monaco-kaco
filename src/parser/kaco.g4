@@ -450,7 +450,7 @@ assign
     ;
 
 assignStart
-    : (ctrlQuoteLiteral | ctrlQuoteLiteral '.' ctrlQuoteLiteral) (',' ctrlQuoteLiteral)*
+    : (((ctrlQuoteLiteral | ctrlQuoteLiteral '.' ctrlQuoteLiteral) (',' ctrlQuoteLiteral)*) | ((ctrlQuoteLiteral '.')? ctrlQuoteDotLiteral))
     ;
 
 
@@ -480,6 +480,7 @@ commonLiteral
     | DecimalLiteral
     | Natural
     | BooleanLiteral
+    | NullLiteral
     | StringLiteral
     ;
 
@@ -504,6 +505,11 @@ StringLiteral
 BooleanLiteral
     : 'true'
     | 'false'
+    ;
+
+NullLiteral
+    : 'null'
+    | 'NULL'
     ;
 
 DecimalLiteral
