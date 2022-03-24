@@ -244,6 +244,10 @@ FlowRefact
     : 'FlowRefact'
     ;
 
+TestCommit
+    : 'TestCommit'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -334,6 +338,7 @@ functionStatement
     | flowAgentStatement
     | agentCancelStatement
     | flowRefactStatement
+    | testCommitStatement
     | assignStatement
     ;
 
@@ -586,6 +591,10 @@ agentCancelStatement
 
 flowRefactStatement
     : 'FlowRefact' '(' ctrlQuoteDotLiteral ',' Natural ')' ';'
+    ;
+
+testCommitStatement
+    : 'TestCommit' '(' commonLiteral ',' StringLiteral ')' ';'
     ;
 
 //==============================================================

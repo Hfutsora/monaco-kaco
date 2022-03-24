@@ -107,6 +107,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     FlowAgent(237, 11, '12037-6-7', '2020-4-27 09:30:27', '2020-04-27 14:00:00', ['请假']);
     AgentCancel(['代理序号']);
     FlowRefact(['TASKLIST'.'FI_INST'], 1);
+    TestCommit(102001, 'AAA');
 }
 `;
 }

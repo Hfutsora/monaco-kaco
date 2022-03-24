@@ -142,7 +142,8 @@ export const kacoKeywords = [
   'FlowClose',
   'FlowAgent',
   'AgentCancel',
-  'FlowRefact'
+  'FlowRefact',
+  'TestCommit'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -424,5 +425,11 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '流程重构，重新按流程图构建流程实例相关数据' },
     { value: '重构类型：\n- `0`：按原流程重构\n- `1`：按新流程重构' },
     { value: '```\n示例\nFlowRefact([\'TASKLIST\'.\'FI_INST\'], 1)\n```' }
+  ],
+  TestCommit: [
+    { value: '```\nTestCommit(流程编号, \'参数\')\n```' },
+    { value: '直接发起单个流程' },
+    { value: '发送的参数，表单通过 `[@ x]` 接收' },
+    { value: '```\n示例\nTestCommit(102001, \'AAA\')\n```' }
   ]
 };

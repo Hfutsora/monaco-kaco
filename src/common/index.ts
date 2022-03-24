@@ -81,6 +81,7 @@ export const TokenMap: Record<string, string> = {
   FlowAgent: 'keyword',
   AgentCancel: 'keyword',
   FlowRefact: 'keyword',
+  TestCommit: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',
