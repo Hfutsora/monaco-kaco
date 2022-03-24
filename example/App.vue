@@ -103,6 +103,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     TaskFree(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
     FlowTest();
     FlowDrop(['TASKLIST'.'FI_INST']);
+    FlowClose();
 }
 `;
 }

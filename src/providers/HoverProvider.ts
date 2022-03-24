@@ -138,7 +138,8 @@ export const kacoKeywords = [
   'TaskHang',
   'TaskFree',
   'FlowTest',
-  'FlowDrop'
+  'FlowDrop',
+  'FlowClose'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -396,5 +397,9 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '物理删除流程数据，只能由流程发起人删除。删除此流程相关的系统表数据，不可恢复' },
     { value: '后台业务流程工具栏配置该指令时请配合 `MessageBox` 使用' },
     { value: '```\n示例\nFlowDrop([\'结果列表\'.\'FI_INST\']);\n```' }
+  ],
+  FlowClose: [
+    { value: '```\nFlowClose()\n```' },
+    { value: '关闭当前流程' }
   ]
 };

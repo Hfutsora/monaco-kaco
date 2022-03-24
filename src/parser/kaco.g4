@@ -228,6 +228,10 @@ FlowDrop
     : 'FlowDrop'
     ;
 
+FlowClose
+    : 'FlowClose'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -314,6 +318,7 @@ functionStatement
     | taskFreeStatement
     | flowTestStatement
     | flowDropStatement
+    | flowCloseStatement
     | assignStatement
     ;
 
@@ -550,6 +555,10 @@ flowTestStatement
 
 flowDropStatement
     : 'FlowDrop' '(' ctrlQuoteDotLiteral? ')' ';'
+    ;
+
+flowCloseStatement
+    : 'FlowClose' '(' ')' ';'
     ;
 
 //==============================================================
