@@ -28,6 +28,7 @@ export default class MonacoKaco extends Vue {
         bracketPairColorization: {
           enabled: true
         },
+        wordWrap: 'on',
         autoClosingBrackets: 'always',
         automaticLayout: true
       });
