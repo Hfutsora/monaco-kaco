@@ -80,6 +80,7 @@ export const TokenMap: Record<string, string> = {
   FlowClose: 'keyword',
   FlowAgent: 'keyword',
   AgentCancel: 'keyword',
+  FlowRefact: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

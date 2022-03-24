@@ -141,7 +141,8 @@ export const kacoKeywords = [
   'FlowDrop',
   'FlowClose',
   'FlowAgent',
-  'AgentCancel'
+  'AgentCancel',
+  'FlowRefact'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -371,12 +372,12 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '在流程工具栏上，配置 FlowPrint，且要打印的表单上以`打印`为控件名称配置按钮控件，实现打印功能'}
   ],
   FlowForm: [
-    { value: '```\nFlowForm([\'流程实例编号\']);\n```' },
+    { value: '```\nFlowForm([\'流程实例编号\'])\n```' },
     { value: '查看业务表单信息' },
     { value: '```\n示例\nFlowForm([\'TASKLIST\'.\'FI_INST\'])\n```' }
   ],
   FlowQuery: [
-    { value: '```\nFlowQuery([\'流程实例编号\']);\n```' },
+    { value: '```\nFlowQuery([\'流程实例编号\'])\n```' },
     { value: '查看流程图' },
     { value: '```\n示例\nFlowQuery([\'TASKLIST\'.\'FI_INST\'])\n```' }
   ],
@@ -398,7 +399,7 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nFlowDrop([\'流程实例编号\'])\n```' },
     { value: '物理删除流程数据，只能由流程发起人删除。删除此流程相关的系统表数据，不可恢复' },
     { value: '后台业务流程工具栏配置该指令时请配合 `MessageBox` 使用' },
-    { value: '```\n示例\nFlowDrop([\'结果列表\'.\'FI_INST\']);\n```' }
+    { value: '```\n示例\nFlowDrop([\'结果列表\'.\'FI_INST\'])\n```' }
   ],
   FlowClose: [
     { value: '```\nFlowClose()\n```' },
@@ -417,5 +418,11 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   AgentCancel: [
     { value: '```\nAgentCancel([\'代理序号\'])\n```' },
     { value: '取消代理，参数为 `OA2_AGENT.AG_INDEX` 字段对应数据，即代理序号' }
+  ],
+  FlowRefact: [
+    { value: '```\nFlowRefact([\'流程实例编号\'], 重构类型)\n```' },
+    { value: '流程重构，重新按流程图构建流程实例相关数据' },
+    { value: '重构类型：\n- `0`：按原流程重构\n- `1`：按新流程重构' },
+    { value: '```\n示例\nFlowRefact([\'TASKLIST\'.\'FI_INST\'], 1)\n```' }
   ]
 };

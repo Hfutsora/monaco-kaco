@@ -240,6 +240,10 @@ AgentCancel
     : 'AgentCancel'
     ;
 
+FlowRefact
+    : 'FlowRefact'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -329,6 +333,7 @@ functionStatement
     | flowCloseStatement
     | flowAgentStatement
     | agentCancelStatement
+    | flowRefactStatement
     | assignStatement
     ;
 
@@ -577,6 +582,10 @@ flowAgentStatement
 
 agentCancelStatement
     : 'AgentCancel' '(' ctrlQuoteLiteral ')' ';'
+    ;
+
+flowRefactStatement
+    : 'FlowRefact' '(' ctrlQuoteDotLiteral ',' Natural ')' ';'
     ;
 
 //==============================================================
