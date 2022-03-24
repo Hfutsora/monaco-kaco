@@ -26,6 +26,7 @@ export const getAST = (input: string) => {
 };
 
 export const TokenMap: Record<string, string> = {
+  // form
   OpenForm: 'keyword',
   SaveForm: 'keyword',
   Close: 'keyword',
@@ -54,12 +55,15 @@ export const TokenMap: Record<string, string> = {
   StringCat: 'keyword',
   EncodeBase64: 'keyword',
   DecodeBase64: 'keyword',
+  // table
   GetGridRows: 'keyword',
   AddGridRow: 'keyword',
   DelGridRow: 'keyword',
   SelGridRow: 'keyword',
   ExportXls: 'keyword',
   ImportXls: 'keyword',
+  // Flow
+  FlowTran: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

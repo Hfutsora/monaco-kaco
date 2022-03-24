@@ -48,6 +48,7 @@ import { DelGridRowStatementContext } from "./kacoParser";
 import { SelGridRowStatementContext } from "./kacoParser";
 import { ExportXlsStatementContext } from "./kacoParser";
 import { ImportXlsStatementContext } from "./kacoParser";
+import { FlowTranStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -385,6 +386,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitImportXlsStatement?: (ctx: ImportXlsStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowTranStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowTranStatement?: (ctx: FlowTranStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.

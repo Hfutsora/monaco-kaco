@@ -88,6 +88,8 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
       ExportXls(['结果列表'], 0);
       ImportXls(['结果列表']);
     }
+
+    FlowTran(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
 }
 `;
 }

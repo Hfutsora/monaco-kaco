@@ -172,6 +172,10 @@ ImportXls
     : 'ImportXls'
     ;
 
+FlowTran
+    : 'FlowTran'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -244,6 +248,7 @@ functionStatement
     | exportXlsStatement
     | importXlsStatement
     | whileStatement
+    | flowTranStatement
     | assignStatement
     ;
 
@@ -424,6 +429,10 @@ exportXlsStatement
 
 importXlsStatement
     : 'ImportXls' '(' ctrlQuoteLiteral ')' ';'
+    ;
+
+flowTranStatement
+    : 'FlowTran' '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ')' ';'
     ;
 
 //==============================================================

@@ -124,7 +124,8 @@ export const kacoKeywords = [
   'SelGridRow',
   'While',
   'ExportXls',
-  'ImportXls'
+  'ImportXls',
+  'FlowTran'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -312,5 +313,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   ImportXls: [
     { value: '```\nImportXls([\'列表名称\'])\n```' },
     { value: '导入Excel' }
+  ],
+  FlowTran: [
+    { value: '```\nFlowTran([\'流程实例号\'],[\'流程任务号\'])\n```' },
+    { value: '任务办理，任务由未阅状态，转变为已阅状态' },
+    { value: '```\n示例\nFlowTran([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
   ]
 };
