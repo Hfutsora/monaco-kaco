@@ -184,6 +184,10 @@ FlowFresh
     : 'FlowFresh'
     ;
 
+FlowSend
+    : 'FlowSend'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -259,6 +263,7 @@ functionStatement
     | flowTranStatement
     | flowSaveStatement
     | flowFreshStatement
+    | flowSendStatement
     | assignStatement
     ;
 
@@ -451,6 +456,10 @@ flowSaveStatement
 
 flowFreshStatement
     : 'FlowFresh' '(' ')' ';'
+    ;
+
+flowSendStatement
+    : 'FlowSend' '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ')' ';'
     ;
 
 //==============================================================

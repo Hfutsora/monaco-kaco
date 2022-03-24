@@ -127,7 +127,8 @@ export const kacoKeywords = [
   'ImportXls',
   'FlowTran',
   'FlowSave',
-  'FlowFresh'
+  'FlowFresh',
+  'FlowSend'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -329,5 +330,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   FlowFresh: [
     { value: '```\nFlowFresh()\n```' },
     { value: '流程办理时刷新当前显示的表单，用于流程办理工具栏上' }
+  ],
+  FlowSend: [
+    { value: '```\nFlowSend([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
+    { value: '流程转发，将流程转发至下一环节' },
+    { value: '```\n示例\nFlowSend([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\']) \n```' }
   ]
 };
