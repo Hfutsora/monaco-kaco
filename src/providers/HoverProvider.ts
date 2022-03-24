@@ -144,7 +144,8 @@ export const kacoKeywords = [
   'AgentCancel',
   'FlowRefact',
   'TestCommit',
-  'ChangeInstFlow'
+  'ChangeInstFlow',
+  'InstFlow'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -436,6 +437,11 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   ChangeInstFlow: [
     { value: '```\nChangeInstFlow([\'流程实例编号\'], [\'流程任务编号\'], 新流程名称/新流程编号)\n```' },
     { value: '重建案卷' },
-    { value: '```\n示例\nChangeInstFlow([\'TASKLIST\'.\'FI_INST\'], [\'TASKLIST\'.\'FT_IDENT\'], 12019);\n```' }
+    { value: '```\n示例\nChangeInstFlow([\'TASKLIST\'.\'FI_INST\'], [\'TASKLIST\'.\'FT_IDENT\'], 12019)\n```' }
+  ],
+  InstFlow: [
+    { value: '```\nInstFlow(\'第二个流程名称\', \'获取主键值规则\')(\'数据关联名称\', [\'第一个主键值\'])\n```' },
+    { value: '在一个流程办理中启动另一个流程，并且复制你需要数据到另外一个流程' },
+    { value: '```\n示例\nInstFlow(\'公务外出\', \'%11[1001]\')(\'公务外出\', [\'SLID\'])\n```' }
   ]
 };

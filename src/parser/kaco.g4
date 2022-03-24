@@ -252,6 +252,10 @@ ChangeInstFlow
     : 'ChangeInstFlow'
     ;
 
+InstFlow
+    : 'InstFlow'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -344,6 +348,7 @@ functionStatement
     | flowRefactStatement
     | testCommitStatement
     | changeInstFlowStatement
+    | instFlowStatement
     | assignStatement
     ;
 
@@ -604,6 +609,10 @@ testCommitStatement
 
 changeInstFlowStatement
     : 'ChangeInstFlow' '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ',' commonLiteral ')' ';'
+    ;
+
+instFlowStatement
+    : 'InstFlow' '(' StringLiteral ',' StringLiteral ')' '(' StringLiteral ',' ctrlQuoteLiteral ')' ';'
     ;
 
 //==============================================================

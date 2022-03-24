@@ -83,6 +83,7 @@ export const TokenMap: Record<string, string> = {
   FlowRefact: 'keyword',
   TestCommit: 'keyword',
   ChangeInstFlow: 'keyword',
+  InstFlow: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

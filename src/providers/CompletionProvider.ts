@@ -399,6 +399,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '重建案卷',
           range
         }, {
+          label: 'InstFlow',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'InstFlow(\'${1:第二个流程名称}\', \'${2:获取主键值规则}\')(\'${3:数据关联名称}\', [\'${4:第一个主键值}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '启动另一个流程',
+          range
+        }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'While ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',
