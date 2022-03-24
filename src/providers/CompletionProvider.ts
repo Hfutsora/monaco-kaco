@@ -273,6 +273,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '保存流程数据',
           range
         }, {
+          label: 'FlowFresh',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowFresh();',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '流程刷新',
+          range
+        }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'While ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',

@@ -180,6 +180,10 @@ FlowSave
     : 'FlowSave'
     ;
 
+FlowFresh
+    : 'FlowFresh'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -254,6 +258,7 @@ functionStatement
     | whileStatement
     | flowTranStatement
     | flowSaveStatement
+    | flowFreshStatement
     | assignStatement
     ;
 
@@ -442,6 +447,10 @@ flowTranStatement
 
 flowSaveStatement
     : 'FlowSave' '(' ctrlQuoteLiteral? ')' ('(' Natural ')')? ';'
+    ;
+
+flowFreshStatement
+    : 'FlowFresh' '(' ')' ';'
     ;
 
 //==============================================================

@@ -65,6 +65,7 @@ export const TokenMap: Record<string, string> = {
   // Flow
   FlowTran: 'keyword',
   FlowSave: 'keyword',
+  FlowFresh: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',
