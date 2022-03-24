@@ -26,6 +26,8 @@ export const getAST = (input: string) => {
 };
 
 export const TokenMap: Record<string, string> = {
+  // extend
+  Extend: 'type',
   // form
   OpenForm: 'keyword',
   SaveForm: 'keyword',

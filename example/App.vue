@@ -42,6 +42,7 @@ export default class App extends Vue {
 OpenForm[\'default\']([\'a\'.\'b\'], 1001.5)(\'b\', [@ 0])(false);
 
 SaveForm(['form-name']);
+ExtendFunc(1, ['name'], [@ 2], null);
 
 ['ctrl_input'] = [@ 1];
 ['ctrl_input'] = ['table'.'column','name','age'(SELECTED == *)];

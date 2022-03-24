@@ -360,6 +360,7 @@ functionStatement
     | taskDeleteStatement
     | tachSendStatement
     | assignStatement
+    | extendStatement
     ;
 
 ifStatement
@@ -633,6 +634,10 @@ tachSendStatement
     : 'TachSend' '(' (commonLiteral ',' commonLiteral)? ')' ';'
     ;
 
+extendStatement
+    : Extend '(' commonLiteral (',' commonLiteral)* ')' ';'
+    ;
+
 //==============================================================
 
 expression
@@ -749,7 +754,9 @@ LowerCaseChar
     ;
 
 //==============================================================
-
+Extend
+    : [A-Za-z0-9_]+
+    ;
 
 WS
     : [\t\r\n]+ -> skip 
