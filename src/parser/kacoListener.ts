@@ -48,6 +48,16 @@ import { DelGridRowStatementContext } from "./kacoParser";
 import { SelGridRowStatementContext } from "./kacoParser";
 import { ExportXlsStatementContext } from "./kacoParser";
 import { ImportXlsStatementContext } from "./kacoParser";
+import { FlowTranStatementContext } from "./kacoParser";
+import { FlowSaveStatementContext } from "./kacoParser";
+import { FlowFreshStatementContext } from "./kacoParser";
+import { FlowSendStatementContext } from "./kacoParser";
+import { FlowBackStatementContext } from "./kacoParser";
+import { FlowBack2StatementContext } from "./kacoParser";
+import { FlowMendStatementContext } from "./kacoParser";
+import { FlowPrintStatementContext } from "./kacoParser";
+import { FlowFormStatementContext } from "./kacoParser";
+import { FlowQueryStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -562,6 +572,116 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitImportXlsStatement?: (ctx: ImportXlsStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.flowTranStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterFlowTranStatement?: (ctx: FlowTranStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.flowTranStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitFlowTranStatement?: (ctx: FlowTranStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.flowSaveStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterFlowSaveStatement?: (ctx: FlowSaveStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.flowSaveStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitFlowSaveStatement?: (ctx: FlowSaveStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.flowFreshStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterFlowFreshStatement?: (ctx: FlowFreshStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.flowFreshStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitFlowFreshStatement?: (ctx: FlowFreshStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.flowSendStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterFlowSendStatement?: (ctx: FlowSendStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.flowSendStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitFlowSendStatement?: (ctx: FlowSendStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.flowBackStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterFlowBackStatement?: (ctx: FlowBackStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.flowBackStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitFlowBackStatement?: (ctx: FlowBackStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.flowBack2Statement`.
+	 * @param ctx the parse tree
+	 */
+	enterFlowBack2Statement?: (ctx: FlowBack2StatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.flowBack2Statement`.
+	 * @param ctx the parse tree
+	 */
+	exitFlowBack2Statement?: (ctx: FlowBack2StatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.flowMendStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterFlowMendStatement?: (ctx: FlowMendStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.flowMendStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitFlowMendStatement?: (ctx: FlowMendStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.flowPrintStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterFlowPrintStatement?: (ctx: FlowPrintStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.flowPrintStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitFlowPrintStatement?: (ctx: FlowPrintStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.flowFormStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterFlowFormStatement?: (ctx: FlowFormStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.flowFormStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitFlowFormStatement?: (ctx: FlowFormStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.flowQueryStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterFlowQueryStatement?: (ctx: FlowQueryStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.flowQueryStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitFlowQueryStatement?: (ctx: FlowQueryStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.

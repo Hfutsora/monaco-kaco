@@ -172,6 +172,46 @@ ImportXls
     : 'ImportXls'
     ;
 
+FlowTran
+    : 'FlowTran'
+    ;
+
+FlowSave
+    : 'FlowSave'
+    ;
+
+FlowFresh
+    : 'FlowFresh'
+    ;
+
+FlowSend
+    : 'FlowSend'
+    ;
+
+FlowBack
+    : 'FlowBack'
+    ;
+
+FlowBack2
+    : 'FlowBack2'
+    ;
+
+FlowMend
+    : 'FlowMend'
+    ;
+
+FlowPrint
+    : 'FlowPrint'
+    ;
+
+FlowForm
+    : 'FlowForm'
+    ;
+
+FlowQuery
+    : 'FlowQuery'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -244,6 +284,16 @@ functionStatement
     | exportXlsStatement
     | importXlsStatement
     | whileStatement
+    | flowTranStatement
+    | flowSaveStatement
+    | flowFreshStatement
+    | flowSendStatement
+    | flowBackStatement
+    | flowBack2Statement
+    | flowMendStatement
+    | flowPrintStatement
+    | flowFormStatement
+    | flowQueryStatement
     | assignStatement
     ;
 
@@ -426,6 +476,46 @@ importXlsStatement
     : 'ImportXls' '(' ctrlQuoteLiteral ')' ';'
     ;
 
+flowTranStatement
+    : 'FlowTran' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    ;
+
+flowSaveStatement
+    : 'FlowSave' '(' ctrlQuoteLiteral? ')' ('(' Natural ')')? ';'
+    ;
+
+flowFreshStatement
+    : 'FlowFresh' '(' ')' ';'
+    ;
+
+flowSendStatement
+    : 'FlowSend' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    ;
+
+flowBackStatement
+    : 'FlowBack' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    ;
+
+flowBack2Statement
+    : 'FlowBack2' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    ;
+
+flowMendStatement
+    : 'FlowMend' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    ;
+
+flowPrintStatement
+    : 'FlowPrint' '(' ')' ';'
+    ;
+
+flowFormStatement
+    : 'FlowForm' '(' ctrlQuoteDotLiteral? ')' ';'
+    ;
+
+flowQueryStatement
+    : 'FlowQuery' '(' ctrlQuoteDotLiteral? ')' ';'
+    ;
+
 //==============================================================
 
 expression
@@ -450,7 +540,7 @@ assign
     ;
 
 assignStart
-    : (ctrlQuoteLiteral | ctrlQuoteLiteral '.' ctrlQuoteLiteral) (',' ctrlQuoteLiteral)*
+    : (((ctrlQuoteLiteral | ctrlQuoteLiteral '.' ctrlQuoteLiteral) (',' ctrlQuoteLiteral)*) | ((ctrlQuoteLiteral '.')? ctrlQuoteDotLiteral))
     ;
 
 
@@ -480,6 +570,7 @@ commonLiteral
     | DecimalLiteral
     | Natural
     | BooleanLiteral
+    | NullLiteral
     | StringLiteral
     ;
 
@@ -504,6 +595,11 @@ StringLiteral
 BooleanLiteral
     : 'true'
     | 'false'
+    ;
+
+NullLiteral
+    : 'null'
+    | 'NULL'
     ;
 
 DecimalLiteral
@@ -542,7 +638,7 @@ LowerCaseChar
 //==============================================================
 
 
-WS 
+WS
     : [\t\r\n]+ -> skip 
     ; // skip spaces, newlines
 

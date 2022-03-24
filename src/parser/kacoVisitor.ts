@@ -48,6 +48,16 @@ import { DelGridRowStatementContext } from "./kacoParser";
 import { SelGridRowStatementContext } from "./kacoParser";
 import { ExportXlsStatementContext } from "./kacoParser";
 import { ImportXlsStatementContext } from "./kacoParser";
+import { FlowTranStatementContext } from "./kacoParser";
+import { FlowSaveStatementContext } from "./kacoParser";
+import { FlowFreshStatementContext } from "./kacoParser";
+import { FlowSendStatementContext } from "./kacoParser";
+import { FlowBackStatementContext } from "./kacoParser";
+import { FlowBack2StatementContext } from "./kacoParser";
+import { FlowMendStatementContext } from "./kacoParser";
+import { FlowPrintStatementContext } from "./kacoParser";
+import { FlowFormStatementContext } from "./kacoParser";
+import { FlowQueryStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -385,6 +395,76 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitImportXlsStatement?: (ctx: ImportXlsStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowTranStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowTranStatement?: (ctx: FlowTranStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowSaveStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowSaveStatement?: (ctx: FlowSaveStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowFreshStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowFreshStatement?: (ctx: FlowFreshStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowSendStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowSendStatement?: (ctx: FlowSendStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowBackStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowBackStatement?: (ctx: FlowBackStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowBack2Statement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowBack2Statement?: (ctx: FlowBack2StatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowMendStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowMendStatement?: (ctx: FlowMendStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowPrintStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowPrintStatement?: (ctx: FlowPrintStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowFormStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowFormStatement?: (ctx: FlowFormStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowQueryStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowQueryStatement?: (ctx: FlowQueryStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.

@@ -88,6 +88,17 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
       ExportXls(['结果列表'], 0);
       ImportXls(['结果列表']);
     }
+
+    FlowTran(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
+    FlowSave(['受理ID'])(110004);
+    FlowFresh();
+    FlowSend(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
+    FlowBack(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
+    FlowBack2(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
+    FlowMend(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
+    FlowPrint();
+    FlowForm(['TASKLIST'.'FI_INST']);
+    FlowQuery(['结果列表'.'FI_INST']);
 }
 `;
 }

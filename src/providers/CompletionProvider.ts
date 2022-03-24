@@ -259,6 +259,76 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '导入excel',
           range
         }, {
+          label: 'FlowTran',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowTran([\'${1:流程实例编号}\'],[\'${2:流程任务号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '任务办理',
+          range
+        }, {
+          label: 'FlowSave',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowSave([\'${1:流程实例编号}\'])(${2:流程编号});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '保存流程数据',
+          range
+        }, {
+          label: 'FlowFresh',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowFresh();',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '流程刷新',
+          range
+        }, {
+          label: 'FlowSend',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowSend([\'${1:流程实例编号}\'],[\'${2:流程任务编号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '流程转发',
+          range
+        }, {
+          label: 'FlowBack',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowBack([\'${1:流程实例编号}\'],[\'${2:流程任务编号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '流程退回',
+          range
+        }, {
+          label: 'FlowBack2',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowBack2([\'${1:流程实例编号}\'],[\'${2:流程任务编号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '流程退回2',
+          range
+        }, {
+          label: 'FlowMend',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowMend([\'${1:流程实例编号}\'],[\'${2:流程任务编号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '流程补办',
+          range
+        }, {
+          label: 'FlowPrint',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowPrint();',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '流程打印',
+          range
+        }, {
+          label: 'FlowForm',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowForm([\'${1:流程实例编号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '查看业务表单',
+          range
+        }, {
+          label: 'FlowQuery',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowQuery([\'${1:流程实例编号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '查看流程图',
+          range
+        }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'While ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',

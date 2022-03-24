@@ -124,7 +124,17 @@ export const kacoKeywords = [
   'SelGridRow',
   'While',
   'ExportXls',
-  'ImportXls'
+  'ImportXls',
+  'FlowTran',
+  'FlowSave',
+  'FlowFresh',
+  'FlowSend',
+  'FlowBack',
+  'FlowBack2',
+  'FlowMend',
+  'FlowPrint',
+  'FlowForm',
+  'FlowQuery'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -312,5 +322,55 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   ImportXls: [
     { value: '```\nImportXls([\'列表名称\'])\n```' },
     { value: '导入Excel' }
+  ],
+  FlowTran: [
+    { value: '```\nFlowTran([\'流程实例编号\'],[\'流程任务号\'])\n```' },
+    { value: '任务办理，任务由未阅状态，转变为已阅状态' },
+    { value: '```\n示例\nFlowTran([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  FlowSave: [
+    { value: '```\nFlowSave([\'流程实例编号\'])(流程编号)\n```' },
+    { value: '保存流程数据，和表单数据' },
+    { value: '```\n示例\nFlowSave([\'受理ID\'])(110004)\n```' }
+  ],
+  FlowFresh: [
+    { value: '```\nFlowFresh()\n```' },
+    { value: '流程办理时刷新当前显示的表单，用于流程办理工具栏上' }
+  ],
+  FlowSend: [
+    { value: '```\nFlowSend([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
+    { value: '流程转发，将流程转发至下一环节' },
+    { value: '```\n示例\nFlowSend([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  FlowBack: [
+    { value: '```\nFlowBack([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
+    { value: '流程退回，退回到上一步办理的人' },
+    { value: '```\n示例\nFlowBack([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  FlowBack2: [
+    { value: '```\nFlowBack2([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
+    { value: '流程退回，退回到任意已办理过的人员，办理完成后按流程图环节重新流转' },
+    { value: '```md\nFlowBack 和 FlowBack2的区别，在流程 A——>B——>C 中：\nFlowBack只能从C退回到B，FlowBack2可以将文件从C退还给B和A两个人\n```' },
+    { value: '```\n示例\nFlowBack2([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  FlowMend: [
+    { value: '```\nFlowMend([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
+    { value: '流程补办，可将流程转发到任意一个已经办理过的环节，办理完成后可以直接发送到进行补办操作的人员' },
+    { value: '```\n示例\nFlowMend([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  FlowPrint: [
+    { value: '```\nFlowPrint()\n```' },
+    { value: '流程办理打印' },
+    { value: '在流程工具栏上，配置 FlowPrint，且要打印的表单上以`打印`为控件名称配置按钮控件，实现打印功能'}
+  ],
+  FlowForm: [
+    { value: '```\nFlowForm([\'流程实例编号\']);\n```' },
+    { value: '查看业务表单信息' },
+    { value: '```\n示例\nFlowForm([\'TASKLIST\'.\'FI_INST\'])\n```' }
+  ],
+  FlowQuery: [
+    { value: '```\nFlowQuery([\'流程实例编号\']);\n```' },
+    { value: '查看流程图' },
+    { value: '```\n示例\nFlowQuery([\'TASKLIST\'.\'FI_INST\'])\n```' }
   ]
 };
