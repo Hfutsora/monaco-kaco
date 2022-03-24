@@ -399,6 +399,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '赋值',
           range
         }, {
+          label: 'Time',
+          kind: monaco.languages.CompletionItemKind.Struct,
+          insertText: '\'${1:yyyy}-${2:MM}-${3:DD} ${4:hh}:${5:mm}:${6:dd}\'',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '时间',
+          range
+        }, {
           label: 'Sql',
           kind: monaco.languages.CompletionItemKind.Struct,
           insertText: '[# $1 #]',
