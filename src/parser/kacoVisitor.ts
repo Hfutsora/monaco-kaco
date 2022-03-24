@@ -86,6 +86,7 @@ import { CtrlQuoteDotLiteralContext } from "./kacoParser";
 import { CtrlQuoteParamLiteralContext } from "./kacoParser";
 import { CtrlConstantLiteralContext } from "./kacoParser";
 import { CommonLiteralContext } from "./kacoParser";
+import { NegationExprContext } from "./kacoParser";
 
 
 /**
@@ -676,5 +677,12 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitCommonLiteral?: (ctx: CommonLiteralContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.negationExpr`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitNegationExpr?: (ctx: NegationExprContext) => Result;
 }
 

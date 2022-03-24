@@ -697,8 +697,7 @@ commonLiteral
     | ctrlQuoteDotLiteral
     | ctrlQuoteParamLiteral
     | ctrlConstantLiteral
-    | DecimalLiteral
-    | Natural
+    | negationExpr
     | BooleanLiteral
     | NullLiteral
     | StringLiteral
@@ -728,8 +727,12 @@ NullLiteral
     | 'NULL'
     ;
 
+negationExpr
+    : ('-')? (DecimalLiteral | Natural)
+    ;
+
 DecimalLiteral
-    : '-'? Decimal
+    : Decimal
     ;
 
 ParamLiteral
