@@ -128,7 +128,8 @@ export const kacoKeywords = [
   'FlowTran',
   'FlowSave',
   'FlowFresh',
-  'FlowSend'
+  'FlowSend',
+  'FlowBack'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -334,6 +335,11 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   FlowSend: [
     { value: '```\nFlowSend([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
     { value: '流程转发，将流程转发至下一环节' },
-    { value: '```\n示例\nFlowSend([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\']) \n```' }
+    { value: '```\n示例\nFlowSend([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  FlowBack: [
+    { value: '```\nFlowBack([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
+    { value: '流程退回，退回到上一步办理的人' },
+    { value: '```\n示例\nFlowBack([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
   ]
 };

@@ -93,6 +93,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     FlowSave(['受理ID'])(110004);
     FlowFresh();
     FlowSend(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
+    FlowBack(['流程实例编号'],['流程任务编号']);
 }
 `;
 }
