@@ -371,6 +371,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '流程代理',
           range
         }, {
+          label: 'AgentCancel',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'AgentCancel([\'${1:代理序号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '取消代理',
+          range
+        }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'While ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',

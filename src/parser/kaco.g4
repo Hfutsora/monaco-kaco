@@ -236,6 +236,10 @@ FlowAgent
     : 'FlowAgent'
     ;
 
+AgentCancel
+    : 'AgentCancel'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -324,6 +328,7 @@ functionStatement
     | flowDropStatement
     | flowCloseStatement
     | flowAgentStatement
+    | agentCancelStatement
     | assignStatement
     ;
 
@@ -568,6 +573,10 @@ flowCloseStatement
 
 flowAgentStatement
     : 'FlowAgent' '(' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral (',' commonLiteral)? ')' ';'
+    ;
+
+agentCancelStatement
+    : 'AgentCancel' '(' ctrlQuoteLiteral ')' ';'
     ;
 
 //==============================================================

@@ -140,7 +140,8 @@ export const kacoKeywords = [
   'FlowTest',
   'FlowDrop',
   'FlowClose',
-  'FlowAgent'
+  'FlowAgent',
+  'AgentCancel'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -412,5 +413,9 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
 直到结束时间或者取消代理，若代理流程中添加节点编号参数，则只代理流程中该节点任务'
     },
     { value: '```\n示例\nFlowAgent([\'被代理人\'],[\'代理人\'],[\'代理流程\'],[\'开始时间\'],[\'结束时间\'],[\'事由\']);\n```' }
+  ],
+  AgentCancel: [
+    { value: '```\nAgentCancel([\'代理序号\'])\n```' },
+    { value: '取消代理，参数为 `OA2_AGENT.AG_INDEX` 字段对应数据，即代理序号' }
   ]
 };

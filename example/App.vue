@@ -105,6 +105,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     FlowDrop(['TASKLIST'.'FI_INST']);
     FlowClose();
     FlowAgent(237, 11, '12037-6-7', '2020-4-27 09:30:27', '2020-04-27 14:00:00', ['请假']);
+    AgentCancel(['代理序号']);
 }
 `;
 }
