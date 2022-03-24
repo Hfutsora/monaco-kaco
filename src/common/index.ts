@@ -84,6 +84,7 @@ export const TokenMap: Record<string, string> = {
   TestCommit: 'keyword',
   ChangeInstFlow: 'keyword',
   InstFlow: 'keyword',
+  TaskDelete: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

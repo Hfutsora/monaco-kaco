@@ -145,7 +145,8 @@ export const kacoKeywords = [
   'FlowRefact',
   'TestCommit',
   'ChangeInstFlow',
-  'InstFlow'
+  'InstFlow',
+  'TaskDelete'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -443,5 +444,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nInstFlow(\'第二个流程名称\', \'获取主键值规则\')(\'数据关联名称\', [\'第一个主键值\'])\n```' },
     { value: '在一个流程办理中启动另一个流程，并且复制你需要数据到另外一个流程' },
     { value: '```\n示例\nInstFlow(\'公务外出\', \'%11[1001]\')(\'公务外出\', [\'SLID\'])\n```' }
+  ],
+  TaskDelete: [
+    { value: '```\nTaskDelete(实例编号, 任务编号)\n```' },
+    { value: '删除任务' },
+    { value: '```\n示例\nTaskDelete([\'TASKLIST\'.\'业务号\'], [\'TASKLIST\'.\'FT_IDENT\'])\n```' }
   ]
 };

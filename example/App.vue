@@ -110,6 +110,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     TestCommit(102001, 'AAA');
     ChangeInstFlow(['TASKLIST'.'FI_INST'], ['TASKLIST'.'FT_IDENT'], 12019);
     InstFlow('公务外出', '%11[1001]')('公务外出', ['SLID']);
+    TaskDelete(['TASKLIST'.'业务号'],['TASKLIST'.'FT_IDENT']);
 }
 `;
 }

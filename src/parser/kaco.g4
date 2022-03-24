@@ -256,6 +256,10 @@ InstFlow
     : 'InstFlow'
     ;
 
+TaskDelete
+    : 'TaskDelete'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -349,6 +353,7 @@ functionStatement
     | testCommitStatement
     | changeInstFlowStatement
     | instFlowStatement
+    | taskDeleteStatement
     | assignStatement
     ;
 
@@ -613,6 +618,10 @@ changeInstFlowStatement
 
 instFlowStatement
     : 'InstFlow' '(' StringLiteral ',' StringLiteral ')' '(' StringLiteral ',' ctrlQuoteLiteral ')' ';'
+    ;
+
+taskDeleteStatement
+    : 'TaskDelete' '(' commonLiteral ',' commonLiteral ')' ';'
     ;
 
 //==============================================================
