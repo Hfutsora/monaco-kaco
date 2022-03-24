@@ -248,6 +248,10 @@ TestCommit
     : 'TestCommit'
     ;
 
+ChangeInstFlow
+    : 'ChangeInstFlow'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -339,6 +343,7 @@ functionStatement
     | agentCancelStatement
     | flowRefactStatement
     | testCommitStatement
+    | changeInstFlowStatement
     | assignStatement
     ;
 
@@ -595,6 +600,10 @@ flowRefactStatement
 
 testCommitStatement
     : 'TestCommit' '(' commonLiteral ',' StringLiteral ')' ';'
+    ;
+
+changeInstFlowStatement
+    : 'ChangeInstFlow' '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ',' commonLiteral ')' ';'
     ;
 
 //==============================================================

@@ -108,6 +108,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     AgentCancel(['代理序号']);
     FlowRefact(['TASKLIST'.'FI_INST'], 1);
     TestCommit(102001, 'AAA');
+    ChangeInstFlow(['TASKLIST'.'FI_INST'], ['TASKLIST'.'FT_IDENT'], 12019);
 }
 `;
 }

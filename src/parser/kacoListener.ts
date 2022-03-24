@@ -67,6 +67,7 @@ import { FlowAgentStatementContext } from "./kacoParser";
 import { AgentCancelStatementContext } from "./kacoParser";
 import { FlowRefactStatementContext } from "./kacoParser";
 import { TestCommitStatementContext } from "./kacoParser";
+import { ChangeInstFlowStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -790,6 +791,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitTestCommitStatement?: (ctx: TestCommitStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.changeInstFlowStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterChangeInstFlowStatement?: (ctx: ChangeInstFlowStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.changeInstFlowStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitChangeInstFlowStatement?: (ctx: ChangeInstFlowStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.

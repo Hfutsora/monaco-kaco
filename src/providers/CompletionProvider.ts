@@ -392,6 +392,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '发起单个流程',
           range
         }, {
+          label: 'ChangeInstFlow',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'ChangeInstFlow([\'${1:流程实例编号}\'],[\'${2:流程任务编号}\'], ${3:新流程名称|新流程编号});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '重建案卷',
+          range
+        }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'While ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',
