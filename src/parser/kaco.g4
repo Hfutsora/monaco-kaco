@@ -232,6 +232,10 @@ FlowClose
     : 'FlowClose'
     ;
 
+FlowAgent
+    : 'FlowAgent'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -319,6 +323,7 @@ functionStatement
     | flowTestStatement
     | flowDropStatement
     | flowCloseStatement
+    | flowAgentStatement
     | assignStatement
     ;
 
@@ -559,6 +564,10 @@ flowDropStatement
 
 flowCloseStatement
     : 'FlowClose' '(' ')' ';'
+    ;
+
+flowAgentStatement
+    : 'FlowAgent' '(' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral (',' commonLiteral)? ')' ';'
     ;
 
 //==============================================================

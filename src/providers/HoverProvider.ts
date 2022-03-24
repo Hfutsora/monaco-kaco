@@ -139,7 +139,8 @@ export const kacoKeywords = [
   'TaskFree',
   'FlowTest',
   'FlowDrop',
-  'FlowClose'
+  'FlowClose',
+  'FlowAgent'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -401,5 +402,15 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   FlowClose: [
     { value: '```\nFlowClose()\n```' },
     { value: '关闭当前流程' }
+  ],
+  FlowAgent: [
+    { value: '```\nFlowAgent(被代理人, 代理人, 代理流程-节点控件编号, 开始时间, 结束时间, 事由)\n```' },
+    { value: '时间格式：yyyy-MM-DD hh:mm:ss' },
+    { value: '流程代理。\
+使用指令后，与被代理人相关流程任务由代理人接收，被代理人当前收件箱未接收的件和已接收的件会移交代理人的收件箱，\
+代理期间被代理人的件会由代理人接收处理，\
+直到结束时间或者取消代理，若代理流程中添加节点编号参数，则只代理流程中该节点任务'
+    },
+    { value: '```\n示例\nFlowAgent([\'被代理人\'],[\'代理人\'],[\'代理流程\'],[\'开始时间\'],[\'结束时间\'],[\'事由\']);\n```' }
   ]
 };

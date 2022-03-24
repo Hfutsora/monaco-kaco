@@ -78,6 +78,7 @@ export const TokenMap: Record<string, string> = {
   FlowTest: 'keyword',
   FlowDrop: 'keyword',
   FlowClose: 'keyword',
+  FlowAgent: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

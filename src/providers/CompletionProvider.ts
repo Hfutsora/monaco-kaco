@@ -364,6 +364,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '关闭流程',
           range
         }, {
+          label: 'FlowAgent',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowAgent(${1:被代理人}, ${2:代理人}, ${3:代理流程-节点控件编号}, ${4:开始时间}, ${5:结束时间}, ${6:事由});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '流程代理',
+          range
+        }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'While ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',
