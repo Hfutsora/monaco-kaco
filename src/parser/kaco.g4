@@ -401,11 +401,11 @@ sqlExecuteStatement
     ;
 
 getCoderStatement
-    : 'GetCoder' '(' (ctrlQuoteLiteral ',' CoderLiteral)? ')' ';'
+    : 'GetCoder' '(' (ctrlQuoteLiteral ',' StringLiteral)? ')' ';'
     ;
 
 setCoderStatement
-    : 'SetCoder' '(' (ctrlQuoteLiteral ',' CoderLiteral)? ')' ';'
+    : 'SetCoder' '(' (ctrlQuoteLiteral ',' StringLiteral)? ')' ';'
     ;
 
 resetCtrlValueStatement
@@ -614,10 +614,6 @@ commonLiteral
 
 MessageLiteral
     : '\'' ( '警告' | '提示' | '询问') '\''
-    ;
-
-CoderLiteral
-    : '\'' '%' (Natural | UpperCaseChar | LowerCaseChar)*? '[' Natural? ']' '\''
     ;
 
 HexLiteral

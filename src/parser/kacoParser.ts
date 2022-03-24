@@ -107,22 +107,21 @@ export class kacoParser extends Parser {
 	public static readonly Constant = 77;
 	public static readonly Natural = 78;
 	public static readonly MessageLiteral = 79;
-	public static readonly CoderLiteral = 80;
-	public static readonly HexLiteral = 81;
-	public static readonly StringLiteral = 82;
-	public static readonly BooleanLiteral = 83;
-	public static readonly NullLiteral = 84;
-	public static readonly DecimalLiteral = 85;
-	public static readonly ParamLiteral = 86;
-	public static readonly SqlLiteral = 87;
-	public static readonly Decimal = 88;
-	public static readonly NonZeroDigit = 89;
-	public static readonly DigitChar = 90;
-	public static readonly UpperCaseChar = 91;
-	public static readonly LowerCaseChar = 92;
-	public static readonly WS = 93;
-	public static readonly COMMENT = 94;
-	public static readonly WHITESPACE = 95;
+	public static readonly HexLiteral = 80;
+	public static readonly StringLiteral = 81;
+	public static readonly BooleanLiteral = 82;
+	public static readonly NullLiteral = 83;
+	public static readonly DecimalLiteral = 84;
+	public static readonly ParamLiteral = 85;
+	public static readonly SqlLiteral = 86;
+	public static readonly Decimal = 87;
+	public static readonly NonZeroDigit = 88;
+	public static readonly DigitChar = 89;
+	public static readonly UpperCaseChar = 90;
+	public static readonly LowerCaseChar = 91;
+	public static readonly WS = 92;
+	public static readonly COMMENT = 93;
+	public static readonly WHITESPACE = 94;
 	public static readonly RULE_program = 0;
 	public static readonly RULE_statement = 1;
 	public static readonly RULE_functionStatement = 2;
@@ -246,9 +245,9 @@ export class kacoParser extends Parser {
 		"FlowSave", "FlowFresh", "FlowSend", "FlowBack", "FlowBack2", "FlowMend", 
 		"FlowPrint", "FlowForm", "FlowQuery", "TaskHang", "TaskFree", "FlowTest", 
 		"FlowDrop", "Selected", "If", "While", "Constant", "Natural", "MessageLiteral", 
-		"CoderLiteral", "HexLiteral", "StringLiteral", "BooleanLiteral", "NullLiteral", 
-		"DecimalLiteral", "ParamLiteral", "SqlLiteral", "Decimal", "NonZeroDigit", 
-		"DigitChar", "UpperCaseChar", "LowerCaseChar", "WS", "COMMENT", "WHITESPACE",
+		"HexLiteral", "StringLiteral", "BooleanLiteral", "NullLiteral", "DecimalLiteral", 
+		"ParamLiteral", "SqlLiteral", "Decimal", "NonZeroDigit", "DigitChar", 
+		"UpperCaseChar", "LowerCaseChar", "WS", "COMMENT", "WHITESPACE",
 	];
 	public static readonly VOCABULARY: Vocabulary = new VocabularyImpl(kacoParser._LITERAL_NAMES, kacoParser._SYMBOLIC_NAMES, []);
 
@@ -1708,7 +1707,7 @@ export class kacoParser extends Parser {
 				this.state = 375;
 				this.match(kacoParser.Comma);
 				this.state = 376;
-				this.match(kacoParser.CoderLiteral);
+				this.match(kacoParser.StringLiteral);
 				}
 			}
 
@@ -1754,7 +1753,7 @@ export class kacoParser extends Parser {
 				this.state = 386;
 				this.match(kacoParser.Comma);
 				this.state = 387;
-				this.match(kacoParser.CoderLiteral);
+				this.match(kacoParser.StringLiteral);
 				}
 			}
 
@@ -4112,7 +4111,7 @@ export class kacoParser extends Parser {
 
 	private static readonly _serializedATNSegments: number = 2;
 	private static readonly _serializedATNSegment0: string =
-		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03a\u0355\x04\x02" +
+		"\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03`\u0355\x04\x02" +
 		"\t\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x04\x06\t\x06\x04\x07" +
 		"\t\x07\x04\b\t\b\x04\t\t\t\x04\n\t\n\x04\v\t\v\x04\f\t\f\x04\r\t\r\x04" +
 		"\x0E\t\x0E\x04\x0F\t\x0F\x04\x10\t\x10\x04\x11\t\x11\x04\x12\t\x12\x04" +
@@ -4195,7 +4194,7 @@ export class kacoParser extends Parser {
 		"\\\x02^\x02`\x02b\x02d\x02f\x02h\x02j\x02l\x02n\x02p\x02r\x02t\x02v\x02" +
 		"x\x02z\x02|\x02~\x02\x80\x02\x82\x02\x84\x02\x86\x02\x88\x02\x8A\x02\x8C" +
 		"\x02\x8E\x02\x90\x02\x02\b\x03\x02\x14\x17\x03\x02\v\f\x03\x02\x12\x13" +
-		"\x05\x02PPTTWW\x03\x02ST\x05\x02\r\rPPWW\x02\u0389\x02\x93\x03\x02\x02" +
+		"\x05\x02PPSSVV\x03\x02RS\x05\x02\r\rPPVV\x02\u0389\x02\x93\x03\x02\x02" +
 		"\x02\x04\x9B\x03\x02\x02\x02\x06\xCF\x03\x02\x02\x02\b\xD1\x03\x02\x02" +
 		"\x02\n\xD7\x03\x02\x02\x02\f\xDD\x03\x02\x02\x02\x0E\xE7\x03\x02\x02\x02" +
 		"\x10\xEF\x03\x02\x02\x02\x12\u0105\x03\x02\x02\x02\x14\u0108\x03\x02\x02" +
@@ -4294,20 +4293,20 @@ export class kacoParser extends Parser {
 		"\x02\x02\x02\u0128\u0129\x07\t\x02\x02\u0129\x19\x03\x02\x02\x02\u012A" +
 		"\u012B\x07\x1D\x02\x02\u012B\u012C\x05\x14\v\x02\u012C\u012D\x07\t\x02" +
 		"\x02\u012D\x1B\x03\x02\x02\x02\u012E\u012F\x07\x1E\x02\x02\u012F\u0131" +
-		"\x07\x05\x02\x02\u0130\u0132\x07T\x02\x02\u0131\u0130\x03\x02\x02\x02" +
+		"\x07\x05\x02\x02\u0130\u0132\x07S\x02\x02\u0131\u0130\x03\x02\x02\x02" +
 		"\u0131\u0132\x03\x02\x02\x02\u0132\u0133\x03\x02\x02\x02\u0133\u0134\x07" +
 		"\x06\x02\x02\u0134\u0135\x07\t\x02\x02\u0135\x1D\x03\x02\x02\x02\u0136" +
-		"\u0137\x07\x1F\x02\x02\u0137\u0139\x07\x05\x02\x02\u0138\u013A\x07T\x02" +
+		"\u0137\x07\x1F\x02\x02\u0137\u0139\x07\x05\x02\x02\u0138\u013A\x07S\x02" +
 		"\x02\u0139\u0138\x03\x02\x02\x02\u0139\u013A\x03\x02\x02\x02\u013A\u013B" +
 		"\x03\x02\x02\x02\u013B\u013C\x07\x06\x02\x02\u013C\u013D\x07\t\x02\x02" +
 		"\u013D\x1F\x03\x02\x02\x02\u013E\u013F\x07 \x02\x02\u013F\u0140\x07\x05" +
 		"\x02\x02\u0140\u0141\x07Q\x02\x02\u0141\u0142\x07\n\x02\x02\u0142\u0143" +
-		"\x07T\x02\x02\u0143\u0144\x07\x06\x02\x02\u0144\u0145\x07\t\x02\x02\u0145" +
+		"\x07S\x02\x02\u0143\u0144\x07\x06\x02\x02\u0144\u0145\x07\t\x02\x02\u0145" +
 		"!\x03\x02\x02\x02\u0146\u0147\x07!\x02\x02\u0147\u0148\x07\x05\x02\x02" +
 		"\u0148\u0149\x05\x88E\x02\u0149\u014A\x07\x06\x02\x02\u014A\u014B\x07" +
 		"\t\x02\x02\u014B#\x03\x02\x02\x02\u014C\u014D\x07\"\x02\x02\u014D\u014E" +
 		"\x07\x05\x02\x02\u014E\u014F\x05\x88E\x02\u014F\u0150\x07\n\x02\x02\u0150" +
-		"\u0151\x07Y\x02\x02\u0151\u0152\x07\x06\x02\x02\u0152\u0153\x07\t\x02" +
+		"\u0151\x07X\x02\x02\u0151\u0152\x07\x06\x02\x02\u0152\u0153\x07\t\x02" +
 		"\x02\u0153%\x03\x02\x02\x02\u0154\u0155\x07#\x02\x02\u0155\u0156\x05\x88" +
 		"E\x02\u0156\u0157\x07\n\x02\x02\u0157\u0159\x05\x88E\x02\u0158\u015A\x05" +
 		"\x14\v\x02\u0159\u0158\x03\x02\x02\x02\u0159\u015A\x03\x02\x02\x02\u015A" +
@@ -4321,15 +4320,15 @@ export class kacoParser extends Parser {
 		"\x06\x02\x02\u016A\u0165\x03\x02\x02\x02\u016A\u016B\x03\x02\x02\x02\u016B" +
 		"\u016C\x03\x02\x02\x02\u016C\u016D\x07\t\x02\x02\u016D)\x03\x02\x02\x02" +
 		"\u016E\u016F\x07%\x02\x02\u016F\u0171\x07\x05\x02\x02\u0170\u0172\x07" +
-		"Y\x02\x02\u0171\u0170\x03\x02\x02\x02\u0171\u0172\x03\x02\x02\x02\u0172" +
+		"X\x02\x02\u0171\u0170\x03\x02\x02\x02\u0171\u0172\x03\x02\x02\x02\u0172" +
 		"\u0173\x03\x02\x02\x02\u0173\u0174\x07\x06\x02\x02\u0174\u0175\x07\t\x02" +
 		"\x02\u0175+\x03\x02\x02\x02\u0176\u0177\x07&\x02\x02\u0177\u017C\x07\x05" +
 		"\x02\x02\u0178\u0179\x05\x88E\x02\u0179\u017A\x07\n\x02\x02\u017A\u017B" +
-		"\x07R\x02\x02\u017B\u017D\x03\x02\x02\x02\u017C\u0178\x03\x02\x02\x02" +
+		"\x07S\x02\x02\u017B\u017D\x03\x02\x02\x02\u017C\u0178\x03\x02\x02\x02" +
 		"\u017C\u017D\x03\x02\x02\x02\u017D\u017E\x03\x02\x02\x02\u017E\u017F\x07" +
 		"\x06\x02\x02\u017F\u0180\x07\t\x02\x02\u0180-\x03\x02\x02\x02\u0181\u0182" +
 		"\x07\'\x02\x02\u0182\u0187\x07\x05\x02\x02\u0183\u0184\x05\x88E\x02\u0184" +
-		"\u0185\x07\n\x02\x02\u0185\u0186\x07R\x02\x02\u0186\u0188\x03\x02\x02" +
+		"\u0185\x07\n\x02\x02\u0185\u0186\x07S\x02\x02\u0186\u0188\x03\x02\x02" +
 		"\x02\u0187\u0183\x03\x02\x02\x02\u0187\u0188\x03\x02\x02\x02\u0188\u0189" +
 		"\x03\x02\x02\x02\u0189\u018A\x07\x06\x02\x02\u018A\u018B\x07\t\x02\x02" +
 		"\u018B/\x03\x02\x02\x02\u018C\u018D\x07(\x02\x02\u018D\u018E\x05\x14\v" +
@@ -4353,41 +4352,41 @@ export class kacoParser extends Parser {
 		"?\x03\x02\x02\x02\u01BE\u01BF\x070\x02\x02\u01BF\u01C0\x05\x14\v\x02\u01C0" +
 		"\u01C1\x07\t\x02\x02\u01C1A\x03\x02\x02\x02\u01C2\u01C3\x071\x02\x02\u01C3" +
 		"\u01C4\x05\x88E\x02\u01C4\u01C7\x07\x05\x02\x02\u01C5\u01C8\x05\x88E\x02" +
-		"\u01C6\u01C8\x07T\x02\x02\u01C7\u01C5\x03\x02\x02\x02\u01C7\u01C6\x03" +
+		"\u01C6\u01C8\x07S\x02\x02\u01C7\u01C5\x03\x02\x02\x02\u01C7\u01C6\x03" +
 		"\x02\x02\x02\u01C8\u01C9\x03\x02\x02\x02\u01C9\u01CA\x07\n\x02\x02\u01CA" +
 		"\u01CB\x07P\x02\x02\u01CB\u01CC\x07\n\x02\x02\u01CC\u01CD\x07P\x02\x02" +
 		"\u01CD\u01CE\x07\x06\x02\x02\u01CE\u01CF\x07\t\x02\x02\u01CFC\x03\x02" +
 		"\x02\x02\u01D0\u01D1\x072\x02\x02\u01D1\u01D2\x05\x88E\x02\u01D2\u01D5" +
-		"\x07\x05\x02\x02\u01D3\u01D6\x05\x88E\x02\u01D4\u01D6\x07T\x02\x02\u01D5" +
+		"\x07\x05\x02\x02\u01D3\u01D6\x05\x88E\x02\u01D4\u01D6\x07S\x02\x02\u01D5" +
 		"\u01D3\x03\x02\x02\x02\u01D5\u01D4\x03\x02\x02\x02\u01D6\u01D7\x03\x02" +
 		"\x02\x02\u01D7\u01D8\x07\x06\x02\x02\u01D8\u01D9\x07\t\x02\x02\u01D9E" +
 		"\x03\x02\x02\x02\u01DA\u01DB\x073\x02\x02\u01DB\u01DC\x05\x88E\x02\u01DC" +
-		"\u01DF\x07\x05\x02\x02\u01DD\u01E0\x07T\x02\x02\u01DE\u01E0\x05\x88E\x02" +
+		"\u01DF\x07\x05\x02\x02\u01DD\u01E0\x07S\x02\x02\u01DE\u01E0\x05\x88E\x02" +
 		"\u01DF\u01DD\x03\x02\x02\x02\u01DF\u01DE\x03\x02\x02\x02\u01E0\u01E1\x03" +
-		"\x02\x02\x02\u01E1\u01E4\x07\n\x02\x02\u01E2\u01E5\x07T\x02\x02\u01E3" +
+		"\x02\x02\x02\u01E1\u01E4\x07\n\x02\x02\u01E2\u01E5\x07S\x02\x02\u01E3" +
 		"\u01E5\x05\x88E\x02\u01E4\u01E2\x03\x02\x02\x02\u01E4\u01E3\x03\x02\x02" +
 		"\x02\u01E5\u01E6\x03\x02\x02\x02\u01E6\u01E7\x07\x06\x02\x02\u01E7\u01E8" +
 		"\x07\t\x02\x02\u01E8G\x03\x02\x02\x02\u01E9\u01EA\x074\x02\x02\u01EA\u01EB" +
 		"\x07\x05\x02\x02\u01EB\u01EC\x05\x88E\x02\u01EC\u01EF\x07\n\x02\x02\u01ED" +
-		"\u01F0\x07T\x02\x02\u01EE\u01F0\x05\x88E\x02\u01EF\u01ED\x03\x02\x02\x02" +
+		"\u01F0\x07S\x02\x02\u01EE\u01F0\x05\x88E\x02\u01EF\u01ED\x03\x02\x02\x02" +
 		"\u01EF\u01EE\x03\x02\x02\x02\u01F0\u01F1\x03\x02\x02\x02\u01F1\u01F4\x07" +
 		"\n\x02\x02\u01F2";
 	private static readonly _serializedATNSegment1: string =
-		"\u01F5\x07T\x02\x02\u01F3\u01F5\x05\x88E\x02\u01F4\u01F2\x03\x02\x02\x02" +
+		"\u01F5\x07S\x02\x02\u01F3\u01F5\x05\x88E\x02\u01F4\u01F2\x03\x02\x02\x02" +
 		"\u01F4\u01F3\x03\x02\x02\x02\u01F5\u01F6\x03\x02\x02\x02\u01F6\u01F7\x07" +
 		"\x06\x02\x02\u01F7\u01F8\x07\t\x02\x02\u01F8I\x03\x02\x02\x02\u01F9\u01FA" +
 		"\x075\x02\x02\u01FA\u01FB\x07\x05\x02\x02\u01FB\u0201\x05\x88E\x02\u01FC" +
-		"\u01FF\x07\n\x02\x02\u01FD\u0200\x07T\x02\x02\u01FE\u0200\x05\x88E\x02" +
+		"\u01FF\x07\n\x02\x02\u01FD\u0200\x07S\x02\x02\u01FE\u0200\x05\x88E\x02" +
 		"\u01FF\u01FD\x03\x02\x02\x02\u01FF\u01FE\x03\x02\x02\x02\u0200\u0202\x03" +
 		"\x02\x02\x02\u0201\u01FC\x03\x02\x02\x02\u0202\u0203\x03\x02\x02\x02\u0203" +
 		"\u0201\x03\x02\x02\x02\u0203\u0204\x03\x02\x02\x02\u0204\u0205\x03\x02" +
 		"\x02\x02\u0205\u0206\x07\x06\x02\x02\u0206\u0207\x07\t\x02\x02\u0207K" +
 		"\x03\x02\x02\x02\u0208\u0209\x076\x02\x02\u0209\u020A\x05\x88E\x02\u020A" +
-		"\u020D\x07\x05\x02\x02\u020B\u020E\x07T\x02\x02\u020C\u020E\x05\x88E\x02" +
+		"\u020D\x07\x05\x02\x02\u020B\u020E\x07S\x02\x02\u020C\u020E\x05\x88E\x02" +
 		"\u020D\u020B\x03\x02\x02\x02\u020D\u020C\x03\x02\x02\x02\u020E\u020F\x03" +
 		"\x02\x02\x02\u020F\u0210\x07\x06\x02\x02\u0210\u0211\x07\t\x02\x02\u0211" +
 		"M\x03\x02\x02\x02\u0212\u0213\x077\x02\x02\u0213\u0214\x05\x88E\x02\u0214" +
-		"\u0217\x07\x05\x02\x02\u0215\u0218\x07T\x02\x02\u0216\u0218\x05\x88E\x02" +
+		"\u0217\x07\x05\x02\x02\u0215\u0218\x07S\x02\x02\u0216\u0218\x05\x88E\x02" +
 		"\u0217\u0215\x03\x02\x02\x02\u0217\u0216\x03\x02\x02\x02\u0218\u0219\x03" +
 		"\x02\x02\x02\u0219\u021A\x07\x06\x02\x02\u021A\u021B\x07\t\x02\x02\u021B" +
 		"O\x03\x02\x02\x02\u021C\u021D\x078\x02\x02\u021D\u021E\x07\x05\x02\x02" +
@@ -4478,11 +4477,11 @@ export class kacoParser extends Parser {
 		"\x02\u02EE\u02F0\x05\x82B\x02\u02EF\u02ED\x03\x02\x02\x02\u02F0\u02F3" +
 		"\x03\x02\x02\x02\u02F1\u02EF\x03\x02\x02\x02\u02F1\u02F2\x03\x02\x02\x02" +
 		"\u02F2\x81\x03\x02\x02\x02\u02F3\u02F1\x03\x02\x02\x02\u02F4\u02F7\x05" +
-		"\x90I\x02\u02F5\u02F7\x07Y\x02\x02\u02F6\u02F4\x03\x02\x02\x02\u02F6\u02F5" +
+		"\x90I\x02\u02F5\u02F7\x07X\x02\x02\u02F6\u02F4\x03\x02\x02\x02\u02F6\u02F5" +
 		"\x03\x02\x02\x02\u02F7\u02F8\x03\x02\x02\x02\u02F8\u02FB\x05x=\x02\u02F9" +
-		"\u02FC\x05\x90I\x02\u02FA\u02FC\x07Y\x02\x02\u02FB\u02F9\x03\x02\x02\x02" +
+		"\u02FC\x05\x90I\x02\u02FA\u02FC\x07X\x02\x02\u02FB\u02F9\x03\x02\x02\x02" +
 		"\u02FB\u02FA\x03\x02\x02\x02\u02FC\u0306\x03\x02\x02\x02\u02FD\u0300\x05" +
-		"\x90I\x02\u02FE\u0300\x07Y\x02\x02\u02FF\u02FD\x03\x02\x02\x02\u02FF\u02FE" +
+		"\x90I\x02\u02FE\u0300\x07X\x02\x02\u02FF\u02FD\x03\x02\x02\x02\u02FF\u02FE" +
 		"\x03\x02\x02\x02\u0300\u0306\x03\x02\x02\x02\u0301\u0302\x07\x05\x02\x02" +
 		"\u0302\u0303\x05x=\x02\u0303\u0304\x07\x06\x02\x02\u0304\u0306\x03\x02" +
 		"\x02\x02\u0305\u02F6\x03\x02\x02\x02\u0305\u02FF\x03\x02\x02\x02\u0305" +
@@ -4498,27 +4497,27 @@ export class kacoParser extends Parser {
 		"\x02\u031B\u031D\x03\x02\x02\x02\u031C\u0319\x03\x02\x02\x02\u031C\u031D" +
 		"\x03\x02\x02\x02\u031D\u031E\x03\x02\x02\x02\u031E\u0320\x05\x8AF\x02" +
 		"\u031F\u0310\x03\x02\x02\x02\u031F\u031C\x03\x02\x02\x02\u0320\x87\x03" +
-		"\x02\x02\x02\u0321\u0322\x07\x03\x02\x02\u0322\u0323\x07T\x02\x02\u0323" +
+		"\x02\x02\x02\u0321\u0322\x07\x03\x02\x02\u0322\u0323\x07S\x02\x02\u0323" +
 		"\u0324\x07\x04\x02\x02\u0324\x89\x03\x02\x02\x02\u0325\u0326\x07\x03\x02" +
-		"\x02\u0326\u0329\x07T\x02\x02\u0327\u0328\x07\x10\x02\x02\u0328\u032A" +
-		"\x07T\x02\x02\u0329\u0327\x03\x02\x02\x02\u0329\u032A\x03\x02\x02\x02" +
+		"\x02\u0326\u0329\x07S\x02\x02\u0327\u0328\x07\x10\x02\x02\u0328\u032A" +
+		"\x07S\x02\x02\u0329\u0327\x03\x02\x02\x02\u0329\u032A\x03\x02\x02\x02" +
 		"\u032A\u032F\x03\x02\x02\x02\u032B\u032C\x07\n\x02\x02\u032C\u032E\x07" +
-		"T\x02\x02\u032D\u032B\x03\x02\x02\x02\u032E\u0331\x03\x02\x02\x02\u032F" +
+		"S\x02\x02\u032D\u032B\x03\x02\x02\x02\u032E\u0331\x03\x02\x02\x02\u032F" +
 		"\u032D\x03\x02\x02\x02\u032F\u0330\x03\x02\x02\x02\u0330\u033C\x03\x02" +
 		"\x02\x02\u0331\u032F\x03\x02\x02\x02\u0332\u0339\x07\x05\x02\x02\u0333" +
 		"\u0334\x07L\x02\x02\u0334\u0335\x07\x12\x02\x02\u0335\u033A\t\x07\x02" +
-		"\x02\u0336\u0337\x07T\x02\x02\u0337\u0338\x07\x12\x02\x02\u0338\u033A" +
+		"\x02\u0336\u0337\x07S\x02\x02\u0337\u0338\x07\x12\x02\x02\u0338\u033A" +
 		"\x05\x90I\x02\u0339\u0333\x03\x02\x02\x02\u0339\u0336\x03\x02\x02\x02" +
 		"\u033A\u033B\x03\x02\x02\x02\u033B\u033D\x07\x06\x02\x02\u033C\u0332\x03" +
 		"\x02\x02\x02\u033C\u033D\x03\x02\x02\x02\u033D\u033E\x03\x02\x02\x02\u033E" +
 		"\u033F\x07\x04\x02\x02\u033F\x8B\x03\x02\x02\x02\u0340\u0341\x07\x03\x02" +
-		"\x02\u0341\u0342\x07X\x02\x02\u0342\u0343\x07\x04\x02\x02\u0343\x8D\x03" +
+		"\x02\u0341\u0342\x07W\x02\x02\u0342\u0343\x07\x04\x02\x02\u0343\x8D\x03" +
 		"\x02\x02\x02\u0344\u0345\x07\x03\x02\x02\u0345\u0346\x07\x1B\x02\x02\u0346" +
 		"\u0347\x07O\x02\x02\u0347\u0348\x07\x04\x02\x02\u0348\x8F\x03\x02\x02" +
 		"\x02\u0349\u0353\x05\x88E\x02\u034A\u0353\x05\x8AF\x02\u034B\u0353\x05" +
-		"\x8CG\x02\u034C\u0353\x05\x8EH\x02\u034D\u0353\x07W\x02\x02\u034E\u0353" +
-		"\x07P\x02\x02\u034F\u0353\x07U\x02\x02\u0350\u0353\x07V\x02\x02\u0351" +
-		"\u0353\x07T\x02\x02\u0352\u0349\x03\x02\x02\x02\u0352\u034A\x03\x02\x02" +
+		"\x8CG\x02\u034C\u0353\x05\x8EH\x02\u034D\u0353\x07V\x02\x02\u034E\u0353" +
+		"\x07P\x02\x02\u034F\u0353\x07T\x02\x02\u0350\u0353\x07U\x02\x02\u0351" +
+		"\u0353\x07S\x02\x02\u0352\u0349\x03\x02\x02\x02\u0352\u034A\x03\x02\x02" +
 		"\x02\u0352\u034B\x03\x02\x02\x02\u0352\u034C\x03\x02\x02\x02\u0352\u034D" +
 		"\x03\x02\x02\x02\u0352\u034E\x03\x02\x02\x02\u0352\u034F\x03\x02\x02\x02" +
 		"\u0352\u0350\x03\x02\x02\x02\u0352\u0351\x03\x02\x02\x02\u0353\x91\x03" +
@@ -5521,7 +5520,7 @@ export class GetCoderStatementContext extends ParserRuleContext {
 		return this.tryGetRuleContext(0, CtrlQuoteLiteralContext);
 	}
 	public Comma(): TerminalNode | undefined { return this.tryGetToken(kacoParser.Comma, 0); }
-	public CoderLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.CoderLiteral, 0); }
+	public StringLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.StringLiteral, 0); }
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
 		super(parent, invokingState);
 	}
@@ -5559,7 +5558,7 @@ export class SetCoderStatementContext extends ParserRuleContext {
 		return this.tryGetRuleContext(0, CtrlQuoteLiteralContext);
 	}
 	public Comma(): TerminalNode | undefined { return this.tryGetToken(kacoParser.Comma, 0); }
-	public CoderLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.CoderLiteral, 0); }
+	public StringLiteral(): TerminalNode | undefined { return this.tryGetToken(kacoParser.StringLiteral, 0); }
 	constructor(parent: ParserRuleContext | undefined, invokingState: number) {
 		super(parent, invokingState);
 	}

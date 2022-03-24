@@ -126,7 +126,6 @@ export const TokenMap: Record<string, string> = {
   DecimalLiteral: 'number',
   Natural: 'number',
   MessageLiteral: 'number',
-  CoderLiteral: 'number',
   BooleanNumberLiteral: 'number',
   HexLiteral: 'number.hex',
 
