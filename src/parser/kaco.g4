@@ -643,7 +643,7 @@ tachSendStatement
     ;
 
 extendStatement
-    : Extend '(' commonLiteral (',' commonLiteral)* ')' ';'
+    : Extend '(' (commonLiteral (',' commonLiteral)*)? ')' ';'
     ;
 
 //==============================================================
