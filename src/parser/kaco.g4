@@ -196,6 +196,10 @@ FlowBack2
     : 'FlowBack2'
     ;
 
+FlowMend
+    : 'FlowMend'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -274,6 +278,7 @@ functionStatement
     | flowSendStatement
     | flowBackStatement
     | flowBack2Statement
+    | flowMendStatement
     | assignStatement
     ;
 
@@ -457,7 +462,7 @@ importXlsStatement
     ;
 
 flowTranStatement
-    : 'FlowTran' '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ')' ';'
+    : 'FlowTran' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
     ;
 
 flowSaveStatement
@@ -469,15 +474,19 @@ flowFreshStatement
     ;
 
 flowSendStatement
-    : 'FlowSend' '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ')' ';'
+    : 'FlowSend' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
     ;
 
 flowBackStatement
-    : 'FlowBack' '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ')' ';'
+    : 'FlowBack' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
     ;
 
 flowBack2Statement
-    : 'FlowBack2' '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ')' ';'
+    : 'FlowBack2' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    ;
+
+flowMendStatement
+    : 'FlowMend' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
     ;
 
 //==============================================================

@@ -54,6 +54,7 @@ import { FlowFreshStatementContext } from "./kacoParser";
 import { FlowSendStatementContext } from "./kacoParser";
 import { FlowBackStatementContext } from "./kacoParser";
 import { FlowBack2StatementContext } from "./kacoParser";
+import { FlowMendStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -634,6 +635,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitFlowBack2Statement?: (ctx: FlowBack2StatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.flowMendStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterFlowMendStatement?: (ctx: FlowMendStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.flowMendStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitFlowMendStatement?: (ctx: FlowMendStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.
