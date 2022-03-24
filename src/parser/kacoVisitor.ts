@@ -13,6 +13,7 @@ import { ExpressionSequenceContext } from "./kacoParser";
 import { SingleExpressionContext } from "./kacoParser";
 import { AssignStatementContext } from "./kacoParser";
 import { QuoteEllipsisExprContext } from "./kacoParser";
+import { QueryDataQuoteEllipsisExprContext } from "./kacoParser";
 import { QuoteNaturalExprContext } from "./kacoParser";
 import { OpenFormStatementContext } from "./kacoParser";
 import { SaveFormStatementContext } from "./kacoParser";
@@ -58,6 +59,20 @@ import { FlowMendStatementContext } from "./kacoParser";
 import { FlowPrintStatementContext } from "./kacoParser";
 import { FlowFormStatementContext } from "./kacoParser";
 import { FlowQueryStatementContext } from "./kacoParser";
+import { TaskHangStatementContext } from "./kacoParser";
+import { TaskFreeStatementContext } from "./kacoParser";
+import { FlowTestStatementContext } from "./kacoParser";
+import { FlowDropStatementContext } from "./kacoParser";
+import { FlowCloseStatementContext } from "./kacoParser";
+import { FlowAgentStatementContext } from "./kacoParser";
+import { AgentCancelStatementContext } from "./kacoParser";
+import { FlowRefactStatementContext } from "./kacoParser";
+import { TestCommitStatementContext } from "./kacoParser";
+import { ChangeInstFlowStatementContext } from "./kacoParser";
+import { InstFlowStatementContext } from "./kacoParser";
+import { TaskDeleteStatementContext } from "./kacoParser";
+import { TachSendStatementContext } from "./kacoParser";
+import { ExtendStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -150,6 +165,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitQuoteEllipsisExpr?: (ctx: QuoteEllipsisExprContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.queryDataQuoteEllipsisExpr`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQueryDataQuoteEllipsisExpr?: (ctx: QueryDataQuoteEllipsisExprContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.quoteNaturalExpr`.
@@ -465,6 +487,104 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitFlowQueryStatement?: (ctx: FlowQueryStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.taskHangStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTaskHangStatement?: (ctx: TaskHangStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.taskFreeStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTaskFreeStatement?: (ctx: TaskFreeStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowTestStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowTestStatement?: (ctx: FlowTestStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowDropStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowDropStatement?: (ctx: FlowDropStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowCloseStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowCloseStatement?: (ctx: FlowCloseStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowAgentStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowAgentStatement?: (ctx: FlowAgentStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.agentCancelStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitAgentCancelStatement?: (ctx: AgentCancelStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowRefactStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowRefactStatement?: (ctx: FlowRefactStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.testCommitStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTestCommitStatement?: (ctx: TestCommitStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.changeInstFlowStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitChangeInstFlowStatement?: (ctx: ChangeInstFlowStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.instFlowStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitInstFlowStatement?: (ctx: InstFlowStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.taskDeleteStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTaskDeleteStatement?: (ctx: TaskDeleteStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.tachSendStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitTachSendStatement?: (ctx: TachSendStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.extendStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitExtendStatement?: (ctx: ExtendStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.

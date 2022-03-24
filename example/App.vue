@@ -42,6 +42,7 @@ export default class App extends Vue {
 OpenForm[\'default\']([\'a\'.\'b\'], 1001.5)(\'b\', [@ 0])(false);
 
 SaveForm(['form-name']);
+ExtendFunc(1, ['name'], [@ 2], null);
 
 ['ctrl_input'] = [@ 1];
 ['ctrl_input'] = ['table'.'column','name','age'(SELECTED == *)];
@@ -59,7 +60,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     GetComboDic(['下拉框控件名称'], [# select field1,field2 from table where... #]);
     Refresh();
     Close();
-    QueryData['收件单查询'],['结果列表'](['受理编号'],['权利人'])(100)(0);
+    QueryData['收件单查询'],['结果列表'](POSITIONMARKE,['权利人'])(100)(0);
     CarryData['国有档案录入数据关联'](['受理号']);
     SQLExecute([# update d_rec set state = 0 where slid =[$ INSTANCE] #]);
     GetCoder(['受理号'],'%11[1001]');
@@ -99,6 +100,19 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     FlowPrint();
     FlowForm(['TASKLIST'.'FI_INST']);
     FlowQuery(['结果列表'.'FI_INST']);
+    TaskHang(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
+    TaskFree(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
+    FlowTest();
+    FlowDrop(['TASKLIST'.'FI_INST']);
+    FlowClose();
+    FlowAgent(237, 11, '12037-6-7', '2020-4-27 09:30:27', '2020-04-27 14:00:00', ['请假']);
+    AgentCancel(['代理序号']);
+    FlowRefact(['TASKLIST'.'FI_INST'], 1);
+    TestCommit(102001, 'AAA');
+    ChangeInstFlow(['TASKLIST'.'FI_INST'], ['TASKLIST'.'FT_IDENT'], 12019);
+    InstFlow('公务外出', '%11[1001]')('公务外出', ['SLID']);
+    TaskDelete(['TASKLIST'.'业务号'],['TASKLIST'.'FT_IDENT']);
+    TachSend(['TASKLIST'.'业务号'],['TASKLIST'.'FT_IDENT']);
 }
 `;
 }

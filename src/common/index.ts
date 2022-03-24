@@ -26,6 +26,8 @@ export const getAST = (input: string) => {
 };
 
 export const TokenMap: Record<string, string> = {
+  // extend
+  Extend: 'type',
   // form
   OpenForm: 'keyword',
   SaveForm: 'keyword',
@@ -73,6 +75,19 @@ export const TokenMap: Record<string, string> = {
   FlowPrint: 'keyword',
   FlowForm: 'keyword',
   FlowQuery: 'keyword',
+  TaskHang: 'keyword',
+  TaskFree: 'keyword',
+  FlowTest: 'keyword',
+  FlowDrop: 'keyword',
+  FlowClose: 'keyword',
+  FlowAgent: 'keyword',
+  AgentCancel: 'keyword',
+  FlowRefact: 'keyword',
+  TestCommit: 'keyword',
+  ChangeInstFlow: 'keyword',
+  InstFlow: 'keyword',
+  TaskDelete: 'keyword',
+  TachSend: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',
@@ -122,9 +137,9 @@ export const TokenMap: Record<string, string> = {
   DecimalLiteral: 'number',
   Natural: 'number',
   MessageLiteral: 'number',
-  CoderLiteral: 'number',
   BooleanNumberLiteral: 'number',
   HexLiteral: 'number.hex',
+  QueryDataMarke: 'type',
 
   SqlLiteral: 'type',
 

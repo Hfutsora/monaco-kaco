@@ -134,7 +134,20 @@ export const kacoKeywords = [
   'FlowMend',
   'FlowPrint',
   'FlowForm',
-  'FlowQuery'
+  'FlowQuery',
+  'TaskHang',
+  'TaskFree',
+  'FlowTest',
+  'FlowDrop',
+  'FlowClose',
+  'FlowAgent',
+  'AgentCancel',
+  'FlowRefact',
+  'TestCommit',
+  'ChangeInstFlow',
+  'InstFlow',
+  'TaskDelete',
+  'TachSend'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -364,13 +377,84 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '在流程工具栏上，配置 FlowPrint，且要打印的表单上以`打印`为控件名称配置按钮控件，实现打印功能'}
   ],
   FlowForm: [
-    { value: '```\nFlowForm([\'流程实例编号\']);\n```' },
+    { value: '```\nFlowForm([\'流程实例编号\'])\n```' },
     { value: '查看业务表单信息' },
     { value: '```\n示例\nFlowForm([\'TASKLIST\'.\'FI_INST\'])\n```' }
   ],
   FlowQuery: [
-    { value: '```\nFlowQuery([\'流程实例编号\']);\n```' },
+    { value: '```\nFlowQuery([\'流程实例编号\'])\n```' },
     { value: '查看流程图' },
     { value: '```\n示例\nFlowQuery([\'TASKLIST\'.\'FI_INST\'])\n```' }
+  ],
+  TaskHang: [
+    { value: '```\nTaskHang([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
+    { value: '业务挂起，任务办理状态 `OA2_FTASK.FT_TSTATE` 变为 `3`' },
+    { value: '```\n示例\nTaskHang([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  TaskFree: [
+    { value: '```\nTaskFree([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
+    { value: '解除挂起，任务办理状态 `OA2_FTASK.FT_TSTATE` 变为 `1`' },
+    { value: '```\n示例\nTaskFree([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  FlowTest: [
+    { value: '```\nFlowTest()\n```' },
+    { value: '启动已发布流程，用于业务导航上' }
+  ],
+  FlowDrop: [
+    { value: '```\nFlowDrop([\'流程实例编号\'])\n```' },
+    { value: '物理删除流程数据，只能由流程发起人删除。删除此流程相关的系统表数据，不可恢复' },
+    { value: '后台业务流程工具栏配置该指令时请配合 `MessageBox` 使用' },
+    { value: '```\n示例\nFlowDrop([\'结果列表\'.\'FI_INST\'])\n```' }
+  ],
+  FlowClose: [
+    { value: '```\nFlowClose()\n```' },
+    { value: '关闭当前流程' }
+  ],
+  FlowAgent: [
+    { value: '```\nFlowAgent(被代理人, 代理人, 代理流程-节点控件编号, 开始时间, 结束时间, 事由)\n```' },
+    { value: '时间格式：yyyy-MM-DD hh:mm:ss' },
+    { value: '流程代理。\
+使用指令后，与被代理人相关流程任务由代理人接收，被代理人当前收件箱未接收的件和已接收的件会移交代理人的收件箱，\
+代理期间被代理人的件会由代理人接收处理，\
+直到结束时间或者取消代理，若代理流程中添加节点编号参数，则只代理流程中该节点任务'
+    },
+    { value: '```\n示例\nFlowAgent([\'被代理人\'],[\'代理人\'],[\'代理流程\'],[\'开始时间\'],[\'结束时间\'],[\'事由\']);\n```' }
+  ],
+  AgentCancel: [
+    { value: '```\nAgentCancel([\'代理序号\'])\n```' },
+    { value: '取消代理，参数为 `OA2_AGENT.AG_INDEX` 字段对应数据，即代理序号' }
+  ],
+  FlowRefact: [
+    { value: '```\nFlowRefact([\'流程实例编号\'], 重构类型)\n```' },
+    { value: '流程重构，重新按流程图构建流程实例相关数据' },
+    { value: '重构类型：\n- `0`：按原流程重构\n- `1`：按新流程重构' },
+    { value: '```\n示例\nFlowRefact([\'TASKLIST\'.\'FI_INST\'], 1)\n```' }
+  ],
+  TestCommit: [
+    { value: '```\nTestCommit(流程编号, \'参数\')\n```' },
+    { value: '直接发起单个流程' },
+    { value: '发送的参数，表单通过 `[@ x]` 接收' },
+    { value: '```\n示例\nTestCommit(102001, \'AAA\')\n```' }
+  ],
+  ChangeInstFlow: [
+    { value: '```\nChangeInstFlow([\'流程实例编号\'], [\'流程任务编号\'], 新流程名称/新流程编号)\n```' },
+    { value: '重建案卷' },
+    { value: '```\n示例\nChangeInstFlow([\'TASKLIST\'.\'FI_INST\'], [\'TASKLIST\'.\'FT_IDENT\'], 12019)\n```' }
+  ],
+  InstFlow: [
+    { value: '```\nInstFlow(\'第二个流程名称\', \'获取主键值规则\')(\'数据关联名称\', [\'第一个主键值\'])\n```' },
+    { value: '在一个流程办理中启动另一个流程，并且复制你需要数据到另外一个流程' },
+    { value: '```\n示例\nInstFlow(\'公务外出\', \'%11[1001]\')(\'公务外出\', [\'SLID\'])\n```' }
+  ],
+  TaskDelete: [
+    { value: '```\nTaskDelete(实例编号, 任务编号)\n```' },
+    { value: '删除任务' },
+    { value: '```\n示例\nTaskDelete([\'TASKLIST\'.\'业务号\'], [\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  TachSend: [
+    { value: '```\nTachSend(实例编号, 任务编号)\n```' },
+    { value: '环节内转发（同级转发）' },
+    { value: '配置在工具条时，参数可省略，表示以当前正在办理流程的实例编号和任务编号转发' },
+    { value: '```\n示例\nTachSend([\'TASKLIST\'.\'业务号\'], [\'TASKLIST\'.\'FT_IDENT\'])\n```' }
   ]
 };

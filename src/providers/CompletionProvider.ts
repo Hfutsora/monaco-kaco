@@ -329,6 +329,97 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '查看流程图',
           range
         }, {
+          label: 'TaskHang',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'TaskHang([\'${1:流程实例编号}\'],[\'${2:流程任务编号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '业务挂起',
+          range
+        }, {
+          label: 'TaskFree',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'TaskFree([\'${1:流程实例编号}\'],[\'${2:流程任务编号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '解除挂起',
+          range
+        }, {
+          label: 'FlowTest',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowTest();',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '启动流程',
+          range
+        }, {
+          label: 'FlowDrop',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowDrop([\'${1:流程实例编号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '删除流程数据',
+          range
+        }, {
+          label: 'FlowClose',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowClose();',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '关闭流程',
+          range
+        }, {
+          label: 'FlowAgent',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowAgent(${1:被代理人}, ${2:代理人}, ${3:代理流程-节点控件编号}, ${4:开始时间}, ${5:结束时间}, ${6:事由});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '流程代理',
+          range
+        }, {
+          label: 'AgentCancel',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'AgentCancel([\'${1:代理序号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '取消代理',
+          range
+        }, {
+          label: 'FlowRefact',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowRefact([\'${1:流程实例编号}\'], ${2|0,1|});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '流程重构',
+          range
+        }, {
+          label: 'TestCommit',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'TestCommit(${1:流程实例编号}, \'${2:参数}\');',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '发起单个流程',
+          range
+        }, {
+          label: 'ChangeInstFlow',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'ChangeInstFlow([\'${1:流程实例编号}\'],[\'${2:流程任务编号}\'], ${3:新流程名称|新流程编号});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '重建案卷',
+          range
+        }, {
+          label: 'InstFlow',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'InstFlow(\'${1:第二个流程名称}\', \'${2:获取主键值规则}\')(\'${3:数据关联名称}\', [\'${4:第一个主键值}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '启动另一个流程',
+          range
+        }, {
+          label: 'TaskDelete',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'TaskDelete([\'${1:实例编号}\'], [\'${2:任务编号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '删除任务',
+          range
+        }, {
+          label: 'TachSend',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'TachSend([\'${1:实例编号}\'], [\'${2:任务编号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '同级转发',
+          range
+        }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'While ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',
@@ -355,6 +446,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           insertText: '[\'$1\'] = ${2:\'\'};',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '赋值',
+          range
+        }, {
+          label: 'Time',
+          kind: monaco.languages.CompletionItemKind.Struct,
+          insertText: '\'${1:yyyy}-${2:MM}-${3:DD} ${4:hh}:${5:mm}:${6:dd}\'',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '时间',
           range
         }, {
           label: 'Sql',

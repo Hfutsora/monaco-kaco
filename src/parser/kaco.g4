@@ -212,6 +212,58 @@ FlowQuery
     : 'FlowQuery'
     ;
 
+TaskHang
+    : 'TaskHang'
+    ;
+
+TaskFree
+    : 'TaskFree'
+    ;
+
+FlowTest
+    : 'FlowTest'
+    ;
+
+FlowDrop
+    : 'FlowDrop'
+    ;
+
+FlowClose
+    : 'FlowClose'
+    ;
+
+FlowAgent
+    : 'FlowAgent'
+    ;
+
+AgentCancel
+    : 'AgentCancel'
+    ;
+
+FlowRefact
+    : 'FlowRefact'
+    ;
+
+TestCommit
+    : 'TestCommit'
+    ;
+
+ChangeInstFlow
+    : 'ChangeInstFlow'
+    ;
+
+InstFlow
+    : 'InstFlow'
+    ;
+
+TaskDelete
+    : 'TaskDelete'
+    ;
+
+TachSend
+    : 'TachSend'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -294,7 +346,21 @@ functionStatement
     | flowPrintStatement
     | flowFormStatement
     | flowQueryStatement
+    | taskHangStatement
+    | taskFreeStatement
+    | flowTestStatement
+    | flowDropStatement
+    | flowCloseStatement
+    | flowAgentStatement
+    | agentCancelStatement
+    | flowRefactStatement
+    | testCommitStatement
+    | changeInstFlowStatement
+    | instFlowStatement
+    | taskDeleteStatement
+    | tachSendStatement
     | assignStatement
+    | extendStatement
     ;
 
 ifStatement
@@ -329,6 +395,14 @@ assignStatement
 
 quoteEllipsisExpr
     : '(' (commonLiteral (',' commonLiteral)* )? ')'
+    ;
+
+QueryDataMarke
+    : 'POSITIONMARKE'
+    ;
+
+queryDataQuoteEllipsisExpr
+    : '(' ((commonLiteral | QueryDataMarke) (',' (commonLiteral | QueryDataMarke))* )? ')'
     ;
 
 Natural
@@ -369,7 +443,7 @@ getComboDicStatement
     ;
 
 queryDataStatement
-    : 'QueryData' ctrlQuoteLiteral ',' ctrlQuoteLiteral quoteEllipsisExpr? quoteNaturalExpr? quoteNaturalExpr? ';'
+    : 'QueryData' ctrlQuoteLiteral ',' ctrlQuoteLiteral queryDataQuoteEllipsisExpr? quoteNaturalExpr? quoteNaturalExpr? ';'
     ;
 
 carryDataStatement
@@ -381,11 +455,11 @@ sqlExecuteStatement
     ;
 
 getCoderStatement
-    : 'GetCoder' '(' (ctrlQuoteLiteral ',' CoderLiteral)? ')' ';'
+    : 'GetCoder' '(' (ctrlQuoteLiteral ',' StringLiteral)? ')' ';'
     ;
 
 setCoderStatement
-    : 'SetCoder' '(' (ctrlQuoteLiteral ',' CoderLiteral)? ')' ';'
+    : 'SetCoder' '(' (ctrlQuoteLiteral ',' StringLiteral)? ')' ';'
     ;
 
 resetCtrlValueStatement
@@ -516,6 +590,62 @@ flowQueryStatement
     : 'FlowQuery' '(' ctrlQuoteDotLiteral? ')' ';'
     ;
 
+taskHangStatement
+    : 'TaskHang' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    ;
+
+taskFreeStatement
+    : 'TaskFree' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    ;
+
+flowTestStatement
+    : 'FlowTest' '(' ')' ';'
+    ;
+
+flowDropStatement
+    : 'FlowDrop' '(' ctrlQuoteDotLiteral? ')' ';'
+    ;
+
+flowCloseStatement
+    : 'FlowClose' '(' ')' ';'
+    ;
+
+flowAgentStatement
+    : 'FlowAgent' '(' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral (',' commonLiteral)? ')' ';'
+    ;
+
+agentCancelStatement
+    : 'AgentCancel' '(' ctrlQuoteLiteral ')' ';'
+    ;
+
+flowRefactStatement
+    : 'FlowRefact' '(' ctrlQuoteDotLiteral ',' Natural ')' ';'
+    ;
+
+testCommitStatement
+    : 'TestCommit' '(' commonLiteral ',' StringLiteral ')' ';'
+    ;
+
+changeInstFlowStatement
+    : 'ChangeInstFlow' '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ',' commonLiteral ')' ';'
+    ;
+
+instFlowStatement
+    : 'InstFlow' '(' StringLiteral ',' StringLiteral ')' '(' StringLiteral ',' ctrlQuoteLiteral ')' ';'
+    ;
+
+taskDeleteStatement
+    : 'TaskDelete' '(' commonLiteral ',' commonLiteral ')' ';'
+    ;
+
+tachSendStatement
+    : 'TachSend' '(' (commonLiteral ',' commonLiteral)? ')' ';'
+    ;
+
+extendStatement
+    : Extend '(' commonLiteral (',' commonLiteral)* ')' ';'
+    ;
+
 //==============================================================
 
 expression
@@ -580,10 +710,6 @@ MessageLiteral
     : '\'' ( '警告' | '提示' | '询问') '\''
     ;
 
-CoderLiteral
-    : '\'' '%' (Natural | UpperCaseChar | LowerCaseChar)*? '[' Natural? ']' '\''
-    ;
-
 HexLiteral
     : '\'' '#' [0-9a-fA-F]* '\''
     ;
@@ -636,7 +762,9 @@ LowerCaseChar
     ;
 
 //==============================================================
-
+Extend
+    : [A-Za-z0-9_]+
+    ;
 
 WS
     : [\t\r\n]+ -> skip 
