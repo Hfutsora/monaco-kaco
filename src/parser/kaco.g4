@@ -208,6 +208,10 @@ FlowForm
     : 'FlowForm'
     ;
 
+FlowQuery
+    : 'FlowQuery'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -289,6 +293,7 @@ functionStatement
     | flowMendStatement
     | flowPrintStatement
     | flowFormStatement
+    | flowQueryStatement
     | assignStatement
     ;
 
@@ -505,6 +510,10 @@ flowPrintStatement
 
 flowFormStatement
     : 'FlowForm' '(' ctrlQuoteDotLiteral? ')' ';'
+    ;
+
+flowQueryStatement
+    : 'FlowQuery' '(' ctrlQuoteDotLiteral? ')' ';'
     ;
 
 //==============================================================

@@ -133,7 +133,8 @@ export const kacoKeywords = [
   'FlowBack2',
   'FlowMend',
   'FlowPrint',
-  'FlowForm'
+  'FlowForm',
+  'FlowQuery'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -366,5 +367,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nFlowForm([\'流程实例编号\']);\n```' },
     { value: '查看业务表单信息' },
     { value: '```\n示例\nFlowForm([\'TASKLIST\'.\'FI_INST\'])\n```' }
+  ],
+  FlowQuery: [
+    { value: '```\nFlowQuery([\'流程实例编号\']);\n```' },
+    { value: '查看流程图' },
+    { value: '```\n示例\nFlowQuery([\'TASKLIST\'.\'FI_INST\'])\n```' }
   ]
 };
