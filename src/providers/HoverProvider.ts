@@ -132,7 +132,8 @@ export const kacoKeywords = [
   'FlowBack',
   'FlowBack2',
   'FlowMend',
-  'FlowPrint'
+  'FlowPrint',
+  'FlowForm'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -360,5 +361,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nFlowPrint()\n```' },
     { value: '流程办理打印' },
     { value: '在流程工具栏上，配置 FlowPrint，且要打印的表单上以`打印`为控件名称配置按钮控件，实现打印功能'}
+  ],
+  FlowForm: [
+    { value: '```\nFlowForm([\'流程实例编号\']);\n```' },
+    { value: '查看业务表单信息' },
+    { value: '```\n示例\nFlowForm([\'TASKLIST\'.\'FI_INST\'])\n```' }
   ]
 };
