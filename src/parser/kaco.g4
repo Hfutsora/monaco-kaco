@@ -212,6 +212,10 @@ FlowQuery
     : 'FlowQuery'
     ;
 
+TaskHang
+    : 'TaskHang'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -294,6 +298,7 @@ functionStatement
     | flowPrintStatement
     | flowFormStatement
     | flowQueryStatement
+    | taskHangStatement
     | assignStatement
     ;
 
@@ -514,6 +519,10 @@ flowFormStatement
 
 flowQueryStatement
     : 'FlowQuery' '(' ctrlQuoteDotLiteral? ')' ';'
+    ;
+
+taskHangStatement
+    : 'TaskHang' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
     ;
 
 //==============================================================

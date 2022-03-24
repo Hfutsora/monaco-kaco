@@ -134,7 +134,8 @@ export const kacoKeywords = [
   'FlowMend',
   'FlowPrint',
   'FlowForm',
-  'FlowQuery'
+  'FlowQuery',
+  'TaskHang'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -372,5 +373,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nFlowQuery([\'流程实例编号\']);\n```' },
     { value: '查看流程图' },
     { value: '```\n示例\nFlowQuery([\'TASKLIST\'.\'FI_INST\'])\n```' }
+  ],
+  TaskHang: [
+    { value: '```\nTaskHang([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
+    { value: '业务挂起，任务办理状态 `OA2_FTASK.FT_TSTATE` 变为 `3`' },
+    { value: '```\n示例\nTaskHang([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
   ]
 };

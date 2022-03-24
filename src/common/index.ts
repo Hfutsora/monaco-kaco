@@ -73,6 +73,7 @@ export const TokenMap: Record<string, string> = {
   FlowPrint: 'keyword',
   FlowForm: 'keyword',
   FlowQuery: 'keyword',
+  TaskHang: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

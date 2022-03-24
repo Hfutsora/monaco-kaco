@@ -99,6 +99,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     FlowPrint();
     FlowForm(['TASKLIST'.'FI_INST']);
     FlowQuery(['结果列表'.'FI_INST']);
+    TaskHang(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
 }
 `;
 }
