@@ -59,6 +59,7 @@ import { FlowPrintStatementContext } from "./kacoParser";
 import { FlowFormStatementContext } from "./kacoParser";
 import { FlowQueryStatementContext } from "./kacoParser";
 import { TaskHangStatementContext } from "./kacoParser";
+import { TaskFreeStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -694,6 +695,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitTaskHangStatement?: (ctx: TaskHangStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.taskFreeStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterTaskFreeStatement?: (ctx: TaskFreeStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.taskFreeStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitTaskFreeStatement?: (ctx: TaskFreeStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.
