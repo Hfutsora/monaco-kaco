@@ -139,6 +139,7 @@ export const TokenMap: Record<string, string> = {
   MessageLiteral: 'number',
   BooleanNumberLiteral: 'number',
   HexLiteral: 'number.hex',
+  QueryDataMarke: 'type',
 
   SqlLiteral: 'type',
 

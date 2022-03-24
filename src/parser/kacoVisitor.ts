@@ -13,6 +13,7 @@ import { ExpressionSequenceContext } from "./kacoParser";
 import { SingleExpressionContext } from "./kacoParser";
 import { AssignStatementContext } from "./kacoParser";
 import { QuoteEllipsisExprContext } from "./kacoParser";
+import { QueryDataQuoteEllipsisExprContext } from "./kacoParser";
 import { QuoteNaturalExprContext } from "./kacoParser";
 import { OpenFormStatementContext } from "./kacoParser";
 import { SaveFormStatementContext } from "./kacoParser";
@@ -164,6 +165,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitQuoteEllipsisExpr?: (ctx: QuoteEllipsisExprContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.queryDataQuoteEllipsisExpr`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitQueryDataQuoteEllipsisExpr?: (ctx: QueryDataQuoteEllipsisExprContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.quoteNaturalExpr`.

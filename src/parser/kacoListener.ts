@@ -13,6 +13,7 @@ import { ExpressionSequenceContext } from "./kacoParser";
 import { SingleExpressionContext } from "./kacoParser";
 import { AssignStatementContext } from "./kacoParser";
 import { QuoteEllipsisExprContext } from "./kacoParser";
+import { QueryDataQuoteEllipsisExprContext } from "./kacoParser";
 import { QuoteNaturalExprContext } from "./kacoParser";
 import { OpenFormStatementContext } from "./kacoParser";
 import { SaveFormStatementContext } from "./kacoParser";
@@ -201,6 +202,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitQuoteEllipsisExpr?: (ctx: QuoteEllipsisExprContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.queryDataQuoteEllipsisExpr`.
+	 * @param ctx the parse tree
+	 */
+	enterQueryDataQuoteEllipsisExpr?: (ctx: QueryDataQuoteEllipsisExprContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.queryDataQuoteEllipsisExpr`.
+	 * @param ctx the parse tree
+	 */
+	exitQueryDataQuoteEllipsisExpr?: (ctx: QueryDataQuoteEllipsisExprContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.quoteNaturalExpr`.

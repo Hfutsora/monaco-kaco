@@ -397,6 +397,14 @@ quoteEllipsisExpr
     : '(' (commonLiteral (',' commonLiteral)* )? ')'
     ;
 
+QueryDataMarke
+    : 'POSITIONMARKE'
+    ;
+
+queryDataQuoteEllipsisExpr
+    : '(' ((commonLiteral | QueryDataMarke) (',' (commonLiteral | QueryDataMarke))* )? ')'
+    ;
+
 Natural
     : '0'
     | [1-9][0-9]*
@@ -435,7 +443,7 @@ getComboDicStatement
     ;
 
 queryDataStatement
-    : 'QueryData' ctrlQuoteLiteral ',' ctrlQuoteLiteral quoteEllipsisExpr? quoteNaturalExpr? quoteNaturalExpr? ';'
+    : 'QueryData' ctrlQuoteLiteral ',' ctrlQuoteLiteral queryDataQuoteEllipsisExpr? quoteNaturalExpr? quoteNaturalExpr? ';'
     ;
 
 carryDataStatement
