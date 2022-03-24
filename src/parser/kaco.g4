@@ -192,6 +192,10 @@ FlowBack
     : 'FlowBack'
     ;
 
+FlowBack2
+    : 'FlowBack2'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -269,6 +273,7 @@ functionStatement
     | flowFreshStatement
     | flowSendStatement
     | flowBackStatement
+    | flowBack2Statement
     | assignStatement
     ;
 
@@ -469,6 +474,10 @@ flowSendStatement
 
 flowBackStatement
     : 'FlowBack' '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ')' ';'
+    ;
+
+flowBack2Statement
+    : 'FlowBack2' '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ')' ';'
     ;
 
 //==============================================================

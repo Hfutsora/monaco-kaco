@@ -129,7 +129,8 @@ export const kacoKeywords = [
   'FlowSave',
   'FlowFresh',
   'FlowSend',
-  'FlowBack'
+  'FlowBack',
+  'FlowBack2'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -341,5 +342,11 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nFlowBack([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
     { value: '流程退回，退回到上一步办理的人' },
     { value: '```\n示例\nFlowBack([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  FlowBack2: [
+    { value: '```\nFlowBack2([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
+    { value: '流程退回，退回到任意已办理过的人员，办理完成后按流程图环节重新流转' },
+    { value: '```md\nFlowBack 和 FlowBack2的区别，在流程 A——>B——>C 中：\nFlowBack只能从C退回到B，FlowBack2可以将文件从C退还给B和A两个人\n```' },
+    { value: '```\n示例\nFlowBack2([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
   ]
 };

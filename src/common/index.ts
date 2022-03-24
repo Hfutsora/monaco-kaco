@@ -68,6 +68,7 @@ export const TokenMap: Record<string, string> = {
   FlowFresh: 'keyword',
   FlowSend : 'keyword',
   FlowBack: 'keyword',
+  FlowBack2: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

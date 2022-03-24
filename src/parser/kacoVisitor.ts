@@ -53,6 +53,7 @@ import { FlowSaveStatementContext } from "./kacoParser";
 import { FlowFreshStatementContext } from "./kacoParser";
 import { FlowSendStatementContext } from "./kacoParser";
 import { FlowBackStatementContext } from "./kacoParser";
+import { FlowBack2StatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -425,6 +426,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitFlowBackStatement?: (ctx: FlowBackStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.flowBack2Statement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitFlowBack2Statement?: (ctx: FlowBack2StatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.expression`.
