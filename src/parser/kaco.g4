@@ -260,6 +260,10 @@ TaskDelete
     : 'TaskDelete'
     ;
 
+TachSend
+    : 'TachSend'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -354,6 +358,7 @@ functionStatement
     | changeInstFlowStatement
     | instFlowStatement
     | taskDeleteStatement
+    | tachSendStatement
     | assignStatement
     ;
 
@@ -622,6 +627,10 @@ instFlowStatement
 
 taskDeleteStatement
     : 'TaskDelete' '(' commonLiteral ',' commonLiteral ')' ';'
+    ;
+
+tachSendStatement
+    : 'TachSend' '(' (commonLiteral ',' commonLiteral)? ')' ';'
     ;
 
 //==============================================================

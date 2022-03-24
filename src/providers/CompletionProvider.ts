@@ -413,6 +413,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '删除任务',
           range
         }, {
+          label: 'TachSend',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'TachSend([\'${1:实例编号}\'], [\'${2:任务编号}\']);',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '同级转发',
+          range
+        }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'While ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',

@@ -111,6 +111,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     ChangeInstFlow(['TASKLIST'.'FI_INST'], ['TASKLIST'.'FT_IDENT'], 12019);
     InstFlow('公务外出', '%11[1001]')('公务外出', ['SLID']);
     TaskDelete(['TASKLIST'.'业务号'],['TASKLIST'.'FT_IDENT']);
+    TachSend(['TASKLIST'.'业务号'],['TASKLIST'.'FT_IDENT']);
 }
 `;
 }

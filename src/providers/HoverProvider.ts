@@ -146,7 +146,8 @@ export const kacoKeywords = [
   'TestCommit',
   'ChangeInstFlow',
   'InstFlow',
-  'TaskDelete'
+  'TaskDelete',
+  'TachSend'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -449,5 +450,11 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nTaskDelete(实例编号, 任务编号)\n```' },
     { value: '删除任务' },
     { value: '```\n示例\nTaskDelete([\'TASKLIST\'.\'业务号\'], [\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  TachSend: [
+    { value: '```\nTachSend(实例编号, 任务编号)\n```' },
+    { value: '环节内转发（同级转发）' },
+    { value: '配置在工具条时，参数可省略，表示以当前正在办理流程的实例编号和任务编号转发' },
+    { value: '```\n示例\nTachSend([\'TASKLIST\'.\'业务号\'], [\'TASKLIST\'.\'FT_IDENT\'])\n```' }
   ]
 };
