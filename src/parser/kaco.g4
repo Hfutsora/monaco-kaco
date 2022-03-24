@@ -220,6 +220,10 @@ TaskFree
     : 'TaskFree'
     ;
 
+FlowTest
+    : 'FlowTest'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -304,6 +308,7 @@ functionStatement
     | flowQueryStatement
     | taskHangStatement
     | taskFreeStatement
+    | flowTestStatement
     | assignStatement
     ;
 
@@ -532,6 +537,10 @@ taskHangStatement
 
 taskFreeStatement
     : 'TaskFree' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    ;
+
+flowTestStatement
+    : 'FlowTest' '(' ')' ';'
     ;
 
 //==============================================================

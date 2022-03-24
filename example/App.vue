@@ -101,6 +101,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     FlowQuery(['结果列表'.'FI_INST']);
     TaskHang(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
     TaskFree(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
+    FlowTest();
 }
 `;
 }

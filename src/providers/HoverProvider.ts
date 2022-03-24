@@ -136,7 +136,8 @@ export const kacoKeywords = [
   'FlowForm',
   'FlowQuery',
   'TaskHang',
-  'TaskFree'
+  'TaskFree',
+  'FlowTest'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -384,5 +385,9 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nTaskFree([\'流程实例编号\'],[\'流程任务编号\'])\n```' },
     { value: '解除挂起，任务办理状态 `OA2_FTASK.FT_TSTATE` 变为 `1`' },
     { value: '```\n示例\nTaskFree([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  FlowTest: [
+    { value: '```\nFlowTest()\n```' },
+    { value: '启动已发布流程，用于业务导航上' }
   ]
 };

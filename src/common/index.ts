@@ -75,6 +75,7 @@ export const TokenMap: Record<string, string> = {
   FlowQuery: 'keyword',
   TaskHang: 'keyword',
   TaskFree: 'keyword',
+  FlowTest: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',
