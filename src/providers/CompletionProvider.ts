@@ -261,9 +261,16 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
         }, {
           label: 'FlowTran',
           kind: monaco.languages.CompletionItemKind.Function,
-          insertText: 'FlowTran([\'${1:流程实例号}\'],[\'${2:流程任务号}\']);',
+          insertText: 'FlowTran([\'${1:流程实例编号}\'],[\'${2:流程任务号}\']);',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '任务办理',
+          range
+        }, {
+          label: 'FlowSave',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'FlowSave([\'${1:流程实例编号}\'])(${2:流程编号});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '保存流程数据',
           range
         }, {
           label: 'While',

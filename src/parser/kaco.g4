@@ -176,6 +176,10 @@ FlowTran
     : 'FlowTran'
     ;
 
+FlowSave
+    : 'FlowSave'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -249,6 +253,7 @@ functionStatement
     | importXlsStatement
     | whileStatement
     | flowTranStatement
+    | flowSaveStatement
     | assignStatement
     ;
 
@@ -433,6 +438,10 @@ importXlsStatement
 
 flowTranStatement
     : 'FlowTran' '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ')' ';'
+    ;
+
+flowSaveStatement
+    : 'FlowSave' '(' ctrlQuoteLiteral? ')' ('(' Natural ')')? ';'
     ;
 
 //==============================================================

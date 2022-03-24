@@ -125,7 +125,8 @@ export const kacoKeywords = [
   'While',
   'ExportXls',
   'ImportXls',
-  'FlowTran'
+  'FlowTran',
+  'FlowSave'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -315,8 +316,13 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '导入Excel' }
   ],
   FlowTran: [
-    { value: '```\nFlowTran([\'流程实例号\'],[\'流程任务号\'])\n```' },
+    { value: '```\nFlowTran([\'流程实例编号\'],[\'流程任务号\'])\n```' },
     { value: '任务办理，任务由未阅状态，转变为已阅状态' },
     { value: '```\n示例\nFlowTran([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  FlowSave: [
+    { value: '```\nFlowSave([\'流程实例编号\'])(流程编号)\n```' },
+    { value: '保存流程数据，和表单数据' },
+    { value: '```\n示例\nFlowSave([\'受理ID\'])(110004)\n```' }
   ]
 };

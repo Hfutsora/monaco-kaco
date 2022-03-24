@@ -49,6 +49,7 @@ import { SelGridRowStatementContext } from "./kacoParser";
 import { ExportXlsStatementContext } from "./kacoParser";
 import { ImportXlsStatementContext } from "./kacoParser";
 import { FlowTranStatementContext } from "./kacoParser";
+import { FlowSaveStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
@@ -574,6 +575,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitFlowTranStatement?: (ctx: FlowTranStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.flowSaveStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterFlowSaveStatement?: (ctx: FlowSaveStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.flowSaveStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitFlowSaveStatement?: (ctx: FlowSaveStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.expression`.
