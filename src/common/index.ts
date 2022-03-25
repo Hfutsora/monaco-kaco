@@ -93,6 +93,7 @@ export const TokenMap: Record<string, string> = {
   ExecFunc: 'keyword',
   CmdBreak: 'keyword',
   OpenUrl: 'keyword',
+  OpenLayout: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

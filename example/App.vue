@@ -117,6 +117,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     ExecFunc['testfunc']([$INSTANCE])([$INSTANCE]);
     CmdBreak();
     OpenUrl('title', 'http://www.' + ['title'] + '.com');
+    OpenLayout['导航名称'];
 }
 `;
 }

@@ -280,6 +280,10 @@ OpenUrl
     : 'OpenUrl'
     ;
 
+OpenLayout
+    : 'OpenLayout'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -379,6 +383,7 @@ functionStatement
     | execFuncStatement
     | cmdBreakStatement
     | openUrlStatement
+    | openLayoutStatement
     | assignStatement
     | extendStatement
     ;
@@ -676,6 +681,10 @@ cmdBreakStatement
 
 openUrlStatement
     : 'OpenUrl' '(' (StringLiteral ',')? expression ')' ';' 
+    ;
+
+openLayoutStatement
+    : 'OpenLayout' ctrlQuoteLiteral ';'
     ;
 
 extendStatement

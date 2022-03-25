@@ -151,7 +151,8 @@ export const kacoKeywords = [
   'CommWord',
   'ExecFunc',
   'CmdBreak',
-  'OpenUrl'
+  'OpenUrl',
+  'OpenLayout'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -478,5 +479,9 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nOpenUrl(\'标题\', \'地址\')\n```' },
     { value: '打开网址' },
     { value: '```\n示例\nOpenUrl(\'title\', \'http://www.\' + [\'title\'] + \'.com\')\n```' }
+  ],
+  OpenLayout: [
+    { value: '```\nOpenLayout[\'导航名称\']\n```' },
+    { value: '打开导航第一级目录' }
   ]
 };
