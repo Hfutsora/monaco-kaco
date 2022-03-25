@@ -427,6 +427,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '打开常用词',
           range
         }, {
+          label: 'ExecFunc',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'ExecFunc[\'${1:函数模板名称}\']([\'${2:主键}\'])(${3:参数});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '调用函数模板',
+          range
+        }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'While ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',

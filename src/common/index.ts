@@ -90,6 +90,7 @@ export const TokenMap: Record<string, string> = {
   TachSend: 'keyword',
   // others
   CommWord: 'keyword',
+  ExecFunc: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

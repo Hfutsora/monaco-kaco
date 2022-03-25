@@ -148,7 +148,8 @@ export const kacoKeywords = [
   'InstFlow',
   'TaskDelete',
   'TachSend',
-  'CommWord'
+  'CommWord',
+  'ExecFunc'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -461,5 +462,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   CommWord: [
     { value: '```\nCommWord()\n```' },
     { value: '打开常用词，可直接选择或添加常用词' }
+  ],
+  ExecFunc: [
+    { value: '```\nExecFunc[\'函数模板名称\'](主键)(...参数)\n```' },
+    { value: '调用函数模板' },
+    { value: '```\n示例\nExecFunc[\'testfunc\']([$INSTANCE])([$INSTANCE])\n```' }
   ]
 };

@@ -268,6 +268,10 @@ CommWord
     : 'CommWord'
     ;
 
+ExecFunc
+    : 'ExecFunc'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -364,6 +368,7 @@ functionStatement
     | taskDeleteStatement
     | tachSendStatement
     | commWordStatement
+    | execFuncStatement
     | assignStatement
     | extendStatement
     ;
@@ -649,6 +654,10 @@ tachSendStatement
 
 commWordStatement
     : 'CommWord' '(' ')' ';'
+    ;
+
+execFuncStatement
+    : 'ExecFunc' ctrlQuoteLiteral '(' commonLiteral ')' ('(' commonLiteral? (',' commonLiteral)* ')')? ';'
     ;
 
 extendStatement

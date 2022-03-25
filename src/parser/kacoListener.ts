@@ -73,6 +73,7 @@ import { InstFlowStatementContext } from "./kacoParser";
 import { TaskDeleteStatementContext } from "./kacoParser";
 import { TachSendStatementContext } from "./kacoParser";
 import { CommWordStatementContext } from "./kacoParser";
+import { ExecFuncStatementContext } from "./kacoParser";
 import { ExtendStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
@@ -864,6 +865,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitCommWordStatement?: (ctx: CommWordStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.execFuncStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterExecFuncStatement?: (ctx: ExecFuncStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.execFuncStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitExecFuncStatement?: (ctx: ExecFuncStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.extendStatement`.

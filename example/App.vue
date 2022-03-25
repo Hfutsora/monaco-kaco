@@ -114,6 +114,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     TaskDelete(['TASKLIST'.'业务号'],['TASKLIST'.'FT_IDENT']);
     TachSend(['TASKLIST'.'业务号'],['TASKLIST'.'FT_IDENT']);
     CommWord();
+    ExecFunc['testfunc']([$INSTANCE])([$INSTANCE]);
 }
 `;
 }
