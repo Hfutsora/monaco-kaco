@@ -147,7 +147,15 @@ export const kacoKeywords = [
   'ChangeInstFlow',
   'InstFlow',
   'TaskDelete',
-  'TachSend'
+  'TachSend',
+  'CommWord',
+  'ExecFunc',
+  'CmdBreak',
+  'OpenUrl',
+  'OpenLayout',
+  'Print',
+  'RegeSign',
+  'RsetPswdSign'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -456,5 +464,42 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '环节内转发（同级转发）' },
     { value: '配置在工具条时，参数可省略，表示以当前正在办理流程的实例编号和任务编号转发' },
     { value: '```\n示例\nTachSend([\'TASKLIST\'.\'业务号\'], [\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  CommWord: [
+    { value: '```\nCommWord()\n```' },
+    { value: '打开常用词，可直接选择或添加常用词' }
+  ],
+  ExecFunc: [
+    { value: '```\nExecFunc[\'函数模板名称\'](主键)(...参数)\n```' },
+    { value: '调用函数模板' },
+    { value: '```\n示例\nExecFunc[\'testfunc\']([$INSTANCE])([$INSTANCE])\n```' }
+  ],
+  CmdBreak: [
+    { value: '```\nCmdBreak()\n```' },
+    { value: '中断事件执行' }
+  ],
+  OpenUrl: [
+    { value: '```\nOpenUrl(\'标题\', \'地址\')\n```' },
+    { value: '打开网址' },
+    { value: '```\n示例\nOpenUrl(\'title\', \'http://www.\' + [\'title\'] + \'.com\')\n```' }
+  ],
+  OpenLayout: [
+    { value: '```\nOpenLayout[\'导航名称\']\n```' },
+    { value: '打开导航第一级目录' }
+  ],
+  Print: [
+    { value: '```\nPrint[\'打印模板名称\'](...主键)(模式)\n```' },
+    { value: '模板打印' },
+    { value: '模式：\n- `TD`：套打\n- `XD`：续打' },
+    { value: '```\n示例\nPrint[\'初始登记-审批表\']([\'受理号\'])(TD)\n```' }
+  ],
+  RegeSign: [
+    { value: '```\nRegeSign(用户ID)\n```' },
+    { value: '注册电子签章' },
+    { value: '```\n示例\nRegeSign([\'用户ID\'])\n```' }
+  ],
+  RsetPswdSign: [
+    { value: '```\nRsetPswdSign(用户ID, \'新密码\')\n```' },
+    { value: '重置电子签章密码' }
   ]
 };

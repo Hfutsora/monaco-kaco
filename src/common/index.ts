@@ -88,6 +88,15 @@ export const TokenMap: Record<string, string> = {
   InstFlow: 'keyword',
   TaskDelete: 'keyword',
   TachSend: 'keyword',
+  // others
+  CommWord: 'keyword',
+  ExecFunc: 'keyword',
+  CmdBreak: 'keyword',
+  OpenUrl: 'keyword',
+  OpenLayout: 'keyword',
+  Print: 'keyword',
+  RegeSign: 'keyword',
+  RsetPswdSign: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',
@@ -138,6 +147,7 @@ export const TokenMap: Record<string, string> = {
   Natural: 'number',
   MessageLiteral: 'number',
   BooleanNumberLiteral: 'number',
+  PrintLiteral: 'number',
   HexLiteral: 'number.hex',
   QueryDataMarke: 'type',
 

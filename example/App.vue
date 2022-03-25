@@ -113,6 +113,14 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     InstFlow('公务外出', '%11[1001]')('公务外出', ['SLID']);
     TaskDelete(['TASKLIST'.'业务号'],['TASKLIST'.'FT_IDENT']);
     TachSend(['TASKLIST'.'业务号'],['TASKLIST'.'FT_IDENT']);
+    CommWord();
+    ExecFunc['testfunc']([$INSTANCE])([$INSTANCE]);
+    CmdBreak();
+    OpenUrl('title', 'http://www.' + ['title'] + '.com');
+    OpenLayout['导航名称'];
+    Print['审批表'](['受理号'], ['受理号2'])(TD);
+    RegeSign(['用户ID']);
+    RsetPswdSign(['用户ID'], '新密码');
 }
 `;
 }

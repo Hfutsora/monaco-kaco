@@ -264,6 +264,38 @@ TachSend
     : 'TachSend'
     ;
 
+CommWord
+    : 'CommWord'
+    ;
+
+ExecFunc
+    : 'ExecFunc'
+    ;
+
+CmdBreak
+    : 'CmdBreak'
+    ;
+
+OpenUrl
+    : 'OpenUrl'
+    ;
+
+OpenLayout
+    : 'OpenLayout'
+    ;
+
+Print
+    : 'Print'
+    ;
+
+RegeSign
+    : 'RegeSign'
+    ;
+
+RsetPswdSign
+    : 'RsetPswdSign'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -359,6 +391,14 @@ functionStatement
     | instFlowStatement
     | taskDeleteStatement
     | tachSendStatement
+    | commWordStatement
+    | execFuncStatement
+    | cmdBreakStatement
+    | openUrlStatement
+    | openLayoutStatement
+    | printStatement
+    | regeSignStatement
+    | rsetPswdSignStatement
     | assignStatement
     | extendStatement
     ;
@@ -642,8 +682,40 @@ tachSendStatement
     : 'TachSend' '(' (commonLiteral ',' commonLiteral)? ')' ';'
     ;
 
+commWordStatement
+    : 'CommWord' '(' ')' ';'
+    ;
+
+execFuncStatement
+    : 'ExecFunc' ctrlQuoteLiteral '(' commonLiteral ')' ('(' commonLiteral? (',' commonLiteral)* ')')? ';'
+    ;
+
+cmdBreakStatement
+    : 'CmdBreak' '(' ')' ';'
+    ;
+
+openUrlStatement
+    : 'OpenUrl' '(' (StringLiteral ',')? expression ')' ';' 
+    ;
+
+openLayoutStatement
+    : 'OpenLayout' ctrlQuoteLiteral ';'
+    ;
+
+printStatement
+    : 'Print' ctrlQuoteLiteral quoteEllipsisExpr ('(' PrintLiteral ')')? ';'
+    ;
+
+regeSignStatement
+    : 'RegeSign' '(' commonLiteral ')' ';'
+    ;
+
+rsetPswdSignStatement
+    : 'RsetPswdSign' '(' commonLiteral ',' StringLiteral ')' ';'
+    ;
+
 extendStatement
-    : Extend '(' commonLiteral (',' commonLiteral)* ')' ';'
+    : Extend '(' (commonLiteral (',' commonLiteral)*)? ')' ';'
     ;
 
 //==============================================================
@@ -707,6 +779,11 @@ commonLiteral
 
 MessageLiteral
     : '\'' ( '警告' | '提示' | '询问') '\''
+    ;
+
+PrintLiteral
+    : 'TD'
+    | 'XD'
     ;
 
 HexLiteral

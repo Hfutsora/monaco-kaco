@@ -72,6 +72,14 @@ import { ChangeInstFlowStatementContext } from "./kacoParser";
 import { InstFlowStatementContext } from "./kacoParser";
 import { TaskDeleteStatementContext } from "./kacoParser";
 import { TachSendStatementContext } from "./kacoParser";
+import { CommWordStatementContext } from "./kacoParser";
+import { ExecFuncStatementContext } from "./kacoParser";
+import { CmdBreakStatementContext } from "./kacoParser";
+import { OpenUrlStatementContext } from "./kacoParser";
+import { OpenLayoutStatementContext } from "./kacoParser";
+import { PrintStatementContext } from "./kacoParser";
+import { RegeSignStatementContext } from "./kacoParser";
+import { RsetPswdSignStatementContext } from "./kacoParser";
 import { ExtendStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
@@ -852,6 +860,94 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitTachSendStatement?: (ctx: TachSendStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.commWordStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterCommWordStatement?: (ctx: CommWordStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.commWordStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitCommWordStatement?: (ctx: CommWordStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.execFuncStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterExecFuncStatement?: (ctx: ExecFuncStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.execFuncStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitExecFuncStatement?: (ctx: ExecFuncStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.cmdBreakStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterCmdBreakStatement?: (ctx: CmdBreakStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.cmdBreakStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitCmdBreakStatement?: (ctx: CmdBreakStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.openUrlStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterOpenUrlStatement?: (ctx: OpenUrlStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.openUrlStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitOpenUrlStatement?: (ctx: OpenUrlStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.openLayoutStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterOpenLayoutStatement?: (ctx: OpenLayoutStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.openLayoutStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitOpenLayoutStatement?: (ctx: OpenLayoutStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.printStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterPrintStatement?: (ctx: PrintStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.printStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitPrintStatement?: (ctx: PrintStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.regeSignStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterRegeSignStatement?: (ctx: RegeSignStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.regeSignStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitRegeSignStatement?: (ctx: RegeSignStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.rsetPswdSignStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterRsetPswdSignStatement?: (ctx: RsetPswdSignStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.rsetPswdSignStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitRsetPswdSignStatement?: (ctx: RsetPswdSignStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.extendStatement`.

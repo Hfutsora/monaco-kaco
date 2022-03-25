@@ -420,6 +420,62 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '同级转发',
           range
         }, {
+          label: 'CommWord',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'CommWord();',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '打开常用词',
+          range
+        }, {
+          label: 'ExecFunc',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'ExecFunc[\'${1:函数模板名称}\']([\'${2:主键}\'])(${3:参数});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '调用函数模板',
+          range
+        }, {
+          label: 'CmdBreak',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'CmdBreak();',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '中断事件执行',
+          range
+        }, {
+          label: 'OpenUrl',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'OpenUrl(\'${1:标题}\', \'${2:地址}\');',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '打开网址',
+          range
+        }, {
+          label: 'OpenLayout',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'OpenLayout[\'${1:导航名称}\'];',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '打开导航',
+          range
+        }, {
+          label: 'Print',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'Print[\'${1:打印模板名称}\']()(${2|TD,XD|});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '模板打印',
+          range
+        }, {
+          label: 'RegeSign',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'RegeSign(${1:\'用户ID\'});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '注册电子签章',
+          range
+        }, {
+          label: 'RsetPswdSign',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'RsetPswdSign(${1:\'用户ID\'}, \'${2:新密码}\');',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '重置电子签章密码',
+          range
+        }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'While ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',
