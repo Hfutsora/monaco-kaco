@@ -1,14 +1,16 @@
 import * as monaco from 'monaco-editor';
 
 export class CompletionItemProvider implements monaco.languages.CompletionItemProvider {
+  triggerCharacters = [' '];
+
   provideCompletionItems(model: monaco.editor.IModel, position: monaco.Position): monaco.languages.ProviderResult<monaco.languages.CompletionList> {
     const word = model.getWordUntilPosition(position);
 
     const range = new monaco.Range(
       position.lineNumber,
-      word?.startColumn ?? position.column,
+      word.word ? word?.startColumn : word?.startColumn - 1,
       position.lineNumber,
-      word?.startColumn ?? position.column // insert into current position
+      position.column // insert into current position
     );
 
     return {
