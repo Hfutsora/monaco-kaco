@@ -37,292 +37,291 @@ Const:                          '$';
 /// Keywords
 
 OpenForm
-    : 'OpenForm'
+    : O P E N F O R M
     ;
 
 SaveForm
-    : 'SaveForm'
+    : S A V E F O R M
     ;
 
 Close
-    : 'Close'
+    : C L O S E
     ;
 
 Refresh
-    : 'Refresh'
+    : R E F R E S H
     ;
 
 MessageBox
-    : 'MessageBox'
+    : M E S S A G E B O X
     ;
 
 ClickButton
-    : 'ClickButton'
+    : C L I C K B U T T O N
     ;
 
 GetComboDic
-    : 'GetComboDic'
+    : G E T C O M B O D I C
     ;
 
 QueryData
-    : 'QueryData'
+    : Q U E R Y D A T A
     ;
 
 CarryData
-    : 'CarryData'
+    : C A R R Y D A T A
     ;
 
 SQLExecute
-    : 'SQLExecute'
+    : S Q L E X E C U T E
     ;
 
 GetCoder
-    : 'GetCoder'
+    : G E T C O D E R
     ;
 
 SetCoder
-    : 'SetCoder'
+    : S E T C O D E R
     ;
 
 ResetCtrlValue
-    : 'ResetCtrlValue'
+    : R E S E T C T R L V A L U E
     ;
 
 SaveLastValue
-    : 'SaveLastValue'
+    : S A V E L A S T V A L U E
     ;
 
 LoadLastValue
-    : 'LoadLastValue'
+    : L O A D L A S T V A L U E
     ;
 
 SetVisiable
-    : 'SetVisiable'
+    : S E T V I S I A B L E
     ;
 
 SetEnable
-    : 'SetEnable'
+    : S E T E N A B L E
     ;
 
 SetFocus
-    : 'SetFocus'
+    : S E T F O C U S
     ;
 
 SetColor
-    : 'SetColor'
+    : S E T C O L O R
     ;
 
 ChangeTab
-    : 'ChangeTab'
+    : C H A N G E T A B
     ;
 
 SwitchDisplay
-    : 'SwitchDisplay'
+    : S W I T C H D I S P L A Y
     ;
 
 StringSub
-    : 'StringSub'
+    : S T R I N G S U B
     ;
 
 StringLen
-    : 'StringLen'
+    : S T R I N G L E N
     ;
 
 StringStr
-    : 'StringStr'
+    : S T R I N G S T R
     ;
 
 StringRep
-    : 'StringRep'
+    : S T R I N G R E P
     ;
 
 StringCat
-    : 'StringCat'
+    : S T R I N G C A T
     ;
 
 EncodeBase64
-    : 'EncodeBase64'
+    : E N C O D E B A S E '64'
     ;
 
 DecodeBase64
-    : 'DecodeBase64'
+    : D E C O D E B A S E '64'
     ;
 
 GetGridRows
-    : 'GetGridRows'
+    : G E T G R I D R O W S
     ;
 
 AddGridRow
-    : 'AddGridRow'
+    : A D D G R I D R O W
     ;
 
 DelGridRow
-    : 'DelGridRow'
+    : D E L G R I D R O W
     ;
 
 SelGridRow
-    : 'SelGridRow'
+    : S E L G R I D R O W
     ;
 
 ExportXls
-    : 'ExportXls'
+    : E X P O R T X L S
     ;
 
 ImportXls
-    : 'ImportXls'
+    : I M P O R T X L S
     ;
 
 FlowTran
-    : 'FlowTran'
+    : F L O W T R A N
     ;
 
 FlowSave
-    : 'FlowSave'
+    : F L O W S A V E
     ;
 
 FlowFresh
-    : 'FlowFresh'
+    : F L O W F R E S H
     ;
 
 FlowSend
-    : 'FlowSend'
+    : F L O W S E N D
     ;
 
 FlowBack
-    : 'FlowBack'
+    : F L O W B A C K
     ;
 
 FlowBack2
-    : 'FlowBack2'
+    : F L O W B A C K '2'
     ;
 
 FlowMend
-    : 'FlowMend'
+    : F L O W M E N D
     ;
 
 FlowPrint
-    : 'FlowPrint'
+    : F L O W P R I N T
     ;
 
 FlowForm
-    : 'FlowForm'
+    : F L O W F O R M
     ;
 
 FlowQuery
-    : 'FlowQuery'
+    : F L O W Q U E R Y
     ;
 
 TaskHang
-    : 'TaskHang'
+    : T A S K H A N G
     ;
 
 TaskFree
-    : 'TaskFree'
+    : T A S K F R E E
     ;
 
 FlowTest
-    : 'FlowTest'
+    : F L O W T E S T
     ;
 
 FlowDrop
-    : 'FlowDrop'
+    : F L O W D R O P
     ;
 
 FlowClose
-    : 'FlowClose'
+    : F L O W C L O S E
     ;
 
 FlowAgent
-    : 'FlowAgent'
+    : F L O W A G E N T
     ;
 
 AgentCancel
-    : 'AgentCancel'
+    : A G E N T C A N C E L
     ;
 
 FlowRefact
-    : 'FlowRefact'
+    : F L O W R E F A C T
     ;
 
 TestCommit
-    : 'TestCommit'
+    : T E S T C O M M I T
     ;
 
 ChangeInstFlow
-    : 'ChangeInstFlow'
+    : C H A N G E I N S T F L O W
     ;
 
 InstFlow
-    : 'InstFlow'
+    : I N S T F L O W
     ;
 
 TaskDelete
-    : 'TaskDelete'
+    : T A S K D E L E T E
     ;
 
 TachSend
-    : 'TachSend'
+    : T A C H S E N D
     ;
 
 CommWord
-    : 'CommWord'
+    : C O M M W O R D
     ;
 
 ExecFunc
-    : 'ExecFunc'
+    : E X E C F U N C
     ;
 
 CmdBreak
-    : 'CmdBreak'
+    : C M D B R E A K
     ;
 
 OpenUrl
-    : 'OpenUrl'
+    : O P E N U R L
     ;
 
 OpenLayout
-    : 'OpenLayout'
+    : O P E N L A Y O U T
     ;
 
 Print
-    : 'Print'
+    : P R I N T
     ;
 
 RegeSign
-    : 'RegeSign'
+    : R E G E S I G N
     ;
 
 RsetPswdSign
-    : 'RsetPswdSign'
+    : R S E T P S W D S I G N
     ;
 
 Selected
-    : 'selected'
-    | 'SELECTED'
+    : S E L E C T E D
     ;
 
 If
-    : 'if'
+    : I F
     ;
 
 While
-    : 'While'
+    : W H I L E
     ;
 
 Constant
-    : 'USERID'
-    | 'USERNAME'
-    | 'USERCODE'
-    | 'ORGNAME1'
-    | 'ORGCODE1'
-    | 'INSTANCE'
-    | 'CURTIME'
-    | 'CURROLE'
-    | 'CURFLOW'
-    | 'CURFTASK'
-    | 'CURTACHE'
-    | 'CURSTATE'
-    | 'UPLOADFILE'
+    : U S E R I D
+    | U S E R N A M E
+    | U S E R C O D E
+    | O R G N A M E '1'
+    | O R G C O D E '1'
+    | I N S T A N C E
+    | C U R T I M E
+    | C U R R O L E
+    | C U R F L O W
+    | C U R F T A S K
+    | C U R T A C H E
+    | C U R S T A T E
+    | U P L O A D F I L E
     ;
 
 //==============================================================
@@ -404,11 +403,11 @@ functionStatement
     ;
 
 ifStatement
-    : 'if' '(' expressionSequence ')' blockStatement
+    : If '(' expressionSequence ')' blockStatement
     ;
 
 whileStatement
-    : 'While' '(' ctrlQuoteDotLiteral ')' blockStatement
+    : While '(' ctrlQuoteDotLiteral ')' blockStatement
     ;
 
 blockStatement
@@ -455,263 +454,263 @@ quoteNaturalExpr
     ;
 
 openFormStatement
-    : 'OpenForm' '[' (StringLiteral | DecimalLiteral | Natural) ']' quoteEllipsisExpr? quoteEllipsisExpr? quoteEllipsisExpr? ';'
+    : OpenForm '[' (StringLiteral | DecimalLiteral | Natural) ']' quoteEllipsisExpr? quoteEllipsisExpr? quoteEllipsisExpr? ';'
     ;
 
 saveFormStatement
-    : 'SaveForm' quoteEllipsisExpr ';'
+    : SaveForm quoteEllipsisExpr ';'
     ;
 
 closeStatement
-    : 'Close' '(' StringLiteral? ')' ';'
+    : Close '(' StringLiteral? ')' ';'
     ;
 
 refreshStatement
-    : 'Refresh' '(' StringLiteral? ')' ';'
+    : Refresh '(' StringLiteral? ')' ';'
     ;
 
 messageStatement
-    : 'MessageBox' '(' MessageLiteral ',' StringLiteral ')' ';'
+    : MessageBox '(' MessageLiteral ',' StringLiteral ')' ';'
     ;
 
 clickButtonStatement
-    : 'ClickButton' '(' ctrlQuoteLiteral ')' ';'
+    : ClickButton '(' ctrlQuoteLiteral ')' ';'
     ;
 
 getComboDicStatement
-    : 'GetComboDic' '(' ctrlQuoteLiteral ',' SqlLiteral ')' ';'
+    : GetComboDic '(' ctrlQuoteLiteral ',' SqlLiteral ')' ';'
     ;
 
 queryDataStatement
-    : 'QueryData' ctrlQuoteLiteral ',' ctrlQuoteLiteral queryDataQuoteEllipsisExpr? quoteNaturalExpr? quoteNaturalExpr? ';'
+    : QueryData ctrlQuoteLiteral ',' ctrlQuoteLiteral queryDataQuoteEllipsisExpr? quoteNaturalExpr? quoteNaturalExpr? ';'
     ;
 
 carryDataStatement
-    : 'CarryData' ctrlQuoteLiteral ('(' ctrlQuoteLiteral? ')')? ';'
+    : CarryData ctrlQuoteLiteral ('(' ctrlQuoteLiteral? ')')? ';'
     ;
 
 sqlExecuteStatement
-    : 'SQLExecute' '(' SqlLiteral? ')' ';'
+    : SQLExecute '(' SqlLiteral? ')' ';'
     ;
 
 getCoderStatement
-    : 'GetCoder' '(' (ctrlQuoteLiteral ',' StringLiteral)? ')' ';'
+    : GetCoder '(' (ctrlQuoteLiteral ',' StringLiteral)? ')' ';'
     ;
 
 setCoderStatement
-    : 'SetCoder' '(' (ctrlQuoteLiteral ',' StringLiteral)? ')' ';'
+    : SetCoder '(' (ctrlQuoteLiteral ',' StringLiteral)? ')' ';'
     ;
 
 resetCtrlValueStatement
-    : 'ResetCtrlValue' quoteEllipsisExpr ';'
+    : ResetCtrlValue quoteEllipsisExpr ';'
     ;
 
 saveLastValueStatement
-    : 'SaveLastValue' quoteEllipsisExpr ';'
+    : SaveLastValue quoteEllipsisExpr ';'
     ;
 
 loadLastValueStatement
-    : 'LoadLastValue' quoteEllipsisExpr ';'
+    : LoadLastValue quoteEllipsisExpr ';'
     ;
 
 setVisiableStatement
-    : 'SetVisiable' '(' ctrlQuoteLiteral ','  Natural ')' ';'
+    : SetVisiable '(' ctrlQuoteLiteral ','  Natural ')' ';'
     ;
 
 setEnableStatement
-    : 'SetEnable' '(' ctrlQuoteLiteral ','  Natural ')' ';'
+    : SetEnable '(' ctrlQuoteLiteral ','  Natural ')' ';'
     ;
 
 setFocusStatement
-    : 'SetFocus' '(' ctrlQuoteLiteral ')' ';'
+    : SetFocus '(' ctrlQuoteLiteral ')' ';'
     ;
 
 setColorStatement
-    : 'SetColor' '(' ctrlQuoteLiteral ',' (HexLiteral | StringLiteral) ')' ';'
+    : SetColor '(' ctrlQuoteLiteral ',' (HexLiteral | StringLiteral) ')' ';'
     ;
 
 changeTabStatement
-    : 'ChangeTab' '(' ctrlQuoteLiteral ',' Natural ')' ';'
+    : ChangeTab '(' ctrlQuoteLiteral ',' Natural ')' ';'
     ;
 
 switchDisplayStatement
-    : 'SwitchDisplay' quoteEllipsisExpr ';'
+    : SwitchDisplay quoteEllipsisExpr ';'
     ;
 
 stringSubStatement
-    : 'StringSub' ctrlQuoteLiteral '(' (ctrlQuoteLiteral | StringLiteral) ',' Natural ',' Natural ')' ';'
+    : StringSub ctrlQuoteLiteral '(' (ctrlQuoteLiteral | StringLiteral) ',' Natural ',' Natural ')' ';'
     ;
 
 stringLenStatement
-    : 'StringLen' ctrlQuoteLiteral '(' (ctrlQuoteLiteral | StringLiteral) ')' ';'
+    : StringLen ctrlQuoteLiteral '(' (ctrlQuoteLiteral | StringLiteral) ')' ';'
     ;
 
 stringStrStatement
-    : 'StringStr' ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    : StringStr ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')' ';'
     ;
 
 stringRepStatement
-    : 'StringRep' '(' ctrlQuoteLiteral ',' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    : StringRep '(' ctrlQuoteLiteral ',' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')' ';'
     ;
 
 stringCatStatement
-    : 'StringCat' '(' ctrlQuoteLiteral (',' (StringLiteral | ctrlQuoteLiteral))+ ')' ';'
+    : StringCat '(' ctrlQuoteLiteral (',' (StringLiteral | ctrlQuoteLiteral))+ ')' ';'
     ;
 
 encodeBase64Statement
-    : 'EncodeBase64' ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    : EncodeBase64 ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')' ';'
     ;
 
 decodeBase64Statement
-    : 'DecodeBase64' ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    : DecodeBase64 ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')' ';'
     ;
 
 getGridRowsStatement
-    : 'GetGridRows' '(' ctrlQuoteLiteral ',' ctrlQuoteDotLiteral ')' ';'
+    : GetGridRows '(' ctrlQuoteLiteral ',' ctrlQuoteDotLiteral ')' ';'
     ;
 
 addGridRowStatement
-    : 'AddGridRow' '(' ctrlQuoteDotLiteral ((',' ctrlQuoteDotLiteral) | (',' commonLiteral)*) ')' ';'
+    : AddGridRow '(' ctrlQuoteDotLiteral ((',' ctrlQuoteDotLiteral) | (',' commonLiteral)*) ')' ';'
     ;
 
 delGridRowStatement
-    : 'DelGridRow' '(' ctrlQuoteDotLiteral ')' ';'
+    : DelGridRow '(' ctrlQuoteDotLiteral ')' ';'
     ;
 
 selGridRowStatement
-    : 'SelGridRow' '(' ctrlQuoteDotLiteral ')' ';'
+    : SelGridRow '(' ctrlQuoteDotLiteral ')' ';'
     ;
 
 exportXlsStatement
-    : 'ExportXls' '(' ctrlQuoteLiteral (',' Natural)? ')' ';'
+    : ExportXls '(' ctrlQuoteLiteral (',' Natural)? ')' ';'
     ;
 
 importXlsStatement
-    : 'ImportXls' '(' ctrlQuoteLiteral ')' ';'
+    : ImportXls '(' ctrlQuoteLiteral ')' ';'
     ;
 
 flowTranStatement
-    : 'FlowTran' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : FlowTran '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
     ;
 
 flowSaveStatement
-    : 'FlowSave' '(' ctrlQuoteLiteral? ')' ('(' Natural ')')? ';'
+    : FlowSave '(' commonLiteral? (',' commonLiteral)? ')' ';'
     ;
 
 flowFreshStatement
-    : 'FlowFresh' '(' ')' ';'
+    : FlowFresh '(' ')' ';'
     ;
 
 flowSendStatement
-    : 'FlowSend' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : FlowSend '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
     ;
 
 flowBackStatement
-    : 'FlowBack' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : FlowBack '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
     ;
 
 flowBack2Statement
-    : 'FlowBack2' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : FlowBack2 '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
     ;
 
 flowMendStatement
-    : 'FlowMend' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : FlowMend '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
     ;
 
 flowPrintStatement
-    : 'FlowPrint' '(' ')' ';'
+    : FlowPrint '(' ')' ';'
     ;
 
 flowFormStatement
-    : 'FlowForm' '(' ctrlQuoteDotLiteral? ')' ';'
+    : FlowForm '(' ctrlQuoteDotLiteral? ')' ';'
     ;
 
 flowQueryStatement
-    : 'FlowQuery' '(' ctrlQuoteDotLiteral? ')' ';'
+    : FlowQuery '(' ctrlQuoteDotLiteral? ')' ';'
     ;
 
 taskHangStatement
-    : 'TaskHang' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : TaskHang '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
     ;
 
 taskFreeStatement
-    : 'TaskFree' '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : TaskFree '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
     ;
 
 flowTestStatement
-    : 'FlowTest' '(' ')' ';'
+    : FlowTest '(' ')' ';'
     ;
 
 flowDropStatement
-    : 'FlowDrop' '(' ctrlQuoteDotLiteral? ')' ';'
+    : FlowDrop '(' ctrlQuoteDotLiteral? ')' ';'
     ;
 
 flowCloseStatement
-    : 'FlowClose' '(' ')' ';'
+    : FlowClose '(' ')' ';'
     ;
 
 flowAgentStatement
-    : 'FlowAgent' '(' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral (',' commonLiteral)? ')' ';'
+    : FlowAgent '(' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral (',' commonLiteral)? ')' ';'
     ;
 
 agentCancelStatement
-    : 'AgentCancel' '(' ctrlQuoteLiteral ')' ';'
+    : AgentCancel '(' ctrlQuoteLiteral ')' ';'
     ;
 
 flowRefactStatement
-    : 'FlowRefact' '(' ctrlQuoteDotLiteral ',' Natural ')' ';'
+    : FlowRefact '(' ctrlQuoteDotLiteral ',' Natural ')' ';'
     ;
 
 testCommitStatement
-    : 'TestCommit' '(' commonLiteral ',' StringLiteral ')' ';'
+    : TestCommit '(' commonLiteral ',' StringLiteral ')' ';'
     ;
 
 changeInstFlowStatement
-    : 'ChangeInstFlow' '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ',' commonLiteral ')' ';'
+    : ChangeInstFlow '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ',' commonLiteral ')' ';'
     ;
 
 instFlowStatement
-    : 'InstFlow' '(' StringLiteral ',' StringLiteral ')' '(' StringLiteral ',' ctrlQuoteLiteral ')' ';'
+    : InstFlow '(' StringLiteral ',' StringLiteral ')' '(' StringLiteral ',' ctrlQuoteLiteral ')' ';'
     ;
 
 taskDeleteStatement
-    : 'TaskDelete' '(' commonLiteral ',' commonLiteral ')' ';'
+    : TaskDelete '(' commonLiteral ',' commonLiteral ')' ';'
     ;
 
 tachSendStatement
-    : 'TachSend' '(' (commonLiteral ',' commonLiteral)? ')' ';'
+    : TachSend '(' (commonLiteral ',' commonLiteral)? ')' ';'
     ;
 
 commWordStatement
-    : 'CommWord' '(' ')' ';'
+    : CommWord '(' ')' ';'
     ;
 
 execFuncStatement
-    : 'ExecFunc' ctrlQuoteLiteral '(' commonLiteral ')' ('(' commonLiteral? (',' commonLiteral)* ')')? ';'
+    : ExecFunc ctrlQuoteLiteral '(' commonLiteral ')' ('(' commonLiteral? (',' commonLiteral)* ')')? ';'
     ;
 
 cmdBreakStatement
-    : 'CmdBreak' '(' ')' ';'
+    : CmdBreak '(' ')' ';'
     ;
 
 openUrlStatement
-    : 'OpenUrl' '(' (StringLiteral ',')? expression ')' ';' 
+    : OpenUrl '(' (StringLiteral ',')? expression ')' ';' 
     ;
 
 openLayoutStatement
-    : 'OpenLayout' ctrlQuoteLiteral ';'
+    : OpenLayout ctrlQuoteLiteral ';'
     ;
 
 printStatement
-    : 'Print' ctrlQuoteLiteral quoteEllipsisExpr ('(' PrintLiteral ')')? ';'
+    : Print ctrlQuoteLiteral quoteEllipsisExpr ('(' PrintLiteral ')')? ';'
     ;
 
 regeSignStatement
-    : 'RegeSign' '(' commonLiteral ')' ';'
+    : RegeSign '(' commonLiteral ')' ';'
     ;
 
 rsetPswdSignStatement
-    : 'RsetPswdSign' '(' commonLiteral ',' StringLiteral ')' ';'
+    : RsetPswdSign '(' commonLiteral ',' StringLiteral ')' ';'
     ;
 
 extendStatement
@@ -841,10 +840,38 @@ LowerCaseChar
     : [a-z]
     ;
 
-//==============================================================
 Extend
     : [A-Za-z0-9_]+
     ;
+
+//=============================================================
+fragment A : [aA];
+fragment B : [bB];
+fragment C : [cC];
+fragment D : [dD];
+fragment E : [eE];
+fragment F : [fF];
+fragment G : [gG];
+fragment H : [hH];
+fragment I : [iI];
+fragment J : [jJ];
+fragment K : [kK];
+fragment L : [lL];
+fragment M : [mM];
+fragment N : [nN];
+fragment O : [oO];
+fragment P : [pP];
+fragment Q : [qQ];
+fragment R : [rR];
+fragment S : [sS];
+fragment T : [tT];
+fragment U : [uU];
+fragment V : [vV];
+fragment W : [wW];
+fragment X : [xX];
+fragment Y : [yY];
+fragment Z : [zZ];
+//==============================================================
 
 WS
     : [\t\r\n]+ -> skip 

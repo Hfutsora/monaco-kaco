@@ -268,7 +268,7 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
         }, {
           label: 'FlowSave',
           kind: monaco.languages.CompletionItemKind.Function,
-          insertText: 'FlowSave([\'${1:流程实例编号}\'])(${2:流程编号});',
+          insertText: 'FlowSave([\'${1:流程实例编号}\'], ${2:流程编号});',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '保存流程数据',
           range
