@@ -95,6 +95,9 @@ import { CtrlQuoteParamLiteralContext } from "./kacoParser";
 import { CtrlConstantLiteralContext } from "./kacoParser";
 import { CommonLiteralContext } from "./kacoParser";
 import { NegationExprContext } from "./kacoParser";
+import { SqlTemplateExprContext } from "./kacoParser";
+import { SqlStatementContext } from "./kacoParser";
+import { SqlQuoteStatementContext } from "./kacoParser";
 
 
 /**
@@ -1113,5 +1116,38 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitNegationExpr?: (ctx: NegationExprContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.sqlTemplateExpr`.
+	 * @param ctx the parse tree
+	 */
+	enterSqlTemplateExpr?: (ctx: SqlTemplateExprContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.sqlTemplateExpr`.
+	 * @param ctx the parse tree
+	 */
+	exitSqlTemplateExpr?: (ctx: SqlTemplateExprContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.sqlStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSqlStatement?: (ctx: SqlStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.sqlStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSqlStatement?: (ctx: SqlStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.sqlQuoteStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSqlQuoteStatement?: (ctx: SqlQuoteStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.sqlQuoteStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSqlQuoteStatement?: (ctx: SqlQuoteStatementContext) => void;
 }
 

@@ -40,8 +40,6 @@ import MonacoKaco from '@/index.vue';
 export default class App extends Vue {
   value = `\
 OpenForm[\'default\']([\'a\'.\'b\'], 1001.5)(\'b\', [@ 0])(false);
-
-SaveForm(['form-name']);
 ExtendFunc(1, ['name'], [@ 2], null);
 
 ['ctrl_input'] = [@ 1];
@@ -53,74 +51,20 @@ ExtendFunc(1, ['name'], [@ 2], null);
 ['parent_form'].['ctrl_input'],['ctrl_textarea'] = ('123' + ['123'.'123']) + [@ 1] + 1000 + false + (1 - (2 * (3 / 2)));
 
 if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
-    ['ctrl'] = [$ USERID];
-    ['CTRL'] = [# select key from table where id=[$ USERID] #];
+    ['CTRL'] = [# select key from table where id=[$ USERID]];
     MessageBox('警告', '该调查表已使用!');
-    ClickButton(['保存']);
-    GetComboDic(['下拉框控件名称'], [# select field1,field2 from table where... #]);
-    Refresh();
-    Close();
     QueryData['收件单查询'],['结果列表'](POSITIONMARKE,['权利人'])(100)(0);
-    CarryData['国有档案录入数据关联'](['受理号']);
-    SQLExecute([# update d_rec set state = 0 where slid =[$ INSTANCE] #]);
-    GetCoder(['受理号'],'%11[1001]');
-    SetCoder(['受理号'],'%2D[1001]');
-    ResetCtrlValue(['控件1'], ['控件2'], ['控件3'], ['控件4']);
-    SaveLastValue(['控件1'], ['控件2'], ['控件3']);
-    LoadLastValue(['控件1'], ['控件2'], ['控件3']);
-    SetVisiable(['Button'], 0);
-    SetEnable(['权利人名称'], 1);
-    SetFocus(['申请人']);
-    SetColor(['申请人'], '#ffffff');
-    ChangeTab(['tp-1'], 1);
-    SwitchDisplay(['控件1'],['控件2'],['控件3'],['控件4']);
+    SQLExecute(update d_rec set state = 0 where slid =[$ INSTANCE]);
     StringSub['A'](['B'], 1, 3);
-    StringLen['H'](['地号']);
-    StringStr['L'](['A'], ['B']);
-    StringRep(['L'],['A'],['B']);
-    StringCat(['L'],['A'],'content');
-    EncodeBase64['编码'](['产权']);
-    DecodeBase64['编码'](['产权']);
     GetGridRows(['控件'], ['数据列表名称'.'列名'(selected == *)]);
 
     While(['数据列表名称'.'列名'(selected == *)]) {
       AddGridRow(['记事列表'.'证书记事内容','证书记事日期'], '', [$ CURTIME]);
-      SelGridRow(['分割登记明细表'.'受理号'('办理状态' == '通过')]);
-      ExportXls(['结果列表'], 0);
-      ImportXls(['结果列表']);
     }
 
     FlowTran(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
     FlowSave(['受理ID'], 110004);
-    FlowFresh();
-    FlowSend(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
-    FlowBack(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
-    FlowBack2(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
-    FlowMend(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
-    FlowPrint();
-    FlowForm(['TASKLIST'.'FI_INST']);
-    FlowQuery(['结果列表'.'FI_INST']);
-    TaskHang(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
-    TaskFree(['TASKLIST'.'FI_INST'],['TASKLIST'.'FT_IDENT']);
-    FlowTest();
-    FlowDrop(['TASKLIST'.'FI_INST']);
-    FlowClose();
-    FlowAgent(237, 11, '12037-6-7', '2020-4-27 09:30:27', '2020-04-27 14:00:00', ['请假']);
-    AgentCancel(['代理序号']);
-    FlowRefact(['TASKLIST'.'FI_INST'], 1);
-    TestCommit(102001, 'AAA');
-    ChangeInstFlow(['TASKLIST'.'FI_INST'], ['TASKLIST'.'FT_IDENT'], 12019);
-    InstFlow('公务外出', '%11[1001]')('公务外出', ['SLID']);
-    TaskDelete(['TASKLIST'.'业务号'],['TASKLIST'.'FT_IDENT']);
-    TachSend(['TASKLIST'.'业务号'],['TASKLIST'.'FT_IDENT']);
-    CommWord();
-    ExecFunc['testfunc']([$INSTANCE])([$INSTANCE]);
-    CmdBreak();
     OpenUrl('title', 'http://www.' + ['title'] + '.com');
-    OpenLayout['导航名称'];
-    Print['审批表'](['受理号'], ['受理号2'])(TD);
-    RegeSign(['用户ID']);
-    RsetPswdSign(['用户ID'], '新密码');
 }
 `;
 }
