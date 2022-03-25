@@ -776,6 +776,10 @@ commonLiteral
 
 //==============================================================
 
+COMMENT
+    : '//' ~[\r\n\u2028\u2029]* -> channel(HIDDEN)
+    ;
+
 MessageLiteral
     : '\'' ( '警告' | '提示' | '询问') '\''
     ;
@@ -815,18 +819,6 @@ ParamLiteral
     : '@' WHITESPACE Natural
     ;
 
-sqlTemplateExpr
-    : commonLiteral | Extend | . | '[' sqlTemplateExpr ']' | '(' sqlTemplateExpr ')'
-    ;
-
-sqlStatement
-    : '(' (sqlTemplateExpr)*? ')'
-    ;
-
-sqlQuoteStatement
-    : '[' '#' (sqlTemplateExpr)*? ']'
-    ;
-
 Decimal
     : '0' ('.' (DigitChar)* NonZeroDigit)?
     | NonZeroDigit (DigitChar)* ('.' (DigitChar)* NonZeroDigit)?
@@ -850,6 +842,18 @@ LowerCaseChar
 
 Extend
     : [A-Za-z0-9_]+
+    ;
+
+sqlTemplateExpr
+    : commonLiteral | Extend | . | '[' sqlTemplateExpr ']' | '(' sqlTemplateExpr ')'
+    ;
+
+sqlStatement
+    : '(' (sqlTemplateExpr)*? ')'
+    ;
+
+sqlQuoteStatement
+    : '[' '#' (sqlTemplateExpr)*? ']'
     ;
 
 //=============================================================
@@ -884,10 +888,6 @@ fragment Z : [zZ];
 WS
     : [\t\r\n]+ -> skip 
     ; // skip spaces, newlines
-
-COMMENT
-    : '//' ~[\r\n\u2028\u2029]* -> channel(HIDDEN)
-    ;
 
 WHITESPACE
     : (' ' | '\r' | '\n' | '\t') -> skip
