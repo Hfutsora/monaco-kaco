@@ -196,7 +196,7 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\n仅支持当前表单按钮调用，不能跨表单调用\n```' }
   ],
   GETCOMBODIC: [
-    { value: '```\nGetComboDic([\'下拉框控件名称\'],[# \'select field1,field2 from table where...\'])\n```' },
+    { value: '```\nGetComboDic([\'下拉框控件名称\'],[# sql语句])\n```' },
     { value: '获取动态字典值' },
     { value: '需要在数字字典中配置各项字典值' },
     { value: '```\n示例\nGetComboDic([\'区\'],[# \'select sd_keyno,sd_value from oa2_sysdic where sd_main<>0\'])\n```' }
@@ -214,9 +214,9 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\n示例\nCarryData[\'国有档案录入数据关联\']([\'受理号\'])\n```' }
   ],
   SQLEXECUTE: [
-    { value: '```\nSQLExecute([# SQL语句 #])\n```' },
+    { value: '```\nSQLExecute(SQL语句)\n```' },
     { value: 'SQL语句一般是delete 、insert into 、update 等没有数据返回的SQL' },
-    { value: '```\n示例\nSQLExecute([# update d_rec set state = 0 where slid =[$ INSTANCE] #])\n```' }
+    { value: '```\n示例\nSQLExecute(update d_rec set state = 0 where slid =[$ INSTANCE])\n```' }
   ],
   GETCODER: [
     { value: '```\nGetCoder([\'控件名称\'],编号规则,是否跳号)\n```' },

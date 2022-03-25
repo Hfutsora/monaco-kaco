@@ -95,6 +95,9 @@ import { CtrlQuoteParamLiteralContext } from "./kacoParser";
 import { CtrlConstantLiteralContext } from "./kacoParser";
 import { CommonLiteralContext } from "./kacoParser";
 import { NegationExprContext } from "./kacoParser";
+import { SqlTemplateExprContext } from "./kacoParser";
+import { SqlStatementContext } from "./kacoParser";
+import { SqlQuoteStatementContext } from "./kacoParser";
 
 
 /**
@@ -748,5 +751,26 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitNegationExpr?: (ctx: NegationExprContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.sqlTemplateExpr`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSqlTemplateExpr?: (ctx: SqlTemplateExprContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.sqlStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSqlStatement?: (ctx: SqlStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.sqlQuoteStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSqlQuoteStatement?: (ctx: SqlQuoteStatementContext) => Result;
 }
 

@@ -150,7 +150,6 @@ export const TokenMap: Record<string, string> = {
   PrintLiteral: 'number',
   HexLiteral: 'number.hex',
   QueryDataMarke: 'type',
-
   SqlLiteral: 'type',
 
   COMMENT: 'comment',

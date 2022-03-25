@@ -478,7 +478,7 @@ clickButtonStatement
     ;
 
 getComboDicStatement
-    : GetComboDic '(' ctrlQuoteLiteral ',' SqlLiteral ')' ';'
+    : GetComboDic '(' ctrlQuoteLiteral ',' sqlQuoteStatement ')' ';'
     ;
 
 queryDataStatement
@@ -490,7 +490,7 @@ carryDataStatement
     ;
 
 sqlExecuteStatement
-    : SQLExecute '(' SqlLiteral? ')' ';'
+    : SQLExecute sqlStatement ';'
     ;
 
 getCoderStatement
@@ -729,8 +729,8 @@ divTerm: mulTerm ('/' mulTerm)*;
 mulTerm: parnTerm ('*' parnTerm)*;
 
 parnTerm
-    : (commonLiteral | SqlLiteral) expression (commonLiteral | SqlLiteral)
-    | (commonLiteral | SqlLiteral) 
+    : (commonLiteral | sqlQuoteStatement) expression (commonLiteral | sqlQuoteStatement)
+    | (commonLiteral | sqlQuoteStatement) 
     | '(' expression ')'
     ;
 
@@ -815,8 +815,16 @@ ParamLiteral
     : '@' WHITESPACE Natural
     ;
 
-SqlLiteral
-    : '[' '#' (~[\\\r\n] | '\'' | SqlLiteral | '[' '$' Constant ']' | '[' '@' WHITESPACE Natural ']')*? '#]'
+sqlTemplateExpr
+    : commonLiteral | Extend | . | '[' sqlTemplateExpr ']' | '(' sqlTemplateExpr ')'
+    ;
+
+sqlStatement
+    : '(' (sqlTemplateExpr)*? ')'
+    ;
+
+sqlQuoteStatement
+    : '[' '#' (sqlTemplateExpr)*? ']'
     ;
 
 Decimal

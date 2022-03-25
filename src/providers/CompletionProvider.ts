@@ -65,7 +65,7 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
         }, {
           label: 'GetComboDic',
           kind: monaco.languages.CompletionItemKind.Function,
-          insertText: 'GetComboDic([\'$1\'], [# $2 #]);',
+          insertText: 'GetComboDic([\'$1\'], [# $2]);',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '获取字典',
           range
@@ -79,7 +79,7 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
         }, {
           label: 'SQLExecute',
           kind: monaco.languages.CompletionItemKind.Function,
-          insertText: 'SQLExecute([# $1 #]);',
+          insertText: 'SQLExecute($1);',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: '执行SQL',
           range
@@ -513,7 +513,7 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
         }, {
           label: 'Sql',
           kind: monaco.languages.CompletionItemKind.Struct,
-          insertText: '[# $1 #]',
+          insertText: '[# ${1:sql}]',
           insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
           detail: 'sql',
           range
