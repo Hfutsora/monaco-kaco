@@ -845,7 +845,16 @@ Extend
     ;
 
 sqlTemplateExpr
-    : commonLiteral | Extend | . | '[' sqlTemplateExpr ']' | '(' sqlTemplateExpr ')'
+    : commonLiteral
+    | Multiply
+    | Extend
+    | Assign
+    | Dot
+    | Comma
+    | '<' sqlTemplateExpr*? '>'
+    | '{' sqlTemplateExpr*? '}'
+    | '[' sqlTemplateExpr*? ']'
+    | '(' sqlTemplateExpr*? ')'
     ;
 
 sqlStatement
