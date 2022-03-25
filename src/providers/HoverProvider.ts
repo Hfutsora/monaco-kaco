@@ -147,7 +147,8 @@ export const kacoKeywords = [
   'ChangeInstFlow',
   'InstFlow',
   'TaskDelete',
-  'TachSend'
+  'TachSend',
+  'CommWord'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -456,5 +457,9 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '环节内转发（同级转发）' },
     { value: '配置在工具条时，参数可省略，表示以当前正在办理流程的实例编号和任务编号转发' },
     { value: '```\n示例\nTachSend([\'TASKLIST\'.\'业务号\'], [\'TASKLIST\'.\'FT_IDENT\'])\n```' }
+  ],
+  CommWord: [
+    { value: '```\nCommWord()\n```' },
+    { value: '打开常用词，可直接选择或添加常用词' }
   ]
 };

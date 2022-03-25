@@ -88,6 +88,8 @@ export const TokenMap: Record<string, string> = {
   InstFlow: 'keyword',
   TaskDelete: 'keyword',
   TachSend: 'keyword',
+  // others
+  CommWord: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

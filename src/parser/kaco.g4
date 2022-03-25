@@ -264,6 +264,10 @@ TachSend
     : 'TachSend'
     ;
 
+CommWord
+    : 'CommWord'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -359,6 +363,7 @@ functionStatement
     | instFlowStatement
     | taskDeleteStatement
     | tachSendStatement
+    | commWordStatement
     | assignStatement
     | extendStatement
     ;
@@ -640,6 +645,10 @@ taskDeleteStatement
 
 tachSendStatement
     : 'TachSend' '(' (commonLiteral ',' commonLiteral)? ')' ';'
+    ;
+
+commWordStatement
+    : 'CommWord' '(' ')' ';'
     ;
 
 extendStatement

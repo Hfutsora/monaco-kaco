@@ -72,6 +72,7 @@ import { ChangeInstFlowStatementContext } from "./kacoParser";
 import { InstFlowStatementContext } from "./kacoParser";
 import { TaskDeleteStatementContext } from "./kacoParser";
 import { TachSendStatementContext } from "./kacoParser";
+import { CommWordStatementContext } from "./kacoParser";
 import { ExtendStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
@@ -579,6 +580,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitTachSendStatement?: (ctx: TachSendStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.commWordStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCommWordStatement?: (ctx: CommWordStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.extendStatement`.
