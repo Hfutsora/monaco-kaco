@@ -153,7 +153,8 @@ export const kacoKeywords = [
   'CmdBreak',
   'OpenUrl',
   'OpenLayout',
-  'Print'
+  'Print',
+  'RegeSign'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -490,5 +491,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '模板打印' },
     { value: '模式：\n- `TD`：套打\n- `XD`：续打' },
     { value: '```\n示例\nPrint[\'初始登记-审批表\']([\'受理号\'])(TD)\n```' }
+  ],
+  RegeSign: [
+    { value: '```\nRegeSign(用户ID)\n```' },
+    { value: '注册电子签章' },
+    { value: '```\n示例\nRegeSign([\'用户ID\'])\n```' }
   ]
 };

@@ -95,6 +95,7 @@ export const TokenMap: Record<string, string> = {
   OpenUrl: 'keyword',
   OpenLayout: 'keyword',
   Print: 'keyword',
+  RegeSign: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',

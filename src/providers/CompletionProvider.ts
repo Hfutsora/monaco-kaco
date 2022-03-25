@@ -462,6 +462,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '模板打印',
           range
         }, {
+          label: 'RegeSign',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'RegeSign(${1:\'用户ID\'});',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '注册电子签章',
+          range
+        }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'While ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',

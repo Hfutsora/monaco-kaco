@@ -288,6 +288,10 @@ Print
     : 'Print'
     ;
 
+RegeSign
+    : 'RegeSign'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -389,6 +393,7 @@ functionStatement
     | openUrlStatement
     | openLayoutStatement
     | printStatement
+    | regeSignStatement
     | assignStatement
     | extendStatement
     ;
@@ -694,6 +699,10 @@ openLayoutStatement
 
 printStatement
     : 'Print' ctrlQuoteLiteral quoteEllipsisExpr ('(' PrintLiteral ')')? ';'
+    ;
+
+regeSignStatement
+    : 'RegeSign' '(' commonLiteral ')' ';'
     ;
 
 extendStatement
