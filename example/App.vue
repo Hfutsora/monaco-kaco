@@ -115,6 +115,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     TachSend(['TASKLIST'.'业务号'],['TASKLIST'.'FT_IDENT']);
     CommWord();
     ExecFunc['testfunc']([$INSTANCE])([$INSTANCE]);
+    CmdBreak();
 }
 `;
 }

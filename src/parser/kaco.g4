@@ -272,6 +272,10 @@ ExecFunc
     : 'ExecFunc'
     ;
 
+CmdBreak
+    : 'CmdBreak'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -369,6 +373,7 @@ functionStatement
     | tachSendStatement
     | commWordStatement
     | execFuncStatement
+    | cmdBreakStatement
     | assignStatement
     | extendStatement
     ;
@@ -658,6 +663,10 @@ commWordStatement
 
 execFuncStatement
     : 'ExecFunc' ctrlQuoteLiteral '(' commonLiteral ')' ('(' commonLiteral? (',' commonLiteral)* ')')? ';'
+    ;
+
+cmdBreakStatement
+    : 'CmdBreak' '(' ')' ';'
     ;
 
 extendStatement

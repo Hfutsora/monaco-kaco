@@ -74,6 +74,7 @@ import { TaskDeleteStatementContext } from "./kacoParser";
 import { TachSendStatementContext } from "./kacoParser";
 import { CommWordStatementContext } from "./kacoParser";
 import { ExecFuncStatementContext } from "./kacoParser";
+import { CmdBreakStatementContext } from "./kacoParser";
 import { ExtendStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
@@ -595,6 +596,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitExecFuncStatement?: (ctx: ExecFuncStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.cmdBreakStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitCmdBreakStatement?: (ctx: CmdBreakStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.extendStatement`.

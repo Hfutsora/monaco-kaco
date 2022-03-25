@@ -149,7 +149,8 @@ export const kacoKeywords = [
   'TaskDelete',
   'TachSend',
   'CommWord',
-  'ExecFunc'
+  'ExecFunc',
+  'CmdBreak'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -467,5 +468,9 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nExecFunc[\'函数模板名称\'](主键)(...参数)\n```' },
     { value: '调用函数模板' },
     { value: '```\n示例\nExecFunc[\'testfunc\']([$INSTANCE])([$INSTANCE])\n```' }
+  ],
+  CmdBreak: [
+    { value: '```\nCmdBreak()\n```' },
+    { value: '中断事件执行' }
   ]
 };
