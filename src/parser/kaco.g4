@@ -284,6 +284,10 @@ OpenLayout
     : 'OpenLayout'
     ;
 
+Print
+    : 'Print'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -384,6 +388,7 @@ functionStatement
     | cmdBreakStatement
     | openUrlStatement
     | openLayoutStatement
+    | printStatement
     | assignStatement
     | extendStatement
     ;
@@ -687,6 +692,10 @@ openLayoutStatement
     : 'OpenLayout' ctrlQuoteLiteral ';'
     ;
 
+printStatement
+    : 'Print' ctrlQuoteLiteral quoteEllipsisExpr ('(' PrintLiteral ')')? ';'
+    ;
+
 extendStatement
     : Extend '(' (commonLiteral (',' commonLiteral)*)? ')' ';'
     ;
@@ -752,6 +761,11 @@ commonLiteral
 
 MessageLiteral
     : '\'' ( '警告' | '提示' | '询问') '\''
+    ;
+
+PrintLiteral
+    : 'TD'
+    | 'XD'
     ;
 
 HexLiteral

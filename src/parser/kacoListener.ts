@@ -77,6 +77,7 @@ import { ExecFuncStatementContext } from "./kacoParser";
 import { CmdBreakStatementContext } from "./kacoParser";
 import { OpenUrlStatementContext } from "./kacoParser";
 import { OpenLayoutStatementContext } from "./kacoParser";
+import { PrintStatementContext } from "./kacoParser";
 import { ExtendStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
@@ -912,6 +913,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitOpenLayoutStatement?: (ctx: OpenLayoutStatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.printStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterPrintStatement?: (ctx: PrintStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.printStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitPrintStatement?: (ctx: PrintStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.extendStatement`.

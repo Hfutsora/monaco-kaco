@@ -118,6 +118,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     CmdBreak();
     OpenUrl('title', 'http://www.' + ['title'] + '.com');
     OpenLayout['导航名称'];
+    Print['审批表'](['受理号'], ['受理号2'])(TD);
 }
 `;
 }

@@ -94,6 +94,7 @@ export const TokenMap: Record<string, string> = {
   CmdBreak: 'keyword',
   OpenUrl: 'keyword',
   OpenLayout: 'keyword',
+  Print: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',
@@ -144,6 +145,7 @@ export const TokenMap: Record<string, string> = {
   Natural: 'number',
   MessageLiteral: 'number',
   BooleanNumberLiteral: 'number',
+  PrintLiteral: 'number',
   HexLiteral: 'number.hex',
   QueryDataMarke: 'type',
 

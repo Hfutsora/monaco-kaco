@@ -152,7 +152,8 @@ export const kacoKeywords = [
   'ExecFunc',
   'CmdBreak',
   'OpenUrl',
-  'OpenLayout'
+  'OpenLayout',
+  'Print'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -483,5 +484,11 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   OpenLayout: [
     { value: '```\nOpenLayout[\'导航名称\']\n```' },
     { value: '打开导航第一级目录' }
+  ],
+  Print: [
+    { value: '```\nPrint[\'打印模板名称\'](...主键)(模式)\n```' },
+    { value: '模板打印' },
+    { value: '模式：\n- `TD`：套打\n- `XD`：续打' },
+    { value: '```\n示例\nPrint[\'初始登记-审批表\']([\'受理号\'])(TD)\n```' }
   ]
 };
