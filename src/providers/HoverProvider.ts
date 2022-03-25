@@ -154,7 +154,8 @@ export const kacoKeywords = [
   'OpenUrl',
   'OpenLayout',
   'Print',
-  'RegeSign'
+  'RegeSign',
+  'RsetPswdSign'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -496,5 +497,9 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\nRegeSign(用户ID)\n```' },
     { value: '注册电子签章' },
     { value: '```\n示例\nRegeSign([\'用户ID\'])\n```' }
+  ],
+  RsetPswdSign: [
+    { value: '```\nRsetPswdSign(用户ID, \'新密码\')\n```' },
+    { value: '重置电子签章密码' }
   ]
 };

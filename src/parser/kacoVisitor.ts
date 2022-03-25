@@ -79,6 +79,7 @@ import { OpenUrlStatementContext } from "./kacoParser";
 import { OpenLayoutStatementContext } from "./kacoParser";
 import { PrintStatementContext } from "./kacoParser";
 import { RegeSignStatementContext } from "./kacoParser";
+import { RsetPswdSignStatementContext } from "./kacoParser";
 import { ExtendStatementContext } from "./kacoParser";
 import { ExpressionContext } from "./kacoParser";
 import { SubTermContext } from "./kacoParser";
@@ -635,6 +636,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitRegeSignStatement?: (ctx: RegeSignStatementContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.rsetPswdSignStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitRsetPswdSignStatement?: (ctx: RsetPswdSignStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.extendStatement`.

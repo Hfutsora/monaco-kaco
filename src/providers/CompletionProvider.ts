@@ -469,6 +469,13 @@ export class CompletionItemProvider implements monaco.languages.CompletionItemPr
           detail: '注册电子签章',
           range
         }, {
+          label: 'RsetPswdSign',
+          kind: monaco.languages.CompletionItemKind.Function,
+          insertText: 'RsetPswdSign(${1:\'用户ID\'}, \'${2:新密码}\');',
+          insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+          detail: '重置电子签章密码',
+          range
+        }, {
           label: 'While',
           kind: monaco.languages.CompletionItemKind.Function,
           insertText: 'While ([\'${1:数据列表}\'.\'${2:列名}\'(selected == ${3|*,-1,0,1|})]) {\n$4\n}\n',

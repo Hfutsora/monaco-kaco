@@ -292,6 +292,10 @@ RegeSign
     : 'RegeSign'
     ;
 
+RsetPswdSign
+    : 'RsetPswdSign'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -394,6 +398,7 @@ functionStatement
     | openLayoutStatement
     | printStatement
     | regeSignStatement
+    | rsetPswdSignStatement
     | assignStatement
     | extendStatement
     ;
@@ -703,6 +708,10 @@ printStatement
 
 regeSignStatement
     : 'RegeSign' '(' commonLiteral ')' ';'
+    ;
+
+rsetPswdSignStatement
+    : 'RsetPswdSign' '(' commonLiteral ',' StringLiteral ')' ';'
     ;
 
 extendStatement
