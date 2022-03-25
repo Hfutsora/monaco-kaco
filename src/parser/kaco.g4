@@ -276,6 +276,10 @@ CmdBreak
     : 'CmdBreak'
     ;
 
+OpenUrl
+    : 'OpenUrl'
+    ;
+
 Selected
     : 'selected'
     | 'SELECTED'
@@ -374,6 +378,7 @@ functionStatement
     | commWordStatement
     | execFuncStatement
     | cmdBreakStatement
+    | openUrlStatement
     | assignStatement
     | extendStatement
     ;
@@ -667,6 +672,10 @@ execFuncStatement
 
 cmdBreakStatement
     : 'CmdBreak' '(' ')' ';'
+    ;
+
+openUrlStatement
+    : 'OpenUrl' '(' (StringLiteral ',')? expression ')' ';' 
     ;
 
 extendStatement

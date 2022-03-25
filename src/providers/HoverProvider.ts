@@ -150,7 +150,8 @@ export const kacoKeywords = [
   'TachSend',
   'CommWord',
   'ExecFunc',
-  'CmdBreak'
+  'CmdBreak',
+  'OpenUrl'
 ] as const;
 
 const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
@@ -472,5 +473,10 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
   CmdBreak: [
     { value: '```\nCmdBreak()\n```' },
     { value: '中断事件执行' }
+  ],
+  OpenUrl: [
+    { value: '```\nOpenUrl(\'标题\', \'地址\')\n```' },
+    { value: '打开网址' },
+    { value: '```\n示例\nOpenUrl(\'title\', \'http://www.\' + [\'title\'] + \'.com\')\n```' }
   ]
 };

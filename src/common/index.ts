@@ -92,6 +92,7 @@ export const TokenMap: Record<string, string> = {
   CommWord: 'keyword',
   ExecFunc: 'keyword',
   CmdBreak: 'keyword',
+  OpenUrl: 'keyword',
 
   Selected: 'keyword',
   If: 'keyword',
