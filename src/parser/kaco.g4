@@ -594,7 +594,7 @@ flowTranStatement
     ;
 
 flowSaveStatement
-    : FlowSave '(' ctrlQuoteLiteral? ')' ('(' Natural ')')? ';'
+    : FlowSave '(' commonLiteral? (',' commonLiteral)? ')' ';'
     ;
 
 flowFreshStatement

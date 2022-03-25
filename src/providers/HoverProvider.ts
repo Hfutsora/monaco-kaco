@@ -349,9 +349,9 @@ const schema: Record<typeof kacoKeywords[number], monaco.IMarkdownString[]> = {
     { value: '```\n示例\nFlowTran([\'TASKLIST\'.\'FI_INST\'],[\'TASKLIST\'.\'FT_IDENT\'])\n```' }
   ],
   FLOWSAVE: [
-    { value: '```\nFlowSave([\'流程实例编号\'])(流程编号)\n```' },
+    { value: '```\nFlowSave(流程实例编号, 流程编号)\n```' },
     { value: '保存流程数据，和表单数据' },
-    { value: '```\n示例\nFlowSave([\'受理ID\'])(110004)\n```' }
+    { value: '```\n示例\nFlowSave([\'受理ID\'], 110004)\n```' }
   ],
   FLOWFRESH: [
     { value: '```\nFlowFresh()\n```' },
