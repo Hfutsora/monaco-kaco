@@ -832,14 +832,6 @@ DigitChar
     | '_'
     ;
 
-UpperCaseChar
-    : [A-Z]
-    ;
-
-LowerCaseChar
-    : [a-z]
-    ;
-
 Extend
     : [A-Za-z0-9_]+
     ;
@@ -851,6 +843,7 @@ sqlTemplateExpr
     | Assign
     | Dot
     | Comma
+    | Constant
     | '<' sqlTemplateExpr*? '>'
     | '{' sqlTemplateExpr*? '}'
     | '[' sqlTemplateExpr*? ']'
