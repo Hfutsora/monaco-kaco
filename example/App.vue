@@ -51,7 +51,7 @@ ExtendFunc(1, ['name'], [@ 2], null); // This is a comment
 ['parent_form'].['ctrl_input'],['ctrl_textarea'] = ('123' + ['123'.'123']) + [@ 1] + 1000 + false + (1 - (2 * (3 / 2)));
 
 if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
-    ['CTRL'] = [# select key from table where id=[$ USERID]];
+    ['CTRL'] = [# select key from table where id=[$ USERID] and b=a.userid];
     MessageBox('警告', '该调查表已使用!');
     QueryData['收件单查询'],['结果列表'](POSITIONMARKE,['权利人'])(100)(0);
     SQLExecute(update d_rec set state = 0 where slid =[$ INSTANCE]);
