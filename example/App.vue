@@ -43,7 +43,7 @@ OpenForm[\'default\']([\'a\'.\'b\'], 1001.5)(\'b\', [@ 0])(false);
 ExtendFunc(1, ['name'], [@ 2], null); // This is a comment
 
 ['ctrl_input'] = [@ 1];
-['ctrl_input'] = ['table'.'column','name','age'(SELECTED == *)];
+['ctrl_input'] = ['table'.'column','name','age'(SELECTED == -1)];
 ['ctrl_input'] = 'default';
 ['ctrl_input'] = 1000.4;
 ['ctrl_input'] = false;
