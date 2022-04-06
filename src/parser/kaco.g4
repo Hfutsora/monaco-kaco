@@ -752,7 +752,7 @@ ctrlQuoteLiteral
     ;
 
 ctrlQuoteDotLiteral
-    : '[' StringLiteral ('.' StringLiteral)? (',' StringLiteral)* ('(' ((Selected '==' (DecimalLiteral | '*' | Natural)) | (StringLiteral '==' commonLiteral)) ')')? ']'
+    : '[' StringLiteral ('.' StringLiteral)? (',' StringLiteral)* ('(' ((Selected '==' (negationExpr | '*' | Natural)) | (StringLiteral '==' commonLiteral)) ')')? ']'
     ;
 
 ctrlQuoteParamLiteral
