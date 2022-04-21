@@ -86,6 +86,7 @@ import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
 import { DivTermContext } from "./kacoParser";
 import { MulTermContext } from "./kacoParser";
+import { SupplierStatementContext } from "./kacoParser";
 import { ParnTermContext } from "./kacoParser";
 import { AssignContext } from "./kacoParser";
 import { AssignStartContext } from "./kacoParser";
@@ -688,6 +689,13 @@ export interface kacoVisitor<Result> extends ParseTreeVisitor<Result> {
 	 * @return the visitor result
 	 */
 	visitMulTerm?: (ctx: MulTermContext) => Result;
+
+	/**
+	 * Visit a parse tree produced by `kacoParser.supplierStatement`.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	visitSupplierStatement?: (ctx: SupplierStatementContext) => Result;
 
 	/**
 	 * Visit a parse tree produced by `kacoParser.parnTerm`.

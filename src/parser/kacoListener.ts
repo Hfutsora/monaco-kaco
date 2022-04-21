@@ -86,6 +86,7 @@ import { SubTermContext } from "./kacoParser";
 import { AddTermContext } from "./kacoParser";
 import { DivTermContext } from "./kacoParser";
 import { MulTermContext } from "./kacoParser";
+import { SupplierStatementContext } from "./kacoParser";
 import { ParnTermContext } from "./kacoParser";
 import { AssignContext } from "./kacoParser";
 import { AssignStartContext } from "./kacoParser";
@@ -1017,6 +1018,17 @@ export interface kacoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitMulTerm?: (ctx: MulTermContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `kacoParser.supplierStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterSupplierStatement?: (ctx: SupplierStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `kacoParser.supplierStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitSupplierStatement?: (ctx: SupplierStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `kacoParser.parnTerm`.
