@@ -55,7 +55,7 @@ if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
     MessageBox('警告', '该调查表已使用!');
     QueryData['收件单查询'],['结果列表'](POSITIONMARKE,['权利人'])(100)(0);
     SQLExecute(update d_rec set state = 0 where slid =[$ INSTANCE]);
-    GetGridRows(['控件'], ['数据列表名称'.'列名'(selected == *)]);
+    ['权限编号'] = GetGridRows(['控件'], ['数据列表名称'.'列名'(selected == *)]);
 
     While(['数据列表名称'.'列名'(selected == *)]) {
       AddGridRow(['记事列表'.'证书记事内容','证书记事日期'], '', [$ CURTIME]);

@@ -328,7 +328,9 @@ Constant
 
 statement
     : ifStatement
-    | functionStatement
+    | whileStatement
+    | assignStatement
+    | functionStatement ';'
     ;
 
 functionStatement
@@ -366,7 +368,6 @@ functionStatement
     | selGridRowStatement
     | exportXlsStatement
     | importXlsStatement
-    | whileStatement
     | flowTranStatement
     | flowSaveStatement
     | flowFreshStatement
@@ -398,7 +399,6 @@ functionStatement
     | printStatement
     | regeSignStatement
     | rsetPswdSignStatement
-    | assignStatement
     | extendStatement
     ;
 
@@ -411,7 +411,7 @@ whileStatement
     ;
 
 blockStatement
-    : '{' (functionStatement | assignStatement)* '}'
+    : '{' (functionStatement ';' | whileStatement | assignStatement)* '}'
     ;
 
 expressionSequence
@@ -454,267 +454,267 @@ quoteNaturalExpr
     ;
 
 openFormStatement
-    : OpenForm '[' (StringLiteral | DecimalLiteral | Natural) ']' quoteEllipsisExpr? quoteEllipsisExpr? quoteEllipsisExpr? ';'
+    : OpenForm '[' (StringLiteral | DecimalLiteral | Natural) ']' quoteEllipsisExpr? quoteEllipsisExpr? quoteEllipsisExpr?
     ;
 
 saveFormStatement
-    : SaveForm quoteEllipsisExpr ';'
+    : SaveForm quoteEllipsisExpr
     ;
 
 closeStatement
-    : Close '(' StringLiteral? ')' ';'
+    : Close '(' StringLiteral? ')'
     ;
 
 refreshStatement
-    : Refresh '(' StringLiteral? ')' ';'
+    : Refresh '(' StringLiteral? ')'
     ;
 
 messageStatement
-    : MessageBox '(' MessageLiteral ',' StringLiteral ')' ';'
+    : MessageBox '(' MessageLiteral ',' StringLiteral ')'
     ;
 
 clickButtonStatement
-    : ClickButton '(' ctrlQuoteLiteral ')' ';'
+    : ClickButton '(' ctrlQuoteLiteral ')'
     ;
 
 getComboDicStatement
-    : GetComboDic '(' ctrlQuoteLiteral ',' sqlQuoteStatement ')' ';'
+    : GetComboDic '(' ctrlQuoteLiteral ',' sqlQuoteStatement ')'
     ;
 
 queryDataStatement
-    : QueryData ctrlQuoteLiteral ',' ctrlQuoteLiteral queryDataQuoteEllipsisExpr? quoteNaturalExpr? quoteNaturalExpr? ';'
+    : QueryData ctrlQuoteLiteral ',' ctrlQuoteLiteral queryDataQuoteEllipsisExpr? quoteNaturalExpr? quoteNaturalExpr?
     ;
 
 carryDataStatement
-    : CarryData ctrlQuoteLiteral ('(' ctrlQuoteLiteral? ')')? ';'
+    : CarryData ctrlQuoteLiteral ('(' ctrlQuoteLiteral? ')')?
     ;
 
 sqlExecuteStatement
-    : SQLExecute sqlStatement ';'
+    : SQLExecute sqlStatement
     ;
 
 getCoderStatement
-    : GetCoder '(' (ctrlQuoteLiteral ',' StringLiteral)? ')' ';'
+    : GetCoder '(' (ctrlQuoteLiteral ',' StringLiteral)? ')'
     ;
 
 setCoderStatement
-    : SetCoder '(' (ctrlQuoteLiteral ',' StringLiteral)? ')' ';'
+    : SetCoder '(' (ctrlQuoteLiteral ',' StringLiteral)? ')'
     ;
 
 resetCtrlValueStatement
-    : ResetCtrlValue quoteEllipsisExpr ';'
+    : ResetCtrlValue quoteEllipsisExpr
     ;
 
 saveLastValueStatement
-    : SaveLastValue quoteEllipsisExpr ';'
+    : SaveLastValue quoteEllipsisExpr
     ;
 
 loadLastValueStatement
-    : LoadLastValue quoteEllipsisExpr ';'
+    : LoadLastValue quoteEllipsisExpr
     ;
 
 setVisiableStatement
-    : SetVisiable '(' ctrlQuoteLiteral ','  Natural ')' ';'
+    : SetVisiable '(' ctrlQuoteLiteral ','  Natural ')'
     ;
 
 setEnableStatement
-    : SetEnable '(' ctrlQuoteLiteral ','  Natural ')' ';'
+    : SetEnable '(' ctrlQuoteLiteral ','  Natural ')'
     ;
 
 setFocusStatement
-    : SetFocus '(' ctrlQuoteLiteral ')' ';'
+    : SetFocus '(' ctrlQuoteLiteral ')'
     ;
 
 setColorStatement
-    : SetColor '(' ctrlQuoteLiteral ',' (HexLiteral | StringLiteral) ')' ';'
+    : SetColor '(' ctrlQuoteLiteral ',' (HexLiteral | StringLiteral) ')'
     ;
 
 changeTabStatement
-    : ChangeTab '(' ctrlQuoteLiteral ',' Natural ')' ';'
+    : ChangeTab '(' ctrlQuoteLiteral ',' Natural ')'
     ;
 
 switchDisplayStatement
-    : SwitchDisplay quoteEllipsisExpr ';'
+    : SwitchDisplay quoteEllipsisExpr
     ;
 
 stringSubStatement
-    : StringSub ctrlQuoteLiteral '(' (ctrlQuoteLiteral | StringLiteral) ',' Natural ',' Natural ')' ';'
+    : StringSub ctrlQuoteLiteral '(' (ctrlQuoteLiteral | StringLiteral) ',' Natural ',' Natural ')'
     ;
 
 stringLenStatement
-    : StringLen ctrlQuoteLiteral '(' (ctrlQuoteLiteral | StringLiteral) ')' ';'
+    : StringLen ctrlQuoteLiteral '(' (ctrlQuoteLiteral | StringLiteral) ')'
     ;
 
 stringStrStatement
-    : StringStr ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    : StringStr ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')'
     ;
 
 stringRepStatement
-    : StringRep '(' ctrlQuoteLiteral ',' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    : StringRep '(' ctrlQuoteLiteral ',' (StringLiteral | ctrlQuoteLiteral) ',' (StringLiteral | ctrlQuoteLiteral) ')'
     ;
 
 stringCatStatement
-    : StringCat '(' ctrlQuoteLiteral (',' (StringLiteral | ctrlQuoteLiteral))+ ')' ';'
+    : StringCat '(' ctrlQuoteLiteral (',' (StringLiteral | ctrlQuoteLiteral))+ ')'
     ;
 
 encodeBase64Statement
-    : EncodeBase64 ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    : EncodeBase64 ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')'
     ;
 
 decodeBase64Statement
-    : DecodeBase64 ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')' ';'
+    : DecodeBase64 ctrlQuoteLiteral '(' (StringLiteral | ctrlQuoteLiteral) ')'
     ;
 
 getGridRowsStatement
-    : GetGridRows '(' ctrlQuoteLiteral ',' ctrlQuoteDotLiteral ')' ';'
+    : GetGridRows '(' ctrlQuoteLiteral ',' ctrlQuoteDotLiteral ')'
     ;
 
 addGridRowStatement
-    : AddGridRow '(' ctrlQuoteDotLiteral ((',' ctrlQuoteDotLiteral) | (',' commonLiteral)*) ')' ';'
+    : AddGridRow '(' ctrlQuoteDotLiteral ((',' ctrlQuoteDotLiteral) | (',' commonLiteral)*) ')'
     ;
 
 delGridRowStatement
-    : DelGridRow '(' ctrlQuoteDotLiteral ')' ';'
+    : DelGridRow '(' ctrlQuoteDotLiteral ')'
     ;
 
 selGridRowStatement
-    : SelGridRow '(' ctrlQuoteDotLiteral ')' ';'
+    : SelGridRow '(' ctrlQuoteDotLiteral ')'
     ;
 
 exportXlsStatement
-    : ExportXls '(' ctrlQuoteLiteral (',' Natural)? ')' ';'
+    : ExportXls '(' ctrlQuoteLiteral (',' Natural)? ')'
     ;
 
 importXlsStatement
-    : ImportXls '(' ctrlQuoteLiteral ')' ';'
+    : ImportXls '(' ctrlQuoteLiteral ')'
     ;
 
 flowTranStatement
-    : FlowTran '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : FlowTran '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')'
     ;
 
 flowSaveStatement
-    : FlowSave '(' commonLiteral? (',' commonLiteral)? ')' ';'
+    : FlowSave '(' commonLiteral? (',' commonLiteral)? ')'
     ;
 
 flowFreshStatement
-    : FlowFresh '(' ')' ';'
+    : FlowFresh '(' ')'
     ;
 
 flowSendStatement
-    : FlowSend '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : FlowSend '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')'
     ;
 
 flowBackStatement
-    : FlowBack '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : FlowBack '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')'
     ;
 
 flowBack2Statement
-    : FlowBack2 '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : FlowBack2 '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')'
     ;
 
 flowMendStatement
-    : FlowMend '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : FlowMend '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')'
     ;
 
 flowPrintStatement
-    : FlowPrint '(' ')' ';'
+    : FlowPrint '(' ')'
     ;
 
 flowFormStatement
-    : FlowForm '(' ctrlQuoteDotLiteral? ')' ';'
+    : FlowForm '(' ctrlQuoteDotLiteral? ')'
     ;
 
 flowQueryStatement
-    : FlowQuery '(' ctrlQuoteDotLiteral? ')' ';'
+    : FlowQuery '(' ctrlQuoteDotLiteral? ')'
     ;
 
 taskHangStatement
-    : TaskHang '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : TaskHang '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')'
     ;
 
 taskFreeStatement
-    : TaskFree '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')' ';'
+    : TaskFree '(' (ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral)? ')'
     ;
 
 flowTestStatement
-    : FlowTest '(' ')' ';'
+    : FlowTest '(' ')'
     ;
 
 flowDropStatement
-    : FlowDrop '(' ctrlQuoteDotLiteral? ')' ';'
+    : FlowDrop '(' ctrlQuoteDotLiteral? ')'
     ;
 
 flowCloseStatement
-    : FlowClose '(' ')' ';'
+    : FlowClose '(' ')'
     ;
 
 flowAgentStatement
-    : FlowAgent '(' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral (',' commonLiteral)? ')' ';'
+    : FlowAgent '(' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral ',' commonLiteral (',' commonLiteral)? ')'
     ;
 
 agentCancelStatement
-    : AgentCancel '(' ctrlQuoteLiteral ')' ';'
+    : AgentCancel '(' ctrlQuoteLiteral ')'
     ;
 
 flowRefactStatement
-    : FlowRefact '(' ctrlQuoteDotLiteral ',' Natural ')' ';'
+    : FlowRefact '(' ctrlQuoteDotLiteral ',' Natural ')'
     ;
 
 testCommitStatement
-    : TestCommit '(' commonLiteral ',' StringLiteral ')' ';'
+    : TestCommit '(' commonLiteral ',' StringLiteral ')'
     ;
 
 changeInstFlowStatement
-    : ChangeInstFlow '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ',' commonLiteral ')' ';'
+    : ChangeInstFlow '(' ctrlQuoteDotLiteral ',' ctrlQuoteDotLiteral ',' commonLiteral ')'
     ;
 
 instFlowStatement
-    : InstFlow '(' StringLiteral ',' StringLiteral ')' '(' StringLiteral ',' ctrlQuoteLiteral ')' ';'
+    : InstFlow '(' StringLiteral ',' StringLiteral ')' '(' StringLiteral ',' ctrlQuoteLiteral ')'
     ;
 
 taskDeleteStatement
-    : TaskDelete '(' commonLiteral ',' commonLiteral ')' ';'
+    : TaskDelete '(' commonLiteral ',' commonLiteral ')'
     ;
 
 tachSendStatement
-    : TachSend '(' (commonLiteral ',' commonLiteral)? ')' ';'
+    : TachSend '(' (commonLiteral ',' commonLiteral)? ')'
     ;
 
 commWordStatement
-    : CommWord '(' ')' ';'
+    : CommWord '(' ')'
     ;
 
 execFuncStatement
-    : ExecFunc ctrlQuoteLiteral '(' commonLiteral ')' ('(' commonLiteral? (',' commonLiteral)* ')')? ';'
+    : ExecFunc ctrlQuoteLiteral '(' commonLiteral ')' ('(' commonLiteral? (',' commonLiteral)* ')')?
     ;
 
 cmdBreakStatement
-    : CmdBreak '(' ')' ';'
+    : CmdBreak '(' ')'
     ;
 
 openUrlStatement
-    : OpenUrl '(' (StringLiteral ',')? expression ')' ';' 
+    : OpenUrl '(' (StringLiteral ',')? expression ')' 
     ;
 
 openLayoutStatement
-    : OpenLayout ctrlQuoteLiteral ';'
+    : OpenLayout ctrlQuoteLiteral
     ;
 
 printStatement
-    : Print ctrlQuoteLiteral quoteEllipsisExpr ('(' PrintLiteral ')')? ';'
+    : Print ctrlQuoteLiteral quoteEllipsisExpr ('(' PrintLiteral ')')?
     ;
 
 regeSignStatement
-    : RegeSign '(' commonLiteral ')' ';'
+    : RegeSign '(' commonLiteral ')'
     ;
 
 rsetPswdSignStatement
-    : RsetPswdSign '(' commonLiteral ',' StringLiteral ')' ';'
+    : RsetPswdSign '(' commonLiteral ',' StringLiteral ')'
     ;
 
 extendStatement
-    : Extend '(' (commonLiteral (',' commonLiteral)*)? ')' ';'
+    : Extend '(' (commonLiteral (',' commonLiteral)*)? ')'
     ;
 
 //==============================================================
@@ -728,9 +728,13 @@ addTerm: divTerm('+' divTerm)*;
 divTerm: mulTerm ('/' mulTerm)*;
 mulTerm: parnTerm ('*' parnTerm)*;
 
+supplierStatement
+    : getGridRowsStatement
+    ;
+
 parnTerm
-    : (commonLiteral | sqlQuoteStatement) expression (commonLiteral | sqlQuoteStatement)
-    | (commonLiteral | sqlQuoteStatement) 
+    : (commonLiteral | sqlQuoteStatement | supplierStatement) expression (commonLiteral | sqlQuoteStatement | supplierStatement)
+    | (commonLiteral | sqlQuoteStatement | supplierStatement) 
     | '(' expression ')'
     ;
 
