@@ -26,7 +26,7 @@ Ellipsis:                       '...';
 Equal:                          '==';
 NotEqual:                       '!=';
 LessThan:                       '<';
-MoreThan:                       '>';
+GreaterThan:                       '>';
 LessThanEquals:                 '<=';
 GreaterThanEquals:              '>=';
 And:                            '&&';
@@ -848,6 +848,10 @@ sqlTemplateExpr
     | Dot
     | Comma
     | Constant
+    | LessThan sqlTemplateExpr*?
+    | LessThanEquals sqlTemplateExpr*?
+    | GreaterThan sqlTemplateExpr*?
+    | GreaterThanEquals sqlTemplateExpr*?
     | '<' sqlTemplateExpr*? '>'
     | '{' sqlTemplateExpr*? '}'
     | '[' sqlTemplateExpr*? ']'

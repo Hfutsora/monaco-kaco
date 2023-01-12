@@ -34,7 +34,7 @@ export class kacoLexer extends Lexer {
 	public static readonly Equal = 16;
 	public static readonly NotEqual = 17;
 	public static readonly LessThan = 18;
-	public static readonly MoreThan = 19;
+	public static readonly GreaterThan = 19;
 	public static readonly LessThanEquals = 20;
 	public static readonly GreaterThanEquals = 21;
 	public static readonly And = 22;
@@ -141,7 +141,7 @@ export class kacoLexer extends Lexer {
 	public static readonly ruleNames: string[] = [
 		"OpenBracket", "CloseBracket", "OpenParen", "CloseParen", "OpenBrace", 
 		"CloseBrace", "SemiColon", "Comma", "Plus", "Minus", "Multiply", "Divide", 
-		"Assign", "Dot", "Ellipsis", "Equal", "NotEqual", "LessThan", "MoreThan", 
+		"Assign", "Dot", "Ellipsis", "Equal", "NotEqual", "LessThan", "GreaterThan", 
 		"LessThanEquals", "GreaterThanEquals", "And", "Or", "Sql", "Const", "OpenForm", 
 		"SaveForm", "Close", "Refresh", "MessageBox", "ClickButton", "GetComboDic", 
 		"QueryData", "CarryData", "SQLExecute", "GetCoder", "SetCoder", "ResetCtrlValue", 
@@ -180,7 +180,7 @@ export class kacoLexer extends Lexer {
 	private static readonly _SYMBOLIC_NAMES: Array<string | undefined> = [
 		undefined, "OpenBracket", "CloseBracket", "OpenParen", "CloseParen", "OpenBrace", 
 		"CloseBrace", "SemiColon", "Comma", "Plus", "Minus", "Multiply", "Divide", 
-		"Assign", "Dot", "Ellipsis", "Equal", "NotEqual", "LessThan", "MoreThan", 
+		"Assign", "Dot", "Ellipsis", "Equal", "NotEqual", "LessThan", "GreaterThan", 
 		"LessThanEquals", "GreaterThanEquals", "And", "Or", "Sql", "Const", "OpenForm", 
 		"SaveForm", "Close", "Refresh", "MessageBox", "ClickButton", "GetComboDic", 
 		"QueryData", "CarryData", "SQLExecute", "GetCoder", "SetCoder", "ResetCtrlValue", 

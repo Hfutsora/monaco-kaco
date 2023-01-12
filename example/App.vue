@@ -22,7 +22,7 @@
       </a>
     </header>
 
-    <MonacoKaco id="monaco" theme="vs-dark" :value="value"></MonacoKaco>
+    <MonacoKaco id="monaco" ref="monaco" theme="vs-dark" :value="value"></MonacoKaco>
   </div>
 </template>
 
@@ -31,6 +31,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import * as monaco from 'monaco-editor';
 
 import MonacoKaco from '@/index.vue';
+import { validate } from '../src/providers/validate';
 
 @Component({
   components: {
@@ -42,27 +43,28 @@ export default class App extends Vue {
 OpenForm[\'default\']([\'a\'.\'b\'], 1001.5)(\'b\', [@ 0])(false);
 ExtendFunc(1, ['name'], [@ 2], null); // This is a comment
 
-['ctrl_input'] = [@ 1];
-['ctrl_input'] = ['table'.'column','name','age'(SELECTED == -1)];
-['ctrl_input'] = 'default';
-['ctrl_input'] = 1000.4;
-['ctrl_input'] = false;
-['parent_form'].['ctrl_input'] = 100;
-['parent_form'].['ctrl_input'],['ctrl_textarea'] = ('123' + ['123'.'123']) + [@ 1] + 1000 + false + (1 - (2 * (3 / 2)));
+  ['ctrl_input'] = [@ 1];
+  ['ctrl_input'] = ['table'.'column','name','age'(SELECTED == -1)];
+  ['ctrl_input'] = 'default';
+  ['ctrl_input'] = 1000.4;
+  ['ctrl_input'] = false;
+  ['parent_form'].['ctrl_input'] = 100;
+  ['parent_form'].['ctrl_input'],['ctrl_textarea'] = ('123' + ['123'.'123']) + [@ 1] + 1000 + false + (1 - (2 * (3 / 2)));
 
-if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
-    ['CTRL'] = [# select key from table where id=[$ USERID] and b=a.userid];
-    MessageBox('警告', '该调查表已使用!');
-    QueryData['收件单查询'],['结果列表'](POSITIONMARKE,['权利人'])(100)(0);
-    SQLExecute(update d_rec set state = 0 where slid =[$ INSTANCE]);
-    ['权限编号'] = GetGridRows(['控件'], ['数据列表名称'.'列名'(selected == *)]);
+  if ([$ USERID] == ['user'] && (['count'] > 500 || ['name'] == 'admin')) {
+      ['CTRL'] = [# select key from table where id=[$ USERID] and b=a.userid];
+      MessageBox('警告', '该调查表已使用!');
+      QueryData['收件单查询'],['结果列表'](POSITIONMARKE,['权利人'])(100)(0);
+      SQLExecute(update d_rec set state = 0 where slid =[$ INSTANCE]);
+      ['权限编号'] = GetGridRows(['控件'], ['数据列表名称'.'列名'(selected == *)]);
 
-    While(['数据列表名称'.'列名'(selected == *)]) {
-      AddGridRow(['记事列表'.'证书记事内容','证书记事日期'], '', [$ CURTIME]);
-    }
+      While(['数据列表名称'.'列名'(selected == *)]) {
+        AddGridRow(['记事列表'.'证书记事内容','证书记事日期'], '', [$ CURTIME]);
+      }
 
     FlowSave(['受理ID'], 110004);
     OpenUrl('title', 'http://www.' + ['title'] + '.com');
+    ['H']=[# select OID from YGRZ_JYJL where  JSSJ < QSSJ and slid=['SLID']];
 }
 `;
 }
