@@ -113,7 +113,7 @@ export const TokenMap: Record<string, string> = {
   Equal: 'operator',
   NotEqual: 'operator',
   LessThan: 'operator',
-  MoreThan: 'operator',
+  GreaterThan: 'operator',
   LessThanEquals: 'operator',
   GreaterThanEquals: 'operator',
   And: 'operator',

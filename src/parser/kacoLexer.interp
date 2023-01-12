@@ -132,7 +132,7 @@ Ellipsis
 Equal
 NotEqual
 LessThan
-MoreThan
+GreaterThan
 LessThanEquals
 GreaterThanEquals
 And
@@ -245,7 +245,7 @@ Ellipsis
 Equal
 NotEqual
 LessThan
-MoreThan
+GreaterThan
 LessThanEquals
 GreaterThanEquals
 And
